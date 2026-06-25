@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQI Level 5 Bookkeeping & Payroll Course</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="A comprehensive, mobile-friendly study companion for QQI Level 5 Bookkeeping Manual & Computerised (5N1354) and Payroll (5N1546) dual certification. Includes interactive worksheets and progress tracking.">
+    <meta name="keywords" content="QQI Level 5, Bookkeeping, Payroll, 5N1354, 5N1546, Ireland, Tax Credits, VAT, Sage, QuickBooks, Thesaurus, double-entry, bank reconciliation">
+    <meta name="author" content="Damien Barnes Automations">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Style Sheets -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Libraries (CDN) -->
+    <!-- Marked.js for client-side Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-layout">
+        
+        <!-- Header -->
+        <header class="app-header" id="appHeader">
+            <div class="header-left">
+                <button class="icon-btn mobile-menu-btn" id="menuToggleBtn" aria-label="Open Navigation Drawer">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="brand">
+                    <span class="brand-badge">QQI Level 5</span>
+                    <a href="#" class="brand-title" id="pageMainTitle">Bookkeeping & Payroll</a>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <!-- Global Progress -->
+                <div class="global-progress-bar-container" title="Overall Course Completion">
+                    <div class="global-progress-text"><span id="progressPercent">0</span>% Done</div>
+                    <div class="global-progress-bar-bg">
+                        <div class="global-progress-bar-fill" id="progressBarFill"></div>
+                    </div>
+                </div>
+                
+                <!-- Complete Lesson Checkbox (Visible in reader view) -->
+                <button class="btn btn-outline reader-only" id="markReadBtn" style="display: none;">
+                    <i data-lucide="circle"></i>
+                    <span id="markReadText">Mark Complete</span>
+                </button>
+                
+                <!-- Theme Toggle -->
+                <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sidebar / Drawer (collapsible on desktop, drawer on mobile) -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i data-lucide="graduation-cap" class="logo-icon"></i>
+                    <div>
+                        <div class="logo-title">Study Hub</div>
+                        <div class="logo-subtitle">5N1354 + 5N1546</div>
+                    </div>
+                </div>
+                <button class="icon-btn close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Navigation Drawer">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <!-- Sidebar Navigation Categories -->
+            <nav class="sidebar-nav" id="sidebarNav">
+                <div class="nav-loading">
+                    <div class="spinner"></div>
+                    <span>Loading courses...</span>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Backdrop overlay for mobile drawer -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- Main Viewport -->
+        <main class="app-main">
+            <!-- Home/Dashboard View -->
+            <section class="viewport-view" id="dashboardView">
+                <div class="dashboard-banner">
+                    <div class="banner-content">
+                        <h2>Master Bookkeeping & Payroll</h2>
+                        <p>Complete curriculum study companion designed for offline learning, practical templates, and mock exams.</p>
+                        <div class="banner-stats">
+                            <div class="stat-item">
+                                <div class="stat-value" id="totalReadCount">0/45</div>
+                                <div class="stat-label">Outcomes Completed</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="bookkeepingReadPercent">0%</div>
+                                <div class="stat-label">Bookkeeping Progress</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="payrollReadPercent">0%</div>
+                                <div class="stat-label">Payroll Progress</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-decor">
+                        <i data-lucide="calculator" class="decor-icon"></i>
+                    </div>
+                </div>
+
+                <!-- Bento Grid of Categories -->
+                <h3 class="section-title">Course Modules</h3>
+                <div class="bento-grid" id="categoryGrid">
+                    <!-- Categories will be rendered dynamically here -->
+                </div>
+            </section>
+
+            <!-- Document / Lesson Reader View -->
+            <section class="viewport-view" id="readerView" style="display: none;">
+                <!-- Breadcrumbs & Document Controls -->
+                <div class="reader-controls">
+                    <div class="breadcrumbs">
+                        <span id="breadcrumbCategory">Category</span>
+                        <i data-lucide="chevron-right" class="breadcrumb-sep"></i>
+                        <span class="active" id="breadcrumbTitle">Lesson Title</span>
+                    </div>
+                    
+                    <div class="reader-actions">
+                        <!-- Toggle for Interactive Worksheet mode (Visible only for templates) -->
+                        <div class="toggle-container" id="interactiveModeContainer" style="display: none;">
+                            <span class="toggle-label">Interactive practice</span>
+                            <label class="switch">
+                                <input type="checkbox" id="interactiveModeSwitch">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        
+                        <!-- Print / Reset Button -->
+                        <button class="btn btn-icon-only" id="resetInteractiveBtn" title="Reset Practice Worksheet" style="display: none;">
+                            <i data-lucide="rotate-ccw"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dual Column Reader Layout (Content + Table of Contents outline) -->
+                <div class="reader-layout">
+                    <!-- Main text column -->
+                    <div class="reader-content-wrapper">
+                        <article class="prose" id="renderedMarkdown">
+                            <!-- Compiled HTML rendered here -->
+                        </article>
+                        
+                        <!-- Bottom Pagination -->
+                        <div class="reader-pagination">
+                            <button class="btn btn-outline" id="prevLessonBtn">
+                                <i data-lucide="arrow-left"></i>
+                                <span>Previous</span>
+                            </button>
+                            <button class="btn btn-primary" id="nextLessonBtn">
+                                <span>Next Topic</span>
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Table of Contents Outline (Visible on wide screens) -->
+                    <aside class="reader-toc" id="readerToc">
+                        <h4 class="toc-title">On This Page</h4>
+                        <ul class="toc-list" id="tocList">
+                            <!-- Headings list populated dynamically -->
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Mobile Bottom Nav Bar -->
+        <nav class="mobile-bottom-nav">
+            <button class="mobile-nav-item active" data-target="home">
+                <i data-lucide="home"></i>
+                <span>Home</span>
+            </button>
+            <button class="mobile-nav-item" data-target="bookkeeping">
+                <i data-lucide="book-open"></i>
+                <span>Bookkeeping</span>
+            </button>
+            <button class="mobile-nav-item" data-target="payroll">
+                <i data-lucide="credit-card"></i>
+                <span>Payroll</span>
+            </button>
+            <button class="mobile-nav-item" data-target="templates">
+                <i data-lucide="table"></i>
+                <span>Templates</span>
+            </button>
+        </nav>
+        
+    </div>
+
+    <!-- App Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>

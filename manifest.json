@@ -1,0 +1,294 @@
+{
+  "courseTitle": "QQI Level 5 Bookkeeping & Payroll Course",
+  "courseSub": "5N1354 & 5N1546 Dual Certification Program",
+  "categories": {
+    "bookkeeping": {
+      "title": "Bookkeeping manual & computerised (5N1354)",
+      "description": "10 learning outcomes covering double-entry bookkeeping, daybooks, ledgers, VAT returns, bank reconciliations, and computerised systems.",
+      "icon": "book-open",
+      "files": [
+        {
+          "filename": "01-bookkeeping-terminology.md",
+          "path": "bookkeeping/01-bookkeeping-terminology.md",
+          "title": "Learning Outcome 1 — Bookkeeping Terminology"
+        },
+        {
+          "filename": "02-manual-vs-computerised.md",
+          "path": "bookkeeping/02-manual-vs-computerised.md",
+          "title": "Learning Outcome 2 — Manual vs Computerised Systems"
+        },
+        {
+          "filename": "03-books-of-first-entry.md",
+          "path": "bookkeeping/03-books-of-first-entry.md",
+          "title": "Learning Outcome 3 — Books of First Entry"
+        },
+        {
+          "filename": "04-ledgers.md",
+          "path": "bookkeeping/04-ledgers.md",
+          "title": "Learning Outcome 4 — Posting to Ledgers"
+        },
+        {
+          "filename": "05-trial-balance.md",
+          "path": "bookkeeping/05-trial-balance.md",
+          "title": "Learning Outcome 5 — Trial Balance"
+        },
+        {
+          "filename": "06-bank-reconciliation.md",
+          "path": "bookkeeping/06-bank-reconciliation.md",
+          "title": "Learning Outcome 6 — Bank Reconciliation Statement"
+        },
+        {
+          "filename": "07-vat-return.md",
+          "path": "bookkeeping/07-vat-return.md",
+          "title": "Learning Outcome 7 — VAT Return"
+        },
+        {
+          "filename": "08-computerised-accounts.md",
+          "path": "bookkeeping/08-computerised-accounts.md",
+          "title": "Learning Outcome 8 — Computerised Processing"
+        },
+        {
+          "filename": "09-error-correction.md",
+          "path": "bookkeeping/09-error-correction.md",
+          "title": "Learning Outcome 9 — Error Correction & Analysis"
+        },
+        {
+          "filename": "10-reports-and-backup.md",
+          "path": "bookkeeping/10-reports-and-backup.md",
+          "title": "Learning Outcome 10 — Reports & Backup"
+        },
+        {
+          "filename": "deep-dive.md",
+          "path": "bookkeeping/deep-dive.md",
+          "title": "Bookkeeping Deep Dive — Extra Meat for All 10 Learning Outcomes"
+        }
+      ]
+    },
+    "payroll": {
+      "title": "Payroll manual & computerised (5N1546)",
+      "description": "10 learning outcomes covering tax bands, tax credits, cumulative tax systems, emergency tax, married assessment, USC, PRSI, and reporting.",
+      "icon": "credit-card",
+      "files": [
+        {
+          "filename": "01-payroll-terminology.md",
+          "path": "payroll/01-payroll-terminology.md",
+          "title": "Learning Outcome 1 — Payroll Terminology"
+        },
+        {
+          "filename": "02-manual-vs-computerised-payroll.md",
+          "path": "payroll/02-manual-vs-computerised-payroll.md",
+          "title": "Learning Outcome 2 — Manual vs Computerised Payroll"
+        },
+        {
+          "filename": "03-cumulative-tax-system.md",
+          "path": "payroll/03-cumulative-tax-system.md",
+          "title": "Learning Outcome 3 — Cumulative Tax System"
+        },
+        {
+          "filename": "04-emergency-temporary-tax.md",
+          "path": "payroll/04-emergency-temporary-tax.md",
+          "title": "Learning Outcome 4 — Emergency & Temporary Tax"
+        },
+        {
+          "filename": "05-tax-changes.md",
+          "path": "payroll/05-tax-changes.md",
+          "title": "Learning Outcome 5 — Changes in Personal Tax"
+        },
+        {
+          "filename": "06-year-end-employee-forms.md",
+          "path": "payroll/06-year-end-employee-forms.md",
+          "title": "Learning Outcome 6 — Year-End Forms for Employees"
+        },
+        {
+          "filename": "07-revenue-returns.md",
+          "path": "payroll/07-revenue-returns.md",
+          "title": "Learning Outcome 7 — Revenue Returns"
+        },
+        {
+          "filename": "08-married-couples-assessment.md",
+          "path": "payroll/08-married-couples-assessment.md",
+          "title": "Learning Outcome 8 — Married Couple Assessment"
+        },
+        {
+          "filename": "09-legislation-impact.md",
+          "path": "payroll/09-legislation-impact.md",
+          "title": "Learning Outcome 9 — Legislation Impact"
+        },
+        {
+          "filename": "10-reports-and-backup-payroll.md",
+          "path": "payroll/10-reports-and-backup-payroll.md",
+          "title": "Learning Outcome 10 — Payroll Reports & Backup"
+        },
+        {
+          "filename": "deep-dive-p1.md",
+          "path": "payroll/deep-dive-p1.md",
+          "title": "Payroll Deep Dive — Extra Meat (Part 1: LOs 1-5)"
+        },
+        {
+          "filename": "deep-dive-p2.md",
+          "path": "payroll/deep-dive-p2.md",
+          "title": "Payroll Deep Dive — Extra Meat (Part 2: LOs 6-10)"
+        }
+      ]
+    },
+    "exercises": {
+      "title": "Practical Exercises",
+      "description": "Worksheets for manual and computerised bookkeeping and payroll practice.",
+      "icon": "file-edit",
+      "files": [
+        {
+          "filename": "bookkeeping-exercises.md",
+          "path": "exercises/bookkeeping-exercises.md",
+          "title": "Exercises — Bookkeeping (5N1354)"
+        },
+        {
+          "filename": "payroll-exercises.md",
+          "path": "exercises/payroll-exercises.md",
+          "title": "Exercises — Payroll (5N1546)"
+        }
+      ]
+    },
+    "exercise-solutions": {
+      "title": "Exercise Solutions",
+      "description": "Step-by-step worked solutions for all bookkeeping and payroll worksheets.",
+      "icon": "check-square",
+      "files": [
+        {
+          "filename": "bookkeeping-solutions.md",
+          "path": "exercise-solutions/bookkeeping-solutions.md",
+          "title": "Bookkeeping Exercises — Solutions"
+        },
+        {
+          "filename": "payroll-solutions.md",
+          "path": "exercise-solutions/payroll-solutions.md",
+          "title": "Payroll Exercises — Solutions"
+        }
+      ]
+    },
+    "templates": {
+      "title": "Blank Practice Templates",
+      "description": "Interactive forms for practice: daybooks, ledgers, cash books, VAT returns, P30, and bank reconciliations.",
+      "icon": "table",
+      "files": [
+        {
+          "filename": "blank-bank-reconciliation.md",
+          "path": "templates/blank-bank-reconciliation.md",
+          "title": "Bank Reconciliation Statement"
+        },
+        {
+          "filename": "blank-cash-book.md",
+          "path": "templates/blank-cash-book.md",
+          "title": "Cash Book (Bank Columns)"
+        },
+        {
+          "filename": "blank-ledger-account.md",
+          "path": "templates/blank-ledger-account.md",
+          "title": "Ledger Account"
+        },
+        {
+          "filename": "blank-p30.md",
+          "path": "templates/blank-p30.md",
+          "title": "P30 — Monthly PAYE/PRSI/USC Return (Worksheet)"
+        },
+        {
+          "filename": "blank-payroll-calculation.md",
+          "path": "templates/blank-payroll-calculation.md",
+          "title": "Payroll Calculation Sheet"
+        },
+        {
+          "filename": "blank-petty-cash-book.md",
+          "path": "templates/blank-petty-cash-book.md",
+          "title": "Petty Cash Book (Imprest System)"
+        },
+        {
+          "filename": "blank-purchases-daybook.md",
+          "path": "templates/blank-purchases-daybook.md",
+          "title": "Purchases Day Book"
+        },
+        {
+          "filename": "blank-sales-daybook.md",
+          "path": "templates/blank-sales-daybook.md",
+          "title": "Sales Day Book"
+        },
+        {
+          "filename": "blank-trial-balance.md",
+          "path": "templates/blank-trial-balance.md",
+          "title": "Trial Balance"
+        },
+        {
+          "filename": "blank-vat-return.md",
+          "path": "templates/blank-vat-return.md",
+          "title": "VAT Return Worksheet"
+        }
+      ]
+    },
+    "mock-projects": {
+      "title": "Mock Projects & solutions",
+      "description": "Timed mock QQI assessment projects for both modules, complete with model answers.",
+      "icon": "award",
+      "files": [
+        {
+          "filename": "bookkeeping-mock-solution.md",
+          "path": "mock-projects/bookkeeping-mock-solution.md",
+          "title": "Bookkeeping Mock Project — Solution"
+        },
+        {
+          "filename": "bookkeeping-mock.md",
+          "path": "mock-projects/bookkeeping-mock.md",
+          "title": "Mock Project — Bookkeeping (5N1354)"
+        },
+        {
+          "filename": "payroll-mock.md",
+          "path": "mock-projects/payroll-mock.md",
+          "title": "Mock Project — Payroll (5N1546)"
+        }
+      ]
+    },
+    "software-guides": {
+      "title": "Software Guides",
+      "description": "Step-by-step guides for Sage 50 / QuickBooks and Thesaurus / Sage Payroll.",
+      "icon": "cpu",
+      "files": [
+        {
+          "filename": "sage-quickbooks-guide.md",
+          "path": "software-guides/sage-quickbooks-guide.md",
+          "title": "Software Guide — Sage 50 / QuickBooks for Bookkeeping"
+        },
+        {
+          "filename": "thesaurus-sage-payroll-guide.md",
+          "path": "software-guides/thesaurus-sage-payroll-guide.md",
+          "title": "Software Guide — Thesaurus Payroll / Sage Payroll"
+        }
+      ]
+    },
+    "reference": {
+      "title": "Reference Materials",
+      "description": "Complete glossary of 70+ terms and bookkeeping & payroll cheat sheets.",
+      "icon": "info",
+      "files": [
+        {
+          "filename": "cheat-sheet.md",
+          "path": "reference/cheat-sheet.md",
+          "title": "Cheat Sheets"
+        },
+        {
+          "filename": "glossary.md",
+          "path": "reference/glossary.md",
+          "title": "Glossary — Bookkeeping & Payroll"
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Assessment Preparation",
+      "description": "Exam prep guides, marking schemes, and revision timelines to secure a Distinction.",
+      "icon": "calendar",
+      "files": [
+        {
+          "filename": "assessment-prep.md",
+          "path": "assessment/assessment-prep.md",
+          "title": "Assessment Preparation"
+        }
+      ]
+    }
+  }
+}
