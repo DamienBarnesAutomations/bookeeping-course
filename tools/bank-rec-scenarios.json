@@ -1,0 +1,149 @@
+{
+  "title": "Bank Reconciliation Practice",
+  "description": "Given a Cash Book balance, a Bank Statement balance, and a list of transactions, identify the reconciling items and complete the Bank Reconciliation Statement.",
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "January Bank Reconciliation — GreenGrocer Ltd",
+      "context": "At 31 January, GreenGrocer Ltd's Cash Book shows a closing balance of €5,200 (Dr). The Bank Statement shows a closing balance of €5,700. You need to explain the difference.",
+      "cashBookBalance": 5200.00,
+      "bankStatementBalance": 5700.00,
+      "items": [
+        {
+          "id": "A",
+          "description": "Cheque No. 223 — paid to Murphy's Supplies Ltd, €450. Recorded in the Cash Book on 28 Jan.",
+          "bankStatementDate": null,
+          "type": "unpresented_cheque",
+          "amount": 450.00,
+          "label": "Unpresented Cheque — Cheque No. 223"
+        },
+        {
+          "id": "B",
+          "description": "Cheque No. 224 — paid to O'Brien Hardware, €700. Recorded in the Cash Book on 30 Jan.",
+          "bankStatementDate": null,
+          "type": "unpresented_cheque",
+          "amount": 700.00,
+          "label": "Unpresented Cheque — Cheque No. 224"
+        },
+        {
+          "id": "C",
+          "description": "Lodgement — cash receipts from customers, €800. Lodged 31 Jan, appears in Cash Book but NOT on the bank statement yet.",
+          "bankStatementDate": null,
+          "type": "outstanding_lodgement",
+          "amount": 800.00,
+          "label": "Outstanding Lodgement — €800"
+        },
+        {
+          "id": "D",
+          "description": "Bank charge of €75 — appears on the bank statement on 31 Jan. NOT yet entered in the Cash Book.",
+          "bankStatementDate": "31 Jan",
+          "type": "not_in_cashbook_deduction",
+          "amount": 75.00,
+          "label": "Bank Charge — update Cash Book"
+        },
+        {
+          "id": "E",
+          "description": "Direct credit — customer ABC Ltd paid €225 directly into your bank account on 30 Jan. NOT yet entered in the Cash Book.",
+          "bankStatementDate": "30 Jan",
+          "type": "not_in_cashbook_addition",
+          "amount": 225.00,
+          "label": "Direct Credit — update Cash Book"
+        }
+      ],
+      "cashBookAdjustments": {
+        "startBalance": 5200.00,
+        "additions": [
+          { "label": "Add: Direct Credit (customer ABC Ltd)", "amount": 225.00 }
+        ],
+        "deductions": [
+          { "label": "Less: Bank Charge", "amount": 75.00 }
+        ],
+        "updatedBalance": 5350.00
+      },
+      "bankRecStatement": {
+        "startBalance": 5700.00,
+        "additions": [
+          { "label": "Add: Outstanding Lodgement (31 Jan)", "amount": 800.00 }
+        ],
+        "deductions": [
+          { "label": "Less: Unpresented Cheque No. 223", "amount": 450.00 },
+          { "label": "Less: Unpresented Cheque No. 224", "amount": 700.00 }
+        ],
+        "adjustedBalance": 5350.00
+      },
+      "explanations": {
+        "unpresented_cheque": "An unpresented (outstanding) cheque has been written and recorded in the Cash Book as a payment, but has not yet been presented to the bank for payment — so it doesn't appear on the bank statement yet. It will reduce the bank statement balance when it clears.",
+        "outstanding_lodgement": "An outstanding lodgement has been recorded in the Cash Book as a receipt, but has not yet appeared on the bank statement — typically because it was lodged late in the day or on a day the bank hadn't processed it. It will increase the bank statement balance when it clears.",
+        "not_in_cashbook_deduction": "This item appears on the bank statement as a deduction but has not yet been recorded in the Cash Book. You must update the Cash Book: Debit Bank Charges, Credit Bank.",
+        "not_in_cashbook_addition": "This item appears on the bank statement as a credit but has not yet been recorded in the Cash Book. You must update the Cash Book: Debit Bank, Credit Debtors (or whichever account applies)."
+      }
+    },
+    {
+      "id": 2,
+      "title": "March Bank Reconciliation — TechSales Ltd",
+      "context": "At 31 March, TechSales Ltd's Cash Book shows a closing Dr balance of €12,450. The Bank Statement balance is €13,200. Find the reconciling items.",
+      "cashBookBalance": 12450.00,
+      "bankStatementBalance": 13200.00,
+      "items": [
+        {
+          "id": "A",
+          "description": "Cheque No. 311 — paid to Lease Co. (equipment lease), €1,850. Recorded in Cash Book 29 Mar, not yet on statement.",
+          "bankStatementDate": null,
+          "type": "unpresented_cheque",
+          "amount": 1850.00,
+          "label": "Unpresented Cheque No. 311 — Lease Co."
+        },
+        {
+          "id": "B",
+          "description": "Lodgement — customer payments lodged 31 Mar, €2,000. Appears in Cash Book but NOT on the bank statement.",
+          "bankStatementDate": null,
+          "type": "outstanding_lodgement",
+          "amount": 2000.00,
+          "label": "Outstanding Lodgement — €2,000"
+        },
+        {
+          "id": "C",
+          "description": "Standing order — monthly insurance premium €350 debited by bank on 31 Mar. NOT entered in the Cash Book.",
+          "bankStatementDate": "31 Mar",
+          "type": "not_in_cashbook_deduction",
+          "amount": 350.00,
+          "label": "Standing Order (Insurance) — update Cash Book"
+        },
+        {
+          "id": "D",
+          "description": "Interest received on deposit account — €100 credited by bank 31 Mar. NOT in the Cash Book.",
+          "bankStatementDate": "31 Mar",
+          "type": "not_in_cashbook_addition",
+          "amount": 100.00,
+          "label": "Interest Received — update Cash Book"
+        }
+      ],
+      "cashBookAdjustments": {
+        "startBalance": 12450.00,
+        "additions": [
+          { "label": "Add: Interest Received", "amount": 100.00 }
+        ],
+        "deductions": [
+          { "label": "Less: Standing Order (Insurance)", "amount": 350.00 }
+        ],
+        "updatedBalance": 12200.00
+      },
+      "bankRecStatement": {
+        "startBalance": 13200.00,
+        "additions": [
+          { "label": "Add: Outstanding Lodgement (31 Mar)", "amount": 2000.00 }
+        ],
+        "deductions": [
+          { "label": "Less: Unpresented Cheque No. 311", "amount": 1850.00 }
+        ],
+        "adjustedBalance": 12200.00
+      },
+      "explanations": {
+        "unpresented_cheque": "An unpresented cheque is in your Cash Book (as a payment out) but not yet shown on the bank statement. It reduces your bank statement balance when it clears.",
+        "outstanding_lodgement": "An outstanding lodgement is in your Cash Book (as a receipt) but not yet on the bank statement. It will increase the bank statement balance when the bank processes it.",
+        "not_in_cashbook_deduction": "A standing order or direct debit that the bank has processed but you haven't recorded yet. Update the Cash Book: Debit the expense account, Credit Bank.",
+        "not_in_cashbook_addition": "Bank interest or a direct credit that appears on the statement but not in your Cash Book. Update the Cash Book: Debit Bank, Credit Interest Received."
+      }
+    }
+  ]
+}

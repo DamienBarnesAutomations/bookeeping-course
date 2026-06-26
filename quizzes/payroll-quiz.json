@@ -1,0 +1,172 @@
+{
+  "title": "Payroll Knowledge Check",
+  "description": "Test your understanding of QQI 5N1546 — Payroll Manual & Computerised. 15 questions across all 10 learning outcomes.",
+  "passMark": 70,
+  "questions": [
+    {
+      "question": "PAYE stands for...",
+      "options": [
+        "Pay As You Earn",
+        "Pay After Year End",
+        "Personal Annual Year Expense",
+        "Pay And Year Earnings"
+      ],
+      "answer": 0,
+      "explanation": "PAYE (Pay As You Earn) is Ireland's income tax collection system. Employers deduct income tax from employee wages each pay period and remit it to Revenue, so employees pay tax gradually rather than in a lump sum."
+    },
+    {
+      "question": "The standard rate of Irish income tax (2025) applies at...",
+      "options": [
+        "20% on all income",
+        "20% up to the cut-off point, then 40% above it",
+        "40% on all income",
+        "20% below €30,000 and 30% above it"
+      ],
+      "answer": 1,
+      "explanation": "Ireland uses a two-rate system: 20% on income up to the standard rate cut-off point (approx. €42,000 for a single person in 2025), and 40% on income above that. Tax credits are then deducted from the calculated tax."
+    },
+    {
+      "question": "PRSI stands for...",
+      "options": [
+        "Public Revenue Social Insurance",
+        "Pay Related Social Insurance",
+        "Personal Revenue Standard Income",
+        "Pay Rate Social Interest"
+      ],
+      "answer": 1,
+      "explanation": "PRSI (Pay Related Social Insurance) funds the Social Insurance Fund, which pays social welfare benefits such as Jobseeker's Benefit, Illness Benefit, and State Pension. Class A employees pay 4%; employers pay approx. 11.05%."
+    },
+    {
+      "question": "USC (Universal Social Charge) is levied on...",
+      "options": [
+        "Net pay after PAYE deductions",
+        "Gross income before PAYE and other deductions",
+        "Pension contributions only",
+        "Social welfare payments"
+      ],
+      "answer": 1,
+      "explanation": "USC is charged on gross income before any deductions. It applies to most income types. Employees earning €13,000 or less per year are exempt from USC. It uses a graduated rate system with four bands."
+    },
+    {
+      "question": "A Revenue Payroll Notification (RPN) tells the employer...",
+      "options": [
+        "The employee's gross salary for the year",
+        "The employee's tax credits and standard rate cut-off point",
+        "How much employer PRSI to pay",
+        "The employee's bank account details"
+      ],
+      "answer": 1,
+      "explanation": "The RPN (Revenue Payroll Notification) is issued by Revenue Commissioners and provides the employer with each employee's personal tax credit and standard rate cut-off point. Employers must check for updated RPNs each pay period."
+    },
+    {
+      "question": "Under emergency tax (Week 1 / Month 1 basis), what happens to tax credits?",
+      "options": [
+        "The employee receives double credits for the first period",
+        "Credits are applied cumulatively as in the normal system",
+        "No credits are applied — the standard rate applies to all income",
+        "Credits are halved for the first three months"
+      ],
+      "answer": 2,
+      "explanation": "Emergency tax (Week 1 / Month 1 basis) applies when the employer has not received an RPN for the employee. No tax credits or cut-off are applied — all income is taxed at the standard rate (20%), which typically results in the employee overpaying tax initially."
+    },
+    {
+      "question": "A P60 (End of Year Certificate) is...",
+      "options": [
+        "Given to employees when they leave a job",
+        "An annual summary of an employee's total pay and deductions for the tax year",
+        "A monthly payroll submission to Revenue",
+        "A form for claiming a tax refund from previous years"
+      ],
+      "answer": 1,
+      "explanation": "The P60 / End of Year Statement is issued annually to each employee. It shows total gross pay, PAYE, PRSI, and USC deducted during the tax year. Employees use it when claiming tax credits, applying for loans, or completing tax returns."
+    },
+    {
+      "question": "The Class A PRSI employee contribution rate is...",
+      "options": [
+        "2% on gross pay",
+        "4% on gross pay above the weekly threshold",
+        "8% on all gross pay",
+        "11.05% on all gross pay"
+      ],
+      "answer": 1,
+      "explanation": "Class A employees (most private sector workers) pay 4% PRSI on gross pay above the weekly threshold (€352 per week in 2025). Employees earning below this threshold are exempt from PRSI. Employers pay approx. 11.05% on the same gross pay."
+    },
+    {
+      "question": "The P30 payroll return is submitted to Revenue...",
+      "options": [
+        "Each week after payroll is run",
+        "Monthly, by the 14th of the following month",
+        "Every quarter",
+        "Once annually with the year-end return"
+      ],
+      "answer": 1,
+      "explanation": "The P30 is a monthly employer return submitted to Revenue showing the total PAYE, PRSI, and USC collected from all employees that month. It must be filed and paid by the 14th of the following month (23rd if filed online via ROS)."
+    },
+    {
+      "question": "Net pay is calculated as...",
+      "options": [
+        "Gross Pay minus PAYE only",
+        "Gross Pay minus (PAYE + PRSI + USC + all other deductions)",
+        "Gross Pay minus income tax and pension only",
+        "Gross Pay plus all employer contributions"
+      ],
+      "answer": 1,
+      "explanation": "Net Pay = Gross Pay − (PAYE + PRSI + USC) − any other deductions (e.g., pension, union dues, health insurance). It is the 'take-home' amount actually paid to the employee."
+    },
+    {
+      "question": "Which of the following is a NON-statutory deduction from payroll?",
+      "options": [
+        "PAYE income tax",
+        "PRSI contributions",
+        "Universal Social Charge (USC)",
+        "Union membership dues"
+      ],
+      "answer": 3,
+      "explanation": "Non-statutory deductions are not required by law — they are voluntary or contractual. Examples include union dues, private health insurance premiums, and pension contributions. PAYE, PRSI, and USC are all statutory (legally required) deductions."
+    },
+    {
+      "question": "Under the CUMULATIVE tax system, each period's PAYE is calculated on...",
+      "options": [
+        "Only the current pay period's earnings",
+        "An average of the last three periods",
+        "Cumulative gross earnings from 1 January to the current pay date",
+        "An estimated annualised salary figure"
+      ],
+      "answer": 2,
+      "explanation": "The cumulative system calculates PAYE based on total earnings from 1 January to the current pay date. Cumulative tax is calculated, then any tax already paid in earlier periods is deducted. This ensures overpayments and underpayments from earlier periods adjust automatically."
+    },
+    {
+      "question": "A P45 (Cessation Certificate) is issued when...",
+      "options": [
+        "An employee starts a new job and has no previous P60",
+        "An employee leaves employment",
+        "Year-end payroll processing is complete for all employees",
+        "An employee applies for an additional tax credit"
+      ],
+      "answer": 1,
+      "explanation": "The P45 is given to an employee when they LEAVE employment. It shows their total pay and deductions to the date of leaving. The employee gives Part 2 to their new employer so payroll can be set up correctly, or to the DSP if claiming social welfare."
+    },
+    {
+      "question": "Benefit in Kind (BIK) is...",
+      "options": [
+        "Tax relief provided on pension contributions",
+        "A non-cash benefit from the employer that is subject to PAYE, PRSI, and USC",
+        "A cash bonus paid for performance targets",
+        "A voluntary payment to the Revenue Commissioners"
+      ],
+      "answer": 1,
+      "explanation": "Benefit in Kind (BIK) is a non-cash benefit provided by the employer — common examples include a company car, private health insurance, or free accommodation. The market value of the BIK is added to gross pay, making it subject to PAYE, PRSI, and USC."
+    },
+    {
+      "question": "For a married couple assessed JOINTLY, how does the standard rate cut-off work?",
+      "options": [
+        "Each spouse gets the same cut-off as a single person — there is no change",
+        "The combined cut-off is exactly double the single person amount with no limit",
+        "Unused cut-off from one spouse can be transferred to the other, up to a maximum limit",
+        "The lower-earning spouse pays tax at a special 10% rate"
+      ],
+      "answer": 2,
+      "explanation": "Under joint assessment, any unused standard rate cut-off from one spouse can be transferred to the other. In 2025, the maximum one spouse can hold is approx. €51,000 (the other gets the remainder of the combined allocation). This allows more income to be taxed at 20% rather than 40%."
+    }
+  ]
+}

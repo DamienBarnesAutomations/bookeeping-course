@@ -289,6 +289,50 @@
           "title": "Assessment Preparation"
         }
       ]
+    },
+    "quizzes": {
+      "title": "Knowledge Checks",
+      "description": "Multiple-choice quizzes for bookkeeping and payroll. Test yourself after each module and track your scores.",
+      "icon": "help-circle",
+      "files": [
+        {
+          "filename": "bookkeeping-quiz.json",
+          "path": "quizzes/bookkeeping-quiz.json",
+          "title": "Bookkeeping Quiz — 15 Questions"
+        },
+        {
+          "filename": "payroll-quiz.json",
+          "path": "quizzes/payroll-quiz.json",
+          "title": "Payroll Quiz — 15 Questions"
+        }
+      ]
+    },
+    "tools": {
+      "title": "Interactive Tools",
+      "description": "Exam-style practice tools: journal entry validator, manual payroll worksheet, bank reconciliation builder, and live PAYE calculator.",
+      "icon": "calculator",
+      "files": [
+        {
+          "filename": "journal-practice",
+          "path": "tools/journal-practice",
+          "title": "Journal Entry Practice (10 Transactions)"
+        },
+        {
+          "filename": "payroll-worksheet",
+          "path": "tools/payroll-worksheet",
+          "title": "Manual Payroll Worksheet (PAYE / PRSI / USC)"
+        },
+        {
+          "filename": "bank-rec-practice",
+          "path": "tools/bank-rec-practice",
+          "title": "Bank Reconciliation Builder"
+        },
+        {
+          "filename": "paye-calculator",
+          "path": "tools/paye-calculator",
+          "title": "Live PAYE Calculator"
+        }
+      ]
     }
   }
 }

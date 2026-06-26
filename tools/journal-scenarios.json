@@ -1,0 +1,110 @@
+{
+  "title": "Journal Entry Practice",
+  "description": "Given a transaction, complete the double entry. Fill in the account name, and put the amount in the correct Debit or Credit column.",
+  "scenarios": [
+    {
+      "id": 1,
+      "scenario": "Sold goods to Murphy's Ltd on credit. Invoice 101 — Net: €2,000 + VAT @ 23%.",
+      "hint": "A credit sale creates a debtor (they owe you the full gross amount). The VAT you charged is now owed TO Revenue — it's output VAT, a liability.",
+      "explanation": "Credit sale rule: Debit the Debtor for the gross amount (€2,000 + €460 VAT). Credit Sales for the net amount. Credit VAT Control for the VAT — this is output VAT you now owe Revenue.",
+      "entries": [
+        { "accountLabel": "Debtors (Murphy's Ltd)", "acceptedKeywords": ["debtor", "receivable", "murphy", "trade debtor"], "side": "debit", "amount": 2460.00 },
+        { "accountLabel": "Sales", "acceptedKeywords": ["sales", "revenue", "turnover", "sales account"], "side": "credit", "amount": 2000.00 },
+        { "accountLabel": "VAT Control (Output)", "acceptedKeywords": ["vat", "output vat", "vat control", "vat payable"], "side": "credit", "amount": 460.00 }
+      ]
+    },
+    {
+      "id": 2,
+      "scenario": "Murphy's Ltd pays the full amount owed (€2,460) by bank transfer.",
+      "hint": "The debtor is paying what they owe — the money goes to your bank, and the debtor's balance is cleared.",
+      "explanation": "Receipt from debtor: Debit Bank (asset increases — money received). Credit Debtors (asset decreases — they no longer owe us). This clears the debtor account created in the previous credit sale.",
+      "entries": [
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account"], "side": "debit", "amount": 2460.00 },
+        { "accountLabel": "Debtors (Murphy's Ltd)", "acceptedKeywords": ["debtor", "receivable", "murphy", "trade debtor"], "side": "credit", "amount": 2460.00 }
+      ]
+    },
+    {
+      "id": 3,
+      "scenario": "Purchased goods on credit from O'Brien Supplies. Invoice S001 — Net: €1,200 + VAT @ 23%.",
+      "hint": "A credit purchase creates a creditor (you owe them the gross). The VAT you were charged is input VAT — you can reclaim it from Revenue, so it reduces your VAT liability.",
+      "explanation": "Credit purchase: Debit Purchases for the net cost (€1,200). Debit VAT Control for the input VAT (€276) — this reduces what you owe Revenue. Credit Creditors for the full gross amount (€1,476) you now owe the supplier.",
+      "entries": [
+        { "accountLabel": "Purchases", "acceptedKeywords": ["purchase", "purchases", "goods", "stock"], "side": "debit", "amount": 1200.00 },
+        { "accountLabel": "VAT Control (Input)", "acceptedKeywords": ["vat", "input vat", "vat control", "vat reclaimable"], "side": "debit", "amount": 276.00 },
+        { "accountLabel": "Creditors (O'Brien Supplies)", "acceptedKeywords": ["creditor", "payable", "o'brien", "accounts payable", "trade creditor", "supplier"], "side": "credit", "amount": 1476.00 }
+      ]
+    },
+    {
+      "id": 4,
+      "scenario": "Paid O'Brien Supplies the full amount owed (€1,476) by bank transfer.",
+      "hint": "You're clearing a creditor — the liability goes down, and so does your bank balance.",
+      "explanation": "Payment to creditor: Debit Creditors (liability decreases — we no longer owe them). Credit Bank (asset decreases — money leaves the bank). This clears the creditor account created in the credit purchase.",
+      "entries": [
+        { "accountLabel": "Creditors (O'Brien Supplies)", "acceptedKeywords": ["creditor", "payable", "o'brien", "accounts payable", "trade creditor", "supplier"], "side": "debit", "amount": 1476.00 },
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account"], "side": "credit", "amount": 1476.00 }
+      ]
+    },
+    {
+      "id": 5,
+      "scenario": "Paid weekly wages of €2,400 by bank transfer.",
+      "hint": "Wages are an expense — they increase expenses (debit) and reduce your bank balance (credit).",
+      "explanation": "Wages payment: Debit Wages (expense increases). Credit Bank (asset decreases — money leaves bank). Note: in practice, PAYE/PRSI deductions are held in separate liability accounts, but for this basic entry we record the gross wages.",
+      "entries": [
+        { "accountLabel": "Wages", "acceptedKeywords": ["wage", "wages", "salary", "salaries", "payroll", "labour"], "side": "debit", "amount": 2400.00 },
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account"], "side": "credit", "amount": 2400.00 }
+      ]
+    },
+    {
+      "id": 6,
+      "scenario": "Purchased new machinery for the business: Net €5,000 + VAT @ 23% = €6,150. Paid by cheque.",
+      "hint": "Buying a fixed asset: the asset account increases (debit). You can reclaim the VAT (debit VAT Control). The bank decreases (credit).",
+      "explanation": "Fixed asset purchase: Debit the asset account (Machinery) for the net cost €5,000 — this is what the asset is worth. Debit VAT Control €1,150 as reclaimable input VAT. Credit Bank €6,150 for the gross amount paid.",
+      "entries": [
+        { "accountLabel": "Machinery / Equipment", "acceptedKeywords": ["machine", "machinery", "equipment", "asset", "fixed asset", "plant", "vehicle", "van", "motor", "computer", "furniture"], "side": "debit", "amount": 5000.00 },
+        { "accountLabel": "VAT Control (Input)", "acceptedKeywords": ["vat", "input vat", "vat control", "vat reclaimable"], "side": "debit", "amount": 1150.00 },
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account", "cheque"], "side": "credit", "amount": 6150.00 }
+      ]
+    },
+    {
+      "id": 7,
+      "scenario": "The monthly bank statement shows a bank charge of €55 that has not yet been entered in the cash book.",
+      "hint": "Bank charges are an expense. They appear on the bank statement, so the bank balance has already decreased — you just need to record it in the books.",
+      "explanation": "Bank charges: Debit Bank Charges (expense increases — the charge is a cost). Credit Bank (asset decreases — the bank took the money). This is a common bank reconciliation item — charges appear on the statement before you record them.",
+      "entries": [
+        { "accountLabel": "Bank Charges", "acceptedKeywords": ["bank charge", "charge", "bank fee", "fee", "charges"], "side": "debit", "amount": 55.00 },
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account"], "side": "credit", "amount": 55.00 }
+      ]
+    },
+    {
+      "id": 8,
+      "scenario": "A cash sale was made to a walk-in customer: Net €600 + VAT @ 23% = €738. Paid directly into the bank.",
+      "hint": "Cash sales bypass the Sales Day Book. The money goes straight to the bank. Don't forget the output VAT.",
+      "explanation": "Cash sale: Debit Bank €738 (the gross amount received goes into the bank). Credit Sales €600 (income earned is the net amount). Credit VAT Control €138 (output VAT on the sale, owed to Revenue).",
+      "entries": [
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account", "cash"], "side": "debit", "amount": 738.00 },
+        { "accountLabel": "Sales", "acceptedKeywords": ["sales", "revenue", "turnover", "sales account"], "side": "credit", "amount": 600.00 },
+        { "accountLabel": "VAT Control (Output)", "acceptedKeywords": ["vat", "output vat", "vat control", "vat payable"], "side": "credit", "amount": 138.00 }
+      ]
+    },
+    {
+      "id": 9,
+      "scenario": "Paid stationery expenses from petty cash: €18.",
+      "hint": "Petty cash payments: the expense goes up (debit) and the petty cash float goes down (credit).",
+      "explanation": "Petty cash expense: Debit Stationery €18 (expense increases). Credit Petty Cash €18 (the float decreases). Petty cash is a small asset — when you spend from it, the asset decreases (credit). Petty cash items are typically under the VAT registration threshold or exempt.",
+      "entries": [
+        { "accountLabel": "Stationery", "acceptedKeywords": ["stationery", "stationary", "office supplies", "supplies", "printing", "postage"], "side": "debit", "amount": 18.00 },
+        { "accountLabel": "Petty Cash", "acceptedKeywords": ["petty cash", "petty", "cash"], "side": "credit", "amount": 18.00 }
+      ]
+    },
+    {
+      "id": 10,
+      "scenario": "The owner introduces €10,000 of their own money into the business bank account as additional capital.",
+      "hint": "Capital introduced: the business has more money (bank increases) and owes more to the owner (capital increases).",
+      "explanation": "Capital introduction: Debit Bank €10,000 (asset increases — money received into the business bank). Credit Capital €10,000 (liability to owner increases — the owner has invested more). Capital is what the business owes back to the owner.",
+      "entries": [
+        { "accountLabel": "Bank", "acceptedKeywords": ["bank", "cash at bank", "bank account"], "side": "debit", "amount": 10000.00 },
+        { "accountLabel": "Capital", "acceptedKeywords": ["capital", "owner", "proprietor", "equity", "investment"], "side": "credit", "amount": 10000.00 }
+      ]
+    }
+  ]
+}

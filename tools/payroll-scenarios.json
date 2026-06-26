@@ -1,0 +1,209 @@
+{
+  "title": "Manual Payroll Calculation",
+  "description": "Calculate each line of the payslip from scratch, exactly as you would in the exam. All figures are rounded to 2 decimal places.",
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "Week 1 — Sarah O'Connor",
+      "context": "This is Sarah's first week. She has no previous cumulative figures.",
+      "given": {
+        "employee": "Sarah O'Connor",
+        "ppsNumber": "9876543B",
+        "week": 1,
+        "grossPay": 700.00,
+        "prevCumulativeGross": 0.00,
+        "weeklySRCOP": 807.69,
+        "weeklyCredits": 72.12,
+        "prsiRate": 4,
+        "prsiThresholdWeekly": 352.00,
+        "uscBands": [
+          { "label": "0.5% on first €231.00", "limit": 231.00, "rate": 0.5 },
+          { "label": "2% on next €264.38 (€231.01–€495.38)", "limit": 495.38, "rate": 2 },
+          { "label": "4.5% on balance above €495.38", "limit": 999999, "rate": 4.5 }
+        ]
+      },
+      "steps": [
+        {
+          "label": "Gross Pay (this week)",
+          "value": 700.00,
+          "given": true,
+          "explanation": "The employee's basic pay for the week — given in the scenario."
+        },
+        {
+          "label": "Cumulative Gross Pay to Date (Week 1)",
+          "value": 700.00,
+          "explanation": "Previous cumulative gross (€0) + this week's pay (€700) = €700.00"
+        },
+        {
+          "label": "Cumulative SRCOP to Date (Week 1 × €807.69)",
+          "value": 807.69,
+          "given": true,
+          "explanation": "The standard rate cut-off for 1 week. All of Sarah's income this week is below €807.69, so all is taxed at 20%."
+        },
+        {
+          "label": "Cumulative Tax @ 20% (on €700.00)",
+          "value": 140.00,
+          "explanation": "€700.00 × 20% = €140.00. All income is below the SRCOP so the higher rate (40%) does not apply."
+        },
+        {
+          "label": "Less: Cumulative Tax Credits (Week 1 × €72.12)",
+          "value": 72.12,
+          "given": true,
+          "explanation": "1 week × €72.12 = €72.12 total credits to date."
+        },
+        {
+          "label": "Cumulative PAYE Due to Date",
+          "value": 67.88,
+          "explanation": "Cumulative Tax (€140.00) − Cumulative Credits (€72.12) = €67.88"
+        },
+        {
+          "label": "Less: PAYE Already Paid (Previous Weeks)",
+          "value": 0.00,
+          "given": true,
+          "explanation": "Week 1 — no previous weeks, so €0 already paid."
+        },
+        {
+          "label": "PAYE Due This Week",
+          "value": 67.88,
+          "explanation": "Cumulative PAYE Due (€67.88) − Previously Paid (€0.00) = €67.88"
+        },
+        {
+          "label": "PRSI @ 4% (gross €700.00 is above €352 threshold)",
+          "value": 28.00,
+          "explanation": "€700.00 × 4% = €28.00. Sarah earns above €352/week so full Class A PRSI applies."
+        },
+        {
+          "label": "USC: 0.5% on €231.00",
+          "value": 1.16,
+          "explanation": "First USC band: €231.00 × 0.5% = €1.155, rounded to €1.16"
+        },
+        {
+          "label": "USC: 2% on €264.38 (€231.01 to €495.38)",
+          "value": 5.29,
+          "explanation": "(€495.38 − €231.00) = €264.38 × 2% = €5.2876, rounded to €5.29"
+        },
+        {
+          "label": "USC: 4.5% on €204.62 (balance above €495.38)",
+          "value": 9.21,
+          "explanation": "(€700.00 − €495.38) = €204.62 × 4.5% = €9.2079, rounded to €9.21"
+        },
+        {
+          "label": "Total USC",
+          "value": 15.66,
+          "explanation": "€1.16 + €5.29 + €9.21 = €15.66"
+        },
+        {
+          "label": "Total Deductions (PAYE + PRSI + USC)",
+          "value": 111.54,
+          "explanation": "€67.88 + €28.00 + €15.66 = €111.54"
+        },
+        {
+          "label": "Net Pay (Gross − Total Deductions)",
+          "value": 588.46,
+          "explanation": "€700.00 − €111.54 = €588.46. This is the amount Sarah takes home."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Week 3 — Sarah O'Connor (Cumulative System)",
+      "context": "Same employee, same pay — but now we must use the CUMULATIVE system. Her figures for Weeks 1 and 2 are known. You need to calculate Week 3 PAYE based on total earnings to date, then subtract what was already paid.",
+      "given": {
+        "employee": "Sarah O'Connor",
+        "ppsNumber": "9876543B",
+        "week": 3,
+        "grossPay": 700.00,
+        "prevCumulativeGross": 1400.00,
+        "prevPAYEPaid": 135.76,
+        "weeklySRCOP": 807.69,
+        "weeklyCredits": 72.12,
+        "prsiRate": 4,
+        "prsiThresholdWeekly": 352.00,
+        "uscBands": [
+          { "label": "0.5% on first €231.00", "limit": 231.00, "rate": 0.5 },
+          { "label": "2% on next €264.38 (€231.01–€495.38)", "limit": 495.38, "rate": 2 },
+          { "label": "4.5% on balance above €495.38", "limit": 999999, "rate": 4.5 }
+        ]
+      },
+      "steps": [
+        {
+          "label": "Gross Pay (Week 3)",
+          "value": 700.00,
+          "given": true,
+          "explanation": "Same weekly pay as before."
+        },
+        {
+          "label": "Cumulative Gross Pay to Date (End of Week 3)",
+          "value": 2100.00,
+          "explanation": "Previous cumulative gross €1,400 (Weeks 1+2) + this week €700 = €2,100.00"
+        },
+        {
+          "label": "Cumulative SRCOP to Date (3 × €807.69)",
+          "value": 2423.07,
+          "explanation": "3 weeks × €807.69 = €2,423.07. Cumulative gross €2,100 is still below this — all income at 20%."
+        },
+        {
+          "label": "Cumulative Tax @ 20% (on €2,100.00)",
+          "value": 420.00,
+          "explanation": "€2,100.00 × 20% = €420.00. None of her cumulative income has exceeded the SRCOP yet."
+        },
+        {
+          "label": "Less: Cumulative Tax Credits (3 × €72.12)",
+          "value": 216.36,
+          "explanation": "3 weeks × €72.12 = €216.36 total credits applied cumulatively."
+        },
+        {
+          "label": "Cumulative PAYE Due to Date",
+          "value": 203.64,
+          "explanation": "Cumulative Tax (€420.00) − Cumulative Credits (€216.36) = €203.64"
+        },
+        {
+          "label": "Less: PAYE Already Paid (Weeks 1 + 2)",
+          "value": 135.76,
+          "given": true,
+          "explanation": "€67.88 (Week 1) + €67.88 (Week 2) = €135.76 already deducted and paid to Revenue."
+        },
+        {
+          "label": "PAYE Due This Week (Week 3)",
+          "value": 67.88,
+          "explanation": "Cumulative PAYE Due (€203.64) − Previously Paid (€135.76) = €67.88. Notice it's the same as Week 1 — consistent income means consistent weekly tax."
+        },
+        {
+          "label": "PRSI @ 4% (on gross €700.00)",
+          "value": 28.00,
+          "explanation": "PRSI is calculated on THIS week's gross only — it is NOT cumulative. €700.00 × 4% = €28.00"
+        },
+        {
+          "label": "USC: 0.5% on €231.00",
+          "value": 1.16,
+          "explanation": "USC is also calculated weekly, not cumulatively. €231.00 × 0.5% = €1.16"
+        },
+        {
+          "label": "USC: 2% on €264.38 (€231.01 to €495.38)",
+          "value": 5.29,
+          "explanation": "€264.38 × 2% = €5.29"
+        },
+        {
+          "label": "USC: 4.5% on €204.62 (balance above €495.38)",
+          "value": 9.21,
+          "explanation": "€204.62 × 4.5% = €9.21"
+        },
+        {
+          "label": "Total USC",
+          "value": 15.66,
+          "explanation": "€1.16 + €5.29 + €9.21 = €15.66 — same as Week 1 since gross pay is the same."
+        },
+        {
+          "label": "Total Deductions (PAYE + PRSI + USC)",
+          "value": 111.54,
+          "explanation": "€67.88 + €28.00 + €15.66 = €111.54"
+        },
+        {
+          "label": "Net Pay (Gross − Total Deductions)",
+          "value": 588.46,
+          "explanation": "€700.00 − €111.54 = €588.46. The cumulative system has kept her tax consistent each week."
+        }
+      ]
+    }
+  ]
+}

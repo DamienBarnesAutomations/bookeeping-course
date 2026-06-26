@@ -1,0 +1,172 @@
+{
+  "title": "Bookkeeping Knowledge Check",
+  "description": "Test your understanding of QQI 5N1354 — Bookkeeping Manual & Computerised. 15 questions across all 10 learning outcomes.",
+  "passMark": 70,
+  "questions": [
+    {
+      "question": "The accounting equation states that...",
+      "options": [
+        "Assets = Liabilities + Capital",
+        "Capital = Assets + Liabilities",
+        "Liabilities = Assets + Capital",
+        "Assets = Revenue − Expenses"
+      ],
+      "answer": 0,
+      "explanation": "The fundamental accounting equation is Assets = Liabilities + Capital (Owner's Equity). Every double-entry transaction maintains this balance — it must always hold true."
+    },
+    {
+      "question": "A debtor is best described as...",
+      "options": [
+        "A person the business owes money to",
+        "A person who owes the business money",
+        "A type of expense account",
+        "A bank overdraft entry"
+      ],
+      "answer": 1,
+      "explanation": "A debtor owes money TO the business (e.g., a customer who bought on credit). A creditor is someone the business owes money TO (e.g., a supplier). Debtors are an asset; creditors are a liability."
+    },
+    {
+      "question": "Which book of first entry records credit sales to customers?",
+      "options": [
+        "Purchases Day Book",
+        "Cash Book",
+        "Sales Day Book",
+        "Petty Cash Book"
+      ],
+      "answer": 2,
+      "explanation": "The Sales Day Book (Sales Journal) records all CREDIT sales. Cash sales bypass the daybook and go directly into the Cash Book. The Sales Day Book lists invoice date, customer name, invoice number, and net/VAT/gross amounts."
+    },
+    {
+      "question": "Which side of a T-account is the debit side?",
+      "options": [
+        "Right",
+        "Left",
+        "Top",
+        "It depends on the account type"
+      ],
+      "answer": 1,
+      "explanation": "The LEFT side of a T-account is ALWAYS the debit side. The right side is always the credit side. This never changes regardless of account type — what changes is whether a debit increases or decreases the balance."
+    },
+    {
+      "question": "The primary purpose of a trial balance is to...",
+      "options": [
+        "Calculate profit for the year",
+        "Check the arithmetic accuracy of ledger entries",
+        "File the VAT return with Revenue",
+        "Record all daily transactions"
+      ],
+      "answer": 1,
+      "explanation": "A trial balance lists all ledger account balances and checks that total debits equal total credits. It verifies arithmetic accuracy — but it cannot detect all errors (e.g., errors of principle, compensating errors, or errors of omission)."
+    },
+    {
+      "question": "The standard rate of VAT in Ireland is...",
+      "options": [
+        "9%",
+        "13.5%",
+        "20%",
+        "23%"
+      ],
+      "answer": 3,
+      "explanation": "The standard VAT rate in Ireland is 23%. The reduced rate is 13.5% (construction, energy, tourism services). The second reduced rate is 9% (hospitality, newspapers). Zero-rated goods include exports and most food."
+    },
+    {
+      "question": "When goods are sold on credit, which double entry is correct?",
+      "options": [
+        "Debit Sales, Credit Debtors",
+        "Debit Debtors, Credit Sales",
+        "Debit Bank, Credit Sales",
+        "Debit Sales, Credit Bank"
+      ],
+      "answer": 1,
+      "explanation": "Credit sale: Debit Debtors (the asset increases — customer now owes us money) and Credit Sales (income increases). Remember: assets increase with debits, income increases with credits."
+    },
+    {
+      "question": "A bank reconciliation statement reconciles...",
+      "options": [
+        "The VAT return with the nominal ledger",
+        "The cash book balance with the bank statement balance",
+        "The sales ledger total with the purchases ledger total",
+        "Debtors control with individual debtor accounts"
+      ],
+      "answer": 1,
+      "explanation": "Bank reconciliation compares the Cash Book balance with the Bank Statement balance. Differences arise from timing: unpresented cheques (in cash book but not bank), outstanding lodgements (in cash book but not bank), and bank charges not yet entered in cash book."
+    },
+    {
+      "question": "A credit note issued TO a customer will...",
+      "options": [
+        "Increase the amount the customer owes us",
+        "Decrease the amount the customer owes us",
+        "Increase our bank balance immediately",
+        "Reduce our purchases balance"
+      ],
+      "answer": 1,
+      "explanation": "A credit note reduces the debtor balance (amount owed by the customer). It is issued for goods returned or an overcharge on an invoice. Entry: Debit Sales Returns, Credit Debtors. It appears in the Sales Returns Day Book."
+    },
+    {
+      "question": "Which of these is NOT a book of first entry?",
+      "options": [
+        "Sales Day Book",
+        "Cash Book",
+        "Nominal Ledger",
+        "Petty Cash Book"
+      ],
+      "answer": 2,
+      "explanation": "The Nominal Ledger (General Ledger) is where transactions are POSTED TO from the books of first entry. Books of first entry (prime entry) include Sales Daybook, Purchases Daybook, Cash Book, Petty Cash Book, Sales Returns, and Purchases Returns daybooks."
+    },
+    {
+      "question": "T3 on the Irish VAT return represents...",
+      "options": [
+        "Total net purchases",
+        "Total net sales (turnover)",
+        "Total output VAT — VAT charged on sales",
+        "VAT payable or refundable balance"
+      ],
+      "answer": 2,
+      "explanation": "T3 = Total Output VAT (VAT you charged customers on sales). T1 = Total Sales/Turnover, T2 = Total Purchases, T4 = Input VAT (VAT on purchases you can reclaim). T3 minus T4 = T5 (VAT payable) or T6 (VAT refundable)."
+    },
+    {
+      "question": "An error of omission occurs when...",
+      "options": [
+        "A transaction is posted to the wrong account type",
+        "A transaction is completely left out of the books",
+        "A transaction is posted to the wrong side of an account",
+        "An incorrect amount is used on one side only"
+      ],
+      "answer": 1,
+      "explanation": "An error of omission means a transaction was entirely excluded from the books (both debit AND credit entries are missing). Because both sides are missing, the trial balance still balances — making this error difficult to detect without comparing to source documents."
+    },
+    {
+      "question": "When you pay a supplier by bank transfer, the correct double entry is...",
+      "options": [
+        "Debit Bank, Credit Creditor",
+        "Debit Creditor, Credit Bank",
+        "Debit Purchases, Credit Bank",
+        "Debit Creditor, Credit Purchases"
+      ],
+      "answer": 1,
+      "explanation": "Paying a supplier: Debit the Creditor account (reducing the liability — we owe them less) and Credit Bank (reducing the asset — money leaves the bank). This clears the amount owed to the supplier."
+    },
+    {
+      "question": "Which account normally carries a CREDIT balance?",
+      "options": [
+        "Purchases expense account",
+        "Equipment (fixed asset)",
+        "Bank account (when not overdrawn)",
+        "Sales revenue account"
+      ],
+      "answer": 3,
+      "explanation": "Income accounts like Sales Revenue carry credit balances (they increase with credits). Asset accounts (Bank, Equipment, Debtors) carry debit balances. Expense accounts (Purchases, Wages, Rent) carry debit balances. Liability and capital accounts carry credit balances."
+    },
+    {
+      "question": "Depreciation of a fixed asset is recorded to...",
+      "options": [
+        "Ensure assets are insured at replacement value",
+        "Reflect the declining value of assets in the accounts over their useful life",
+        "Claim back VAT on asset purchases",
+        "Prepare the asset for resale at market value"
+      ],
+      "answer": 1,
+      "explanation": "Depreciation spreads the cost of a fixed asset over its useful economic life, reflecting that assets lose value through use, wear, and obsolescence. Methods include Straight-Line (equal annual charge) and Reducing Balance (higher depreciation in early years)."
+    }
+  ]
+}
