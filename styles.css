@@ -799,6 +799,16 @@ input:checked + .slider:before {
     color: var(--text-primary);
     font-size: 1rem;
     line-height: 1.65;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.prose img,
+.prose video,
+.prose canvas,
+.prose svg {
+    max-width: 100%;
+    height: auto;
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4 {
@@ -1105,6 +1115,12 @@ html[data-theme="light"] .prose tr:nth-child(even) td {
     
     .reader-toc {
         display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .reader-content-wrapper {
+        padding: 24px 16px;
     }
 }
 
