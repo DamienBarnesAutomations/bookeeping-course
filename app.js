@@ -140,20 +140,35 @@ function setupEventListeners() {
 function renderSidebar() {
     const navContainer = document.getElementById('sidebarNav');
     navContainer.innerHTML = ''; // Clear loading spinner
-    
+
+    const collapsedGroups = new Set(JSON.parse(localStorage.getItem('collapsedSidebarGroups') || '[]'));
+    const activeCategoryKey = state.currentPath ? state.currentPath.split('/')[0] : null;
+
     // Group Categories in Sidebar
     for (const [key, category] of Object.entries(state.manifest.categories)) {
         const groupEl = document.createElement('div');
         groupEl.className = 'sidebar-group';
-        
+        groupEl.dataset.categoryKey = key;
+
+        // Collapse if user previously collapsed it, but always expand the active category
+        if (collapsedGroups.has(key) && key !== activeCategoryKey) {
+            groupEl.classList.add('collapsed');
+        }
+
         const titleEl = document.createElement('div');
         titleEl.className = 'sidebar-group-title';
-        titleEl.innerText = category.title.split('(')[0].trim(); // Clean QQI code for sidebar brevity
+        titleEl.innerHTML = `<span>${category.title.split('(')[0].trim()}</span><i data-lucide="chevron-down" class="sidebar-group-chevron"></i>`;
+        titleEl.addEventListener('click', () => {
+            const nowCollapsed = groupEl.classList.toggle('collapsed');
+            if (nowCollapsed) collapsedGroups.add(key); else collapsedGroups.delete(key);
+            localStorage.setItem('collapsedSidebarGroups', JSON.stringify([...collapsedGroups]));
+            lucide.createIcons();
+        });
         groupEl.appendChild(titleEl);
-        
+
         const listEl = document.createElement('ul');
         listEl.className = 'sidebar-group-list';
-        
+
         category.files.forEach(file => {
             const isCompleted = state.completedLessons.includes(file.path);
             const itemEl = document.createElement('li');
@@ -165,11 +180,11 @@ function renderSidebar() {
             `;
             listEl.appendChild(itemEl);
         });
-        
+
         groupEl.appendChild(listEl);
         navContainer.appendChild(groupEl);
     }
-    
+
     lucide.createIcons();
 }
 
@@ -321,10 +336,21 @@ function handleRoute() {
             matchBtn.classList.add('active');
         }
         
-        // Highlight active link in sidebar
+        // Highlight active link in sidebar and expand its group
         document.querySelectorAll('.sidebar-link').forEach(link => {
             if (link.getAttribute('href') === `#${hash}`) {
                 link.classList.add('active');
+                // Expand the parent group if collapsed
+                const group = link.closest('.sidebar-group');
+                if (group && group.classList.contains('collapsed')) {
+                    group.classList.remove('collapsed');
+                    const key = group.dataset.categoryKey;
+                    if (key) {
+                        const stored = new Set(JSON.parse(localStorage.getItem('collapsedSidebarGroups') || '[]'));
+                        stored.delete(key);
+                        localStorage.setItem('collapsedSidebarGroups', JSON.stringify([...stored]));
+                    }
+                }
                 // Scroll link into view inside sidebar if not visible
                 link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
             } else {

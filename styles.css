@@ -391,8 +391,31 @@ html[data-theme="light"] .theme-toggle-btn .sun-icon {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0 12px;
+    padding: 4px 12px;
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    border-radius: var(--border-radius-sm);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.sidebar-group-title:hover {
+    color: var(--text-secondary);
+    background-color: var(--bg-card-hover);
+}
+
+.sidebar-group-chevron {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+}
+
+.sidebar-group.collapsed .sidebar-group-chevron {
+    transform: rotate(-90deg);
 }
 
 .sidebar-group-list {
@@ -400,6 +423,15 @@ html[data-theme="light"] .theme-toggle-btn .sun-icon {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    overflow: hidden;
+    max-height: 2000px;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+    opacity: 1;
+}
+
+.sidebar-group.collapsed .sidebar-group-list {
+    max-height: 0;
+    opacity: 0;
 }
 
 .sidebar-link {
