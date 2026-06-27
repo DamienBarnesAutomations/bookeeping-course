@@ -58,3 +58,43 @@
 | Initial cost | Low | Moderate |
 | Ongoing effort | High (per pay period) | Low |
 | Compliance confidence | Low (human-dependent) | High (system-enforced) |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Real Cost Comparison
+
+| Cost Factor | Manual Payroll | Computerised Payroll |
+|-------------|---------------|---------------------|
+| Software license | €0 | €200-€1,000/year |
+| Time per weekly run (5 employees) | 4 hours | 30 minutes |
+| Time per weekly run (50 employees) | Not feasible | 2 hours |
+| Training | None | 1-2 days initially |
+| Year-end filing time | 2-3 days | 1-2 hours |
+| Revenue penalty risk | Higher | Lower |
+
+### When Manual Payroll Is the Only Option
+
+1. Power outage or IT system failure
+2. Software updating during payroll week
+3. Employer in a remote location with no internet
+4. Verifying software calculations
+
+### The Cost of Error in Payroll
+
+| Error | Consequence |
+|-------|-------------|
+| Underpaid employee by €100 | Employee distress, must pay immediately |
+| Overpaid employee by €100 | Difficult to recover |
+| Incorrect PAYE paid to Revenue | Interest + penalties |
+| P45 issued with wrong figures | Next employer uses wrong data |
+| Late P30 filing | 5% surcharge up to €12,695 |
+
+### Exam Point
+
+The examiner wants to see that you understand BOTH systems:
+- Manual: understand the calculation
+- Computerised: efficiency and accuracy
+- Both: manual should always be verified against computerised

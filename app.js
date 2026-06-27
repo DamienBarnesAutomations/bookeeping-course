@@ -2702,7 +2702,7 @@ async function renderTestBuilder() {
                     <button class="btn btn-outline tb-quick-btn" data-action="clear">Clear All</button>
                     <div class="tb-count-group">
                         <span class="tb-section-label">Questions:</span>
-                        ${[10, 20, 30].map(n => `<button class="tb-count-pill ${tbState.questionCount === n ? 'active' : ''}" data-count="${n}">${n}</button>`).join('')}
+                        ${[10, 20, 30, 50, 75, 100].map(n => `<button class="tb-count-pill ${tbState.questionCount === n ? 'active' : ''}" data-count="${n}">${n}</button>`).join('')}
                     </div>
                     <button class="btn btn-primary" id="tbBuildBtn" disabled>
                         <i data-lucide="play"></i> Build Test

@@ -135,3 +135,107 @@ When an employee takes unpaid leave:
 4. Software calculates PAYE/PRSI/USC automatically
 5. Generates payslip and payroll summary
 6. Processes payment (bank file or cheque)
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Full Weekly Payroll — 13 Week Progression
+
+**Employee:** John, €52,000/year = €1,000/week
+**SRCOP:** €42,000/year = €807.69/week
+**Credits:** €3,750/year = €72.12/week
+**PRSI:** 4% (above €352/week)
+**USC:** 0.5% on first €12,012/year
+
+### Week 1
+
+| Calculation | Amount |
+|-------------|--------|
+| Gross | €1,000.00 |
+| Tax @ 20% on €807.69 | €161.54 |
+| Tax @ 40% on €192.31 | €76.92 |
+| Gross Tax | €238.46 |
+| Less Weekly Credit | (€72.12) |
+| **PAYE** | **€166.34** |
+| PRSI @ 4% | €40.00 |
+| USC @ 0.5% | €5.00 |
+| **Net Pay** | **€788.66** |
+
+### Week 2
+
+| Calculation | Amount |
+|-------------|--------|
+| Cum. Gross (1,000 x 2) | €2,000.00 |
+| Cum. SRCOP (807.69 x 2) | €1,615.38 |
+| Tax @ 20% on 1,615.38 | €323.08 |
+| Tax @ 40% on 384.62 | €153.85 |
+| Cum. Gross Tax | €476.93 |
+| Cum. Credits (72.12 x 2) | (€144.24) |
+| Cum. PAYE | €332.69 |
+| Less PAYE Paid Week 1 | (€166.34) |
+| **PAYE Week 2** | **€166.35** |
+
+### Week 13 — Half-Year
+
+| Calculation | Amount |
+|-------------|--------|
+| Cum. Gross (1,000 x 13) | €13,000.00 |
+| Cum. SRCOP (807.69 x 13) | €10,500.00 |
+| Tax @ 20% on 10,500 | €2,100.00 |
+| Tax @ 40% on 2,500 | €1,000.00 |
+| Cum. Gross Tax | €3,100.00 |
+| Cum. Credits (72.12 x 13) | (€937.56) |
+| Cum. PAYE | €2,162.44 |
+| Less PAYE Paid Wks 1-12 (166.34 x 12) | (€1,996.08) |
+| **PAYE Week 13** | **€166.36** |
+
+PAYE is stable at ~€166/week because earnings consistently exceed the SRCOP.
+
+### Pay Rise Mid-Year
+
+John gets a raise to €1,100/week in Week 14.
+
+**Week 14:**
+Cum. Gross: €13,000 + €1,100 = €14,100
+Cum. SRCOP: 14 x €807.69 = €11,307.66
+
+| | Amount |
+|---|--------|
+| Tax @ 20% on 11,307.66 | €2,261.53 |
+| Tax @ 40% on 2,792.34 | €1,116.94 |
+| Cum. Gross Tax | €3,378.47 |
+| Cum. Credits (14 x 72.12) | (€1,009.68) |
+| Cum. PAYE | €2,368.79 |
+| Less PAYE Paid (13 weeks) | (€2,162.44) |
+| **PAYE Week 14** | **€206.35** |
+
+PAYE increases from ~€166 to ~€206 due to more income in the 40% bracket.
+
+### Unpaid Leave — Refund Effect
+
+John takes Week 8 unpaid. Gross = €0.
+
+| | Amount |
+|---|--------|
+| Cum. Gross (1,000 x 7) | €7,000.00 |
+| Cum. SRCOP (807.69 x 8) | €6,461.52 |
+| Tax @ 20% on 6,461.52 | €1,292.30 |
+| Tax @ 40% on 538.48 | €215.39 |
+| Cum. Gross Tax | €1,507.69 |
+| Cum. Credits (72.12 x 8) | (€576.96) |
+| Cum. PAYE | €930.73 |
+| Less PAYE Paid Wks 1-7 (166.34 x 7) | (€1,164.38) |
+| **PAYE Week 8** | **(€233.65) — refund!** |
+
+John gets a PAYE refund of €233.65 in Week 8 because his cumulative tax position shows he has overpaid relative to what he should have paid on €7,000.
+
+### Common Cumulative Mistakes
+
+| Mistake | Result |
+|---------|--------|
+| Forgetting cumulative basis | Employee overtaxed |
+| Not including P45 from previous job | Starts at €0 cumulative, overtaxed |
+| Applying credits as income deduction | Credits over-applied |
+| Incorrect SRCOP | Wrong split between 20% and 40% |

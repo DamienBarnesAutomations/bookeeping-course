@@ -191,3 +191,63 @@ Revenue will issue a new RPN with married credits. Cumulative system automatical
 | One spouse has tax losses/reliefs | Joint Assessment |
 | One spouse has significant deductions | Joint Assessment |
 | Privacy/separation | Separate Assessment |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Scenario A: Single earner, €70,000
+
+| | Single | Joint (Married) |
+|---|--------|-----------------|
+| SRCOP | €42,000 | €51,000 |
+| Tax @ 20% | €8,400 | €10,200 |
+| Tax @ 40% | €11,200 | €7,600 |
+| Less Credits | (€1,875) | (€3,750+1,875+1,875) |
+| **Total Tax** | **€17,725** | **€11,200** |
+
+**Savings under Joint:** €6,525
+
+### Scenario B: Significantly different incomes
+
+Spouse 1: €65,000 | Spouse 2: €10,000 | Total: €75,000
+
+Joint SRCOP: €51,000 + €33,000 = €84,000
+Total €75,000 < €84,000, all taxed at 20%.
+
+| Method | Tax |
+|--------|-----|
+| Joint | €15,000 - €7,500 = **€7,500** |
+| Separate | S1: €15,950 + S2: €0 = **€15,950** |
+
+**Savings:** €8,450
+
+### Scenario C: Two high incomes
+
+Spouse 1: €80,000 | Spouse 2: €70,000 | Total: €150,000
+
+Joint SRCOP: €51,000 + €33,000 = €84,000
+
+Joint: (84k@20% + 66k@40%) - credits = **€35,700**
+Separate: S1(42k@20%+38k@40%)-3,750 + S2(42k@20%+28k@40%)-3,750 = **€35,700**
+
+With two high earners, the difference between joint and separate narrows because the SRCOP equalisation benefit is less significant.
+
+### Home Carer Tax Credit
+
+| Carer's Income | Credit |
+|----------------|--------|
+| Up to €7,200 | Full (~€1,800) |
+| €7,200 - €10,200 | Reduced |
+| Over €10,200 | None |
+
+Qualifying: caring for child under 18, dependent aged 65+, or incapacitated person.
+
+### Practice
+
+Calculate total tax for married couple:
+- Spouse 1: €55,000  |  Spouse 2: €25,000
+- One spouse earns €8,000, qualifies for home carer credit (€1,800)
+
+Calculate Joint, Separate, and Joint + Home Carer.

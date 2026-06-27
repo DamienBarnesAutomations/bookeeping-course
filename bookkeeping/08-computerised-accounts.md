@@ -98,3 +98,62 @@ If results differ, investigate:
 5. **Trial Balance** — all account balances
 6. **VAT Control Account** — output vs input VAT summary
 7. **Bank Reconciliation Statement** — reconciled bank balance
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Comparing Manual vs Computerised — Step by Step
+
+| Stage | Manual Process | Computerised Process | Verification |
+|-------|---------------|---------------------|--------------|
+| Sales invoice | Write in SDB → Post to ledger | Enter invoice once | Check debtor + sales + VAT posted |
+| Purchase invoice | Write in PDB → Post to ledger | Enter bill once | Check creditor + purchases + VAT posted |
+| Bank receipt | Write in Cash Book → Post to ledger | Select customer → Allocate → Save | Check debtor cleared, bank increased |
+| Bank payment | Write in Cash Book → Post to ledger | Select supplier → Allocate → Save | Check creditor cleared, bank decreased |
+| Trial Balance | Manual extraction | Auto-generated | Compare every balance |
+| VAT Return | Manual calculation | Auto-generated | Compare output/input VAT totals |
+
+### Key Reports to Compare in an Exam
+
+In the project and practical exam, you'll be asked to print specific reports from the software:
+
+| Report | What It Shows | Check Against |
+|--------|---------------|---------------|
+| Trial Balance | All account balances | Your manual TB |
+| Sales Day Book (Journal) | All sales invoices posted | Your manual SDB totals |
+| Purchase Day Book (Journal) | All purchase invoices posted | Your manual PDB totals |
+| Aged Debtors | Customer balances + aging | Each debtor's ledger balance |
+| Aged Creditors | Supplier balances + aging | Each creditor's ledger balance |
+| VAT Control Account | Output vs Input VAT | Your manual VAT calculation |
+| Bank Reconciliation | Reconciled bank position | Your manual reconciliation |
+
+### Data Entry Efficiency
+
+| Task | Manual | Computerised |
+|------|--------|-------------|
+| 10 credit sales invoices | 30 min to write + post | 10 min to enter |
+| 5 supplier payments | 15 min to write cheques + post | 5 min to process |
+| Trial balance | 20 min to extract | Instant |
+| VAT return | 45 min to calculate | 2 min to run report |
+| Month-end close | 3-4 hours | 30 min |
+
+### Common Software-Specific Issues
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Invoice posted to wrong customer | Customer selection error | Issue credit note, re-issue to correct customer |
+| Duplicate invoice | Double entry | Delete or reverse duplicate |
+| Incorrect opening balance | Data entry error | Adjust through journal |
+| Bank reconciliation doesn't balance | Missing transaction or entry error | Check all items ticked, date range correct |
+| VAT figures differ from manual | Different VAT rate applied or rate code error | Check VAT codes on each transaction |
+
+### Practice
+
+In your accounts package:
+1. Enter the Jones Ltd transactions from LO3
+2. Run the trial balance
+3. Compare to your manual TB
+4. Run the VAT report — does it match your calculation?
+5. Print the sales and purchase daybooks — do the totals match your manual totals?

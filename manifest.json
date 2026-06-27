@@ -56,11 +56,6 @@
           "filename": "10-reports-and-backup.md",
           "path": "bookkeeping/10-reports-and-backup.md",
           "title": "Learning Outcome 10 — Reports & Backup"
-        },
-        {
-          "filename": "deep-dive.md",
-          "path": "bookkeeping/deep-dive.md",
-          "title": "Bookkeeping Deep Dive — Extra Meat for All 10 Learning Outcomes"
         }
       ]
     },
@@ -118,16 +113,6 @@
           "filename": "10-reports-and-backup-payroll.md",
           "path": "payroll/10-reports-and-backup-payroll.md",
           "title": "Learning Outcome 10 — Payroll Reports & Backup"
-        },
-        {
-          "filename": "deep-dive-p1.md",
-          "path": "payroll/deep-dive-p1.md",
-          "title": "Payroll Deep Dive — Extra Meat (Part 1: LOs 1-5)"
-        },
-        {
-          "filename": "deep-dive-p2.md",
-          "path": "payroll/deep-dive-p2.md",
-          "title": "Payroll Deep Dive — Extra Meat (Part 2: LOs 6-10)"
         }
       ]
     },

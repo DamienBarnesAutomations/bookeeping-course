@@ -188,3 +188,106 @@ After filing P35:
 | PAYE | €61,440 | €61,440 | €0 |
 | PRSI | €57,792 | €57,792 | €0 |
 | USC | €8,160 | €8,160 | €0 |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### P30 — Completed Monthly Example
+
+**Month: January 2026 — 4 employees**
+
+| Employee | Gross | PAYE | PRSI(EE) | PRSI(ER) | USC |
+|----------|-------|------|----------|----------|-----|
+| John | €3,200 | €480 | €128 | €353.60 | €16 |
+| Sarah | €2,400 | €288 | €96 | €265.20 | €12 |
+| Mike | €2,000 | €200 | €80 | €221.00 | €10 |
+| Emma | €1,600 | €320* | €64 | €176.80 | €8 |
+| **Total** | **€9,200** | **€1,288** | **€368** | **€1,016.60** | **€46** |
+
+*Emma on emergency tax
+
+**P30 Summary:**
+| Item | Amount (€) |
+|------|-----------|
+| Gross Pay | 9,200.00 |
+| PAYE | 1,288.00 |
+| Employee PRSI | 368.00 |
+| Employer PRSI | 1,016.60 |
+| USC | 46.00 |
+| **Total Due** | **2,718.60** |
+
+### P35 — Annual Example
+
+```
+P35 — ANNUAL EMPLOYER RETURN
+Tax Year: 2026
+Employer: ABC Ltd  Reg: 12345A
+
+TOTAL GROSS PAY:                        €380,000.00
+TOTAL PAYE:                             €57,000.00
+TOTAL EMPLOYEE PRSI:                    €15,200.00
+TOTAL EMPLOYER PRSI:                    €41,990.00
+TOTAL USC:                              €8,740.00
+TOTAL DUE:                              €122,930.00
+
+LESS PAYMENTS MADE (P30s):              €122,930.00
+BALANCE:                                €0.00
+```
+
+Per-employee section:
+```
+John Kelly (1234567J)
+  Gross: €41,600  PAYE: €6,240  PRSI: €1,664  USC: €624
+
+Sarah Doyle (2345678S)
+  Gross: €31,200  PAYE: €4,680  PRSI: €1,248  USC: €468
+  (etc.)
+```
+
+### How P30 and P35 Link
+
+```
+P30 (Jan): €2,718.60 paid    P30 (Feb): €2,650.00
+P30 (Mar): €2,800.00         ... (every month)
+P30 (Dec): €2,900.00
+                            Total P30 payments: €35,000.00
+
+P35 filed in February:
+  Total due:    €35,000.00
+  Less P30s:   (€35,000.00)
+  Balance:      €0.00
+```
+
+If total P30 payments = €34,800 but P35 shows €35,000 due:
+- **Underpayment:** €200 — pay with P35 filing
+- Interest runs from the due date of the underpaid P30
+
+### Common P30/P35 Errors
+
+| Error | Consequence |
+|-------|-------------|
+| P30 filed late | Late filing surcharge |
+| Wrong gross figure | All deductions misstated |
+| Missing employee in P35 | Revenue queries |
+| Wrong employer PRSI | Overpayment or underpayment |
+
+### ROS Filing Steps
+
+1. Log into ROS with digital certificate
+2. Select "Payroll Taxes"
+3. Select return type (P30 or P35)
+4. Upload XML file from payroll software
+5. Review figures
+6. Submit
+7. Make payment
+
+### Practice
+
+Monthly P30 totals:
+- Jan: €3,100  Feb: €2,950  Mar: €3,200  Apr: €3,050
+- May: €3,100  Jun: €2,980  Jul: €3,150  Aug: €3,000
+- Sep: €3,100  Oct: €3,050  Nov: €2,950  Dec: €3,200
+
+Calculate total P30 payments. If P35 shows €36,800 due, is there a balance?

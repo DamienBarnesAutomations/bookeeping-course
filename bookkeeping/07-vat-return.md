@@ -127,3 +127,94 @@ T5: VAT Payable             €2,490
 | Not separating zero-rated from exempt | Misclassification |
 | Missing credit notes | Overstated VAT |
 | Arithmetic errors | Incorrect payment/refund |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Complete VAT Period Example
+
+**Bi-monthly period: January-February 2026**
+
+### Output VAT Calculation
+
+| Source | Net (€) | VAT Rate | VAT (€) |
+|--------|---------|----------|---------|
+| Standard rate sales | 45,000 | 23% | 10,350.00 |
+| Reduced rate sales (13.5%) | 8,000 | 13.5% | 1,080.00 |
+| Zero-rated sales | 6,000 | 0% | 0.00 |
+| Credit notes issued (standard) | (2,000) | 23% | (460.00) |
+| **Total Output VAT (T3)** | | | **10,970.00** |
+
+### Input VAT Calculation
+
+| Source | Net (€) | VAT Rate | VAT (€) |
+|--------|---------|----------|---------|
+| Standard rate purchases | 28,000 | 23% | 6,440.00 |
+| Reduced rate purchases | 4,000 | 13.5% | 540.00 |
+| Zero-rated purchases | 3,000 | 0% | 0.00 |
+| Credit notes received (standard) | (1,000) | 23% | (230.00) |
+| Petty cash (standard rate items) | 500 | 23% | 115.00 |
+| **Total Input VAT (T4)** | | | **6,865.00** |
+
+### VAT Return Summary
+
+| Box | Description | Amount (€) |
+|-----|-------------|-----------|
+| T1 | Total Sales excl. VAT (45,000 + 8,000 + 6,000 − 2,000) | 57,000.00 |
+| T2 | Total Purchases excl. VAT (28,000 + 4,000 + 3,000 − 1,000 + 500) | 34,500.00 |
+| T3 | Output VAT | 10,970.00 |
+| T4 | Input VAT | 6,865.00 |
+| **T5** | **VAT Payable (T3 − T4)** | **4,105.00** |
+
+### VAT on Imports and Exports
+
+**Exports:** Zero-rated (0% VAT) — you can reclaim input VAT on costs related to exports.
+
+**Imports from EU:** Reverse charge VAT — the buyer accounts for both output and input VAT (net effect is zero for VAT-registered businesses).
+
+**Imports from non-EU:** VAT is paid at customs. Claim as input VAT on the VAT return.
+
+### VAT and Capital Goods
+
+When buying capital equipment (e.g., a van for €30,000 + €6,900 VAT):
+- The full input VAT of €6,900 is reclaimable in the period of purchase
+- This can result in a VAT refund for that period
+
+### Partial Exemption
+
+If a business makes both taxable and exempt supplies:
+- Can only reclaim input VAT on the taxable portion
+- Must apportion input VAT using the standard method:
+  ```
+  Recoverable % = Taxable supplies / Total supplies × 100
+  ```
+
+### Common VAT Errors in Exams
+
+| Error | Mark Lost |
+|-------|-----------|
+| Mixing up T1/T2 totals (net vs gross) | Usually penalised |
+| Forgetting credit notes in VAT calculation | Output/input VAT overstated |
+| Claiming input VAT on exempt purchases | Wrong — can't claim |
+| Using wrong VAT rate | Calculation error |
+| Not apportioning mixed-rate invoices | Have to split VAT by line item |
+
+### Practice VAT Return
+
+Calculate VAT payable:
+
+| | Net (€) | Rate |
+|---|---------|------|
+| Sales — standard | 60,000 | 23% |
+| Sales — exports | 15,000 | 0% |
+| Purchases — standard | 35,000 | 23% |
+| Purchases — reduced | 5,000 | 13.5% |
+| Purchases — exempt (financial services) | 2,000 | Exempt |
+| Credit notes issued (standard) | (3,000) | 23% |
+
+**Answer:**
+- Output VAT: (60,000 × 23%) − (3,000 × 23%) = 13,800 − 690 = **€13,110**
+- Input VAT: (35,000 × 23%) + (5,000 × 13.5%) = 8,050 + 675 = **€8,725** (exempt purchases: €0 input VAT)
+- **VAT Payable:** €13,110 − €8,725 = **€4,385**

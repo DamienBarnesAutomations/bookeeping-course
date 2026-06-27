@@ -209,3 +209,74 @@ Date       Type     Location         Verified   By
 | Employee dispute | Cannot prove payments made |
 | Revenue audit | Cannot provide records → penalties |
 | GDPR breach | Employee data compromised |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Key Reports in Payroll Software
+
+**1. Payroll Summary Report**
+Shows each employee's gross, deductions, net, and YTD figures for the period.
+Essential for: verifying the payroll run, management reporting.
+
+**2. Payslip**
+Individual employee breakdown. Must include:
+- Gross pay broken down by element
+- Each deduction separately (PAYE, PRSI, USC, pension, etc.)
+- Net pay
+- Year-to-date totals
+- Employer PRSI (not deducted from employee, but shown for transparency)
+
+**3. P30 Monthly Return**
+Generated from each month's payroll data. Shows totals for Revenue.
+
+**4. P35 Annual Return**
+Generated after year-end close. Must reconcile to total P30 payments.
+
+**5. Labour Cost Report**
+Shows total cost per employee (gross + employer PRSI + pension contributions).
+Essential for: budgeting, department cost analysis, pricing decisions.
+
+### Backup Strategy for Payroll
+
+| Backup | Frequency | Medium | Location |
+|--------|-----------|--------|----------|
+| Daily | Every payroll run | Cloud | Off-site |
+| Weekly | Friday | External HDD | Office safe |
+| Monthly | Month-end | USB | Bank safe deposit |
+| Year-end | After P35 filed | DVD + Cloud | Off-site |
+
+### Data Retention (Irish Revenue)
+
+| Record | Retention |
+|--------|-----------|
+| Payroll records | 6 years after end of tax year |
+| Employee details | 6 years after employment ends |
+| P30/P35 records | 6 years |
+| P45/P60 copies | 6 years |
+| Time sheets | 6 years |
+
+### Backup Verification Checklist
+
+- [ ] Backup file can be opened
+- [ ] File size is consistent with expected data
+- [ ] Test restore works on a different computer
+- [ ] Backup is date-stamped and labelled
+- [ ] Off-site copy is updated
+- [ ] Backup is password-protected
+
+### Common Backup Mistakes
+
+| Mistake | Risk |
+|---------|------|
+| Only one backup copy | Single point of failure |
+| Same location as computer | Fire/theft destroys both |
+| No verification backup is corrupt | Discovered too late when needed |
+| No off-site copy | Local disaster destroys all data |
+| Not testing restore | Backup may be unusable |
+
+### Practice
+
+Design a backup schedule for a business with 20 employees that processes payroll fortnightly. Include medium, frequency, and storage location for each backup type.

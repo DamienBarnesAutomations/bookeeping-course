@@ -120,3 +120,72 @@ In any payroll software:
 | Provide P45 | Employee | Day 1 |
 | Submit new employee to Revenue | Employer | Before first pay |
 | Check RPN in software | Employer | Before each payroll run |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### When Does Emergency Tax End?
+
+Emergency tax continues until the employee provides:
+1. Their PPS number AND
+2. Revenue sends their RPN to the employer
+
+If the employee has a PPS number but no RPN:
+- Employer should request the RPN via ROS
+- If still not received, emergency tax continues
+
+### The 4-Week Rule
+
+| Period | Rate |
+|--------|------|
+| Weeks 1-4 | 40% with no credits |
+| Week 5+ (if still no PPS) | 50% |
+
+### Emergency to Cumulative — Full Example
+
+Emma starts in Week 1, no PPS provided.
+
+**Weeks 1-3 (Emergency):**
+- Weekly gross: €500
+- Tax @ 40%: €200 (no credits)
+- PRSI @ 4%: €20
+- USC: €2.50
+- Net pay: €277.50
+
+**Week 4: Emma provides PPS, RPN fetched.**
+
+RPN shows: Credits €3,750/year, SRCOP €42,000.
+
+Software retrospectively calculates cumulative position:
+
+Cum. Gross: (500 x 3) + 500 = €2,000
+Cum. SRCOP: 4 x 807.69 = €3,230.76
+Cum. Tax at 20% (within SRCOP): €2,000 x 20% = €400
+Cum. Credits: 4 x 72.12 = €288.48
+Cum. PAYE: €400 - €288.48 = **€111.52**
+PAYE already paid (emergency): 200 x 3 = **€600**
+**PAYE refund Week 4:** €111.52 - €600 = **-€488.48**
+
+**Week 4 payslip:**
+| | Amount |
+|---|--------|
+| Gross | €500.00 |
+| PAYE | (€488.48) — negative = refund |
+| PRSI | (€20.00) |
+| USC | (€2.50) |
+| **Net** | **€966.02** |
+
+### Important: Refund Mechanism
+
+The refund comes from the EMPLOYER's payroll system:
+1. Employer deducts less PAYE (or negative PAYE) in the current period
+2. Employer pays Emma more this week
+3. Employer recovers the overpaid tax from Revenue through P30/P35
+
+### Common Exam Question
+
+Q: An employee has been on emergency tax for 3 weeks. Her RPN arrives in Week 4. Explain the refund.
+
+A: Under the cumulative system, the software calculates total tax due on cumulative earnings to Week 4 using her actual credits and SRCOP. It subtracts tax already paid under emergency. If cumulative tax due is less than what was paid, the difference is refunded as negative PAYE in Week 4.

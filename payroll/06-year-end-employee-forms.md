@@ -148,3 +148,84 @@ Both forms can be:
 | Wrong leaving date | Wrong RPN for new employer |
 | P60 not issued by deadline | Revenue penalty risk |
 | Incorrect tax basis on P45 | New employer uses wrong basis |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### P45 — Detailed Walkthrough
+
+**When to issue:** Employee leaves, dies, or reaches State Pension age.
+
+**P45 Copies:**
+
+```
+Copy A: Employer submits to Revenue
+Copy B: Employee gives to new employer
+Copy C: Employee keeps for records
+```
+
+**P45 Layout:**
+```
+P45 — LEAVE CERTIFICATE
+Employee Name:     Thomas Murphy
+PPS Number:        1234567T
+Date of Leaving:   30/06/2026
+Tax Basis:         Cumulative
+
+INCOME TAX DETAILS
+Gross Pay to Date:         €20,800.00
+Tax Deducted to Date:      €2,860.00
+
+EMPLOYER DETAILS
+Reg Number:    12345A
+Name:          ABC Ltd
+```
+
+### P60 — Detailed Walkthrough
+
+**When to issue:** After year-end (by mid-February) to employees employed on 31 December.
+
+**P60 Layout:**
+```
+P60 — CERTIFICATE OF PAY
+Tax Year 2026
+
+Employee:     Sarah Murphy
+PPS Number:   2345678S
+
+Gross Pay:                 €32,000.00
+PAYE:                      €4,200.00
+PRSI (Employee):           €1,280.00
+USC:                       €460.00
+Total Deductions:          €5,940.00
+Net Pay:                   €26,060.00
+Employer PRSI:             €3,536.00
+
+Date Issued: 31/01/2027
+```
+
+### Digital P60s
+
+Many employers issue digital P60s (PDF via email or self-service portal). These are legally equivalent to paper.
+
+### Common P45/P60 Errors
+
+| Error | Who It Affects | Fix |
+|-------|---------------|-----|
+| Wrong PPS number | Employee cannot use for returns | Issue corrected form |
+| Wrong gross pay | Next employer uses wrong data | Recalculate, reissue |
+| Wrong leaving date | Wrong tax treatment | Check HR records |
+| P45 not issued within 2 weeks | Revenue penalty | Issue immediately |
+| P60 not issued by Feb deadline | Revenue penalty | Issue and notify Revenue |
+
+### Practice
+
+Employee leaves on 30 September (Week 39). Their records show:
+- Cum. Gross: €31,200
+- Cum. PAYE: €4,680
+- Cum. PRSI: €1,248
+- Cum. USC: €364
+
+Draft their P45 figures.

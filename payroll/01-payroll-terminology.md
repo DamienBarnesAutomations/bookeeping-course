@@ -73,3 +73,61 @@ Net Pay = Gross Pay − (PAYE + PRSI + USC + Other Deductions)
 | P35 (Annual) | Annual employer return to Revenue |
 | P60 (Annual) | End-of-year certificate for each employee |
 | P45 | Leaver certificate (given to employee on exit) |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### How PAYE Actually Works
+
+Revenue gives each employee:
+- A **tax credit** (e.g., €3,750/year) — a deduction from tax owed, NOT from income
+- A **standard rate cut-off point** (SRCOP) (e.g., €42,000/year) — income taxed at 20% up to this amount
+
+**Example:** Employee earning €45,000 with €3,750 credits and €42,000 SRCOP.
+
+```
+Tax calculation:
+  First €42,000 @ 20%        = €8,400.00
+  Remaining €3,000 @ 40%     = €1,200.00
+  Total gross tax             = €9,600.00
+  Less tax credits           (€3,750.00)
+  PAYE due                    = €5,850.00
+```
+
+The €3,750 tax credit reduces the tax from €9,600 to €5,850. It is NOT a deduction from the €45,000 salary.
+
+### Common Misconception
+
+"I earn €45,000 and have a €42,000 cut-off and €3,750 credit"
+
+Wrong: "I pay tax on €45,000 minus €42,000 = €3,000 at 40%, and €42,000 at 20%, less €3,750."
+Right: "I pay 20% on first €42,000 = €8,400, 40% on remaining €3,000 = €1,200. Total tax €9,600 less €3,750 credits = €5,850."
+
+### Revenue Payroll Notification (RPN) Explained
+
+The RPN is the modern replacement for the old Tax Credit Certificate (TCC).
+
+Flow:
+```
+Revenue -> (electronically) -> Employer's Payroll Software -> Applied to employee
+```
+
+What an RPN contains:
+- Employee's tax credits (e.g., €72.12/week)
+- Employee's SRCOP (e.g., €807.69/week)
+- Tax basis (Cumulative or Week 1)
+- PRSI class
+- USC rate bands
+- Any Revenue-ordered adjustments
+
+Without an RPN, the employer MUST use emergency tax. The employee ends up overtaxed and waits for a refund.
+
+### Practice
+
+Calculate PAYE for: Gross €38,000, SRCOP €42,000, Credits €3,750.
+
+Since €38,000 < €42,000, all taxed at 20%:
+Tax = €38,000 x 20% = €7,600
+Less credits = €7,600 - €3,750 = **€3,850 PAYE**

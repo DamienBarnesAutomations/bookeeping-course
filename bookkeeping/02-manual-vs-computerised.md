@@ -49,3 +49,43 @@
 | Growing business, many transactions | Computerised |
 | Student learning principles | Both — learn manual first, then computerised |
 | Tax/VAT compliance | Computerised (ROS integration) |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### When Manual Wins (Real Scenario)
+
+A small café with 20 transactions per month:
+- Manual: 1 hour/month, cost of a ledger book (€10)
+- Computerised: 30 min/month + software license (€300/yr) + training
+
+**Break-even:** Manual is cheaper at this volume. Computerised wins above ~500 transactions/month.
+
+### When Computerised Is Mandatory
+
+| Situation | Why |
+|-----------|-----|
+| ROS filing | Revenue requires electronic submission |
+| Monthly P30 filing | Software generates figures instantly |
+| More than 10 employees | Payroll calculations become complex |
+| Multi-VAT rates | Software prevents rate errors |
+| Audit trail required | Manual systems can't provide detailed audit logs |
+
+### Hybrid Approach (Best for Learning)
+
+1. **Learn manually first** — understand the principles
+2. **Do the same task in software** — verify your understanding
+3. **Reconcile both** — if they don't match, find out why
+
+### Common Error in Exam
+
+"State three advantages of a computerised system over a manual one."
+
+**Wrong answer:** "It's faster and more accurate." (Too vague — no specifics)
+
+**Good answer:**
+1. Auto-calculates VAT on each transaction, reducing calculation errors
+2. Automatically posts double entries, eliminating single-entry mistakes
+3. Generates trial balance instantly, allowing real-time financial monitoring

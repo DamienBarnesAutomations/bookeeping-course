@@ -126,3 +126,82 @@ The difference (€72.00) effectively refunds the extra tax paid in the first 15
 | Mid-year leaver | Generate P45 automatically |
 | Credit change | Software recalculates cumulative position |
 | Refund | Included automatically in next payslip |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Mid-Year Commencement
+
+Aoife starts work on 1 July (Week 27). Unemployed since January.
+
+**Details:** Weekly wage €700, annual credits €3,750, annual SRCOP €42,000.
+
+Even though Aoife earned nothing in Weeks 1-26, she gets full credits and SRCOP from Week 27 onwards.
+
+**Week 27 — first pay:**
+| | Amount |
+|---|--------|
+| Gross | €700.00 |
+| Cum. Gross | €700.00 |
+| Within SRCOP, all @ 20% | €140.00 |
+| Cum. Credits (€72.12) | (€72.12) |
+| **PAYE** | **€67.88** |
+| Net | €600.62 |
+
+Aoife gets her full year's credits spread over remaining weeks. She does not lose credits from weeks she was not working.
+
+### Mid-Year Leaving
+
+Tom leaves on 30 June (Week 26).
+
+**Payroll to date:** Cum. Gross €20,800, Cum. PAYE €2,860.
+
+**P45 shows:** Gross €20,800, Tax €2,860, Basis: Cumulative, Week 26.
+
+Tom starts new job in Week 32 earning €900/week.
+
+New employer enters P45 data. Cum. Gross b/f: €20,800, Cum. Tax b/f: €2,860.
+
+**Week 32:**
+| | Amount |
+|---|--------|
+| Gross this week | €900.00 |
+| Cum. Gross (20,800 + 900) | €21,700.00 |
+| Cum. SRCOP (32 x 807.69) | €25,846.08 |
+| Within SRCOP, all @ 20% | €4,340.00 |
+| Cum. Credits (32 x 72.12) | (€2,307.84) |
+| Cum. PAYE | €2,032.16 |
+| Less PAYE already paid (old job) | (€2,860.00) |
+| **PAYE Week 32** | **-€827.84 — refund!** |
+
+Tom gets a refund because new cumulative calculation shows he overpaid tax at old job relative to combined earnings.
+
+### Change in Credits
+
+Mary gets married in Week 20. Credits change from single (€1,875) to married (€3,750).
+
+**Before (Weeks 1-19):** Weekly credit €36.06, total used: €685.14
+
+**After (Week 20+):** New weekly credit €72.12, but cumulative catch-up backdates to January.
+
+Cum. credits available by Week 20: 20 x 72.12 = €1,442.40
+Already used: €685.14
+Credits available this week: €1,442.40 - €685.14 = **€757.26**
+
+**Week 20 PAYE (€800 gross):**
+| | Amount |
+|---|--------|
+| Cum. Gross (800 x 20) | €16,000.00 |
+| Tax @ 20% | €3,200.00 |
+| Cum. Credits avail | (€1,442.40) |
+| Cum. PAYE | €1,757.60 |
+| Less PAYE paid wks 1-19 | (€2,480.00) |
+| **PAYE Week 20** | **-€722.40 — refund!** |
+
+Massive refund because extra credits are backdated.
+
+### Practice
+
+An employee starts a second job in Week 16 earning €500/week. She has used €1,200 of her €3,750 credits in her main job. Explain how the credits are allocated.

@@ -134,3 +134,85 @@ Example: ABC Ltd — Backup — 31-01-2026 — V1
 | Store off-site copy | |
 | Document in backup log | |
 | Test restore procedure | |
+
+
+---
+
+## Worked Examples & Deep Dive
+
+### Key Financial Statements — More Detail
+
+**Profit and Loss Account Layout:**
+```
+Sales                                 €100,000
+Less: Cost of Sales
+  Opening Stock                        €10,000
+  Purchases                            €60,000
+  Less: Closing Stock                 (€15,000)
+  Cost of Sales                       (€55,000)
+Gross Profit                           €45,000
+Less: Expenses
+  Wages                               €20,000
+  Rent                                 €12,000
+  Insurance                            €2,000
+  Depreciation                        €3,000
+  Total Expenses                      (€37,000)
+Net Profit                             €8,000
+```
+
+**Balance Sheet Layout:**
+```
+Non-Current Assets
+  Equipment                            €20,000
+  Less: Depreciation                  (€3,000)     €17,000
+
+Current Assets
+  Stock                                €15,000
+  Debtors                              €12,000
+  Bank                                 €8,000      €35,000
+
+Current Liabilities
+  Creditors                           (€10,000)
+  VAT Payable                         (€4,000)    (€14,000)
+
+Working Capital                                   €21,000
+
+Net Assets                                        €38,000
+
+Financed By:
+  Capital (Opening)                                €30,000
+  Plus: Net Profit                                 €8,000
+  Less: Drawings                                  (€6,000)
+  Capital (Closing)                                €32,000
+  Long-term Loan                                   €6,000
+                                                   €38,000
+```
+
+### Backup Strategy for a Small Business
+
+| Backup | Frequency | Medium | Location | Restore Time |
+|--------|-----------|--------|----------|-------------|
+| Daily | Every night | Cloud | Off-site | 1 hour |
+| Weekly | Friday | External HDD | Office safe | 2 hours |
+| Monthly | Month-end | USB | Bank safe deposit box | 3 hours |
+
+### What to Keep for 6 Years (Revenue Requirement)
+
+- Daybooks (Sales, Purchases, Cash Book, Petty Cash)
+- Ledgers (all accounts)
+- Trial balances
+- VAT returns and supporting calculations
+- Bank statements
+- Invoices and credit notes (issued and received)
+- Bank Reconciliation Statements
+- Fixed asset register
+- Payroll records (if applicable)
+
+### Backup Verification Checklist
+
+- [ ] Can the backup file be opened?
+- [ ] Is the file size consistent with expected data volume?
+- [ ] Does a test restore work on a different computer?
+- [ ] Is the backup date-stamped and labelled?
+- [ ] Is the off-site copy updated?
+- [ ] Is the backup password-protected (if sensitive)?
