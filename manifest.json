@@ -336,6 +336,11 @@
           "filename": "paye-calculator",
           "path": "tools/paye-calculator",
           "title": "Live PAYE Calculator"
+        },
+        {
+          "filename": "test-builder",
+          "path": "tools/test-builder",
+          "title": "Test Builder — Custom Mixed-LO Exam"
         }
       ]
     }

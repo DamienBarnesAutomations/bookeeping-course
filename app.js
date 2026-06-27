@@ -445,6 +445,7 @@ async function renderCurrentLesson() {
     if (path === 'tools/payroll-worksheet') { renderPayrollWorksheet(); return; }
     if (path === 'tools/bank-rec-practice') { renderBankRecPractice(); return; }
     if (path === 'tools/full-project') { renderInteractiveProject(); return; }
+    if (path === 'tools/test-builder') { renderTestBuilder(); return; }
 
     renderArea.innerHTML = `
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 0; color: var(--text-secondary);">
@@ -2569,4 +2570,426 @@ async function renderInteractiveProject() {
 
     // Initial render
     buildShell(0);
+}
+
+// =============================================
+// TEST BUILDER
+// =============================================
+async function renderTestBuilder() {
+    const renderArea = document.getElementById('renderedMarkdown');
+    document.getElementById('readerToc').style.display = 'none';
+    document.getElementById('interactiveModeContainer').style.display = 'none';
+    document.getElementById('resetInteractiveBtn').style.display = 'none';
+    updateBreadcrumbs('Interactive Tools', 'Test Builder');
+    setupMarkReadBtn(state.currentPath);
+
+    renderArea.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;padding:80px 0"><div class="spinner" style="width:36px;height:36px"></div></div>`;
+
+    const bankData = await fetch('./tools/question-bank.json').then(r => r.json());
+
+    const LO_META = [
+        { key: 'bk-01', label: 'BK1 — Bookkeeping Terminology',     module: 'bk' },
+        { key: 'bk-02', label: 'BK2 — Manual vs Computerised',       module: 'bk' },
+        { key: 'bk-03', label: 'BK3 — Books of First Entry',         module: 'bk' },
+        { key: 'bk-04', label: 'BK4 — Posting to Ledgers',           module: 'bk' },
+        { key: 'bk-05', label: 'BK5 — Trial Balance',                module: 'bk' },
+        { key: 'bk-06', label: 'BK6 — Bank Reconciliation',          module: 'bk' },
+        { key: 'bk-07', label: 'BK7 — VAT Return',                   module: 'bk' },
+        { key: 'bk-08', label: 'BK8 — Computerised Processing',      module: 'bk' },
+        { key: 'bk-09', label: 'BK9 — Error Correction',             module: 'bk' },
+        { key: 'bk-10', label: 'BK10 — Reports & Backup',            module: 'bk' },
+        { key: 'py-01', label: 'PY1 — Payroll Terminology',          module: 'py' },
+        { key: 'py-02', label: 'PY2 — Manual vs Computerised',       module: 'py' },
+        { key: 'py-03', label: 'PY3 — Cumulative Tax System',        module: 'py' },
+        { key: 'py-04', label: 'PY4 — Emergency Tax',                module: 'py' },
+        { key: 'py-05', label: 'PY5 — Changes in Personal Tax',      module: 'py' },
+        { key: 'py-06', label: 'PY6 — Year-End Forms',               module: 'py' },
+        { key: 'py-07', label: 'PY7 — Revenue Returns',              module: 'py' },
+        { key: 'py-08', label: 'PY8 — Married Assessment',           module: 'py' },
+        { key: 'py-09', label: 'PY9 — Employment Legislation',       module: 'py' },
+        { key: 'py-10', label: 'PY10 — Payroll Reports & Backup',    module: 'py' },
+    ];
+
+    const tbState = {
+        phase: 'config',
+        bank: bankData.questions,
+        selectedLOs: new Set(),
+        questionCount: 20,
+        questions: [],
+        current: 0,
+        answers: [],
+        answered: false
+    };
+
+    function isLOCompleted(loKey) {
+        const [mod, num] = loKey.split('-');
+        const prefix = mod === 'bk' ? 'bookkeeping' : 'payroll';
+        const n = num.padStart(2, '0');
+        const f = state.manifest.categories[prefix]?.files.find(f => f.path.includes(`${prefix}/${n}-`));
+        return f ? state.completedLessons.includes(f.path) : false;
+    }
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function drawQuestions() {
+        const pool = tbState.bank.filter(q => tbState.selectedLOs.has(q.lo));
+        const byLO = {};
+        for (const lo of tbState.selectedLOs) byLO[lo] = [];
+        pool.forEach(q => { if (byLO[q.lo]) byLO[q.lo].push(q); });
+
+        const loList = [...tbState.selectedLOs];
+        const available = pool.length;
+        const n = Math.min(tbState.questionCount, available);
+        const base = Math.floor(n / loList.length);
+        let remainder = n % loList.length;
+
+        let drawn = [];
+        loList.forEach((lo, idx) => {
+            const take = base + (idx < remainder ? 1 : 0);
+            const shuffled = shuffle(byLO[lo]);
+            drawn.push(...shuffled.slice(0, Math.min(take, shuffled.length)));
+        });
+        tbState.questions = shuffle(drawn);
+    }
+
+    // ── PHASE 1: CONFIG ──────────────────────────────────────
+
+    function renderConfig() {
+        tbState.phase = 'config';
+        LO_META.forEach(lo => { if (isLOCompleted(lo.key)) tbState.selectedLOs.add(lo.key); });
+
+        function loCardHtml(lo) {
+            const checked = tbState.selectedLOs.has(lo.key);
+            const completed = isLOCompleted(lo.key);
+            return `<div class="tb-lo-card ${checked ? 'checked' : ''} ${!completed ? 'incomplete' : ''}" data-lo="${lo.key}">
+                <div class="tb-lo-check"></div>
+                <span class="tb-lo-label">${lo.label}</span>
+                ${!completed ? '<span class="tb-lo-badge">Not studied</span>' : ''}
+            </div>`;
+        }
+
+        renderArea.innerHTML = `
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2 style="font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;margin:0 0 6px">Test Builder</h2>
+                    <p style="color:var(--text-secondary);margin:0 0 20px">Select learning outcomes, choose a question count, then build your custom exam.</p>
+                </div>
+
+                <div class="tb-config-section">
+                    <div class="tb-config-header">
+                        <span class="tb-section-label">Bookkeeping (5N1354)</span>
+                        <button class="btn btn-outline tb-quick-btn" data-action="all-bk">All BK</button>
+                    </div>
+                    <div class="tb-lo-grid">${LO_META.filter(l => l.module === 'bk').map(loCardHtml).join('')}</div>
+                </div>
+
+                <div class="tb-config-section">
+                    <div class="tb-config-header">
+                        <span class="tb-section-label">Payroll (5N1546)</span>
+                        <button class="btn btn-outline tb-quick-btn" data-action="all-py">All PY</button>
+                    </div>
+                    <div class="tb-lo-grid">${LO_META.filter(l => l.module === 'py').map(loCardHtml).join('')}</div>
+                </div>
+
+                <div class="tb-config-footer">
+                    <button class="btn btn-outline tb-quick-btn" data-action="clear">Clear All</button>
+                    <div class="tb-count-group">
+                        <span class="tb-section-label">Questions:</span>
+                        ${[10, 20, 30].map(n => `<button class="tb-count-pill ${tbState.questionCount === n ? 'active' : ''}" data-count="${n}">${n}</button>`).join('')}
+                    </div>
+                    <button class="btn btn-primary" id="tbBuildBtn" disabled>
+                        <i data-lucide="play"></i> Build Test
+                    </button>
+                </div>
+            </div>`;
+
+        renderArea.querySelectorAll('.tb-lo-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const lo = card.dataset.lo;
+                if (tbState.selectedLOs.has(lo)) { tbState.selectedLOs.delete(lo); card.classList.remove('checked'); }
+                else { tbState.selectedLOs.add(lo); card.classList.add('checked'); }
+                updateBuildBtn();
+            });
+        });
+
+        renderArea.querySelectorAll('.tb-quick-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                if (action === 'all-bk') LO_META.filter(l => l.module === 'bk').forEach(l => tbState.selectedLOs.add(l.key));
+                if (action === 'all-py') LO_META.filter(l => l.module === 'py').forEach(l => tbState.selectedLOs.add(l.key));
+                if (action === 'clear') tbState.selectedLOs.clear();
+                renderArea.querySelectorAll('.tb-lo-card').forEach(c => {
+                    c.classList.toggle('checked', tbState.selectedLOs.has(c.dataset.lo));
+                });
+                updateBuildBtn();
+            });
+        });
+
+        renderArea.querySelectorAll('.tb-count-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                tbState.questionCount = parseInt(pill.dataset.count);
+                renderArea.querySelectorAll('.tb-count-pill').forEach(p => p.classList.toggle('active', p === pill));
+            });
+        });
+
+        document.getElementById('tbBuildBtn').addEventListener('click', () => {
+            drawQuestions();
+            tbState.current = 0;
+            tbState.answers = [];
+            tbState.answered = false;
+            renderQuestion();
+        });
+
+        updateBuildBtn();
+        lucide.createIcons();
+        document.querySelector('.app-main').scrollTop = 0;
+    }
+
+    function updateBuildBtn() {
+        const btn = document.getElementById('tbBuildBtn');
+        if (!btn) return;
+        const has = tbState.selectedLOs.size > 0;
+        btn.disabled = !has;
+        btn.innerHTML = has
+            ? `<i data-lucide="play"></i> Build Test (${tbState.selectedLOs.size} LO${tbState.selectedLOs.size > 1 ? 's' : ''})`
+            : `<i data-lucide="play"></i> Build Test`;
+        lucide.createIcons();
+    }
+
+    // ── PHASE 2: QUESTION ────────────────────────────────────
+
+    function renderQuestion() {
+        tbState.phase = 'test';
+        tbState.answered = false;
+        if (tbState.current >= tbState.questions.length) { renderResults(); return; }
+
+        const q = tbState.questions[tbState.current];
+        const progress = Math.round((tbState.current / tbState.questions.length) * 100);
+        const loMeta = LO_META.find(l => l.key === q.lo);
+        const isLast = tbState.current + 1 >= tbState.questions.length;
+
+        let inputHtml = '';
+        if (q.type === 'mcq') {
+            inputHtml = `<div class="quiz-options">${q.options.map((opt, i) =>
+                `<button class="quiz-option" data-idx="${i}">
+                    <span class="quiz-option-letter">${String.fromCharCode(65 + i)}</span>
+                    <span>${opt}</span>
+                </button>`).join('')}</div>`;
+        } else if (q.type === 'true-false') {
+            inputHtml = `<div class="tb-tf-group">
+                <button class="tb-tf-btn" data-val="true">True</button>
+                <button class="tb-tf-btn" data-val="false">False</button>
+            </div>`;
+        } else if (q.type === 'select-all') {
+            inputHtml = `<p class="tb-sa-hint">Select all that apply, then click Submit.</p>
+                <div class="tb-sa-group">${q.options.map((opt, i) =>
+                    `<label class="tb-select-all-opt">
+                        <input type="checkbox" data-idx="${i}"> <span>${opt}</span>
+                    </label>`).join('')}</div>
+                <div id="tbSubmitWrap" style="margin-bottom:16px">
+                    <button class="btn btn-outline" id="tbSubmitSA">Submit Answer</button>
+                </div>`;
+        } else if (q.type === 'numeric') {
+            inputHtml = `<div class="tb-numeric-wrap">
+                ${q.prefix ? `<span class="tb-numeric-prefix">${q.prefix}</span>` : ''}
+                <input type="number" id="tbNumericInput" step="0.01" placeholder="Enter answer">
+            </div>
+            <div id="tbNumericError" style="color:#ef4444;font-size:0.8rem;margin-bottom:8px;display:none">Please enter a number.</div>
+            <div id="tbSubmitWrap" style="margin-bottom:16px">
+                <button class="btn btn-outline" id="tbSubmitNum">Submit Answer</button>
+            </div>`;
+        }
+
+        renderArea.innerHTML = `
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                        <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600">Question ${tbState.current + 1} of ${tbState.questions.length}</span>
+                        <span class="tb-lo-tag">${(loMeta?.label || q.lo).split('—')[0].trim()}</span>
+                    </div>
+                    <div class="quiz-progress-track">
+                        <div class="quiz-progress-fill" style="width:${progress}%"></div>
+                    </div>
+                </div>
+                <div class="quiz-question-card">
+                    <p class="quiz-question-text">${q.question}</p>
+                    ${inputHtml}
+                    <div class="quiz-explanation" id="quizExplanation" style="display:none"></div>
+                    <div id="quizNextAction" style="display:none;margin-top:16px">
+                        <button class="btn btn-primary" id="tbNextBtn">
+                            ${isLast ? 'See Results' : 'Next →'}
+                            <i data-lucide="${isLast ? 'bar-chart-2' : 'arrow-right'}"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>`;
+
+        if (q.type === 'mcq') {
+            renderArea.querySelectorAll('.quiz-option').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (tbState.answered) return;
+                    tbState.answered = true;
+                    const idx = parseInt(btn.dataset.idx);
+                    const correct = idx === q.answer;
+                    tbState.answers.push({ id: q.id, lo: q.lo, correct });
+                    renderArea.querySelectorAll('.quiz-option').forEach((b, i) => {
+                        b.disabled = true;
+                        if (i === q.answer) b.classList.add('correct');
+                        else if (i === idx && !correct) b.classList.add('incorrect');
+                    });
+                    showExplanation(correct, q.explanation);
+                });
+            });
+        } else if (q.type === 'true-false') {
+            renderArea.querySelectorAll('.tb-tf-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (tbState.answered) return;
+                    tbState.answered = true;
+                    const selected = btn.dataset.val === 'true';
+                    const correct = selected === q.answer;
+                    tbState.answers.push({ id: q.id, lo: q.lo, correct });
+                    renderArea.querySelectorAll('.tb-tf-btn').forEach(b => {
+                        b.disabled = true;
+                        const bVal = b.dataset.val === 'true';
+                        if (bVal === q.answer) b.classList.add('tb-tf-correct');
+                        else if (bVal === selected && !correct) b.classList.add('tb-tf-incorrect');
+                    });
+                    showExplanation(correct, q.explanation);
+                });
+            });
+        } else if (q.type === 'select-all') {
+            document.getElementById('tbSubmitSA')?.addEventListener('click', () => {
+                if (tbState.answered) return;
+                tbState.answered = true;
+                const selected = new Set([...renderArea.querySelectorAll('.tb-sa-group input:checked')].map(cb => parseInt(cb.dataset.idx)));
+                const correctSet = new Set(q.answers);
+                const correct = correctSet.size === selected.size && [...correctSet].every(v => selected.has(v));
+                tbState.answers.push({ id: q.id, lo: q.lo, correct });
+                renderArea.querySelectorAll('.tb-select-all-opt input').forEach(cb => {
+                    cb.disabled = true;
+                    const i = parseInt(cb.dataset.idx);
+                    const label = cb.closest('.tb-select-all-opt');
+                    if (correctSet.has(i)) label.classList.add('tb-sa-correct');
+                    else if (selected.has(i)) label.classList.add('tb-sa-incorrect');
+                });
+                document.getElementById('tbSubmitWrap').style.display = 'none';
+                showExplanation(correct, q.explanation);
+            });
+        } else if (q.type === 'numeric') {
+            document.getElementById('tbSubmitNum')?.addEventListener('click', () => {
+                if (tbState.answered) return;
+                const raw = document.getElementById('tbNumericInput').value;
+                const val = parseFloat(raw);
+                if (isNaN(val)) { document.getElementById('tbNumericError').style.display = 'block'; return; }
+                tbState.answered = true;
+                const correct = Math.abs(val - q.answer) <= (q.tolerance ?? 0.5);
+                tbState.answers.push({ id: q.id, lo: q.lo, correct });
+                document.getElementById('tbNumericInput').disabled = true;
+                document.getElementById('tbSubmitWrap').style.display = 'none';
+                const note = correct ? null : `Correct answer: ${q.prefix || ''}${q.answer.toLocaleString('en-IE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                showExplanation(correct, q.explanation, note);
+            });
+            document.getElementById('tbNumericInput')?.addEventListener('keydown', e => {
+                if (e.key === 'Enter') document.getElementById('tbSubmitNum')?.click();
+            });
+        }
+
+        lucide.createIcons();
+        document.querySelector('.app-main').scrollTop = 0;
+    }
+
+    function showExplanation(correct, explanation, extra = null) {
+        const el = document.getElementById('quizExplanation');
+        el.className = `quiz-explanation ${correct ? 'correct-exp' : 'incorrect-exp'}`;
+        el.style.display = 'block';
+        el.innerHTML = `<strong>${correct ? '✓ Correct!' : '✗ Incorrect'}</strong> ${explanation}${extra ? `<p style="margin-top:8px;font-weight:600">${extra}</p>` : ''}`;
+        const nextWrap = document.getElementById('quizNextAction');
+        nextWrap.style.display = 'block';
+        document.getElementById('tbNextBtn').addEventListener('click', () => {
+            tbState.current++;
+            renderQuestion();
+        });
+        lucide.createIcons();
+    }
+
+    // ── PHASE 3: RESULTS ─────────────────────────────────────
+
+    function renderResults() {
+        tbState.phase = 'results';
+        const total = tbState.answers.length;
+        const correct = tbState.answers.filter(a => a.correct).length;
+        const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+        const passed = pct >= 70;
+
+        const loStats = {};
+        tbState.selectedLOs.forEach(lo => { loStats[lo] = { correct: 0, total: 0 }; });
+        tbState.answers.forEach(a => {
+            if (!loStats[a.lo]) loStats[a.lo] = { correct: 0, total: 0 };
+            loStats[a.lo].total++;
+            if (a.correct) loStats[a.lo].correct++;
+        });
+
+        const breakdownRows = LO_META.filter(lo => loStats[lo.key]?.total > 0).map(lo => {
+            const s = loStats[lo.key];
+            const p = Math.round((s.correct / s.total) * 100);
+            return `<tr class="tb-lo-row ${p < 50 ? 'tb-revisit' : ''}">
+                <td>${lo.label}</td>
+                <td style="text-align:center">${s.correct}/${s.total}</td>
+                <td style="text-align:center">${p}%</td>
+                <td style="text-align:center">${p < 50 ? '<span class="tb-revisit-badge">Revisit</span>' : '✓'}</td>
+            </tr>`;
+        }).join('');
+
+        renderArea.innerHTML = `
+            <div class="quiz-score-card">
+                <div class="score-circle ${passed ? 'pass' : 'fail'}" style="display:flex;align-items:center;justify-content:center;margin:0 auto 24px">${pct}%</div>
+                <h2 style="font-family:'Outfit',sans-serif;margin:0 0 8px">${passed ? 'Test Passed!' : 'Keep Studying!'}</h2>
+                <p style="color:var(--text-secondary);margin:0 0 24px">You scored <strong>${correct} of ${total}</strong> questions correctly.</p>
+                <div class="score-breakdown">
+                    <div class="score-stat"><div class="score-stat-value" style="color:var(--accent-success)">${correct}</div><div class="score-stat-label">Correct</div></div>
+                    <div class="score-stat"><div class="score-stat-value" style="color:#ef4444">${total - correct}</div><div class="score-stat-label">Incorrect</div></div>
+                    <div class="score-stat"><div class="score-stat-value" style="color:var(--accent-primary)">70%</div><div class="score-stat-label">Pass Mark</div></div>
+                </div>
+                <div class="tb-lo-breakdown">
+                    <h3>Per Learning Outcome</h3>
+                    <table>
+                        <thead><tr><th>Learning Outcome</th><th>Score</th><th>%</th><th>Status</th></tr></thead>
+                        <tbody>${breakdownRows}</tbody>
+                    </table>
+                </div>
+                <div class="score-actions" style="margin-top:24px">
+                    <button class="btn btn-outline" id="tbRetakeBtn"><i data-lucide="rotate-ccw"></i> Retake Same Test</button>
+                    <button class="btn btn-primary" id="tbNewBtn"><i data-lucide="settings"></i> Build New Test</button>
+                </div>
+            </div>`;
+
+        document.getElementById('tbRetakeBtn').addEventListener('click', () => {
+            for (let i = tbState.questions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [tbState.questions[i], tbState.questions[j]] = [tbState.questions[j], tbState.questions[i]];
+            }
+            tbState.current = 0;
+            tbState.answers = [];
+            tbState.answered = false;
+            renderQuestion();
+        });
+
+        document.getElementById('tbNewBtn').addEventListener('click', () => {
+            tbState.selectedLOs.clear();
+            tbState.questionCount = 20;
+            renderConfig();
+        });
+
+        lucide.createIcons();
+        document.querySelector('.app-main').scrollTop = 0;
+    }
+
+    renderConfig();
 }

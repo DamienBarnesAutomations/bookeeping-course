@@ -1,0 +1,1283 @@
+{
+  "questions": [
+
+    { "id": "bk01-001", "lo": "bk-01", "module": "bookkeeping", "type": "mcq",
+      "question": "A business purchases goods on credit from a supplier. Which of the following correctly describes the effect on the accounting equation?",
+      "options": ["Assets decrease and liabilities decrease by the same amount", "Assets only increase with no change to liabilities", "Assets increase (stock) and liabilities increase (creditor) by the same amount", "Capital decreases and assets decrease by the same amount"],
+      "answer": 2, "explanation": "Buying on credit increases Stock/Inventory (an asset) and increases Creditors (a liability) by the same amount. The equation Assets = Liabilities + Capital remains balanced." },
+
+    { "id": "bk01-002", "lo": "bk-01", "module": "bookkeeping", "type": "true-false",
+      "question": "A debtor is a person or business that the company owes money to.",
+      "answer": false, "explanation": "A debtor owes money TO the business (e.g., a customer who bought on credit). A creditor is someone the business owes money to (e.g., a supplier). This is a very common mix-up." },
+
+    { "id": "bk01-003", "lo": "bk-01", "module": "bookkeeping", "type": "mcq",
+      "question": "Which of the following is NOT a source document used in bookkeeping?",
+      "options": ["Sales invoice", "Bank statement", "Trial balance", "Credit note"],
+      "answer": 2, "explanation": "A trial balance is an internal accounting report, not a source document. Source documents are the original records of transactions: invoices, bank statements, receipts, credit notes — these originate from external parties or payment systems." },
+
+    { "id": "bk01-004", "lo": "bk-01", "module": "bookkeeping", "type": "true-false",
+      "question": "Capital is classified on the credit side of the accounting equation because, from the business's perspective, it is money owed back to the owner.",
+      "answer": true, "explanation": "Applying the entity concept, the business is separate from its owner. Capital contributed by the owner is money the business owes back to the owner, so it sits on the liability (credit) side: Assets = Liabilities + Capital." },
+
+    { "id": "bk01-005", "lo": "bk-01", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are examples of current assets? Select all that apply.",
+      "options": ["Bank balance", "Trade debtors", "Motor vehicles", "Prepaid expenses"],
+      "answers": [0, 1, 3], "explanation": "Bank balances, trade debtors, and prepaid expenses are current assets (expected to convert to cash within 12 months). Motor vehicles are non-current (fixed) assets — they are long-term and not quickly converted to cash." },
+
+    { "id": "bk01-006", "lo": "bk-01", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery has total assets of €45,000 and total liabilities of €18,000. What is the owner's capital?",
+      "options": ["€63,000", "€27,000", "€18,000", "€45,000"],
+      "answer": 1, "explanation": "Capital = Assets − Liabilities = €45,000 − €18,000 = €27,000. Rearranging the fundamental equation: Assets = Liabilities + Capital → Capital = Assets − Liabilities." },
+
+    { "id": "bk01-007", "lo": "bk-01", "module": "bookkeeping", "type": "numeric",
+      "question": "A business has total assets of €32,500 and owner's capital of €19,800. What are its total liabilities? Enter the amount in euros.",
+      "answer": 12700, "tolerance": 1, "prefix": "€", "explanation": "Liabilities = Assets − Capital = €32,500 − €19,800 = €12,700. This rearrangement of Assets = Liabilities + Capital is one of the most common exam calculations." },
+
+    { "id": "bk02-001", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "Which of the following is a key advantage of a computerised accounting system over a manual system?",
+      "options": ["Lower initial setup cost", "Automatic double-entry posting from a single transaction entry", "No risk of data loss", "Less need for trained staff"],
+      "answer": 1, "explanation": "In computerised systems, entering one transaction creates both sides of the double-entry automatically. Manual systems require the bookkeeper to post each entry individually — slower and more error-prone." },
+
+    { "id": "bk02-002", "lo": "bk-02", "module": "bookkeeping", "type": "true-false",
+      "question": "In a computerised accounting system, a full backup is only needed at the end of the financial year.",
+      "answer": false, "explanation": "Backups should be taken regularly — ideally daily or after every processing session. Hardware failure, ransomware, or accidental deletion can occur at any time. Waiting until year-end could mean losing months of data." },
+
+    { "id": "bk02-003", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "Sage 50 and QuickBooks are examples of:",
+      "options": ["Spreadsheet software", "Payroll-only software", "Double-entry computerised accounting packages", "Tax-filing software"],
+      "answer": 2, "explanation": "Sage 50 and QuickBooks are full double-entry bookkeeping/accounting software packages used by businesses to process transactions, maintain ledgers, generate reports, and produce financial statements." },
+
+    { "id": "bk02-004", "lo": "bk-02", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are disadvantages of a manual bookkeeping system? Select all that apply.",
+      "options": ["Time-consuming to post each entry individually", "Higher risk of arithmetic errors", "Cannot automatically generate VAT or aged debtor reports", "Always cheaper than computerised systems in the long run"],
+      "answers": [0, 1, 2], "explanation": "Manual systems are slow (A), prone to arithmetic error (B), and can't auto-generate reports (C). The claim that manual is always cheaper (D) is false — staff time is costly, and accounting software pays for itself quickly through efficiency gains." },
+
+    { "id": "bk02-005", "lo": "bk-02", "module": "bookkeeping", "type": "true-false",
+      "question": "An audit trail in a computerised accounting system records every transaction change, showing who made it and when.",
+      "answer": true, "explanation": "An audit trail is a key security and governance feature of computerised systems. It logs every entry, modification, and deletion with a timestamp and user ID — far easier to review than a manual ledger." },
+
+    { "id": "bk02-006", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "A business is setting up Sage 50 for the first time. What is the very first step before entering any transactions?",
+      "options": ["Enter all current-year transactions", "Set up the chart of accounts and opening balances", "Generate a trial balance", "Create a full backup"],
+      "answer": 1, "explanation": "The chart of accounts (the structured list of all ledger codes and names) must be configured and opening balances entered before any transactions can be correctly categorised or reported." },
+
+    { "id": "bk02-007", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "What does 'real-time processing' mean in a computerised accounting system?",
+      "options": ["Transactions are only processed at night in batches", "Transactions are processed and accounts updated immediately as they are entered", "The system processes only bank-related transactions instantly", "Reports are generated automatically at month-end"],
+      "answer": 1, "explanation": "Real-time processing means that as soon as a transaction is entered, all related accounts update immediately. This contrasts with batch processing, where transactions are collected and processed together at a scheduled time." },
+
+    { "id": "bk03-001", "lo": "bk-03", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery sells goods on credit to City Café — Invoice 202 for €738 (€600 net + 23% VAT). In which book of first entry is this recorded?",
+      "options": ["Cash Book (receipts side)", "Sales Day Book", "General Journal", "Petty Cash Book"],
+      "answer": 1, "explanation": "Credit sales are recorded in the Sales Day Book. The Cash Book only records cash/bank transactions. City Café hasn't paid yet — this is a credit transaction, so it goes in the Sales Day Book." },
+
+    { "id": "bk03-002", "lo": "bk-03", "module": "bookkeeping", "type": "true-false",
+      "question": "Cash sales and credit sales are both recorded in the Sales Day Book.",
+      "answer": false, "explanation": "Only CREDIT sales go in the Sales Day Book. Cash sales (where payment is received immediately) are recorded in the Cash Book on the receipts (debit) side — not in the Sales Day Book." },
+
+    { "id": "bk03-003", "lo": "bk-03", "module": "bookkeeping", "type": "mcq",
+      "question": "A business issues credit note CN01 to Hotel Plaza for €123 (€100 net + 23% VAT) for returned goods. Where is this recorded?",
+      "options": ["Purchases Returns Day Book", "Sales Day Book (as a negative entry)", "Sales Returns Day Book", "General Journal"],
+      "answer": 2, "explanation": "Credit notes issued TO customers (for returned goods or overcharges) go in the Sales Returns Day Book. The Purchases Returns Day Book is used when the business itself returns goods to a supplier." },
+
+    { "id": "bk03-004", "lo": "bk-03", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following transactions would appear in the Cash Book? Select all that apply.",
+      "options": ["Payment of wages by bank transfer", "Credit purchase from a supplier", "Cash sales lodged directly to the bank", "Receipt from a debtor by cheque"],
+      "answers": [0, 2, 3], "explanation": "The Cash Book records all bank and cash movements. Wages by bank transfer, cash sales lodged, and cheque receipts from debtors all move money through the bank. A credit purchase doesn't involve cash — it goes in the Purchases Day Book." },
+
+    { "id": "bk03-005", "lo": "bk-03", "module": "bookkeeping", "type": "true-false",
+      "question": "Under the imprest system of petty cash, the petty cash float is topped up at regular intervals to restore it to the same fixed amount.",
+      "answer": true, "explanation": "The imprest system works like this: a fixed float (e.g., €200) is established. At any time, receipts + remaining cash = the original float. At period-end, the float is reimbursed back to €200. This provides a simple, verifiable control mechanism." },
+
+    { "id": "bk03-006", "lo": "bk-03", "module": "bookkeeping", "type": "numeric",
+      "question": "Murphy's Bakery's Sales Day Book for March shows: Invoice 201 — Hotel Plaza €984 gross; Invoice 202 — City Café €738 gross. VAT is 23%. What is the total NET sales figure?",
+      "answer": 1400, "tolerance": 0.5, "prefix": "€", "explanation": "Net = Gross ÷ 1.23. Hotel Plaza: €984 ÷ 1.23 = €800. City Café: €738 ÷ 1.23 = €600. Total net = €800 + €600 = €1,400." },
+
+    { "id": "bk03-007", "lo": "bk-03", "module": "bookkeeping", "type": "mcq",
+      "question": "The General Journal is primarily used to record:",
+      "options": ["All credit sales transactions", "Transactions not covered by the specialised day books (e.g., corrections, depreciation, opening entries)", "All bank transactions", "All payroll transactions"],
+      "answer": 1, "explanation": "The General Journal (Journal Proper) handles transactions that don't fit the specialised books — corrections of errors, opening entries, depreciation, asset disposals, and other non-routine items." },
+
+    { "id": "bk04-001", "lo": "bk-04", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery pays wages of €900 by cheque (Chq 101). The correct double-entry posting is:",
+      "options": ["Debit Bank Account / Credit Wages Account", "Debit Wages Account / Credit Bank Account", "Debit Wages Account / Credit Capital Account", "Debit Sales Account / Credit Wages Account"],
+      "answer": 1, "explanation": "Wages is an expense — expenses increase with a Debit. The bank balance decreases — assets decrease with a Credit. So: DR Wages Account / CR Bank Account (Cash Book)." },
+
+    { "id": "bk04-002", "lo": "bk-04", "module": "bookkeeping", "type": "true-false",
+      "question": "In double-entry bookkeeping, every transaction is recorded as a debit in one account and a credit in another, with total debits always equalling total credits.",
+      "answer": true, "explanation": "This is the fundamental rule of double-entry bookkeeping. For every transaction, the debit amount equals the credit amount. The Trial Balance tests this equality across all accounts." },
+
+    { "id": "bk04-003", "lo": "bk-04", "module": "bookkeeping", "type": "mcq",
+      "question": "Hotel Plaza pays their outstanding debt of €1,230 by bank transfer. How is this posted?",
+      "options": ["DR Hotel Plaza Account / CR Bank Account", "DR Bank Account / CR Hotel Plaza Account", "DR Sales Account / CR Bank Account", "DR Bank Account / CR Sales Account"],
+      "answer": 1, "explanation": "When a debtor pays: the Bank (asset) increases → Debit Bank. The debtor's balance reduces (they owe less) → Credit Hotel Plaza's account. Money comes IN to the bank, and the debtor's debt goes OUT." },
+
+    { "id": "bk04-004", "lo": "bk-04", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following accounts have a normal CREDIT balance? Select all that apply.",
+      "options": ["Capital Account", "Sales Account", "Creditors Account", "Purchases Account"],
+      "answers": [0, 1, 2], "explanation": "Capital, Sales, and Creditors all increase on the credit side — they have normal credit balances. Purchases is an expense account that increases with debits, so it has a normal debit balance." },
+
+    { "id": "bk04-005", "lo": "bk-04", "module": "bookkeeping", "type": "numeric",
+      "question": "Flour Mills Ltd supplies goods on credit — Invoice FM23: €500 net + 23% VAT. What gross amount is credited to the Creditors — Flour Mills Ltd ledger account?",
+      "answer": 615, "tolerance": 0.5, "prefix": "€", "explanation": "Gross = Net × 1.23 = €500 × 1.23 = €615. The creditor's account is credited with the full gross (€615) because that is the total owed. The VAT portion (€115) is separately debited to VAT Control as Input VAT." },
+
+    { "id": "bk04-006", "lo": "bk-04", "module": "bookkeeping", "type": "true-false",
+      "question": "The Sales Ledger contains the personal accounts of all suppliers to whom the business owes money.",
+      "answer": false, "explanation": "The Sales Ledger (Debtors Ledger) contains accounts for CUSTOMERS who owe money to the business. Supplier accounts are in the Purchases Ledger (Creditors Ledger). This is a very common mix-up in exams." },
+
+    { "id": "bk04-007", "lo": "bk-04", "module": "bookkeeping", "type": "mcq",
+      "question": "Hotel Plaza's account: Opening debit balance €1,230; Invoice 201 adds €984 Dr; Credit Note CN01 reduces by €123 Cr; Payment received €1,230 Cr. What is the closing balance?",
+      "options": ["€0", "€984", "€861 Dr", "€1,107 Dr"],
+      "answer": 2, "explanation": "Opening €1,230 Dr + Invoice €984 Dr − Credit Note €123 Cr − Payment €1,230 Cr = (1,230 + 984) − (123 + 1,230) = 2,214 − 1,353 = €861 Dr. Hotel Plaza still owes €861." },
+
+    { "id": "bk05-001", "lo": "bk-05", "module": "bookkeeping", "type": "mcq",
+      "question": "What does a balanced Trial Balance actually prove?",
+      "options": ["There are no errors in the accounts", "All transactions have been recorded", "Total debits equal total credits", "The financial statements are accurate"],
+      "answer": 2, "explanation": "A Trial Balance only confirms that debit totals = credit totals. It does NOT prove error-free accounts — errors of omission, commission, principle, compensating errors, and complete reversals all leave the TB balanced." },
+
+    { "id": "bk05-002", "lo": "bk-05", "module": "bookkeeping", "type": "true-false",
+      "question": "A compensating error occurs when two equal and opposite errors cancel each other out, leaving the Trial Balance still balanced despite both errors existing.",
+      "answer": true, "explanation": "Compensating errors are hidden because they neutralise each other — e.g., overstating debits by €500 in one account and overstating credits by €500 in another. The TB balances but two mistakes are present." },
+
+    { "id": "bk05-003", "lo": "bk-05", "module": "bookkeeping", "type": "mcq",
+      "question": "Which type of error would NOT be revealed by an out-of-balance Trial Balance?",
+      "options": ["Posting a debit entry without a corresponding credit", "Recording a purchase of equipment in the Repairs expense account (error of principle)", "Adding a column incorrectly on one side only", "Posting €930 as €390 on the debit side only (transposition)"],
+      "answer": 1, "explanation": "An error of principle posts to the wrong ACCOUNT TYPE (e.g., asset treated as expense), but still records equal debits and credits — so the TB stays balanced. Options A, C, and D all create an imbalance because one side is wrong without a corresponding error on the other." },
+
+    { "id": "bk05-004", "lo": "bk-05", "module": "bookkeeping", "type": "select-all",
+      "question": "Which errors WOULD cause the Trial Balance to fail to balance? Select all that apply.",
+      "options": ["Transposition error on one side only (e.g., €390 instead of €930)", "Complete omission of a transaction from the books", "A debit entry posted without any corresponding credit", "Error of principle (correct amounts, wrong account type)"],
+      "answers": [0, 2], "explanation": "A one-sided transposition (A) and a single-sided posting (C) break the debit = credit balance. Complete omission (B) misses both sides equally, so the TB still balances. An error of principle (D) has equal debits and credits — just in the wrong accounts." },
+
+    { "id": "bk05-005", "lo": "bk-05", "module": "bookkeeping", "type": "numeric",
+      "question": "Murphy's Bakery's Trial Balance has total debit balances of €15,314. What must the total credit balances equal?",
+      "answer": 15314, "tolerance": 0, "prefix": "€", "explanation": "In a correctly prepared Trial Balance, total debits MUST equal total credits. If debits = €15,314 then credits = €15,314. Any difference signals an error in the books." },
+
+    { "id": "bk05-006", "lo": "bk-05", "module": "bookkeeping", "type": "true-false",
+      "question": "The Trial Balance includes both balance sheet accounts (assets, liabilities, capital) AND income statement accounts (sales, purchases, expenses).",
+      "answer": true, "explanation": "The Trial Balance extracts every ledger account balance — permanent accounts (assets, liabilities, capital) and temporary accounts (income, expenses). It is a complete snapshot of all account balances before preparing final accounts." },
+
+    { "id": "bk05-007", "lo": "bk-05", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery's Bank account shows a debit balance of €3,813 in the Trial Balance. This means:",
+      "options": ["The business owes the bank €3,813 (overdraft)", "The business has €3,813 in the bank", "Total bank payments were €3,813", "Total bank receipts were €3,813"],
+      "answer": 1, "explanation": "A debit balance in the Bank account means the business holds a positive balance of €3,813. An overdraft (the bank is owed money) would show as a credit balance in the Bank account on the Trial Balance." },
+
+    { "id": "bk06-001", "lo": "bk-06", "module": "bookkeeping", "type": "mcq",
+      "question": "An unpresented cheque is best described as:",
+      "options": ["A cheque on the bank statement but not yet in the Cash Book", "A cheque recorded in the Cash Book as a payment but not yet cleared on the bank statement", "A cheque received from a customer but not yet banked", "A cancelled or bounced cheque"],
+      "answer": 1, "explanation": "An unpresented cheque has been written out and recorded as a payment in the Cash Book, but the bank hasn't processed it yet — so it doesn't appear on the bank statement. It's a timing difference on the payment side." },
+
+    { "id": "bk06-002", "lo": "bk-06", "module": "bookkeeping", "type": "true-false",
+      "question": "Bank charges appearing on the bank statement should first be recorded in the Cash Book BEFORE preparing the Bank Reconciliation Statement.",
+      "answer": true, "explanation": "Items on the bank statement not yet in the Cash Book (bank charges, direct debits, interest) must be UPDATED in the Cash Book first. Only then is the revised Cash Book balance used in the Bank Reconciliation Statement." },
+
+    { "id": "bk06-003", "lo": "bk-06", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery's Cash Book shows a closing balance of €3,838. Bank charges of €25 appear on the statement but not in the Cash Book. What is the revised Cash Book balance after updating?",
+      "options": ["€3,863", "€3,813", "€3,838", "€3,800"],
+      "answer": 1, "explanation": "Bank charges are a payment not yet recorded in the Cash Book. Updated balance = €3,838 − €25 = €3,813. The balance decreases because bank charges reduce the bank balance." },
+
+    { "id": "bk06-004", "lo": "bk-06", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are TIMING DIFFERENCES shown in the Bank Reconciliation Statement? Select all that apply.",
+      "options": ["Unpresented cheques (in Cash Book, not yet on bank statement)", "Bank charges already updated in the Cash Book", "Uncleared lodgements (in Cash Book, not yet credited on the bank statement)", "Direct debits already recorded in the updated Cash Book"],
+      "answers": [0, 2], "explanation": "Timing differences in the BRS are items that exist in one record but not yet the other. Unpresented cheques (A) and uncleared lodgements (C) are the classic examples. Items already updated in the Cash Book (B, D) are already reconciled — they don't appear in the BRS." },
+
+    { "id": "bk06-005", "lo": "bk-06", "module": "bookkeeping", "type": "numeric",
+      "question": "Murphy's Bakery's bank statement shows a closing balance of €4,613. Cheque 104 for €800 (rent) is unpresented. Starting from the bank statement balance, calculate the reconciled amount.",
+      "answer": 3813, "tolerance": 0.5, "prefix": "€", "explanation": "Bank statement balance €4,613 − Unpresented Cheque 104 €800 = €3,813. This should match the updated Cash Book balance of €3,813, confirming the reconciliation is complete." },
+
+    { "id": "bk06-006", "lo": "bk-06", "module": "bookkeeping", "type": "true-false",
+      "question": "An uncleared lodgement (deposit in transit) is ADDED to the bank statement balance when preparing the Bank Reconciliation Statement.",
+      "answer": true, "explanation": "The standard format: Bank Statement Balance + Uncleared Lodgements − Unpresented Cheques = Updated Cash Book Balance. Uncleared lodgements are recorded in the Cash Book but not yet credited by the bank, so they're added to the statement balance to reconcile." },
+
+    { "id": "bk06-007", "lo": "bk-06", "module": "bookkeeping", "type": "mcq",
+      "question": "When a bank reconciliation does not balance after updating the Cash Book, you should:",
+      "options": ["Adjust the bank statement balance until they match", "Systematically check both the Cash Book and bank statement for missing entries or transposition errors", "Issue a correcting cheque to cover the difference", "Contact Revenue to report the discrepancy"],
+      "answer": 1, "explanation": "When the reconciliation fails, you work through both records methodically — checking for missing entries, transpositions, or double-postings. The bank statement is the authoritative external record; errors are in the books." },
+
+    { "id": "bk07-001", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
+      "question": "On the VAT3 return, T1 represents:",
+      "options": ["Total VAT on purchases (Input VAT)", "Total VAT on sales and supplies (Output VAT)", "Net VAT payable to Revenue", "Total sales excluding VAT"],
+      "answer": 1, "explanation": "T1 = Output VAT — VAT charged on sales and supplies the business makes. T2 = Input VAT (reclaimed on purchases). T3 = T1 − T2 when T1 > T2 (VAT payable). T4 = T2 − T1 when T2 > T1 (VAT repayable)." },
+
+    { "id": "bk07-002", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
+      "question": "VAT on sales returns (credit notes issued to customers) increases the T1 Output VAT figure on the VAT return.",
+      "answer": false, "explanation": "Sales returns REDUCE Output VAT. When a credit note is issued, VAT is refunded to the customer, so T1 decreases. Correct formula: T1 = VAT on sales + VAT on cash sales − VAT on sales returns." },
+
+    { "id": "bk07-003", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
+      "question": "Murphy's Bakery VAT Return for March: Sales Day Book VAT €322; Cash sales VAT €92; Sales Returns VAT €23; Purchases Day Book VAT €184. Calculate T3 — net VAT payable to Revenue.",
+      "answer": 207, "tolerance": 0.5, "prefix": "€", "explanation": "T1 (Output) = 322 + 92 − 23 = 391. T2 (Input) = 184. T3 = T1 − T2 = 391 − 184 = €207 payable to Revenue." },
+
+    { "id": "bk07-004", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery makes a cash sale for €492 gross (VAT already included at 23%). What is the VAT amount (T1 contribution)?",
+      "options": ["€113.16", "€92.00", "€400.00", "€113.76"],
+      "answer": 1, "explanation": "VAT included in a gross price = Gross × 23/123 = €492 × 23/123 = €92. Never multiply the gross by 23% directly — that gives €113.16 (wrong). The 23/123 formula extracts VAT from a VAT-inclusive price." },
+
+    { "id": "bk07-005", "lo": "bk-07", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are included as POSITIVE additions to T1 (Output VAT) on the VAT return? Select all that apply.",
+      "options": ["VAT on credit sales invoices", "VAT on cash sales lodged to the bank", "VAT on purchases from suppliers", "VAT on sales returns (credit notes issued)"],
+      "answers": [0, 1], "explanation": "T1 is VAT charged on sales — both credit sales and cash sales are positive contributions. VAT on purchases is T2 (Input VAT — a separate figure). VAT on sales returns REDUCES T1 (deducted, not added)." },
+
+    { "id": "bk07-006", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
+      "question": "A VAT-registered business must charge VAT on all goods and services it supplies, regardless of the nature of those goods or services.",
+      "answer": false, "explanation": "Not all supplies attract VAT. Some are exempt (financial services, education, medical), others are zero-rated (most food, children's clothes), and some are at reduced rates (e.g., 13.5% for construction). Only standard-rated and reduced-rate supplies result in a VAT charge." },
+
+    { "id": "bk07-007", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
+      "question": "A purchase invoice shows a gross (VAT-inclusive) amount of €1,230 at 23% VAT. What is the Input VAT (T2) amount that can be reclaimed?",
+      "answer": 230, "tolerance": 0.5, "prefix": "€", "explanation": "Input VAT = Gross × 23/123 = €1,230 × 23/123 = €230. The net purchase value is €1,000. Always use ×23/123 to extract VAT from a gross figure." },
+
+    { "id": "bk08-001", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
+      "question": "When setting up a new company in Sage 50, which must be configured FIRST before entering any transactions?",
+      "options": ["Customer contact details", "Chart of accounts and opening balances", "The current bank statement", "A backup schedule"],
+      "answer": 1, "explanation": "The chart of accounts is the structured list of all ledger codes (assets, liabilities, income, expenses). Opening balances bring the system up to date. Without these, transactions cannot be correctly categorised." },
+
+    { "id": "bk08-002", "lo": "bk-08", "module": "bookkeeping", "type": "true-false",
+      "question": "In Sage 50, entering a sales invoice automatically posts to the customer's account, the sales nominal account, AND the VAT control account — all from a single entry.",
+      "answer": true, "explanation": "This is the core advantage of integrated accounting software. One posted invoice simultaneously updates the debtors ledger, the sales account, and VAT control — no separate postings needed." },
+
+    { "id": "bk08-003", "lo": "bk-08", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following represent best practice for data backup in a computerised accounting system? Select all that apply.",
+      "options": ["Keep at least one backup copy offsite or in the cloud", "Back up after every processing session or daily", "Store all backups on the same hard drive as the software", "Test backups periodically to verify they can actually be restored"],
+      "answers": [0, 1, 3], "explanation": "Offsite/cloud backup (A) protects against fire and theft. Daily backups (B) minimise data loss. Testing (D) ensures backups work when needed. Storing all backups on the same drive (C) is dangerous — one hardware failure loses everything." },
+
+    { "id": "bk08-004", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
+      "question": "In Sage 50, which report shows all customers and the amounts they currently owe, broken down by age of debt?",
+      "options": ["Nominal Activity Report", "Aged Debtors Report", "Profit and Loss Account", "Bank Reconciliation Report"],
+      "answer": 1, "explanation": "The Aged Debtors Report lists all customers with outstanding balances, split by how long each amount has been owed (current, 30, 60, 90+ days). It is the key tool for credit control." },
+
+    { "id": "bk08-005", "lo": "bk-08", "module": "bookkeeping", "type": "true-false",
+      "question": "When using computerised accounting software, it is impossible to post a transaction to the wrong account because the software automatically assigns the correct account.",
+      "answer": false, "explanation": "Software prevents mathematical imbalances (debits ≠ credits) but cannot prevent posting to the WRONG account. You can enter a fixed asset as an expense, use the wrong VAT code, or miscategorise income. The software balances — it doesn't verify accounting judgement." },
+
+    { "id": "bk08-006", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
+      "question": "In Sage 50, what feature minimises the risk of posting purchase invoices to the wrong expense account?",
+      "options": ["Nominal Activity Report", "Default nominal code set on the supplier record", "Trial Balance", "Batch entry mode"],
+      "answer": 1, "explanation": "Setting a default nominal (expense) code on each supplier record means Sage automatically suggests the correct expense account when posting that supplier's invoices — reducing miscategorisation risk." },
+
+    { "id": "bk08-007", "lo": "bk-08", "module": "bookkeeping", "type": "numeric",
+      "question": "A business manually processes 120 purchase invoices per month (6 minutes each). Switching to Sage 50 reduces this to 2 minutes per invoice. How many hours per month are saved?",
+      "answer": 8, "tolerance": 0.1, "prefix": "", "explanation": "Time saved per invoice = 6 − 2 = 4 minutes. Total saved = 120 × 4 = 480 minutes ÷ 60 = 8 hours per month." },
+
+    { "id": "bk09-001", "lo": "bk-09", "module": "bookkeeping", "type": "mcq",
+      "question": "A transaction that has been completely missed from the books (not recorded on either side) is an example of:",
+      "options": ["Error of Commission", "Error of Omission", "Error of Principle", "Compensating Error"],
+      "answer": 1, "explanation": "An Error of Omission: the transaction is never entered at all. The Trial Balance still balances (both sides are missing equally), but the accounts are incomplete and don't reflect the full picture." },
+
+    { "id": "bk09-002", "lo": "bk-09", "module": "bookkeeping", "type": "true-false",
+      "question": "An error of principle occurs when a transaction is posted to the correct type of account but in the wrong amount.",
+      "answer": false, "explanation": "An error of principle means posting to the WRONG TYPE of account — e.g., treating a fixed asset purchase as an expense. Posting the right type but wrong amount is an 'error of original entry'. Error type is about account category, not amount." },
+
+    { "id": "bk09-003", "lo": "bk-09", "module": "bookkeeping", "type": "mcq",
+      "question": "A €15,000 purchase of a motor vehicle was accidentally posted to Repairs & Maintenance. The correcting journal entry is:",
+      "options": ["DR Repairs & Maintenance / CR Motor Vehicles €15,000", "DR Motor Vehicles / CR Repairs & Maintenance €15,000", "DR Sales / CR Motor Vehicles €15,000", "DR Motor Vehicles / CR Bank €15,000"],
+      "answer": 1, "explanation": "To correct: remove from the wrong account (CR Repairs & Maintenance to reduce it) and put it in the correct account (DR Motor Vehicles). This is the standard journal entry for correcting an error of principle." },
+
+    { "id": "bk09-004", "lo": "bk-09", "module": "bookkeeping", "type": "select-all",
+      "question": "Which errors would NOT be detected by an out-of-balance Trial Balance? Select all that apply.",
+      "options": ["Error of omission (transaction completely missed)", "Error of commission (wrong account, same account type)", "Single-sided posting (debit with no credit)", "Compensating errors (two equal and opposite errors)"],
+      "answers": [0, 1, 3], "explanation": "Errors of omission (A), commission (B), and compensating errors (D) all leave the TB balanced. Only a single-sided posting (C) creates an imbalance — one side of the entry is missing entirely." },
+
+    { "id": "bk09-005", "lo": "bk-09", "module": "bookkeeping", "type": "true-false",
+      "question": "A Suspense Account with a remaining balance on the Trial Balance indicates there is at least one unresolved error in the books.",
+      "answer": true, "explanation": "A Suspense Account temporarily holds entries where the correct account is unclear, or balances the TB while errors are investigated. An uncleared balance means an error (or errors totalling that amount) remains unresolved. It must be cleared before preparing final accounts." },
+
+    { "id": "bk09-006", "lo": "bk-09", "module": "bookkeeping", "type": "numeric",
+      "question": "A payment of €450 to a supplier was posted as €540 on both sides (cash book and creditor's account). What is the amount of the correcting journal entry?",
+      "answer": 90, "tolerance": 0.5, "prefix": "€", "explanation": "Overstatement = €540 − €450 = €90. Correction: DR Creditors Account €90 (reducing the overstatement) / CR Cash Book €90. The correcting amount is the difference, not the full original amount." },
+
+    { "id": "bk09-007", "lo": "bk-09", "module": "bookkeeping", "type": "mcq",
+      "question": "A sales invoice for €600 to City Café was posted to Hotel Plaza's account by mistake. This is an example of:",
+      "options": ["Error of Principle", "Error of Omission", "Error of Commission", "Error of Original Entry"],
+      "answer": 2, "explanation": "An Error of Commission: posted to the CORRECT TYPE of account (debtors ledger) but the WRONG specific account within that type. Both City Café and Hotel Plaza are debtors — the account type is right, but the wrong person was charged." },
+
+    { "id": "bk10-001", "lo": "bk-10", "module": "bookkeeping", "type": "mcq",
+      "question": "Which report shows all income and expenses over a period, resulting in a net profit or loss?",
+      "options": ["Balance Sheet", "Aged Creditors Report", "Profit and Loss Account (Income Statement)", "Trial Balance"],
+      "answer": 2, "explanation": "The Profit and Loss Account (Income Statement) shows: Revenue − Cost of Sales = Gross Profit; Gross Profit − Expenses = Net Profit/Loss. It covers a period of time. The Balance Sheet is a snapshot of assets/liabilities/capital at a point in time." },
+
+    { "id": "bk10-002", "lo": "bk-10", "module": "bookkeeping", "type": "true-false",
+      "question": "The Balance Sheet is sometimes described as a 'snapshot' because it shows the financial position of the business at a specific point in time, not over a period.",
+      "answer": true, "explanation": "The Balance Sheet (Statement of Financial Position) shows what the business OWNS (assets) and OWES (liabilities + capital) on ONE specific date. Unlike the P&L (which covers a trading period), it is a point-in-time picture." },
+
+    { "id": "bk10-003", "lo": "bk-10", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following reports would a credit controller use to manage overdue customer payments? Select all that apply.",
+      "options": ["Aged Debtors Report", "Customer Statements", "Aged Creditors Report", "Profit and Loss Account"],
+      "answers": [0, 1], "explanation": "The Aged Debtors Report (A) shows which customers owe money and how long it's been outstanding. Customer Statements (B) are sent to customers to show all transactions and the balance due — both are credit control tools. Aged Creditors (C) is about what the business owes; P&L (D) shows income/expenses." },
+
+    { "id": "bk10-004", "lo": "bk-10", "module": "bookkeeping", "type": "mcq",
+      "question": "Under GDPR, a business storing payroll records must:",
+      "options": ["Delete all payroll records after 12 months", "Store them securely and not retain them longer than legally required", "Keep them indefinitely in case of future audit", "Share them with third parties on request without restriction"],
+      "answer": 1, "explanation": "GDPR requires personal data (including payroll) to be stored securely, processed lawfully, and not kept longer than necessary. Irish tax law requires retention for at least 6 years; after that, records should be securely destroyed." },
+
+    { "id": "bk10-005", "lo": "bk-10", "module": "bookkeeping", "type": "true-false",
+      "question": "A VAT-registered business in Ireland must retain records relating to VAT for a minimum of 6 years.",
+      "answer": true, "explanation": "Revenue requires all books of account, invoices, and VAT records to be retained for a minimum of 6 years from the date of the last transaction to which they relate. This applies to VAT, payroll, and financial records." },
+
+    { "id": "bk10-006", "lo": "bk-10", "module": "bookkeeping", "type": "numeric",
+      "question": "A business has net profit of €28,500 and total revenue of €95,000. What is the Net Profit Margin as a percentage?",
+      "answer": 30, "tolerance": 0.5, "prefix": "", "explanation": "Net Profit Margin = (Net Profit ÷ Revenue) × 100 = (€28,500 ÷ €95,000) × 100 = 30%. This KPI shows how much of each euro of revenue ends up as profit after all costs." },
+
+    { "id": "bk10-007", "lo": "bk-10", "module": "bookkeeping", "type": "mcq",
+      "question": "An audit trail in an accounting system is best described as:",
+      "options": ["A route used by auditors to travel between office locations", "A log of every transaction, modification, and deletion with timestamps and user details", "A summary report generated at year-end for the auditor", "The chronological sequence of journal entries"],
+      "answer": 1, "explanation": "An audit trail records ALL data entry, changes, and deletions — who did it, what changed, and when. It enables management and auditors to trace any figure back to its source and is essential for fraud prevention and regulatory compliance." },
+
+    { "id": "py01-001", "lo": "py-01", "module": "payroll", "type": "mcq",
+      "question": "Gross pay is defined as:",
+      "options": ["An employee's take-home pay after all deductions", "Total earnings before any deductions", "Basic pay excluding overtime and bonuses", "Net pay plus employer PRSI"],
+      "answer": 1, "explanation": "Gross pay is TOTAL earnings before any deductions (PAYE, PRSI, USC, pension). Net pay (take-home) is what the employee actually receives AFTER all deductions are made." },
+
+    { "id": "py01-002", "lo": "py-01", "module": "payroll", "type": "true-false",
+      "question": "Employer PRSI is a cost deducted from the employee's gross pay.",
+      "answer": false, "explanation": "Employer PRSI is an ADDITIONAL cost paid by the employer ON TOP of the employee's gross pay — it is NOT deducted from the employee's wages. It is the employer's own social insurance contribution, separate from the employee's PRSI deduction." },
+
+    { "id": "py01-003", "lo": "py-01", "module": "payroll", "type": "mcq",
+      "question": "What is the purpose of a P60 form?",
+      "options": ["Issued when an employee leaves, summarising final pay", "An annual certificate showing total pay, PAYE, PRSI, and USC for the tax year", "Monthly return filed by the employer with Revenue", "Form used to claim a tax refund directly"],
+      "answer": 1, "explanation": "A P60 is issued by an employer to each employee at year-end (by 15 February). It summarises total gross pay, PAYE, PRSI, and USC for the full tax year. Employees use it for mortgage applications, tax refund claims, and social welfare." },
+
+    { "id": "py01-004", "lo": "py-01", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are deducted from an employee's gross pay to arrive at net pay? Select all that apply.",
+      "options": ["PAYE (Income Tax)", "Employee PRSI", "USC (Universal Social Charge)", "Employer PRSI"],
+      "answers": [0, 1, 2], "explanation": "PAYE, employee PRSI, and USC are all deducted FROM gross pay. Employer PRSI is paid BY the employer as an additional cost on top of gross pay — it does not reduce the employee's take-home pay." },
+
+    { "id": "py01-005", "lo": "py-01", "module": "payroll", "type": "true-false",
+      "question": "A tax credit of €1,000 reduces an employee's taxable income by €1,000.",
+      "answer": false, "explanation": "Tax credits reduce the TAX PAYABLE (not taxable income) by the full credit amount. A €1,000 tax credit reduces the PAYE bill by €1,000 — euro for euro. This is more valuable than a tax relief of the same amount, which only reduces income subject to tax." },
+
+    { "id": "py01-006", "lo": "py-01", "module": "payroll", "type": "numeric",
+      "question": "An employee earns €800 gross per week. Their weekly tax credit is €40 and all income is at the standard rate of 20%. Calculate their weekly PAYE (income tax) payable.",
+      "answer": 120, "tolerance": 0.5, "prefix": "€", "explanation": "Gross PAYE = €800 × 20% = €160. Less tax credit: €160 − €40 = €120 PAYE payable. Tax credits are deducted AFTER applying the rate to gross pay." },
+
+    { "id": "py01-007", "lo": "py-01", "module": "payroll", "type": "mcq",
+      "question": "A P45 form is issued:",
+      "options": ["Monthly by all employers to Revenue", "To an employee when they leave employment", "Annually to all employees at the end of the tax year", "When an employee has emergency tax applied"],
+      "answer": 1, "explanation": "A P45 is issued when an employee LEAVES employment. It shows their pay and deductions to the date of leaving. The employee gives Part 2 & 3 to their new employer to avoid emergency tax and be correctly set up on the cumulative basis." },
+
+    { "id": "py02-001", "lo": "py-02", "module": "payroll", "type": "mcq",
+      "question": "Thesaurus Payroll and Sage Payroll are examples of:",
+      "options": ["Bookkeeping software packages", "Spreadsheet applications", "Specialist payroll software packages", "HR management systems only"],
+      "answer": 2, "explanation": "Thesaurus Payroll (widely used in Ireland) and Sage Payroll are dedicated payroll software packages. They calculate PAYE, PRSI, and USC automatically, generate payslips, and produce Revenue returns via ROS." },
+
+    { "id": "py02-002", "lo": "py-02", "module": "payroll", "type": "true-false",
+      "question": "Payroll software automatically submits P30 returns directly to Revenue without any employer action required.",
+      "answer": false, "explanation": "Payroll software GENERATES the return and can export the data in the correct format, but the employer or their accountant must still log in to ROS and submit it. Software doesn't autonomously submit to Revenue without human action." },
+
+    { "id": "py02-003", "lo": "py-02", "module": "payroll", "type": "mcq",
+      "question": "The primary advantage of payroll software over manual calculation is:",
+      "options": ["It eliminates the need to keep payroll records", "Automatic, accurate calculation of PAYE, PRSI, and USC using current tax tables", "It never makes errors", "Employees can edit their own payslip details"],
+      "answer": 1, "explanation": "The core advantage is automatic calculation using current tax tables, eliminating manual arithmetic errors and ensuring compliance with correct rates and bands." },
+
+    { "id": "py02-004", "lo": "py-02", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are typically shown on a computerised payslip? Select all that apply.",
+      "options": ["Employee name and PPS number", "Gross pay breakdown (basic, overtime, bonus)", "Employer's PRSI contribution (for information)", "Net pay (take-home amount)"],
+      "answers": [0, 1, 2, 3], "explanation": "All four items typically appear on a payslip. PPS number identifies the employee. Gross pay breakdown shows the composition of pay. Employer PRSI is shown for transparency (though not deducted from the employee). Net pay is what the employee takes home." },
+
+    { "id": "py02-005", "lo": "py-02", "module": "payroll", "type": "true-false",
+      "question": "Payroll software can automatically generate the payroll journal entry (DR Wages / CR PAYE Payable / CR PRSI Payable / CR Bank) for import into the accounting system.",
+      "answer": true, "explanation": "Most payroll software can export the payroll journal in a format compatible with accounting packages like Sage 50. This eliminates manual posting and reduces the risk of bookkeeping errors following each payroll run." },
+
+    { "id": "py02-006", "lo": "py-02", "module": "payroll", "type": "numeric",
+      "question": "A business pays 8 employees weekly. Manual payroll takes 25 minutes per payslip. Payroll software processes the full payroll run in 15 minutes total. How many minutes per week are saved?",
+      "answer": 185, "tolerance": 1, "prefix": "", "explanation": "Manual time = 8 × 25 = 200 minutes. Software time = 15 minutes. Saving = 200 − 15 = 185 minutes per week." },
+
+    { "id": "py02-007", "lo": "py-02", "module": "payroll", "type": "mcq",
+      "question": "An employee starts a new job and provides their P45. The employer should:",
+      "options": ["Automatically place them on emergency tax", "Set up the employee on the cumulative basis using the year-to-date figures from the P45", "Apply for a tax refund on their behalf", "Register them for USC exemption"],
+      "answer": 1, "explanation": "The P45 contains the employee's year-to-date pay and deductions. The new employer uses this to set up the employee on the cumulative basis, carrying forward the YTD figures so the correct tax is applied for the remainder of the year." },
+
+    { "id": "py03-001", "lo": "py-03", "module": "payroll", "type": "mcq",
+      "question": "In the cumulative tax system, tax each period is calculated by:",
+      "options": ["Taxing each week's earnings independently with no reference to prior periods", "Applying 40% to all earnings above the cut-off regardless of year-to-date amounts", "Using year-to-date totals for pay, tax credits, and band — then deducting tax already paid", "Averaging gross pay over the full year and taxing the average"],
+      "answer": 2, "explanation": "The cumulative system uses year-to-date (YTD) totals. Each period: calculate tax on cumulative gross pay to date, apply cumulative credits and cut-off to date, then deduct tax already paid in previous periods. This self-corrects automatically if pay changes." },
+
+    { "id": "py03-002", "lo": "py-03", "module": "payroll", "type": "true-false",
+      "question": "Under the cumulative tax system, if too much tax was deducted in January, this is automatically corrected (refunded) in February's payroll.",
+      "answer": true, "explanation": "Because the cumulative system calculates tax on YTD figures and deducts what was already paid, an overpayment in one month will show as a negative (refund) in the next payroll run — automatically, without the employee filing a claim." },
+
+    { "id": "py03-003", "lo": "py-03", "module": "payroll", "type": "mcq",
+      "question": "An employee earns €3,500 per month. Their monthly standard rate cut-off is €3,333. How much of their monthly income is taxed at the higher 40% rate?",
+      "options": ["€3,333", "€167", "€3,500", "€0 — all income is at the standard rate"],
+      "answer": 1, "explanation": "Income up to €3,333 is taxed at 20% (standard rate). Income ABOVE the cut-off: €3,500 − €3,333 = €167 is taxed at 40% (higher rate). Only the excess beyond the cut-off attracts the higher rate." },
+
+    { "id": "py03-004", "lo": "py-03", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are features of the cumulative tax system? Select all that apply.",
+      "options": ["Year-to-date pay is used to calculate each period's tax liability", "Overpaid tax in one period is automatically refunded in the next", "Each pay period is taxed independently with no reference to prior periods", "Unused tax credits from earlier in the year can reduce tax due later in the year"],
+      "answers": [0, 1, 3], "explanation": "The cumulative system uses YTD figures (A), self-corrects (B), and allows earlier unused credits to offset tax later (D). Independent period taxation (C) describes Week 1/Month 1 (emergency tax), not the cumulative system." },
+
+    { "id": "py03-005", "lo": "py-03", "module": "payroll", "type": "true-false",
+      "question": "Under Ireland's two-rate income tax system, income below the standard rate cut-off is taxed at 20%, and income above it is taxed at 40%.",
+      "answer": true, "explanation": "Ireland operates a two-rate system: 20% (standard rate) up to the cut-off, and 40% (higher rate) on income above it. The exact cut-off depends on personal circumstances (single, married, etc.) and is updated in each annual Budget." },
+
+    { "id": "py03-006", "lo": "py-03", "module": "payroll", "type": "numeric",
+      "question": "An employee's monthly gross pay is €4,000. Monthly standard rate cut-off is €3,500. Calculate their total monthly gross PAYE (before deducting tax credits) using 20% standard and 40% higher rate.",
+      "answer": 900, "tolerance": 0.5, "prefix": "€", "explanation": "Standard rate: €3,500 × 20% = €700. Higher rate: (€4,000 − €3,500) × 40% = €500 × 40% = €200. Gross PAYE (before credits) = €700 + €200 = €900." },
+
+    { "id": "py03-007", "lo": "py-03", "module": "payroll", "type": "mcq",
+      "question": "An employee receives a large bonus in October. Under the cumulative tax system, the bonus will:",
+      "options": ["Always be taxed entirely at the higher 40% rate", "Automatically reflect the employee's actual YTD earnings, potentially pushing more income into the higher rate band", "Be exempt from PAYE as it is a once-off payment", "Require the employee to file a self-assessment return"],
+      "answer": 1, "explanation": "The cumulative system accounts for YTD earnings. A bonus increases cumulative gross pay — this may push earnings over the standard rate cut-off if not already there, or increase the higher-rate portion. It is not automatically all taxed at 40%." },
+
+    { "id": "py04-001", "lo": "py-04", "module": "payroll", "type": "mcq",
+      "question": "Emergency tax is applied when:",
+      "options": ["An employee earns more than the standard rate cut-off", "An employer has not received the employee's PPS number or Revenue has not issued a Tax Credit Certificate", "An employee has worked for less than 13 weeks", "An employee misses a monthly payroll deduction payment"],
+      "answer": 1, "explanation": "Emergency tax is applied when the employer cannot obtain the employee's Revenue credentials. Without a PPS number or Tax Credit Certificate, the employer applies emergency (Week 1/Month 1) rates to ensure some tax is collected while the situation is regularised." },
+
+    { "id": "py04-002", "lo": "py-04", "module": "payroll", "type": "true-false",
+      "question": "Under the Week 1 / Month 1 emergency tax basis, each pay period is taxed independently — past overpayments or underpayments are NOT automatically corrected.",
+      "answer": true, "explanation": "Emergency (Week 1/Month 1) tax treats each period in isolation. Year-to-date figures are NOT used, so there is no automatic correction of earlier periods. This is less favourable than cumulative tax for the employee if they've been overpaying." },
+
+    { "id": "py04-003", "lo": "py-04", "module": "payroll", "type": "mcq",
+      "question": "If an employee is on emergency tax and has not provided their PPS number, after how many weeks does the employer apply the higher 40% rate to ALL earnings?",
+      "options": ["After 2 weeks (Week 3 onwards)", "After 4 weeks (Week 5 onwards)", "After 8 weeks", "After 13 weeks"],
+      "answer": 1, "explanation": "For the first 4 weeks (Weeks 1–4) of emergency tax, the standard rate applies with no tax credits. From Week 5 onwards, if no PPS number has been provided, the employer must apply the higher rate (40%) to ALL earnings with no credits." },
+
+    { "id": "py04-004", "lo": "py-04", "module": "payroll", "type": "select-all",
+      "question": "Which situations would result in an employee being placed on emergency tax? Select all that apply.",
+      "options": ["New employee who has not provided a P45 or PPS number", "Employee returning from maternity leave to the same employer", "Employee whose Tax Credit Certificate has expired and no new one issued", "Employee starting their very first job with no employment history"],
+      "answers": [0, 2, 3], "explanation": "Emergency tax applies when Revenue credentials are unavailable. New employees without P45 (A), those without a valid Tax Credit Certificate (C), and first-time workers (D) with no Revenue record all trigger emergency tax. Returning from maternity leave (B) retains their existing tax status — no emergency tax." },
+
+    { "id": "py04-005", "lo": "py-04", "module": "payroll", "type": "true-false",
+      "question": "Once an employee on emergency tax provides their PPS number and Revenue issues a Tax Credit Certificate, any tax overpaid will be automatically refunded through subsequent payrolls.",
+      "answer": true, "explanation": "Once regularised, the employer switches to the cumulative basis. The system compares YTD tax paid vs. what should have been paid — if the employee overpaid, the cumulative system generates a refund in the next payroll, automatically." },
+
+    { "id": "py04-006", "lo": "py-04", "module": "payroll", "type": "numeric",
+      "question": "In Week 3 of emergency tax (PPS number not provided, standard 20% rate applies, no tax credits), an employee earns €650 gross. What is their PAYE for that week?",
+      "answer": 130, "tolerance": 0.5, "prefix": "€", "explanation": "Weeks 1–4 emergency tax (without PPS): 20% applied to all earnings, no tax credits. PAYE = €650 × 20% = €130." },
+
+    { "id": "py04-007", "lo": "py-04", "module": "payroll", "type": "mcq",
+      "question": "To resolve an employee's emergency tax situation, the employer needs to:",
+      "options": ["Apply for a rebate from Revenue on the employee's behalf", "Register the employee on ROS using their PPS number so Revenue issues a Tax Credit Certificate", "Switch them permanently to the 40% higher rate", "File a P30 adjustment for the affected months"],
+      "answer": 1, "explanation": "The employer registers the new employee on Revenue's PMOD system via ROS using their PPS number. Revenue then issues a Tax Credit Certificate enabling the employer to switch the employee to the cumulative basis with correct credits." },
+
+    { "id": "py05-001", "lo": "py-05", "module": "payroll", "type": "mcq",
+      "question": "When an employee gets married and they or their spouse is a lower earner or non-worker, the main PAYE benefit of joint assessment is:",
+      "options": ["A fixed marriage tax credit of €5,000", "Transfer of unused tax credits and standard rate cut-off from the non-working or lower-earning spouse", "Exemption from USC for both spouses", "Both spouses pay at the lower 20% rate on all income"],
+      "answer": 1, "explanation": "Under joint assessment, unused tax credits and standard rate cut-off from a non-working or lower-earning spouse can be transferred to the higher earner, reducing their PAYE. This is the main financial advantage of marriage for tax purposes." },
+
+    { "id": "py05-002", "lo": "py-05", "module": "payroll", "type": "true-false",
+      "question": "Under the Irish income tax system, a single-income married couple taxed under joint assessment can transfer the Employee (PAYE) Tax Credit from the non-working spouse to the working spouse.",
+      "answer": false, "explanation": "The Employee (PAYE) Tax Credit is specifically for PAYE workers. It CANNOT be transferred between spouses — it must be earned through PAYE employment. The Personal Tax Credit (and some others) CAN be transferred." },
+
+    { "id": "py05-003", "lo": "py-05", "module": "payroll", "type": "mcq",
+      "question": "An employee is made redundant. Which element of a redundancy payment is exempt from PAYE under the Basic Exemption?",
+      "options": ["All redundancy payments are fully taxable", "The first €10,160 plus €765 per full year of service of the ex-gratia (additional) payment", "Only statutory redundancy, not additional payments", "The first €5,000 of any redundancy payment"],
+      "answer": 1, "explanation": "The Basic Exemption (€10,160 + €765 per full year of service) applies to ex-gratia (additional) redundancy payments. Statutory redundancy (paid under the Redundancy Payments Acts) is fully exempt from income tax in all cases." },
+
+    { "id": "py05-004", "lo": "py-05", "module": "payroll", "type": "select-all",
+      "question": "Which personal changes should be notified to Revenue to update tax credits? Select all that apply.",
+      "options": ["Getting married or entering a civil partnership", "Claiming the Single Person Child Carer Credit after separation", "Receiving a pay rise", "A dependent relative becoming incapacitated (Dependent Relative Credit)"],
+      "answers": [0, 1, 3], "explanation": "Marriage (A), child carer credits (B), and dependent relative credits (D) all change tax credits or cut-off that Revenue assigns. A pay rise (C) affects gross pay but NOT the tax credit or cut-off — the cumulative system handles higher earnings automatically." },
+
+    { "id": "py05-005", "lo": "py-05", "module": "payroll", "type": "true-false",
+      "question": "If an employee starts a new job mid-year without a P45, the new employer must apply emergency (Week 1/Month 1) tax until Revenue issues a Tax Credit Certificate.",
+      "answer": true, "explanation": "Without a P45, the new employer has no YTD figures and can't operate the cumulative basis. The employee is placed on emergency tax until Revenue issues a Tax Credit Certificate following ROS registration by the employer." },
+
+    { "id": "py05-006", "lo": "py-05", "module": "payroll", "type": "numeric",
+      "question": "An employee earns €38,000 gross annually. Standard rate cut-off is €42,000. Annual tax credits are €3,600. All income is below the cut-off (20% standard rate). Calculate annual PAYE.",
+      "answer": 4000, "tolerance": 0.5, "prefix": "€", "explanation": "Gross PAYE = €38,000 × 20% = €7,600. Net PAYE = €7,600 − €3,600 (credits) = €4,000 annual PAYE payable." },
+
+    { "id": "py05-007", "lo": "py-05", "module": "payroll", "type": "mcq",
+      "question": "In the year of marriage, spouses are taxed as single persons for the full year. However, they may claim:",
+      "options": ["An automatic marriage bonus from Revenue", "A refund if they would have paid less tax had they been jointly assessed for the married portion of the year", "Exemption from USC for the year of marriage", "A reduction in employer PRSI for 12 months"],
+      "answer": 1, "explanation": "Year of Marriage relief: Revenue calculates tax on both a single-person and married-couple basis. If the couple would have paid less under joint assessment for the married period, Revenue refunds the difference." },
+
+    { "id": "py06-001", "lo": "py-06", "module": "payroll", "type": "mcq",
+      "question": "An employer must issue a P60 to each employee in employment on 31 December by:",
+      "options": ["31 December of the same year", "15 February of the following year", "31 March of the following year", "Within 7 days of year-end"],
+      "answer": 1, "explanation": "P60s must be issued by 15 February following the end of the tax year (31 December). It summarises total gross pay, PAYE, PRSI, and USC for the full year for each employee who was employed on 31 December." },
+
+    { "id": "py06-002", "lo": "py-06", "module": "payroll", "type": "true-false",
+      "question": "An employee who leaves employment mid-year receives both a P45 on leaving AND a P60 at year-end from their former employer.",
+      "answer": false, "explanation": "An employee who leaves during the year receives a P45 on leaving. Since they are NOT in employment on 31 December, they do NOT receive a P60 from that employer. Their P45 provides the year-to-date summary." },
+
+    { "id": "py06-003", "lo": "py-06", "module": "payroll", "type": "mcq",
+      "question": "When a P45 is issued to a leaving employee, which part does the employee give to their new employer?",
+      "options": ["Part 1 only", "Part 2 only", "Part 3, with Part 2 retained by the employee for their own records", "Parts 1 and 2"],
+      "answer": 2, "explanation": "Part 1 goes to Revenue. Part 2 is the employee's own copy to keep. Part 3 is given to the new employer to set up the correct cumulative tax basis. The employee retains Part 2 as personal evidence." },
+
+    { "id": "py06-004", "lo": "py-06", "module": "payroll", "type": "select-all",
+      "question": "For which of the following purposes can an employee use their P60? Select all that apply.",
+      "options": ["Applying for a mortgage (annual income verification)", "Claiming a PAYE tax refund if too much was deducted", "Social welfare means test requiring annual income proof", "Setting up their tax basis with a new employer mid-year"],
+      "answers": [0, 1, 2], "explanation": "P60 is used for income verification (mortgages), tax refund claims, and social welfare means tests. It is NOT used to set up with a new employer mid-year — that requires the P45 (which has current-year YTD figures). P60 covers a completed prior tax year." },
+
+    { "id": "py06-005", "lo": "py-06", "module": "payroll", "type": "true-false",
+      "question": "An employer must issue a P45 on the actual day an employee gives notice of resignation.",
+      "answer": false, "explanation": "A P45 is issued when the employee ACTUALLY LEAVES (after their final pay date). It cannot be issued in advance because it must include final, accurate pay figures. Issuing it before the last payroll would make the figures incorrect." },
+
+    { "id": "py06-006", "lo": "py-06", "module": "payroll", "type": "numeric",
+      "question": "An employee's P60 shows total PAYE deducted of €4,200. Revenue calculates that only €3,800 should have been deducted. How much tax refund is the employee entitled to?",
+      "answer": 400, "tolerance": 0.5, "prefix": "€", "explanation": "Refund = Actual deductions − Correct deductions = €4,200 − €3,800 = €400. The employee can claim this refund from Revenue using the P60 and myAccount." },
+
+    { "id": "py06-007", "lo": "py-06", "module": "payroll", "type": "mcq",
+      "question": "Under PAYE Modernisation (introduced in Ireland in 2019), what replaced the traditional P45 system?",
+      "options": ["A digital P60 filed directly with Revenue by the employer", "Real-time payroll reporting — employers report each employee's pay and deductions to Revenue on or before each pay date via ROS", "Monthly P30 returns that include individual employee details", "Annual P35 employer summary reports"],
+      "answer": 1, "explanation": "PAYE Modernisation introduced Real Time Reporting (RTR). Each pay period, employers submit payroll data to Revenue via ROS. This replaced the P45 (and P35) with real-time data — Revenue now has up-to-date information without waiting for year-end returns." },
+
+    { "id": "py07-001", "lo": "py-07", "module": "payroll", "type": "mcq",
+      "question": "A P30 is:",
+      "options": ["A form issued to employees when they leave employment", "A monthly or quarterly employer return to Revenue showing PAYE/PRSI/USC deducted and employer PRSI", "An annual employee tax certificate", "A form for claiming a USC exemption"],
+      "answer": 1, "explanation": "The P30 is the employer's periodic return (monthly or quarterly) to Revenue reporting all PAYE, employee PRSI, employer PRSI, and USC from payroll. Payment is typically due by the 23rd of the following month." },
+
+    { "id": "py07-002", "lo": "py-07", "module": "payroll", "type": "true-false",
+      "question": "Under PAYE Modernisation, smaller employers may be permitted to file payroll tax returns quarterly rather than monthly.",
+      "answer": true, "explanation": "Small employers (whose monthly PAYE/PRSI/USC liability falls below Revenue's threshold) may file and pay quarterly rather than monthly. Larger employers must file and pay monthly. Revenue determines eligibility." },
+
+    { "id": "py07-003", "lo": "py-07", "module": "payroll", "type": "mcq",
+      "question": "What are the consequences for an employer who fails to file a P30 return by the Revenue deadline?",
+      "options": ["No penalty — Revenue will simply calculate the amount owed", "Interest charges on the outstanding amount plus potential fixed penalties; Revenue may issue an estimated assessment", "Automatic suspension of the business's trading licence", "The employer's VAT registration is immediately cancelled"],
+      "answer": 1, "explanation": "Late P30 filing attracts daily interest charges (currently 0.0219% per day) on the outstanding amount plus possible fixed penalties. Revenue may also raise an estimated assessment. Repeated non-compliance risks audit or enforcement action." },
+
+    { "id": "py07-004", "lo": "py-07", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are included in the P30 return filed by an employer? Select all that apply.",
+      "options": ["Total PAYE (income tax) deducted from all employees", "Total employee PRSI contributions", "Total employer PRSI contributions", "Total USC deducted from employees"],
+      "answers": [0, 1, 2, 3], "explanation": "The P30 covers ALL payroll-related liabilities owed to Revenue: PAYE, employee PRSI, employer PRSI, and USC. The employer is responsible for deducting and remitting all of these." },
+
+    { "id": "py07-005", "lo": "py-07", "module": "payroll", "type": "true-false",
+      "question": "Under the pre-2019 payroll system, employers were required to file an annual P35 return summarising every employee's pay and deductions for the full tax year.",
+      "answer": true, "explanation": "The P35 was an annual employer return listing all employees with their annual gross pay, PAYE, PRSI, and USC totals. It was abolished under PAYE Modernisation in 2019 because Revenue now receives this data in real time through payroll submissions." },
+
+    { "id": "py07-006", "lo": "py-07", "module": "payroll", "type": "numeric",
+      "question": "An employer processes monthly payroll: total PAYE €3,200; employee PRSI €740; employer PRSI €2,035; USC €520. What is the total P30 payment due to Revenue?",
+      "answer": 6495, "tolerance": 1, "prefix": "€", "explanation": "Total P30 = PAYE + Employee PRSI + Employer PRSI + USC = €3,200 + €740 + €2,035 + €520 = €6,495. The employer remits this full amount to Revenue (not just the employee deductions)." },
+
+    { "id": "py07-007", "lo": "py-07", "module": "payroll", "type": "mcq",
+      "question": "Revenue's ROS (Revenue Online Service) is used by employers for:",
+      "options": ["Automating all payroll calculations", "Filing P30 returns, paying PAYE/PRSI/USC liabilities, submitting payroll data, and accessing employer tax records", "Applying for employee tax credit certificates on the employee's behalf", "VAT registration only"],
+      "answer": 1, "explanation": "ROS is Revenue's online portal for businesses. Employers use it to file returns, pay liabilities, submit real-time payroll data under PAYE Modernisation, and access tax records. It is not a payroll calculation tool — that is payroll software's role." },
+
+    { "id": "py08-001", "lo": "py-08", "module": "payroll", "type": "mcq",
+      "question": "Which method of married couples' tax assessment is most common and generally most tax-efficient?",
+      "options": ["Single Assessment", "Separate Assessment", "Joint Assessment", "Dual Assessment"],
+      "answer": 2, "explanation": "Joint Assessment (Aggregation) is the most common and usually most beneficial option. One spouse is the assessable spouse, income and credits are pooled, and unused credits/cut-off can be transferred between spouses." },
+
+    { "id": "py08-002", "lo": "py-08", "module": "payroll", "type": "true-false",
+      "question": "Under Single Assessment, married spouses are taxed completely independently with no transfer of tax credits or standard rate cut-off between them.",
+      "answer": true, "explanation": "Single assessment means each spouse is treated exactly as a single person for tax — no transfers are permitted. This is the least common option for married couples and is rarely beneficial unless both spouses have high incomes and don't want their affairs combined." },
+
+    { "id": "py08-003", "lo": "py-08", "module": "payroll", "type": "mcq",
+      "question": "The Home Carer Tax Credit is available when:",
+      "options": ["Any married person works from home", "One spouse stays home to care for a dependent child or incapacitated person, and the home carer's own income is below the threshold", "Both spouses work part-time to share childcare", "An employer provides childcare facilities"],
+      "answer": 1, "explanation": "The Home Carer Credit is specifically for married couples where one spouse is at home caring for a dependent (child or incapacitated adult) and their own income is below a specified limit. It recognises the economic value of caring." },
+
+    { "id": "py08-004", "lo": "py-08", "module": "payroll", "type": "select-all",
+      "question": "Under joint assessment, which of the following can typically be transferred from a non-working spouse to the working spouse? Select all that apply.",
+      "options": ["Personal Tax Credit", "Unused portion of the standard rate cut-off", "Employee (PAYE) Tax Credit", "Age Tax Credit (where applicable)"],
+      "answers": [0, 1, 3], "explanation": "The Personal Tax Credit (A), unused standard rate cut-off (B), and Age Tax Credit (D) can be transferred under joint assessment. The Employee (PAYE) Tax Credit (C) cannot be transferred — it is only available to those in PAYE employment themselves." },
+
+    { "id": "py08-005", "lo": "py-08", "module": "payroll", "type": "true-false",
+      "question": "If a married couple opts for joint assessment and only one spouse earns income, that spouse can use both spouses' Personal Tax Credits.",
+      "answer": true, "explanation": "Under joint assessment, the assessable spouse claims both Personal Tax Credits — their own and their non-working spouse's (who has no income to use it against). This significantly reduces the working spouse's PAYE bill." },
+
+    { "id": "py08-006", "lo": "py-08", "module": "payroll", "type": "numeric",
+      "question": "Under joint assessment, a working spouse earns €55,000. Combined Personal Tax Credits = €3,750. Combined standard rate cut-off = €51,000. Tax rates: 20% up to cut-off, 40% above. Calculate annual PAYE.",
+      "answer": 8050, "tolerance": 1, "prefix": "€", "explanation": "Standard rate: €51,000 × 20% = €10,200. Higher rate: (€55,000 − €51,000) × 40% = €4,000 × 40% = €1,600. Gross tax = €11,800. Less credits €3,750: PAYE = €8,050." },
+
+    { "id": "py08-007", "lo": "py-08", "module": "payroll", "type": "mcq",
+      "question": "In the year of marriage, what is the 'Year of Marriage' tax relief?",
+      "options": ["A fixed €2,000 credit in the year of marriage", "A refund if the couple would have paid less tax under joint assessment for the married portion of the year", "Exemption from USC for the marriage year", "A reduction in the higher rate band for two years"],
+      "answer": 1, "explanation": "Revenue calculates tax on both a single-person basis (how it was actually taxed) and a joint assessment basis for the period after marriage. If joint assessment would have resulted in lower tax, Revenue refunds the difference." },
+
+    { "id": "py09-001", "lo": "py-09", "module": "payroll", "type": "mcq",
+      "question": "The National Minimum Wage in Ireland is:",
+      "options": ["Set once and never changed", "Recommended annually by the Low Pay Commission and applies to most employees", "Calculated differently for each industry by IBEC", "Only applicable to part-time employees"],
+      "answer": 1, "explanation": "The Low Pay Commission reviews and recommends the National Minimum Wage annually. It applies to most adult employees in Ireland. Sub-minimum rates apply to those under 20. Both public and private sector workers are covered (though many earn above it)." },
+
+    { "id": "py09-002", "lo": "py-09", "module": "payroll", "type": "true-false",
+      "question": "Under the Organisation of Working Time Act 1997, employees in Ireland cannot be required to work an average of more than 48 hours per week (averaged over a reference period).",
+      "answer": true, "explanation": "The Organisation of Working Time Act 1997 (implementing an EU Working Time Directive) sets a maximum average working week of 48 hours. Unlike the UK, Ireland does not allow employees to opt out of this limit." },
+
+    { "id": "py09-003", "lo": "py-09", "module": "payroll", "type": "mcq",
+      "question": "Which body investigates complaints about breaches of employment rights in Ireland (e.g., minimum wage, unfair dismissal)?",
+      "options": ["Revenue Commissioners", "The Workplace Relations Commission (WRC)", "The Health and Safety Authority (HSA)", "The Data Protection Commission (DPC)"],
+      "answer": 1, "explanation": "The Workplace Relations Commission (WRC) handles complaints under employment rights legislation — minimum wage, working hours, unfair dismissal, equality, and more. It replaced NERA (National Employment Rights Authority) in 2015." },
+
+    { "id": "py09-004", "lo": "py-09", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are statutory employment rights protected under Irish legislation? Select all that apply.",
+      "options": ["Entitlement to paid annual leave (minimum 4 weeks)", "Protection against unfair dismissal (after qualifying period)", "Right to rest breaks during the working day", "Right to earn above the National Minimum Wage"],
+      "answers": [0, 1, 2], "explanation": "Annual leave (A), unfair dismissal protection (B), and rest break entitlements (C) are all statutory rights. There is no right to earn MORE than the minimum wage (D) — that is a matter of employment contract negotiation, not legislation." },
+
+    { "id": "py09-005", "lo": "py-09", "module": "payroll", "type": "true-false",
+      "question": "Under GDPR, an employer processing employee payroll data must ensure it is accurate, securely stored, and not retained longer than necessary.",
+      "answer": true, "explanation": "GDPR requires personal data — including payroll, tax, and employee details — to be: lawfully processed, accurate, securely stored, and not kept longer than necessary. Employers must have a legal basis for processing (employment contract) and a clear data retention policy." },
+
+    { "id": "py09-006", "lo": "py-09", "module": "payroll", "type": "numeric",
+      "question": "An employee is entitled to 20 days annual leave per year and has taken 12 days so far. How many days of leave remain?",
+      "answer": 8, "tolerance": 0, "prefix": "", "explanation": "Remaining leave = Entitlement − Used = 20 − 12 = 8 days. The Organisation of Working Time Act entitles full-time employees to a minimum of 4 working weeks (20 days) of paid annual leave per year." },
+
+    { "id": "py09-007", "lo": "py-09", "module": "payroll", "type": "mcq",
+      "question": "The Payment of Wages Act 1991 requires employers to:",
+      "options": ["Pay all employees by bank transfer only", "Provide a written payslip with each payment showing gross pay, all deductions, and net pay", "Pay wages at least fortnightly", "Pay a minimum notice period of 4 weeks"],
+      "answer": 1, "explanation": "The Payment of Wages Act 1991 requires employers to provide a written payslip (wage slip) to every employee with each payment, detailing gross pay and all deductions. Payment method is not restricted to bank transfer." },
+
+    { "id": "py10-001", "lo": "py-10", "module": "payroll", "type": "mcq",
+      "question": "Which payroll report would a manager use to compare total wage costs this month against the same month last year?",
+      "options": ["Individual payslips", "Payroll Summary / Departmental Cost Analysis", "Aged Debtors Report", "P30 Return"],
+      "answer": 1, "explanation": "A Payroll Summary or Departmental Cost Analysis report shows total payroll costs by department or period, enabling period-on-period comparisons. Payslips are per-employee, P30 is a Revenue return, and Aged Debtors relates to customers." },
+
+    { "id": "py10-002", "lo": "py-10", "module": "payroll", "type": "true-false",
+      "question": "Under GDPR, payroll records must be destroyed after 3 years.",
+      "answer": false, "explanation": "Revenue requires payroll records to be retained for at least 6 YEARS. GDPR requires data not be kept LONGER than necessary — after the 6-year Revenue retention period expires, records should then be securely destroyed. 3 years is not the correct figure." },
+
+    { "id": "py10-003", "lo": "py-10", "module": "payroll", "type": "mcq",
+      "question": "The purpose of an audit trail in a payroll system is:",
+      "options": ["To generate payslips automatically each pay period", "To record all changes to payroll data — who changed it, what was changed, and when", "To file P30 returns with Revenue", "To calculate employee holiday entitlements"],
+      "answer": 1, "explanation": "A payroll audit trail logs every change — edits to employee records, pay rate adjustments, manual overrides, and processed payrolls — with timestamps and user IDs. This is essential for fraud prevention, error investigation, and Revenue compliance." },
+
+    { "id": "py10-004", "lo": "py-10", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are key payroll reports generated at period-end? Select all that apply.",
+      "options": ["Payroll Journal (for posting wages to the general ledger)", "P30 / Revenue Return (payroll tax liability summary)", "Employee earnings and deductions summary", "Petty Cash Book"],
+      "answers": [0, 1, 2], "explanation": "The Payroll Journal (A) enables bookkeeping (DR Wages / CR PAYE Payable, PRSI Payable, Bank), the P30 (B) is filed with Revenue, and the earnings summary (C) is a management report. The Petty Cash Book (D) is unrelated to payroll reporting." },
+
+    { "id": "py10-005", "lo": "py-10", "module": "payroll", "type": "true-false",
+      "question": "Cloud-based payroll software eliminates the need for any backup procedures because the provider handles all server-side backups.",
+      "answer": false, "explanation": "While cloud providers handle server-side backups, this doesn't eliminate ALL employer backup responsibilities. Cloud outages, account access issues, or provider failures can occur. Best practice: maintain your own export/backup copies regardless of where the software lives." },
+
+    { "id": "py10-006", "lo": "py-10", "module": "payroll", "type": "numeric",
+      "question": "A business pays 12 employees monthly. Switching from printed to electronic payslips saves €0.50 per payslip. How much is saved annually (12 months)?",
+      "answer": 72, "tolerance": 0.5, "prefix": "€", "explanation": "Annual saving = 12 employees × €0.50 × 12 months = €72. Electronic payslips also reduce admin time and improve record-keeping, but the direct printing cost saving is €72 per year." },
+
+    { "id": "py10-007", "lo": "py-10", "module": "payroll", "type": "mcq",
+      "question": "Under PAYE Modernisation, how frequently must employers report employee pay and deductions to Revenue?",
+      "options": ["Annually, via the P35 return", "Monthly, via the P30 return only", "On or before each pay date via real-time payroll submission", "Quarterly, alongside the VAT3 return"],
+      "answer": 2, "explanation": "PAYE Modernisation (January 2019) requires employers to report each payroll run to Revenue ON OR BEFORE each pay date — in real time. This replaced the P45 and P35 annual return with continuous, up-to-date data for Revenue." },
+
+    { "id": "bk01-008", "lo": "bk-01", "module": "bookkeeping", "type": "mcq",
+      "question": "Which of the following correctly describes the double-entry rule for recording an expense payment by cheque?",
+      "options": ["DR Bank Account / CR Expense Account", "DR Expense Account / CR Bank Account", "DR Expense Account / CR Capital Account", "DR Sales Account / CR Expense Account"],
+      "answer": 1, "explanation": "Expenses increase on the debit side. The bank (an asset) decreases on the credit side. DR Expense Account / CR Bank Account is the correct double-entry for any expense paid by cheque or bank transfer." },
+
+    { "id": "bk01-009", "lo": "bk-01", "module": "bookkeeping", "type": "true-false",
+      "question": "Revenue expenditure is expenditure on fixed assets that will benefit the business for more than one accounting period.",
+      "answer": false, "explanation": "That describes CAPITAL expenditure (e.g., buying a van or machinery). Revenue expenditure is day-to-day running costs (wages, rent, insurance) that are fully expensed in the period in which they occur." },
+
+    { "id": "bk01-010", "lo": "bk-01", "module": "bookkeeping", "type": "mcq",
+      "question": "Which accounting concept states that the financial affairs of the business must be kept completely separate from the personal affairs of the owner?",
+      "options": ["Going concern concept", "Consistency concept", "Entity concept", "Prudence concept"],
+      "answer": 2, "explanation": "The entity (business entity) concept treats the business as distinct from its owner. Even in a sole trade, the business's assets, liabilities, and transactions are recorded separately from the owner's personal finances." },
+
+    { "id": "bk01-011", "lo": "bk-01", "module": "bookkeeping", "type": "numeric",
+      "question": "A business has fixed assets of €28,000, current assets of €9,500, and total liabilities of €12,300. What is the owner's capital?",
+      "answer": 25200, "tolerance": 1, "prefix": "€", "explanation": "Total assets = €28,000 + €9,500 = €37,500. Capital = Assets − Liabilities = €37,500 − €12,300 = €25,200." },
+
+    { "id": "bk01-012", "lo": "bk-01", "module": "bookkeeping", "type": "true-false",
+      "question": "Trade creditors (suppliers owed money) are classified as current liabilities on the Balance Sheet.",
+      "answer": true, "explanation": "Trade creditors are amounts owed to suppliers, typically due within 30–90 days. Since they are payable within 12 months, they are current liabilities — shown under Current Liabilities on the Balance Sheet." },
+
+    { "id": "bk01-013", "lo": "bk-01", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are examples of FIXED (non-current) assets? Select all that apply.",
+      "options": ["Motor van", "Land and buildings", "Trade debtors", "Office equipment"],
+      "answers": [0, 1, 3], "explanation": "Fixed assets are long-term assets held for use over more than one year: motor van (A), land and buildings (B), and office equipment (D). Trade debtors (C) are current assets — they are expected to convert to cash within 12 months." },
+
+    { "id": "bk01-014", "lo": "bk-01", "module": "bookkeeping", "type": "mcq",
+      "question": "Which of the following best describes the 'going concern' concept?",
+      "options": ["Assets are recorded at their net realisable value in case of immediate sale", "The business will continue operating for the foreseeable future, so assets are not valued at break-up prices", "All income must be recorded when cash is received", "The owner and the business are treated as the same legal entity"],
+      "answer": 1, "explanation": "Going concern assumes the business will continue trading indefinitely. This justifies recording assets at cost (or depreciated cost) rather than fire-sale values. If a business is about to close, the going concern assumption no longer applies and different valuation rules apply." },
+
+    { "id": "bk02-008", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "Which of the following is a disadvantage of cloud-based accounting software compared to desktop-installed software?",
+      "options": ["Accessible from any internet-connected device", "Ongoing subscription cost and reliance on internet connectivity — no access during outages", "Automatic software updates included", "Real-time collaboration between multiple users"],
+      "answer": 1, "explanation": "Cloud accounting requires continuous internet access — outages, subscription lapses, or provider failure all risk access to your data. Desktop software is available offline. The other options listed are advantages of cloud, not disadvantages." },
+
+    { "id": "bk02-009", "lo": "bk-02", "module": "bookkeeping", "type": "true-false",
+      "question": "Using Microsoft Excel to record transactions is equivalent to using a dedicated accounting package like Sage 50.",
+      "answer": false, "explanation": "Excel is a general-purpose spreadsheet with no built-in double-entry structure, no automatic ledger postings, no integrated VAT reports, and no audit trail. Sage 50 is purpose-built with all these features. Excel spreadsheets are also much more prone to formula errors." },
+
+    { "id": "bk02-010", "lo": "bk-02", "module": "bookkeeping", "type": "numeric",
+      "question": "Sage 50 costs €600 per year. Manual bookkeeping requires 3 extra hours per week at €20/hr (52 weeks). What is the net annual saving from switching to Sage 50?",
+      "answer": 2520, "tolerance": 1, "prefix": "€", "explanation": "Manual extra cost = 3 hrs × €20 × 52 weeks = €3,120/year. Net saving = €3,120 − €600 (software) = €2,520 per year." },
+
+    { "id": "bk02-011", "lo": "bk-02", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are features of an integrated computerised accounting system? Select all that apply.",
+      "options": ["Automatic double-entry posting from a single transaction entry", "VAT report generated automatically from posted transactions", "Requires a separate manual ledger to check all entries", "Aged Debtors report available at any time"],
+      "answers": [0, 1, 3], "explanation": "Integrated accounting software automatically posts double-entry (A), generates VAT reports from the data already entered (B), and provides real-time reports like Aged Debtors (D). Requiring a separate manual ledger (C) defeats the purpose of the system." },
+
+    { "id": "bk02-012", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "In Sage 50, the 'Nominal Ledger' refers to:",
+      "options": ["The ledger containing all customer accounts", "The ledger containing all supplier accounts", "The main general ledger — containing all income, expense, asset, and liability accounts", "A special ledger for cash transactions only"],
+      "answer": 2, "explanation": "The Nominal Ledger is the master general ledger in Sage 50. It holds all nominal (general) accounts: sales, purchases, expenses, assets, liabilities, and capital. Customer accounts are in the Sales Ledger; supplier accounts are in the Purchase Ledger." },
+
+    { "id": "bk02-013", "lo": "bk-02", "module": "bookkeeping", "type": "true-false",
+      "question": "In a computerised accounting system, once a transaction is posted, it can never be amended or reversed.",
+      "answer": false, "explanation": "Corrections can be made by posting reversal journal entries (or in some systems via a controlled edit). All changes are recorded in the audit trail. Unlike handwriting in a ledger, electronic corrections are fully traceable." },
+
+    { "id": "bk02-014", "lo": "bk-02", "module": "bookkeeping", "type": "mcq",
+      "question": "In Sage 50, which module would you use to allocate a customer payment against their outstanding invoice?",
+      "options": ["Bank module", "Purchase Ledger module", "Customer (Sales) Ledger module", "Nominal Ledger module"],
+      "answer": 2, "explanation": "The Customer (Sales) Ledger in Sage 50 holds all customer accounts. Allocating a receipt to an invoice (marking it as paid) is done within the customer's account in this module, reducing their outstanding balance." },
+
+    { "id": "bk03-008", "lo": "bk-03", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery buys flour on credit from Flour Mills Ltd — Invoice FM23: €500 net + 23% VAT. Which book of first entry records this?",
+      "options": ["Sales Day Book", "Purchases Day Book", "Cash Book (payments side)", "General Journal"],
+      "answer": 1, "explanation": "Credit purchases (buying on account) are recorded in the Purchases Day Book. The Cash Book only records cash and bank movements. Flour Mills Ltd has not been paid yet — this is a credit transaction." },
+
+    { "id": "bk03-009", "lo": "bk-03", "module": "bookkeeping", "type": "true-false",
+      "question": "The Purchases Returns Day Book records goods returned BY customers to the business.",
+      "answer": false, "explanation": "The Purchases Returns Day Book records goods the BUSINESS returns TO its suppliers (e.g., damaged stock returned to a supplier). Goods returned BY customers are recorded in the Sales Returns Day Book." },
+
+    { "id": "bk03-010", "lo": "bk-03", "module": "bookkeeping", "type": "numeric",
+      "question": "A supplier invoice shows a gross (VAT-inclusive) total of €615 at 23% VAT. What is the net amount (excluding VAT)?",
+      "answer": 500, "tolerance": 0.5, "prefix": "€", "explanation": "Net = Gross ÷ 1.23 = €615 ÷ 1.23 = €500. Never simply subtract 23% from the gross — that gives the wrong answer. Divide by 1.23 to correctly extract the net from a VAT-inclusive price." },
+
+    { "id": "bk03-011", "lo": "bk-03", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are appropriate petty cash expenditures? Select all that apply.",
+      "options": ["€3 bus fare for a courier delivery", "€5 postage stamps", "€1,200 purchase of office laptop", "€8 cleaning supplies"],
+      "answers": [0, 1, 3], "explanation": "Petty cash is for small, day-to-day expenses: bus fares, stamps, and small supplies (A, B, D). A laptop costing €1,200 (C) is too large for petty cash — it should be paid by cheque/bank transfer and treated as a capital purchase." },
+
+    { "id": "bk03-012", "lo": "bk-03", "module": "bookkeeping", "type": "mcq",
+      "question": "The Cash Book serves as both a book of first entry AND a ledger account. Which specific ledger account does it replace?",
+      "options": ["The Sales account in the Nominal Ledger", "The Bank account in the Nominal Ledger", "The Debtors Control account", "The Petty Cash account"],
+      "answer": 1, "explanation": "The Cash Book functions as the Bank account (and cash account) within the Nominal Ledger. There is no separate Bank account in the Nominal Ledger when a Cash Book is used — the Cash Book IS the bank account." },
+
+    { "id": "bk03-013", "lo": "bk-03", "module": "bookkeeping", "type": "true-false",
+      "question": "Cash purchases (paid immediately at point of sale) are recorded in the Purchases Day Book.",
+      "answer": false, "explanation": "The Purchases Day Book records only CREDIT purchases. Cash purchases are recorded in the Cash Book on the payments side — money leaves the bank immediately, so there is no creditor to record." },
+
+    { "id": "bk03-014", "lo": "bk-03", "module": "bookkeeping", "type": "mcq",
+      "question": "What is the purpose of a folio reference (e.g., 'SDB p.3') in the day books and ledgers?",
+      "options": ["To calculate the total VAT for the period", "To provide a cross-reference linking each entry to the corresponding posting in the ledger", "To sequentially number transactions for Revenue audit purposes", "To record who processed each transaction"],
+      "answer": 1, "explanation": "Folio references provide a cross-referencing trail. A folio in the day book shows where the corresponding double-entry was posted in the ledger, and vice versa. This makes it easy to trace any entry and verify the double-entry was completed." },
+
+    { "id": "bk04-008", "lo": "bk-04", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery pays rent of €1,200 by cheque (Chq 105). The correct double-entry posting is:",
+      "options": ["DR Bank Account / CR Rent Account", "DR Rent Account / CR Capital Account", "DR Rent Account / CR Bank Account", "DR Sales Account / CR Rent Account"],
+      "answer": 2, "explanation": "Rent is an expense — expenses increase with a debit. The bank balance decreases — assets decrease with a credit. DR Rent Account / CR Bank Account (Cash Book)." },
+
+    { "id": "bk04-009", "lo": "bk-04", "module": "bookkeeping", "type": "true-false",
+      "question": "The Purchases Ledger (Creditors Ledger) contains the individual personal accounts of all suppliers to whom the business owes money.",
+      "answer": true, "explanation": "The Purchases Ledger holds one account per supplier. Its total (sum of all supplier balances) should always equal the Creditors Control Account balance in the Nominal Ledger. This is the personal ledger for creditors." },
+
+    { "id": "bk04-010", "lo": "bk-04", "module": "bookkeeping", "type": "numeric",
+      "question": "Flour Mills Ltd account: Opening credit balance €615 (owed to them). Murphy's Bakery pays Invoice FM23 by cheque €615. New Invoice FM24 arrives for €492 gross. What is Flour Mills Ltd's closing balance?",
+      "answer": 492, "tolerance": 0.5, "prefix": "€", "explanation": "Opening: €615 Cr (owed to supplier). Payment: €615 Dr (clears the debt, balance = €0). New invoice FM24: €492 Cr (new debt). Closing balance = €492 Cr — the business now owes Flour Mills Ltd €492." },
+
+    { "id": "bk04-011", "lo": "bk-04", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following accounts normally carry a DEBIT balance? Select all that apply.",
+      "options": ["Bank Account (positive balance)", "Motor Vehicles", "Rent Expense", "Creditors Account"],
+      "answers": [0, 1, 2], "explanation": "Assets (bank, motor vehicles) and expenses (rent) have normal debit balances. Creditors is a liability — liabilities have normal credit balances. Remembering DEADCLIC (Debits: Expenses, Assets, Drawings; Credits: Liabilities, Income, Capital) helps." },
+
+    { "id": "bk04-012", "lo": "bk-04", "module": "bookkeeping", "type": "mcq",
+      "question": "When totalling the Purchases Day Book and posting to the Nominal Ledger, the correct double-entry is:",
+      "options": ["DR Purchases + DR VAT Control (Input) / CR Creditors Control (gross total)", "DR Creditors Control / CR Purchases + CR VAT Control", "DR Purchases (gross total only) / CR Creditors Control (gross total)", "DR Bank Account / CR Purchases Account"],
+      "answer": 0, "explanation": "The gross total goes to Creditors Control (CR). The net total goes to Purchases (DR) and the VAT portion goes to VAT Control as Input VAT (DR). This three-way split is the standard Purchases Day Book posting." },
+
+    { "id": "bk04-013", "lo": "bk-04", "module": "bookkeeping", "type": "true-false",
+      "question": "A contra entry in the Cash Book occurs when cash is transferred from the petty cash tin to the bank, creating entries on both sides of the Cash Book.",
+      "answer": true, "explanation": "A contra entry appears on both sides of the same Cash Book with 'C' in the folio column. Cash deposited into the bank: DR Bank column (money in), CR Cash column (money out of cash). Both entries are in the same Cash Book." },
+
+    { "id": "bk04-014", "lo": "bk-04", "module": "bookkeeping", "type": "mcq",
+      "question": "The Sales Ledger Control Account balance in the Nominal Ledger should equal:",
+      "options": ["The sum of all individual customer account balances in the Sales (Debtors) Ledger", "The total of all credit sales invoices issued in the period", "The bank balance minus outstanding payments", "The total of all individual supplier balances"],
+      "answer": 0, "explanation": "The Control Account is a summary account in the Nominal Ledger that should always agree with the total of all individual accounts in the subsidiary (personal) ledger. If they don't agree, there is an error to investigate." },
+
+    { "id": "bk05-008", "lo": "bk-05", "module": "bookkeeping", "type": "mcq",
+      "question": "A Trial Balance shows total debits of €47,320 and total credits of €46,870. What does this difference most likely indicate?",
+      "options": ["A complete omission of a transaction", "An error of principle", "A one-sided posting or a transposition error affecting only one side", "A compensating error"],
+      "answer": 2, "explanation": "A difference of €450 (47,320 − 46,870) indicates a one-sided posting (one side is missing or wrong). A complete omission (A) and errors of principle (B) leave both sides equal. Compensating errors (D) also leave the TB balanced." },
+
+    { "id": "bk05-009", "lo": "bk-05", "module": "bookkeeping", "type": "true-false",
+      "question": "An 'error of original entry' occurs when both sides of a transaction are recorded with the same incorrect amount (e.g., €290 entered instead of €920).",
+      "answer": true, "explanation": "An error of original entry: the wrong amount is used on both sides — debits still equal credits, so the Trial Balance remains balanced. The error is in the original value entered, not in which accounts were used or whether both sides were posted." },
+
+    { "id": "bk05-010", "lo": "bk-05", "module": "bookkeeping", "type": "numeric",
+      "question": "A Trial Balance shows total debits of €28,450 and total credits of €27,950. A Suspense Account is opened to balance the TB. What is the balance of the Suspense Account?",
+      "answer": 500, "tolerance": 0, "prefix": "€", "explanation": "Difference = €28,450 − €27,950 = €500. The Suspense Account is opened with a credit balance of €500 to make total credits = €28,450, balancing the Trial Balance while the error is investigated." },
+
+    { "id": "bk05-011", "lo": "bk-05", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following accounts would normally appear on the CREDIT side of the Trial Balance? Select all that apply.",
+      "options": ["Sales Account", "Capital Account", "Bank Loan (long-term liability)", "Purchases Account"],
+      "answers": [0, 1, 2], "explanation": "Income (Sales), capital, and liabilities (Bank Loan) have credit balances on the TB. Purchases is an expense account with a debit balance. Remember: assets and expenses on the debit side; income, liabilities, and capital on the credit side." },
+
+    { "id": "bk05-012", "lo": "bk-05", "module": "bookkeeping", "type": "mcq",
+      "question": "A 'complete reversal of entries' error means:",
+      "options": ["A transaction was posted twice — once correctly and once in reverse", "The correct amounts were posted but debit and credit were swapped (both entries are in the wrong accounts)", "A transaction was posted in the wrong subsidiary day book", "Net amounts were used instead of gross amounts"],
+      "answer": 1, "explanation": "A complete reversal posts the right accounts but wrong sides — e.g., DR Sales / CR Purchases instead of DR Purchases / CR Sales. The TB still balances (equal amounts on both sides) but both entries are incorrect." },
+
+    { "id": "bk05-013", "lo": "bk-05", "module": "bookkeeping", "type": "true-false",
+      "question": "The Trial Balance is prepared directly from source documents (invoices, receipts) without first using ledger accounts.",
+      "answer": false, "explanation": "The correct sequence is: Source documents → Day Books (books of first entry) → Ledger accounts (double-entry posting) → Trial Balance (extracted from ledger balances). The TB comes from the CLOSING BALANCES of all ledger accounts, not directly from source documents." },
+
+    { "id": "bk05-014", "lo": "bk-05", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery's Wages Account has total debits of €4,500 and no credits. How does this appear on the Trial Balance?",
+      "options": ["Credit balance of €4,500", "Debit balance of €4,500", "It does not appear — wages are listed on the P&L only", "Split equally: €2,250 debit and €2,250 credit"],
+      "answer": 1, "explanation": "Wages is an expense account. Expenses increase on the debit side, so the account has a debit balance of €4,500. ALL ledger account balances appear on the Trial Balance — wages included." },
+
+    { "id": "bk06-008", "lo": "bk-06", "module": "bookkeeping", "type": "mcq",
+      "question": "A direct debit of €120 for insurance appears on the bank statement but has not been entered in the Cash Book. What is the correct action?",
+      "options": ["Ignore it — direct debits don't need to be in the Cash Book", "List it in the Bank Reconciliation Statement as a timing difference", "Update the Cash Book by entering the €120 payment BEFORE preparing the reconciliation", "Contact the bank to reverse the direct debit"],
+      "answer": 2, "explanation": "Items on the bank statement not yet in the Cash Book (bank charges, direct debits, interest) must FIRST be recorded in the Cash Book. Only the updated Cash Book balance is used in the Bank Reconciliation Statement." },
+
+    { "id": "bk06-009", "lo": "bk-06", "module": "bookkeeping", "type": "true-false",
+      "question": "The purpose of a Bank Reconciliation Statement is to explain the difference between the updated Cash Book (bank column) balance and the closing bank statement balance.",
+      "answer": true, "explanation": "After updating the Cash Book for any items on the bank statement not already recorded, the remaining difference between the two balances is explained by timing differences — unpresented cheques and uncleared lodgements — listed in the Bank Reconciliation Statement." },
+
+    { "id": "bk06-010", "lo": "bk-06", "module": "bookkeeping", "type": "numeric",
+      "question": "Updated Cash Book balance: €2,450. Unpresented cheques: €370. Uncleared lodgements: €190. Calculate the bank statement closing balance.",
+      "answer": 2630, "tolerance": 0.5, "prefix": "€", "explanation": "Bank Statement Balance + Uncleared Lodgements − Unpresented Cheques = Cash Book Balance. Rearranging: Bank = Cash Book − Uncleared Lodgements + Unpresented Cheques = €2,450 − €190 + €370 = €2,630." },
+
+    { "id": "bk06-011", "lo": "bk-06", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following items would appear in the Bank Reconciliation Statement as timing differences? Select all that apply.",
+      "options": ["Unpresented cheques (in Cash Book, not yet on bank statement)", "Bank charges already entered in the updated Cash Book", "Uncleared lodgements (in Cash Book, not yet credited by the bank)", "Interest received already entered in the updated Cash Book"],
+      "answers": [0, 2], "explanation": "Only items that exist in ONE record but not yet the other are timing differences: unpresented cheques (A) and uncleared lodgements (C). Items already updated in the Cash Book (B and D) are fully reconciled and do NOT appear in the BRS." },
+
+    { "id": "bk06-012", "lo": "bk-06", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery's updated Cash Book balance is €3,813. The bank statement closing balance is €4,513. There are no uncleared lodgements. What is the total of unpresented cheques?",
+      "options": ["€700", "€4,513", "€300", "€8,326"],
+      "answer": 0, "explanation": "Bank Statement − Unpresented Cheques = Cash Book. €4,513 − x = €3,813 → x = €700 of unpresented cheques. These are payments written in the Cash Book that the bank has not yet processed." },
+
+    { "id": "bk06-013", "lo": "bk-06", "module": "bookkeeping", "type": "true-false",
+      "question": "A credit balance in the bank column of the Cash Book indicates that the business has an overdraft.",
+      "answer": true, "explanation": "Normally the bank column shows a debit balance (money the business holds — an asset). A credit balance means the bank has lent money the business no longer holds — an overdraft, which is a liability. An overdraft shows as a credit in the Cash Book." },
+
+    { "id": "bk06-014", "lo": "bk-06", "module": "bookkeeping", "type": "mcq",
+      "question": "In the standard Bank Reconciliation Statement format, you start with:",
+      "options": ["The closing balance from the Trial Balance", "The bank statement closing balance, then adjust for timing differences to arrive at the Cash Book balance", "The opening Cash Book balance for the period", "The bank statement opening balance"],
+      "answer": 1, "explanation": "Standard format: start with the Bank Statement closing balance. Add uncleared lodgements. Deduct unpresented cheques. The result should equal the updated Cash Book balance. Starting with the bank statement balance is the convention." },
+
+    { "id": "bk07-008", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
+      "question": "If a business's T2 (Input VAT on purchases) exceeds T1 (Output VAT on sales) on the VAT3 return, the result is:",
+      "options": ["T3 — VAT payable to Revenue", "T4 — VAT repayable to the business by Revenue", "No return is required that period", "The excess is automatically carried forward to the next period without a refund"],
+      "answer": 1, "explanation": "T3 = T1 − T2 when Output VAT exceeds Input VAT (you owe Revenue). T4 = T2 − T1 when Input VAT exceeds Output VAT — Revenue owes the business a repayment. This commonly occurs for export businesses or when large purchases are made." },
+
+    { "id": "bk07-009", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
+      "question": "All businesses in Ireland must register for VAT regardless of their annual turnover.",
+      "answer": false, "explanation": "VAT registration is compulsory only when turnover exceeds the thresholds (€37,500 for services, €75,000 for goods as of 2024). Below these thresholds, registration is optional. Small businesses may voluntarily register to reclaim Input VAT." },
+
+    { "id": "bk07-010", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
+      "question": "A supplier invoice shows a gross (VAT-inclusive) amount of €1,476 at 23% VAT. What is the net amount (excluding VAT)?",
+      "answer": 1200, "tolerance": 0.5, "prefix": "€", "explanation": "Net = Gross ÷ 1.23 = €1,476 ÷ 1.23 = €1,200. Always divide the gross by 1.23 to extract the net from a 23% VAT-inclusive price — never subtract 23% directly." },
+
+    { "id": "bk07-011", "lo": "bk-07", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following supplies attract the ZERO rate of VAT in Ireland? Select all that apply.",
+      "options": ["Basic unprocessed food (e.g., bread, vegetables)", "Children's clothing and footwear", "Restaurant meals", "Goods exported outside the EU"],
+      "answers": [0, 1, 3], "explanation": "Basic food and children's clothes are zero-rated (0% VAT charged but the supplier can still reclaim Input VAT). Goods exported outside the EU are also zero-rated. Restaurant meals are typically at the reduced 13.5% rate." },
+
+    { "id": "bk07-012", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
+      "question": "Murphy's Bakery files VAT returns bi-monthly (every 2 months). The return for January–February is due by:",
+      "options": ["23 January", "23 February", "23 March", "15 April"],
+      "answer": 2, "explanation": "VAT returns are due by the 23rd of the month following the end of the return period (for ROS filers). January–February period → due 23 March. Paper filers have an earlier deadline of the 19th." },
+
+    { "id": "bk07-013", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
+      "question": "A business can reclaim Input VAT (T2) on purchases only if those purchases are used for taxable business purposes.",
+      "answer": true, "explanation": "Input VAT is only reclaimable if the purchase is used in making taxable supplies. VAT on private use, entertainment (which has specific rules), or exempt activities cannot be reclaimed. Mixed-use (partly business, partly private) requires apportionment." },
+
+    { "id": "bk07-014", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
+      "question": "Murphy's Bakery makes a credit sale to Hotel Plaza — Invoice 210: Net €1,600 + 23% VAT. What gross amount appears on the invoice?",
+      "answer": 1968, "tolerance": 0.5, "prefix": "€", "explanation": "Gross = Net × 1.23 = €1,600 × 1.23 = €1,968. The gross (VAT-inclusive) amount is what the customer owes — €1,968 is posted to Hotel Plaza's account in the Sales Ledger." },
+
+    { "id": "bk08-008", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
+      "question": "In Sage 50, to verify that the supplier account balance matches the amounts on the supplier's own statement, you use:",
+      "options": ["The Nominal Activity report", "The Aged Debtors report", "Supplier Account Reconciliation — matching transactions to the supplier's statement", "The Trial Balance"],
+      "answer": 2, "explanation": "Supplier reconciliation involves comparing Sage 50's record of each supplier's account against the supplier's own statement. Discrepancies (missing invoices, credit notes not applied, payment allocation errors) are identified and resolved." },
+
+    { "id": "bk08-009", "lo": "bk-08", "module": "bookkeeping", "type": "true-false",
+      "question": "Sharing your Sage 50 login password with a colleague is acceptable in an emergency to ensure work continues uninterrupted.",
+      "answer": false, "explanation": "Sharing passwords breaks the audit trail — system actions can no longer be attributed to the correct user. It violates basic security policy, may breach GDPR (the audit trail is a personal data protection mechanism), and creates accountability issues. Each user must have their own unique credentials." },
+
+    { "id": "bk08-010", "lo": "bk-08", "module": "bookkeeping", "type": "numeric",
+      "question": "A business processes 200 purchase invoices per month. Manual processing takes 5 minutes each; Sage 50 reduces this to 2 minutes each. How many hours per month are saved?",
+      "answer": 10, "tolerance": 0.1, "prefix": "", "explanation": "Time saved per invoice = 5 − 2 = 3 minutes. Total saved = 200 × 3 = 600 minutes ÷ 60 = 10 hours per month." },
+
+    { "id": "bk08-011", "lo": "bk-08", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are standard reports available in Sage 50? Select all that apply.",
+      "options": ["Trial Balance", "Aged Debtors Report", "Aged Creditors Report", "Employee Payslips"],
+      "answers": [0, 1, 2], "explanation": "Trial Balance, Aged Debtors, and Aged Creditors are all standard Sage 50 bookkeeping reports. Employee Payslips are generated by payroll software (e.g., Thesaurus Payroll or Sage Payroll) — not by the bookkeeping module." },
+
+    { "id": "bk08-012", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
+      "question": "What is 'batch entry' in the context of Sage 50?",
+      "options": ["Entering transactions one at a time with immediate posting after each", "Entering multiple similar transactions together (e.g., a day's invoices) and posting them all at once", "Creating a batch backup of all accounting data", "Processing all employee payroll records simultaneously"],
+      "answer": 1, "explanation": "Batch entry allows a user to enter several transactions of the same type (e.g., all purchase invoices received today) before posting them as a group. This is more efficient than posting one at a time and allows final review before committing." },
+
+    { "id": "bk08-013", "lo": "bk-08", "module": "bookkeeping", "type": "true-false",
+      "question": "A cloud-based accounting package can be accessed securely from any internet-connected device, including mobile phones and tablets.",
+      "answer": true, "explanation": "Location independence is the primary operational advantage of cloud accounting. The bookkeeper, accountant, and business owner can access the same live data from any device with internet access — useful for multi-site businesses or remote working." },
+
+    { "id": "bk08-014", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
+      "question": "Completing the Bank Reconciliation in Sage 50 each period primarily ensures:",
+      "options": ["The VAT return is automatically submitted to Revenue", "All bank entries agree with the bank statement, reducing the risk of undetected posting errors or fraud", "The payroll journal is posted automatically", "Employee wages are paid directly from the software"],
+      "answer": 1, "explanation": "The Bank Reconciliation in Sage 50 matches each transaction in the Bank module to the bank statement line by line. Unmatched items are investigated — this process detects missing entries, duplicate postings, and potentially fraudulent transactions." },
+
+    { "id": "bk09-008", "lo": "bk-09", "module": "bookkeeping", "type": "mcq",
+      "question": "A €480 purchase of new shelving was debited to the Repairs & Maintenance account instead of the Furniture & Fittings (asset) account. Both entries were at the correct amount. The correcting journal entry is:",
+      "options": ["DR Repairs & Maintenance €480 / CR Furniture & Fittings €480", "DR Furniture & Fittings €480 / CR Repairs & Maintenance €480", "DR Furniture & Fittings €480 / CR Bank €480", "No correction needed — both are expense accounts"],
+      "answer": 1, "explanation": "To correct: move the amount from the wrong account (CR Repairs — reducing it) to the correct account (DR Furniture & Fittings — recording it as an asset). This is an error of principle: expense account used instead of asset account." },
+
+    { "id": "bk09-009", "lo": "bk-09", "module": "bookkeeping", "type": "true-false",
+      "question": "To correct a complete reversal of entries, the correcting journal posts double the original amount to each account.",
+      "answer": true, "explanation": "If the original posting was DR Sales €500 / CR Purchases €500 (wrong — reversed), the correction must first remove the wrong entry and then post the correct one. Total movement: DR Purchases €1,000 / CR Sales €1,000 (each side = 2 × original amount)." },
+
+    { "id": "bk09-010", "lo": "bk-09", "module": "bookkeeping", "type": "numeric",
+      "question": "A Suspense Account has a debit balance of €350. Investigation reveals: a rent payment was entered in the Cash Book correctly as €850 but was posted to the Rent account as only €500. What is the correcting entry to the Rent account?",
+      "answer": 350, "tolerance": 0, "prefix": "€", "explanation": "Rent account was understated by €850 − €500 = €350. Correction: DR Rent Account €350 / CR Suspense Account €350. This increases the Rent account to the correct €850 and clears the Suspense Account." },
+
+    { "id": "bk09-011", "lo": "bk-09", "module": "bookkeeping", "type": "select-all",
+      "question": "Which types of errors are NOT revealed by an out-of-balance Trial Balance? Select all that apply.",
+      "options": ["Error of omission (transaction missed entirely from both sides)", "Error of commission (posted to the correct account type but wrong specific account)", "Error of principle (posted to the wrong account type, equal amounts)", "Single-sided transposition (e.g., debit posted as €390 instead of €930, credit correct at €930)"],
+      "answers": [0, 1, 2], "explanation": "Omission (A), commission (B), and principle (C) all maintain equal debits and credits — the TB stays balanced despite the errors. A single-sided transposition (D) means debits ≠ credits, which DOES cause a TB imbalance." },
+
+    { "id": "bk09-012", "lo": "bk-09", "module": "bookkeeping", "type": "mcq",
+      "question": "A sales invoice for €750 to City Café was correctly recorded in the Sales Day Book but was accidentally posted to Hotel Plaza's account in the Debtors Ledger. This is an example of:",
+      "options": ["Error of Omission", "Error of Principle", "Error of Commission", "Compensating Error"],
+      "answer": 2, "explanation": "An error of commission: posted to the CORRECT TYPE of account (both City Café and Hotel Plaza are debtors) but the WRONG SPECIFIC account. The TB remains balanced. Correction: DR City Café / CR Hotel Plaza." },
+
+    { "id": "bk09-013", "lo": "bk-09", "module": "bookkeeping", "type": "true-false",
+      "question": "When correcting an error of omission, no reversal entry is required — the transaction is simply posted for the first time.",
+      "answer": true, "explanation": "An omission means the transaction was never recorded. Since nothing was posted incorrectly, there is nothing to reverse. The correction is simply to post the transaction correctly as if for the first time." },
+
+    { "id": "bk09-014", "lo": "bk-09", "module": "bookkeeping", "type": "mcq",
+      "question": "Which of the following would cause the Trial Balance to NOT balance?",
+      "options": ["Posting a fixed asset purchase to a repairs expense account (error of principle)", "Posting a sales invoice on both sides to the wrong accounts (complete reversal)", "Entering a debit of €1,200 to the Bank account but omitting the credit entry to the Sales account", "Recording an expense in the wrong expense category (error of commission within nominal accounts)"],
+      "answer": 2, "explanation": "A single-sided posting (C) — debit without a corresponding credit — directly causes the TB to fail to balance. Errors of principle (A), complete reversal (B), and commission within the same account type (D) all maintain equal debits and credits." },
+
+    { "id": "bk10-008", "lo": "bk-10", "module": "bookkeeping", "type": "mcq",
+      "question": "Which financial statement shows a business's assets, liabilities, and capital at a specific point in time?",
+      "options": ["Profit and Loss Account", "Cash Flow Statement", "Balance Sheet (Statement of Financial Position)", "Trial Balance"],
+      "answer": 2, "explanation": "The Balance Sheet is a point-in-time snapshot: what the business OWNS (assets) and OWES (liabilities + capital) on one specific date. The P&L covers a period. The Cash Flow Statement shows cash movements over a period. The Trial Balance is an internal check, not a financial statement." },
+
+    { "id": "bk10-009", "lo": "bk-10", "module": "bookkeeping", "type": "true-false",
+      "question": "A very high current ratio always indicates that a business is in excellent financial health.",
+      "answer": false, "explanation": "A very high current ratio can indicate excessive cash or stock tied up inefficiently (poor working capital management). An optimal ratio depends on the industry. Too high can mean slow-moving stock or poor debtor collection; too low means struggle to pay short-term bills." },
+
+    { "id": "bk10-010", "lo": "bk-10", "module": "bookkeeping", "type": "numeric",
+      "question": "A business has gross profit of €42,000 and net sales of €140,000. Calculate the Gross Profit Margin as a percentage.",
+      "answer": 30, "tolerance": 0.5, "prefix": "", "explanation": "Gross Profit Margin = (Gross Profit ÷ Net Sales) × 100 = (€42,000 ÷ €140,000) × 100 = 30%. This shows how much of each euro of sales is left after the cost of the goods sold." },
+
+    { "id": "bk10-011", "lo": "bk-10", "module": "bookkeeping", "type": "select-all",
+      "question": "Which of the following are the three core financial statements produced at year-end? Select all that apply.",
+      "options": ["Profit and Loss Account (Income Statement)", "Balance Sheet (Statement of Financial Position)", "Aged Debtors Report", "Cash Flow Statement"],
+      "answers": [0, 1, 3], "explanation": "The three core financial statements are the Income Statement (P&L), Balance Sheet, and Cash Flow Statement. The Aged Debtors Report is a management/operational report — useful for credit control but not a formal financial statement." },
+
+    { "id": "bk10-012", "lo": "bk-10", "module": "bookkeeping", "type": "mcq",
+      "question": "Working capital is calculated as:",
+      "options": ["Fixed assets minus current liabilities", "Current assets minus current liabilities", "Total assets minus total liabilities", "Cash at bank plus trade debtors"],
+      "answer": 1, "explanation": "Working Capital = Current Assets − Current Liabilities. It measures the short-term financial health of the business — whether it has enough liquid assets to cover its immediate obligations. Positive working capital is essential for day-to-day operations." },
+
+    { "id": "bk10-013", "lo": "bk-10", "module": "bookkeeping", "type": "true-false",
+      "question": "Under GDPR, employees have the right to request a copy of any personal data their employer holds about them.",
+      "answer": true, "explanation": "GDPR grants all individuals a Right of Access (Subject Access Request — SAR). Employees can request all personal data held by their employer (payroll records, HR files, etc.). The employer must respond within one calendar month." },
+
+    { "id": "bk10-014", "lo": "bk-10", "module": "bookkeeping", "type": "mcq",
+      "question": "Management accounts differ from statutory year-end accounts in that management accounts are:",
+      "options": ["Required by law to be filed with the Companies Registration Office", "Prepared monthly or quarterly for internal decision-making, with no fixed legal format", "Only prepared by limited companies, not sole traders", "Always externally audited before use"],
+      "answer": 1, "explanation": "Management accounts are internal reports prepared frequently (monthly/quarterly) to help owners and managers make decisions. They have no prescribed legal format. Statutory accounts are prepared annually in a fixed format, filed with the CRO (for companies), and may require audit." },
+
+    { "id": "py01-008", "lo": "py-01", "module": "payroll", "type": "mcq",
+      "question": "Which of the following is the correct formula for calculating an employee's net (take-home) pay?",
+      "options": ["Gross Pay + PAYE + PRSI + USC", "Gross Pay − PAYE − Employee PRSI − USC − other deductions", "Basic Pay + Overtime − Employer PRSI", "Gross Pay − Employer PRSI only"],
+      "answer": 1, "explanation": "Net Pay = Gross Pay − PAYE − Employee PRSI − USC − any other deductions (e.g., pension). Employer PRSI is paid BY the employer on top of gross pay — it does NOT reduce the employee's take-home pay." },
+
+    { "id": "py01-009", "lo": "py-01", "module": "payroll", "type": "true-false",
+      "question": "All employees in Ireland pay PRSI at the same percentage rate regardless of their earnings or employment class.",
+      "answer": false, "explanation": "PRSI rates differ by class. Class A employees (most private sector workers) pay 4% employee PRSI. Class J (very low earnings below a weekly threshold) pay 0%. Different employment types (self-employed Class S, public sector classes) also have different rates." },
+
+    { "id": "py01-010", "lo": "py-01", "module": "payroll", "type": "numeric",
+      "question": "An employee earns €650 gross per week. Deductions: PAYE €95, Employee PRSI €26, USC €12. Calculate their weekly net (take-home) pay.",
+      "answer": 517, "tolerance": 0.5, "prefix": "€", "explanation": "Net pay = Gross − PAYE − Employee PRSI − USC = €650 − €95 − €26 − €12 = €517. Employer PRSI is not deducted from the employee — it is an additional cost paid by the employer." },
+
+    { "id": "py01-011", "lo": "py-01", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are included in an employee's GROSS PAY for PAYE and PRSI purposes? Select all that apply.",
+      "options": ["Basic pay", "Overtime pay", "Employer PRSI", "Commission earned"],
+      "answers": [0, 1, 3], "explanation": "Gross pay includes basic pay, overtime, and commission — all earnings from employment. Employer PRSI (C) is an additional cost paid BY the employer and is NOT part of the employee's gross pay." },
+
+    { "id": "py01-012", "lo": "py-01", "module": "payroll", "type": "numeric",
+      "question": "An employee earns €3,000 gross this month. Employee PRSI rate is 4%. Calculate the employee's PRSI deduction.",
+      "answer": 120, "tolerance": 0.5, "prefix": "€", "explanation": "Employee PRSI = €3,000 × 4% = €120. The employer also pays employer PRSI (approximately 11.15%) on top of the gross pay — but this is a separate employer cost, not deducted from the employee's pay." },
+
+    { "id": "py01-013", "lo": "py-01", "module": "payroll", "type": "true-false",
+      "question": "Approved occupational pension contributions deducted from an employee's gross pay are exempt from PAYE (income tax), but remain subject to PRSI and USC.",
+      "answer": true, "explanation": "Pension contributions to an approved occupational pension scheme receive full income tax relief (no PAYE). However, they are still subject to PRSI and USC. This makes pension saving highly tax-efficient for higher-rate taxpayers." },
+
+    { "id": "py01-014", "lo": "py-01", "module": "payroll", "type": "mcq",
+      "question": "Under Ireland's two-rate income tax system, what is the standard (lower) rate of income tax?",
+      "options": ["10%", "20%", "30%", "40%"],
+      "answer": 1, "explanation": "Ireland's two-rate income tax system: 20% (standard rate) on income up to the standard rate cut-off point, and 40% (higher rate) on income above it. The exact cut-off depends on personal circumstances and is set in the annual Budget." },
+
+    { "id": "py02-008", "lo": "py-02", "module": "payroll", "type": "mcq",
+      "question": "When setting up a new employee in Thesaurus Payroll, which of the following is essential for correct tax calculation?",
+      "options": ["The employee's home address only", "PPS number, Tax Credit Certificate details (weekly/monthly credits and cut-off), and employment start date", "Bank account number only", "The previous employer's company name"],
+      "answer": 1, "explanation": "Correct tax calculation requires the employee's PPS number, their weekly/monthly tax credits, and their standard rate cut-off — all provided by Revenue on the Tax Credit Certificate. Without these, the software must apply emergency tax." },
+
+    { "id": "py02-009", "lo": "py-02", "module": "payroll", "type": "true-false",
+      "question": "Payroll software automatically prevents all data entry errors, making it impossible to record an employee's pay rate incorrectly.",
+      "answer": false, "explanation": "'Garbage in, garbage out' — payroll software calculates correctly based on what the operator enters. If the wrong pay rate, wrong hours, or wrong tax credits are entered, the software will calculate incorrect results perfectly. Human data entry errors are not eliminated by software." },
+
+    { "id": "py02-010", "lo": "py-02", "module": "payroll", "type": "numeric",
+      "question": "Before payroll software, manually processing 10 employees' payroll takes 20 minutes per employee. With software, the entire payroll run takes 25 minutes. How many minutes does the software save per payroll run?",
+      "answer": 175, "tolerance": 1, "prefix": "", "explanation": "Manual total = 10 × 20 = 200 minutes. Software total = 25 minutes. Time saving = 200 − 25 = 175 minutes per payroll run." },
+
+    { "id": "py02-011", "lo": "py-02", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are advantages of using payroll software over manual payroll? Select all that apply.",
+      "options": ["Automatic calculation of PAYE, PRSI, and USC using current tax tables", "Generation of payslips for all employees", "Complete elimination of all human errors", "Production of Revenue reports (P30, payroll journals for the accounts)"],
+      "answers": [0, 1, 3], "explanation": "Software automates tax calculations (A), generates payslips (B), and produces Revenue and accounting reports (D). However, it does NOT eliminate all human error (C) — incorrect data entry still produces incorrect results." },
+
+    { "id": "py02-012", "lo": "py-02", "module": "payroll", "type": "mcq",
+      "question": "In Thesaurus Payroll, completing the 'payroll run' for a period produces:",
+      "options": ["A VAT3 return for Revenue", "Individual payslips, a payroll summary report, and data for the payroll journal", "Audited year-end accounts", "Only the annual P35 return"],
+      "answer": 1, "explanation": "Each payroll run produces: individual payslips for each employee, a payroll summary (total wages, deductions, employer costs), and the payroll journal data for posting to the bookkeeping system." },
+
+    { "id": "py02-013", "lo": "py-02", "module": "payroll", "type": "true-false",
+      "question": "A manual payroll calculation requires the bookkeeper to look up current tax tables, PRSI rates, and USC rates from Revenue's published guides each pay period.",
+      "answer": true, "explanation": "Manual payroll requires consulting Revenue's current rate tables (published annually after each Budget). Tax credits, USC bands, PRSI rates, and standard rate cut-offs can change each year. Payroll software maintains these tables automatically." },
+
+    { "id": "py02-014", "lo": "py-02", "module": "payroll", "type": "mcq",
+      "question": "What is the purpose of a 'payroll journal' generated by payroll software?",
+      "options": ["To show individual employee tax deductions for filing the P30", "To record the wages expense and all related payables (PAYE, PRSI, USC payable, net wages) in the general ledger", "To calculate each employee's holiday entitlement", "To generate direct bank transfer payments automatically"],
+      "answer": 1, "explanation": "The payroll journal records the bookkeeping entry for wages: DR Wages/Salaries (gross wages expense) / CR PAYE Payable / CR PRSI Payable / CR USC Payable / CR Bank (net wages paid). This integrates payroll with the bookkeeping records." },
+
+    { "id": "py03-008", "lo": "py-03", "module": "payroll", "type": "mcq",
+      "question": "How does the Week 1/Month 1 (emergency) basis differ from the Cumulative basis for calculating PAYE?",
+      "options": ["Week 1/Month 1 uses higher tax rates than cumulative", "Week 1/Month 1 taxes each period independently with no reference to year-to-date figures; cumulative uses YTD totals to self-correct", "Week 1/Month 1 applies no tax credits at all in any circumstance", "Week 1/Month 1 is used only for part-time employees"],
+      "answer": 1, "explanation": "The key difference: cumulative uses year-to-date (YTD) pay, credits, and cut-off to calculate and self-correct. Week 1/Month 1 treats each period as standalone — no YTD figures, no refunds, no catching up for earlier under/over-deductions." },
+
+    { "id": "py03-009", "lo": "py-03", "module": "payroll", "type": "true-false",
+      "question": "The standard rate cut-off point (the income threshold between the 20% and 40% tax rates) is the same for all employees in Ireland, regardless of marital status.",
+      "answer": false, "explanation": "The standard rate cut-off varies by personal circumstances. Single employees: €42,000 (2024). Married (one income): €51,000. Married (both working): up to €84,000 combined (max €51,000 for one spouse). Each employee's Tax Credit Certificate from Revenue shows their specific cut-off." },
+
+    { "id": "py03-010", "lo": "py-03", "module": "payroll", "type": "numeric",
+      "question": "An employee's monthly standard rate cut-off is €3,500. Their gross pay this month is €4,200. How much of their income is subject to the higher 40% rate?",
+      "answer": 700, "tolerance": 0.5, "prefix": "€", "explanation": "Income up to €3,500 is taxed at 20% (standard rate). Income above the cut-off: €4,200 − €3,500 = €700 is subject to the 40% higher rate." },
+
+    { "id": "py03-011", "lo": "py-03", "module": "payroll", "type": "select-all",
+      "question": "Under the cumulative tax system, which year-to-date (YTD) figures are used when calculating PAYE for a given pay period? Select all that apply.",
+      "options": ["Cumulative gross pay to date", "Cumulative standard rate cut-off to date", "Cumulative tax credits to date", "Tax already paid in all previous periods this year"],
+      "answers": [0, 1, 2, 3], "explanation": "All four are used: calculate gross tax on cumulative pay (applying cumulative cut-off), deduct cumulative tax credits, then deduct tax already paid in prior periods. This gives the exact tax due THIS period and automatically corrects any earlier over/under-deduction." },
+
+    { "id": "py03-012", "lo": "py-03", "module": "payroll", "type": "mcq",
+      "question": "An employee was on unpaid sick leave for 3 months. On returning to normal pay, what happens under the cumulative tax system?",
+      "options": ["Emergency tax is applied due to the absence", "Higher than normal PAYE is deducted to catch up on missed months", "Reduced PAYE (or even a refund through payroll) as accumulated unused credits and cut-off are now applied", "Flat rate 40% applies to all earnings for the first month back"],
+      "answer": 2, "explanation": "During unpaid absence, tax credits and cut-off accumulated but weren't used. On returning, the cumulative system compares what should have been paid (using YTD totals) vs. what was paid — resulting in lower PAYE deductions or even a refund through payroll." },
+
+    { "id": "py03-013", "lo": "py-03", "module": "payroll", "type": "true-false",
+      "question": "Under the cumulative tax system, an employee who receives a mid-year pay rise will be overtaxed for the rest of the year because the system cannot adjust for the change.",
+      "answer": false, "explanation": "The cumulative system adjusts automatically. Each period, it recalculates tax on updated YTD gross pay using the correct YTD credits and cut-off — then deducts tax already paid. A pay rise is reflected in the very next payroll run without any manual adjustment." },
+
+    { "id": "py03-014", "lo": "py-03", "module": "payroll", "type": "mcq",
+      "question": "Before switching an employee from Week 1/Month 1 basis to the cumulative basis, the employer must obtain:",
+      "options": ["A new P45 from the employee's previous employer", "The employee's year-to-date gross pay, tax credits, cut-off, and tax paid — typically from their Tax Credit Certificate from Revenue", "Written authorisation from the Workplace Relations Commission", "The employee's bank account details"],
+      "answer": 1, "explanation": "To operate the cumulative basis, the employer needs the YTD figures so the system can correctly calculate what is owed each period (considering what was already paid). Revenue provides these via the Tax Credit Certificate issued when the employee registers on PMOD/ROS." },
+
+    { "id": "py04-008", "lo": "py-04", "module": "payroll", "type": "mcq",
+      "question": "During the first 4 weeks of emergency tax (where the employer has NOT received a Tax Credit Certificate from Revenue), how is PAYE calculated?",
+      "options": ["40% on all earnings, no tax credits allowed", "Standard rate (20%) applied to all earnings, with no personal tax credits allowed", "Normal cumulative basis applies — no change", "PAYE is not deducted for the first 4 weeks"],
+      "answer": 1, "explanation": "Weeks 1–4 of emergency tax: 20% (standard rate) is applied to all earnings with no tax credits. From Week 5 onwards (if no PPS number/TCC is provided), the higher 40% rate applies to all earnings. This escalating rate encourages employees to regularise their tax status quickly." },
+
+    { "id": "py04-009", "lo": "py-04", "module": "payroll", "type": "true-false",
+      "question": "Once an employee on emergency tax provides their PPS number and Revenue issues a Tax Credit Certificate, the employer switches the employee to the cumulative basis immediately.",
+      "answer": true, "explanation": "The Tax Credit Certificate from Revenue is the trigger to switch from emergency (Week 1/Month 1) to the cumulative basis. On receiving the TCC, the employer applies the correct credits and cut-off, and the cumulative system will automatically refund any tax overpaid under emergency basis." },
+
+    { "id": "py04-010", "lo": "py-04", "module": "payroll", "type": "numeric",
+      "question": "An employee is in Week 7 of emergency tax. They have not provided a PPS number. Gross pay this week is €700. What is the PAYE deduction? (40% applies from Week 5 when no PPS number is provided.)",
+      "answer": 280, "tolerance": 0.5, "prefix": "€", "explanation": "From Week 5 onwards without a PPS number: 40% is applied to ALL earnings. PAYE = €700 × 40% = €280. This punitive rate is designed to encourage the employee to regularise their tax affairs with Revenue." },
+
+    { "id": "py04-011", "lo": "py-04", "module": "payroll", "type": "select-all",
+      "question": "For which of the following new starters can the employer avoid applying emergency tax? Select all that apply.",
+      "options": ["Employee provides their P45 from previous employment", "Revenue issues a Tax Credit Certificate (TCC) after employer registers on ROS", "Employee provides a handwritten letter stating their tax credits", "Employee was previously employed by this same employer and is being rehired on the same terms"],
+      "answers": [0, 1, 3], "explanation": "P45 (A) provides YTD figures for the cumulative basis. TCC from Revenue (B) provides credits and cut-off. Rehire by the same employer (D) may allow continuity of the existing tax basis. A handwritten letter (C) is not a Revenue-issued document and cannot be used." },
+
+    { "id": "py04-012", "lo": "py-04", "module": "payroll", "type": "mcq",
+      "question": "What is a PPS number and why is it critical for payroll processing?",
+      "options": ["Personal Payroll Summary — a form employees complete on joining", "Personal Public Service number — a unique government identifier linking the employee to Revenue, required for processing correct tax deductions", "A bank reference code used for payroll direct debits", "A code the employer assigns to each employee for internal reference"],
+      "answer": 1, "explanation": "A PPS number is a unique 7-character identifier (e.g., 1234567T) assigned by the Department of Social Protection. It links the employee to Revenue records, enabling the employer to obtain a Tax Credit Certificate and process PAYE correctly." },
+
+    { "id": "py04-013", "lo": "py-04", "module": "payroll", "type": "true-false",
+      "question": "Emergency (Week 1/Month 1) tax is always more expensive for the employee than the cumulative basis, because accumulated unused credits from earlier in the year are never applied.",
+      "answer": true, "explanation": "Emergency tax ignores YTD figures entirely. Unused tax credits from January–March (for example) that would reduce tax on a April bonus under the cumulative basis are completely lost under emergency basis — it's standalone each week, with no catch-up mechanism." },
+
+    { "id": "py04-014", "lo": "py-04", "module": "payroll", "type": "mcq",
+      "question": "A seasonal worker who worked for the business last year returns for this year's season. The employer retained their Tax Credit Certificate details on ROS. Should emergency tax be applied?",
+      "options": ["Yes — any gap of 3+ months automatically triggers emergency tax regardless", "No — if the employer has a valid TCC and the employee is registered on the system, they can be reinstated on the cumulative basis", "Yes — seasonal workers are always on Week 1/Month 1 by law", "No — returning employees are automatically exempt from PAYE for 4 weeks"],
+      "answer": 1, "explanation": "Emergency tax arises from a failure to obtain Revenue credentials, not simply from a gap in employment. If the employer has the employee's TCC on ROS, they can activate the employee and apply the cumulative basis immediately on their return." },
+
+    { "id": "py05-008", "lo": "py-05", "module": "payroll", "type": "mcq",
+      "question": "Which personal circumstance entitles a PAYE employee to a higher standard rate cut-off point under joint assessment?",
+      "options": ["Buying their first home", "Being married with a non-working or lower-earning spouse, under joint assessment", "Starting a second part-time job", "Reaching the age of 65"],
+      "answer": 1, "explanation": "Marriage under joint assessment can significantly increase the standard rate cut-off. A single earner married couple can have a cut-off of up to €51,000 (2024), compared to €42,000 for a single person. Unused cut-off from the non-working spouse transfers to the working spouse." },
+
+    { "id": "py05-009", "lo": "py-05", "module": "payroll", "type": "true-false",
+      "question": "A separated parent who is the primary carer of a qualifying child may claim the Single Person Child Carer Credit (SPCCC), which provides an additional tax credit beyond the standard Personal Tax Credit.",
+      "answer": true, "explanation": "The SPCCC is available to a single parent (including a separated/divorced person) who is the primary carer of a qualifying child. It provides an extra credit on top of the Personal Tax Credit, significantly reducing the PAYE bill." },
+
+    { "id": "py05-010", "lo": "py-05", "module": "payroll", "type": "numeric",
+      "question": "A single employee earns €42,000 annually. Standard rate cut-off is €42,000. Annual tax credits are €3,750. All income is at the 20% standard rate. Calculate annual PAYE payable.",
+      "answer": 4650, "tolerance": 1, "prefix": "€", "explanation": "Gross PAYE = €42,000 × 20% = €8,400. Net PAYE = €8,400 − €3,750 (tax credits) = €4,650 annual PAYE payable." },
+
+    { "id": "py05-011", "lo": "py-05", "module": "payroll", "type": "select-all",
+      "question": "Which tax credits are automatically available to every PAYE employee in Ireland? Select all that apply.",
+      "options": ["Personal Tax Credit", "Employee (PAYE) Tax Credit", "Capital Gains Tax Exemption", "Age Tax Credit (if aged 65 or over)"],
+      "answers": [0, 1, 3], "explanation": "Every PAYE employee receives the Personal Tax Credit and the Employee (PAYE) Tax Credit — both at €1,875 each in 2024. The Age Tax Credit (D) applies once the employee reaches 65. Capital Gains Tax Exemption (C) is not a PAYE tax credit." },
+
+    { "id": "py05-012", "lo": "py-05", "module": "payroll", "type": "mcq",
+      "question": "An employee turns 65 during the tax year. What PAYE-related benefit may they be entitled to?",
+      "options": ["Automatic exemption from all income tax from age 65", "The Age Tax Credit, which reduces their annual PAYE bill", "The 20% rate applies to all income with no higher rate", "An automatic PRSI rebate for all prior years"],
+      "answer": 1, "explanation": "The Age Tax Credit (€245 each for a couple, €245 for a single person in 2024) reduces PAYE once the employee reaches 65. It doesn't create full tax exemption — that only applies if income is below a certain threshold — but it does reduce the tax bill." },
+
+    { "id": "py05-013", "lo": "py-05", "module": "payroll", "type": "true-false",
+      "question": "Tax relief on qualifying health (medical) expenses in Ireland is available at the standard 20% rate and is claimed directly by the employee through Revenue's myAccount portal.",
+      "answer": true, "explanation": "Medical expenses relief is at the standard 20% rate (not the marginal rate). Qualifying costs include doctor/consultant fees, hospital expenses, and non-routine dental work. The claim is made by the employee via Revenue myAccount — not through their employer's payroll." },
+
+    { "id": "py05-014", "lo": "py-05", "module": "payroll", "type": "mcq",
+      "question": "An employee's income rises from €38,000 to €46,000. Their standard rate cut-off is €42,000. Approximately how much additional annual PAYE applies to the €4,000 of income now above the cut-off?",
+      "options": ["€800 (at 20%)", "€1,600 (at 40%)", "€2,000 (at 50%)", "€0 — all income under €50,000 is at 20%"],
+      "answer": 1, "explanation": "Income above the standard rate cut-off attracts the higher 40% rate. Additional PAYE on the €4,000 above the cut-off = €4,000 × 40% = €1,600. This contrasts with €800 if it had all been at 20%." },
+
+    { "id": "py06-008", "lo": "py-06", "module": "payroll", "type": "mcq",
+      "question": "An employee starts a new job in September and provides their P45 from their previous employer. The new employer should:",
+      "options": ["Apply emergency tax for the rest of the year as a precaution", "Use the year-to-date figures from the P45 to set up the employee on the cumulative basis immediately", "Wait for Revenue to issue a new Tax Credit Certificate before processing any pay", "Apply Week 1/Month 1 basis until January"],
+      "answer": 1, "explanation": "The P45 contains year-to-date gross pay and tax figures. The new employer uses these YTD figures to put the employee straight onto the cumulative basis — ensuring they are not overtaxed for the remainder of the year." },
+
+    { "id": "py06-009", "lo": "py-06", "module": "payroll", "type": "true-false",
+      "question": "An employee who changes employer mid-year will receive a P60 from both their previous and new employer at the end of the tax year.",
+      "answer": false, "explanation": "The P60 is issued by the employer where the employee works on 31 December. The previous employer issued a P45 on departure. Only ONE P60 is issued — from the employer of record at year-end. The P45 provides the mid-year summary from the previous employment." },
+
+    { "id": "py06-010", "lo": "py-06", "module": "payroll", "type": "numeric",
+      "question": "An employee's P60 shows: Gross Pay €34,000, PAYE deducted €5,850, Employee PRSI €1,360, USC €680. What was their total net (take-home) pay for the year?",
+      "answer": 26110, "tolerance": 1, "prefix": "€", "explanation": "Net Pay = Gross − PAYE − PRSI − USC = €34,000 − €5,850 − €1,360 − €680 = €26,110. The P60 summarises the full year's pay and deductions, from which annual net pay can be calculated." },
+
+    { "id": "py06-011", "lo": "py-06", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are statutory employer obligations regarding employee documentation? Select all that apply.",
+      "options": ["Issue a P60 to every employee in employment on 31 December, by 15 February", "Issue a P45 to any employee who leaves employment during the year", "File a P30 return with Revenue for each payroll period", "Register new employees with Revenue via ROS before their first payroll"],
+      "answers": [0, 1, 2, 3], "explanation": "All four are legal employer obligations: P60 by 15 February (A), P45 on leaving (B), periodic P30 returns (C), and ROS registration of new starters (D). Failure to comply can result in Revenue penalties." },
+
+    { "id": "py06-012", "lo": "py-06", "module": "payroll", "type": "mcq",
+      "question": "Under PAYE Modernisation (introduced January 2019), what has largely replaced the traditional P45 process for employees leaving employment?",
+      "options": ["A paper P45A submitted by post to Revenue", "The final real-time payroll submission for the leaving employee serves as the equivalent, and Revenue updates the employee's records automatically", "An automated bank transfer notification to Revenue", "The P60, which now also doubles as a leaving certificate"],
+      "answer": 1, "explanation": "Under PAYE Modernisation, the employer's final payroll submission for a leaving employee (submitted to Revenue on or before the last pay date) replaces the P45. Revenue updates the employee's record in real time. The employee can view their details via myAccount." },
+
+    { "id": "py06-013", "lo": "py-06", "module": "payroll", "type": "true-false",
+      "question": "Self-employed individuals receive a P60 from Revenue at year-end summarising their income and tax for the year.",
+      "answer": false, "explanation": "The P60 is an EMPLOYER-issued document for PAYE workers only. Self-employed individuals file their own annual Income Tax Return (Form 11) to Revenue and calculate their own tax liability. They are responsible for their own records — Revenue does not issue a P60 to them." },
+
+    { "id": "py06-014", "lo": "py-06", "module": "payroll", "type": "mcq",
+      "question": "Which information appears on an employee's P60?",
+      "options": ["The employee's bank account number and sort code", "Total gross pay, PAYE deducted, employee PRSI contributions, and USC deducted for the full tax year", "Details of any redundancy payment made during the year", "The employee's job title and department"],
+      "answer": 1, "explanation": "The P60 contains the financial summary needed for tax purposes: annual gross pay, PAYE deducted, employee PRSI, and USC. It does NOT include banking details, redundancy information, or job titles — those are on other documents (e.g., contract of employment)." },
+
+    { "id": "py07-008", "lo": "py-07", "module": "payroll", "type": "mcq",
+      "question": "For employers who file P30 returns electronically via ROS, what is the typical monthly payment deadline?",
+      "options": ["7th of the following month", "14th of the following month", "23rd of the following month", "Last working day of the following month"],
+      "answer": 2, "explanation": "ROS electronic filers have until the 23rd of the month following the payroll period (e.g., January payroll → 23 February deadline). Paper filers have an earlier deadline of the 19th. The extended ROS deadline encourages electronic filing." },
+
+    { "id": "py07-009", "lo": "py-07", "module": "payroll", "type": "true-false",
+      "question": "Under PAYE Modernisation (Real Time Reporting), an employer must submit payroll data to Revenue on or before the date employees are paid.",
+      "answer": true, "explanation": "This is the fundamental rule of PAYE Modernisation (January 2019). Real-time reporting means Revenue receives each employee's pay and deduction details BEFORE or ON the pay date — not retrospectively. Revenue has continuous, up-to-date payroll visibility." },
+
+    { "id": "py07-010", "lo": "py-07", "module": "payroll", "type": "numeric",
+      "question": "Monthly payroll totals: PAYE €2,800; Employee PRSI €620; Employer PRSI €1,710; USC €440. Calculate the total P30 payment due to Revenue.",
+      "answer": 5570, "tolerance": 1, "prefix": "€", "explanation": "P30 total = PAYE + Employee PRSI + Employer PRSI + USC = €2,800 + €620 + €1,710 + €440 = €5,570. The employer remits all of these — both the amounts deducted from employees and the employer's own PRSI contribution." },
+
+    { "id": "py07-011", "lo": "py-07", "module": "payroll", "type": "select-all",
+      "question": "Which of the following statements about the P30 return are correct? Select all that apply.",
+      "options": ["It includes employer PRSI as well as employee deductions", "It can be filed monthly or quarterly depending on the employer's liability", "ROS electronic filers have a later deadline than paper filers", "The P30 was introduced under PAYE Modernisation in 2019 to replace the P35"],
+      "answers": [0, 1, 2], "explanation": "The P30 includes employer PRSI (A), can be monthly or quarterly (B), and ROS filers have until the 23rd vs. 19th for paper filers (C). The P30 is not a product of PAYE Modernisation (D) — it existed before 2019; the P35 annual return was what was replaced." },
+
+    { "id": "py07-012", "lo": "py-07", "module": "payroll", "type": "mcq",
+      "question": "When registering a new employee with Revenue for the first time, the employer uses:",
+      "options": ["A paper form posted to Revenue's processing centre", "ROS (Revenue Online Service) — the employer's online tax portal", "The employee's myAccount portal on the employee's behalf", "Their local Revenue office in person"],
+      "answer": 1, "explanation": "Employers use ROS (Revenue Online Service) to register new employees using their PPS number. Revenue then issues a Tax Credit Certificate enabling the employer to set up the correct cumulative tax basis for the employee." },
+
+    { "id": "py07-013", "lo": "py-07", "module": "payroll", "type": "true-false",
+      "question": "Revenue charges daily interest on late payment of PAYE/PRSI/USC, which accrues from the day after the filing deadline until the date of payment.",
+      "answer": true, "explanation": "Revenue charges interest at approximately 0.0219% per day (equivalent to about 8% per annum) on overdue PAYE/PRSI/USC. Interest begins accruing the day after the deadline. This makes even a few days' lateness costly, especially on large payroll tax liabilities." },
+
+    { "id": "py07-014", "lo": "py-07", "module": "payroll", "type": "mcq",
+      "question": "A small employer whose monthly PAYE/PRSI/USC liability falls below Revenue's threshold for monthly filing can:",
+      "options": ["File annually with a single lump-sum payment", "File and pay quarterly instead of monthly", "Skip filing for months where no employees are paid", "File bi-annually (every 6 months)"],
+      "answer": 1, "explanation": "Revenue allows small employers (below a monthly threshold) to file and pay quarterly. This reduces administrative burden for very small businesses with limited payroll activity. Revenue designates eligibility — it is not a choice available to all employers." },
+
+    { "id": "py08-008", "lo": "py-08", "module": "payroll", "type": "mcq",
+      "question": "Under 'Separate Assessment' for a married couple, how are tax credits and the standard rate cut-off divided?",
+      "options": ["The higher earner receives all credits and cut-off", "Tax credits are divided equally; the standard rate cut-off is split based on each spouse's income proportion", "Each spouse retains their own credits and a portion of the joint cut-off is allocated between them; certain joint credits are divided", "No tax credits are available — each spouse pays the flat 40% rate"],
+      "answer": 2, "explanation": "Under separate assessment, each spouse is assessed separately but credits and cut-off are divided between them (not necessarily equally). It is administratively more complex than joint assessment and is rarely more tax-efficient." },
+
+    { "id": "py08-009", "lo": "py-08", "module": "payroll", "type": "true-false",
+      "question": "Joint assessment is automatically applied to married couples and civil partners in Ireland unless they formally elect for a different method.",
+      "answer": true, "explanation": "Revenue defaults to joint assessment (aggregation) for married couples and civil partners. The assessable spouse is responsible for the joint tax return. Couples must actively elect separate or single assessment if preferred — it doesn't happen automatically." },
+
+    { "id": "py08-010", "lo": "py-08", "module": "payroll", "type": "numeric",
+      "question": "A single worker pays €5,400 PAYE annually. As a married couple under joint assessment (one income), their combined liability is €3,600. What is the annual tax saving from joint assessment?",
+      "answer": 1800, "tolerance": 1, "prefix": "€", "explanation": "Tax saving = Single assessment PAYE − Joint assessment PAYE = €5,400 − €3,600 = €1,800 per year. This saving arises from the transfer of the non-working spouse's Personal Tax Credit and unused standard rate cut-off." },
+
+    { "id": "py08-011", "lo": "py-08", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are benefits of joint assessment for a married couple where one spouse does not work? Select all that apply.",
+      "options": ["Transfer of the non-working spouse's Personal Tax Credit to the working spouse", "Transfer of unused standard rate cut-off to the working spouse", "The working spouse is exempt from USC", "The working spouse benefits from a higher standard rate cut-off point"],
+      "answers": [0, 1, 3], "explanation": "Under joint assessment: Personal Tax Credit transfers (A), unused cut-off transfers (B), and a higher cut-off is available (D). USC is based on each individual's income and is NOT affected by marital status or joint assessment (C is incorrect)." },
+
+    { "id": "py08-012", "lo": "py-08", "module": "payroll", "type": "mcq",
+      "question": "Under joint assessment, who is the 'assessable spouse'?",
+      "options": ["Always the spouse with the lower income", "Always the husband under Irish law", "The spouse who Revenue designates (or who elects) to be responsible for filing the joint tax return", "The spouse who works in the public sector"],
+      "answer": 2, "explanation": "The assessable spouse is designated by Revenue (typically the higher earner by default, unless the couple elects otherwise). They are responsible for filing the joint assessment return and paying any tax balance. There is no requirement for it to be the husband." },
+
+    { "id": "py08-013", "lo": "py-08", "module": "payroll", "type": "true-false",
+      "question": "Cohabiting (unmarried) couples in Ireland are entitled to the same tax benefits as married couples, including transfer of tax credits between partners.",
+      "answer": false, "explanation": "In Irish tax law, only married couples and civil partners can benefit from joint assessment, credit transfers, and the higher standard rate cut-off. Cohabiting (unmarried) partners are each taxed as single individuals with no inter-partner transfers permitted." },
+
+    { "id": "py08-014", "lo": "py-08", "module": "payroll", "type": "mcq",
+      "question": "If a married couple wants to change their tax assessment method from joint to separate assessment, they must notify Revenue by:",
+      "options": ["31 January in the year of change", "31 March in the year of change", "Before 1 April in the tax year for which it is to apply", "Any time — changes take immediate effect for the full year"],
+      "answer": 2, "explanation": "An election for separate assessment must be made before 1 April (i.e., by the end of March) in the tax year for which it is to apply. If made after 1 April, it takes effect from the following tax year." },
+
+    { "id": "py09-008", "lo": "py-09", "module": "payroll", "type": "mcq",
+      "question": "Under Irish law, statutory redundancy is calculated as:",
+      "options": ["One month's gross pay for every year of service with no ceiling", "Two weeks' reckonable pay per year of service plus one bonus week, subject to a statutory earnings ceiling", "A fixed lump sum of €10,000 regardless of length of service", "Three weeks' pay for every year of service"],
+      "answer": 1, "explanation": "Statutory redundancy = 2 weeks' reckonable pay per year of continuous service + 1 bonus week, subject to a maximum reckonable weekly pay (€600 per week as at 2024). An employee with 5 years' service receives 11 weeks' pay (2×5 + 1 bonus)." },
+
+    { "id": "py09-009", "lo": "py-09", "module": "payroll", "type": "true-false",
+      "question": "Under the National Minimum Wage Act, an employer may legally pay a 17-year-old employee a lower hourly rate than the full adult minimum wage.",
+      "answer": true, "explanation": "Sub-minimum rates apply to workers under 20: age 17 receives 70% of the adult NMW, age 18 receives 80%, and age 19 receives 90%. From age 20, the full adult rate applies. This applies to all NMW-covered workers regardless of role." },
+
+    { "id": "py09-010", "lo": "py-09", "module": "payroll", "type": "numeric",
+      "question": "The National Minimum Wage is €13.50 per hour (January 2025 rate). An adult employee works 40 hours per week. What is their minimum gross weekly pay?",
+      "answer": 540, "tolerance": 0.5, "prefix": "€", "explanation": "Minimum weekly gross = €13.50 × 40 hours = €540. Any employer paying less than the NMW to an adult employee is breaching the National Minimum Wage Act 2000 and can be reported to the Workplace Relations Commission." },
+
+    { "id": "py09-011", "lo": "py-09", "module": "payroll", "type": "select-all",
+      "question": "Which pieces of Irish legislation directly govern the employment relationship? Select all that apply.",
+      "options": ["National Minimum Wage Act 2000", "Organisation of Working Time Act 1997", "Companies Act 2014", "Unfair Dismissals Act 1977"],
+      "answers": [0, 1, 3], "explanation": "The NMW Act (A), Working Time Act (B), and Unfair Dismissals Act (D) all regulate the employer-employee relationship. The Companies Act 2014 (C) governs company formation, governance, and administration — important for businesses, but not directly an employment law." },
+
+    { "id": "py09-012", "lo": "py-09", "module": "payroll", "type": "mcq",
+      "question": "An employee has worked for a company for 10 months and is dismissed. Under the Unfair Dismissals Act 1977, can they claim unfair dismissal?",
+      "options": ["Yes — protection applies from the first day of employment", "No — a minimum of 12 months' continuous service is required (with certain exceptions)", "Yes — but only if the employer has more than 10 employees", "No — unfair dismissal claims require 2 years' service"],
+      "answer": 1, "explanation": "The standard qualifying period for unfair dismissal is 12 continuous months of service. With only 10 months, the employee does not yet qualify. Exceptions apply for dismissals related to pregnancy, trade union activity, or certain other protected grounds, which have no qualifying period." },
+
+    { "id": "py09-013", "lo": "py-09", "module": "payroll", "type": "true-false",
+      "question": "Under the Maternity Protection Act, a pregnant employee in Ireland is entitled to a minimum of 26 weeks' ordinary maternity leave, plus up to 16 additional weeks of unpaid leave.",
+      "answer": true, "explanation": "The Maternity Protection Acts 1994 and 2004 provide: 26 weeks' ordinary maternity leave (the first 24 weeks attract Maternity Benefit from the DSP if PRSI conditions are met) plus up to 16 weeks' additional unpaid leave at the employee's option." },
+
+    { "id": "py09-014", "lo": "py-09", "module": "payroll", "type": "mcq",
+      "question": "Under the Protection of Employees (Fixed-Term Work) Act 2003, after how many years of continuous employment on fixed-term contracts does an employee become entitled to a contract of indefinite duration?",
+      "options": ["1 year", "2 years", "4 years", "5 years"],
+      "answer": 2, "explanation": "After 4 years of continuous employment on successive fixed-term contracts (or on one fixed-term contract that has been renewed), an employee is entitled to a contract of indefinite duration (permanent employment) under the Act." },
+
+    { "id": "py10-008", "lo": "py-10", "module": "payroll", "type": "mcq",
+      "question": "Which payroll report shows each individual employee's gross pay, all deductions, and net pay for the current pay period?",
+      "options": ["Payroll Summary / Cost Analysis Report", "P30 Revenue Return", "Employee Pay Detail / Individual Payslip Report", "Aged Creditors Report"],
+      "answer": 2, "explanation": "The individual payslip (or Employee Pay Detail report) shows the breakdown for each employee: gross pay components, every deduction (PAYE, PRSI, USC, pension), and net pay. The Payroll Summary shows totals across all employees; the P30 is a Revenue return." },
+
+    { "id": "py10-009", "lo": "py-10", "module": "payroll", "type": "true-false",
+      "question": "Under GDPR, an employer who suffers a payroll data breach must notify the Data Protection Commission (DPC) within 72 hours of becoming aware of it.",
+      "answer": true, "explanation": "GDPR Article 33 requires notification of a personal data breach to the supervisory authority (the DPC in Ireland) within 72 hours of becoming aware. Payroll data (PPS numbers, pay, tax deductions) is highly sensitive personal data — breaches require prompt action." },
+
+    { "id": "py10-010", "lo": "py-10", "module": "payroll", "type": "numeric",
+      "question": "An employee earns €3,500 gross per month. The employer PRSI rate is 11.15%. Calculate the monthly employer PRSI cost.",
+      "answer": 390.25, "tolerance": 1, "prefix": "€", "explanation": "Employer PRSI = €3,500 × 11.15% = €390.25. This is an additional cost paid BY the employer on top of the employee's gross pay — it does not reduce the employee's take-home pay but is a real payroll cost for the business." },
+
+    { "id": "py10-011", "lo": "py-10", "module": "payroll", "type": "select-all",
+      "question": "Which of the following are required year-end payroll procedures? Select all that apply.",
+      "options": ["Issue P60s to all employees still employed on 31 December (by 15 February)", "Reconcile total PAYE/PRSI/USC paid with P30 returns filed during the year", "Securely archive payroll records for at least 6 years", "Submit final payroll data to Revenue under PAYE Modernisation real-time reporting"],
+      "answers": [0, 1, 2, 3], "explanation": "All four are required year-end procedures: P60 issuance (A), reconciliation of payroll taxes (B), secure archiving for Revenue's 6-year retention requirement (C), and the final payroll RTR submission to Revenue (D)." },
+
+    { "id": "py10-012", "lo": "py-10", "module": "payroll", "type": "mcq",
+      "question": "What is the most important reason to keep a backup copy of payroll data in an offsite or cloud location?",
+      "options": ["To share it with employees on demand", "To protect against data loss from fire, theft, hardware failure, or ransomware at the main premises", "It is a legal requirement to store payroll data outside Ireland", "To enable employees to edit their own payroll records remotely"],
+      "answer": 1, "explanation": "Offsite/cloud backup ensures business continuity if the main location is affected by fire, flood, theft, or ransomware. A backup stored only on-site is lost along with the primary data in these scenarios. Best practice: at least one copy offsite or in the cloud." },
+
+    { "id": "py10-013", "lo": "py-10", "module": "payroll", "type": "true-false",
+      "question": "Under PAYE Modernisation, if an employer processes a payroll run but fails to submit the data to Revenue, the employees' tax and social welfare records will not be updated.",
+      "answer": true, "explanation": "Revenue's real-time records depend entirely on employer submissions. Without the payroll submission, Revenue has no record of that period's pay and deductions. This can affect employees' social welfare entitlements (PRSI contributions), tax refund calculations, and end-of-year reconciliation." },
+
+    { "id": "py10-014", "lo": "py-10", "module": "payroll", "type": "mcq",
+      "question": "Under GDPR, an employee submits a Subject Access Request (SAR) — requesting all personal data the employer holds about them. The employer must respond within:",
+      "options": ["7 days", "14 days", "30 days (one calendar month), extendable to 3 months for complex requests", "60 days"],
+      "answer": 2, "explanation": "GDPR Article 15 gives individuals the right of access. Employers must respond to a SAR within one calendar month (approximately 30 days). For complex or numerous requests, this can be extended by a further two months with notification to the individual. Failure to respond is a GDPR breach." }
+
+  ]
+}
