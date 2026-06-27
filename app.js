@@ -136,6 +136,19 @@ function setupEventListeners() {
     });
 }
 
+// Returns 'bk', 'py', or null based on which module a file belongs to
+function getModuleTag(categoryKey, file) {
+    if (categoryKey === 'bookkeeping') return 'bk';
+    if (categoryKey === 'payroll') return 'py';
+    const text = (file.title + ' ' + file.path).toLowerCase();
+    const hasBk = /bookkeeping|5n1354|journal|bank.rec|cash.book|ledger|daybook|petty.cash|trial.balance|vat.return|purchases|quickbooks|sage\s*50|full.project/.test(text);
+    const hasPy = /payroll|5n1546|paye|p30|thesaurus/.test(text);
+    if (hasBk && hasPy) return null;
+    if (hasPy) return 'py';
+    if (hasBk) return 'bk';
+    return null;
+}
+
 // Render Sidebar Navigation
 function renderSidebar() {
     const navContainer = document.getElementById('sidebarNav');
@@ -171,10 +184,13 @@ function renderSidebar() {
 
         category.files.forEach(file => {
             const isCompleted = state.completedLessons.includes(file.path);
+            const tag = getModuleTag(key, file);
+            const badgeHtml = tag ? `<span class="module-badge ${tag}">${tag.toUpperCase()}</span>` : '';
             const itemEl = document.createElement('li');
             itemEl.innerHTML = `
                 <a href="#${file.path}" class="sidebar-link ${isCompleted ? 'completed' : ''}" data-path="${file.path}">
                     <span class="sidebar-link-text">${file.title}</span>
+                    ${badgeHtml}
                     <i data-lucide="${isCompleted ? 'check-circle' : 'circle'}" class="sidebar-status-icon"></i>
                 </a>
             `;
@@ -386,6 +402,9 @@ function renderCategoryCards() {
             }
         }
 
+        const moduleTags = [...new Set(category.files.map(f => getModuleTag(key, f)).filter(Boolean))];
+        const cardBadgesHtml = moduleTags.map(t => `<span class="module-badge ${t}">${t.toUpperCase()}</span>`).join('');
+
         const card = document.createElement('div');
         card.className = 'bento-card';
         card.innerHTML = `
@@ -398,6 +417,7 @@ function renderCategoryCards() {
             <div class="bento-card-body">
                 <h4>${category.title}</h4>
                 <p>${category.description}</p>
+                ${cardBadgesHtml ? `<div class="bento-card-modules">${cardBadgesHtml}</div>` : ''}
             </div>
         `;
         
@@ -424,6 +444,7 @@ async function renderCurrentLesson() {
     if (path === 'tools/journal-practice') { renderJournalPractice(); return; }
     if (path === 'tools/payroll-worksheet') { renderPayrollWorksheet(); return; }
     if (path === 'tools/bank-rec-practice') { renderBankRecPractice(); return; }
+    if (path === 'tools/full-project') { renderInteractiveProject(); return; }
 
     renderArea.innerHTML = `
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 0; color: var(--text-secondary);">
@@ -1999,4 +2020,553 @@ function renderGlossaryFlashcards(terms) {
     }
 
     renderCard();
+}
+
+// =============================================
+// INTERACTIVE PROJECT — FULL BOOKKEEPING CYCLE
+// =============================================
+
+async function renderInteractiveProject() {
+    const renderArea = document.getElementById('renderedMarkdown');
+    setupMarkReadBtn('tools/full-project');
+    document.getElementById('readerToc').style.display = 'none';
+    renderArea.innerHTML = `<div style="padding:60px;text-align:center;color:var(--text-secondary)"><div class="spinner"></div><p style="margin-top:12px">Loading project...</p></div>`;
+
+    let data;
+    try {
+        data = await fetch('./tools/project-scenario.json').then(r => r.json());
+    } catch (e) {
+        renderArea.innerHTML = `<p style="padding:24px;color:#ef4444">Could not load project data.</p>`;
+        return;
+    }
+
+    const PROGRESS_KEY = 'projProgress_v1';
+    const getProgress = () => JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+    const saveProgress = p => localStorage.setItem(PROGRESS_KEY, JSON.stringify(p));
+
+    function buildShell(activeIdx) {
+        const progress = getProgress();
+        const done = data.stages.filter(s => progress[s.id]).length;
+
+        // Reference data HTML
+        const obRows = data.openingBalances.map(r => `
+            <tr>
+                <td>${r.account}</td>
+                <td style="text-align:right">${r.dr != null ? '€' + r.dr.toFixed(2) : ''}</td>
+                <td style="text-align:right">${r.cr != null ? '€' + r.cr.toFixed(2) : ''}</td>
+            </tr>`).join('');
+
+        const txRows = data.transactions.map(t => `
+            <tr><td style="white-space:nowrap;padding-right:12px">${t.no}.</td><td style="white-space:nowrap;padding-right:12px">${t.date}</td><td>${t.detail}</td></tr>`).join('');
+
+        const bsRows = data.bankStatement.entries.map(e => `
+            <tr>
+                <td>${e.date}</td><td>${e.detail}</td>
+                <td style="text-align:right">${e.lodgement != null ? '€' + e.lodgement.toFixed(2) : ''}</td>
+                <td style="text-align:right">${e.payment != null ? '€' + e.payment.toFixed(2) : ''}</td>
+                <td style="text-align:right">€${e.balance.toFixed(2)}</td>
+            </tr>`).join('');
+
+        const tabs = data.stages.map((s, i) => {
+            const isDone = progress[s.id];
+            return `<button class="proj-tab ${i === activeIdx ? 'active' : ''} ${isDone ? 'done' : ''}" data-stage="${i}">
+                <span class="proj-tab-num">${isDone ? '✓' : i + 1}</span>
+                <span class="proj-tab-label">${s.title}</span>
+            </button>`;
+        }).join('');
+
+        renderArea.innerHTML = `
+        <div class="proj-container">
+            <div class="proj-header">
+                <div class="proj-title-row">
+                    <div>
+                        <h1 class="proj-title">${data.title}</h1>
+                        <p class="proj-subtitle">${data.subtitle}</p>
+                    </div>
+                    <div class="proj-badge-wrap">
+                        <div class="proj-score-circle ${done === data.stages.length ? 'complete' : ''}">
+                            <span class="proj-score-num">${done}</span>
+                            <span class="proj-score-den">/ ${data.stages.length}</span>
+                        </div>
+                        <div class="proj-score-label">Stages<br>Complete</div>
+                    </div>
+                </div>
+                <p class="proj-intro">${data.intro}</p>
+                <div class="proj-progress-track">
+                    <div class="proj-progress-fill" style="width:${Math.round((done / data.stages.length) * 100)}%"></div>
+                </div>
+            </div>
+
+            <details class="proj-reference">
+                <summary><strong>Reference Data</strong> — Opening Balances, Transactions &amp; Bank Statement</summary>
+                <div class="proj-ref-grid">
+                    <div>
+                        <p class="proj-ref-heading">Opening Trial Balance — 1 March 2026</p>
+                        <table class="proj-ref-table">
+                            <thead><tr><th>Account</th><th>Dr (€)</th><th>Cr (€)</th></tr></thead>
+                            <tbody>${obRows}</tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <p class="proj-ref-heading">March Transactions</p>
+                        <table class="proj-ref-table">
+                            <tbody>${txRows}</tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <p class="proj-ref-heading">Bank Statement — March 2026</p>
+                        <p class="proj-ref-note">${data.bankStatement.note}</p>
+                        <table class="proj-ref-table">
+                            <thead><tr><th>Date</th><th>Detail</th><th>Lodgement</th><th>Payment</th><th>Balance</th></tr></thead>
+                            <tbody>${bsRows}</tbody>
+                        </table>
+                    </div>
+                </div>
+            </details>
+
+            <div class="proj-tabs" id="projTabs">${tabs}</div>
+            <div class="proj-stage-wrap" id="projStageWrap"></div>
+        </div>`;
+
+        // Tab events
+        renderArea.querySelectorAll('.proj-tab').forEach(btn => {
+            btn.addEventListener('click', () => buildShell(parseInt(btn.dataset.stage)));
+        });
+
+        // Render active stage
+        buildStage(data.stages[activeIdx], activeIdx);
+    }
+
+    function buildStage(stage, idx) {
+        const wrap = document.getElementById('projStageWrap');
+        if (!wrap) return;
+        const progress = getProgress();
+
+        const doneHtml = progress[stage.id] ? `<div class="proj-stage-done">✓ Stage complete — you can still review your answers below.</div>` : '';
+
+        if (stage.type === 'daybook') wrap.innerHTML = doneHtml + buildDaybookHtml(stage, idx);
+        else if (stage.type === 'cashbook') wrap.innerHTML = doneHtml + buildCashbookHtml(stage, idx);
+        else if (stage.type === 'trialbalance') wrap.innerHTML = doneHtml + buildTrialBalanceHtml(stage, idx);
+        else if (stage.type === 'bankrec') wrap.innerHTML = doneHtml + buildBankRecHtml(stage, idx);
+        else if (stage.type === 'vatreturn') wrap.innerHTML = doneHtml + buildVATReturnHtml(stage, idx);
+
+        // Wire up check button
+        const btn = document.getElementById(`projCheck_${idx}`);
+        if (btn) btn.addEventListener('click', () => checkStage(stage, idx));
+
+        // Wire up reset button
+        const rBtn = document.getElementById(`projReset_${idx}`);
+        if (rBtn) rBtn.addEventListener('click', () => {
+            const p = getProgress();
+            delete p[stage.id];
+            saveProgress(p);
+            buildShell(idx);
+        });
+    }
+
+    // ── DAYBOOK ──────────────────────────────────────────────
+    function buildDaybookHtml(stage, idx) {
+        const refLabel = stage.refLabel || 'Inv No';
+        const rows = stage.rows.map((r, ri) => `
+            <tr data-ri="${ri}">
+                <td class="proj-cell-fixed">${r.date}</td>
+                <td class="proj-cell-fixed">${r.ref}</td>
+                <td class="proj-cell-fixed">${r.party}</td>
+                <td><input class="proj-input db-gross" data-ri="${ri}" type="number" step="0.01" placeholder="0.00"></td>
+                <td><input class="proj-input db-vat"   data-ri="${ri}" type="number" step="0.01" placeholder="0.00"></td>
+                <td><input class="proj-input db-net"   data-ri="${ri}" type="number" step="0.01" placeholder="0.00"></td>
+            </tr>`).join('');
+
+        return `
+        <div class="proj-stage">
+            <div class="proj-stage-header">
+                <h2 class="proj-stage-title">${stage.title}</h2>
+                <p class="proj-stage-intro">${stage.intro}</p>
+            </div>
+            <div class="proj-table-wrap">
+                <table class="proj-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th><th>${refLabel}</th><th>${stage.partyLabel}</th>
+                            <th>Gross (€)</th><th>VAT (€)</th><th>Net (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                    <tfoot>
+                        <tr class="proj-totals-row">
+                            <td colspan="3"><strong>Totals</strong></td>
+                            <td><input class="proj-input db-total-gross" type="number" step="0.01" placeholder="0.00"></td>
+                            <td><input class="proj-input db-total-vat"   type="number" step="0.01" placeholder="0.00"></td>
+                            <td><input class="proj-input db-total-net"   type="number" step="0.01" placeholder="0.00"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="proj-actions">
+                <button class="btn btn-primary" id="projCheck_${idx}"><i data-lucide="check-circle"></i> Check Stage</button>
+                <button class="btn btn-outline" id="projReset_${idx}"><i data-lucide="rotate-ccw"></i> Reset</button>
+            </div>
+            <div class="proj-feedback" id="projFeedback_${idx}"></div>
+        </div>`;
+    }
+
+    function checkDaybook(stage, idx) {
+        let allOk = true;
+        const fb = [];
+
+        stage.rows.forEach((r, ri) => {
+            const gEl = document.querySelector(`.db-gross[data-ri="${ri}"]`);
+            const vEl = document.querySelector(`.db-vat[data-ri="${ri}"]`);
+            const nEl = document.querySelector(`.db-net[data-ri="${ri}"]`);
+            [gEl, vEl, nEl].forEach(el => el && el.classList.remove('proj-correct', 'proj-incorrect'));
+
+            const check = (el, ans, label) => {
+                const val = parseFloat(el?.value || 0);
+                const ok = Math.abs(val - ans) < 0.015;
+                if (el) el.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+                if (!ok) { allOk = false; fb.push(`${r.party} ${label}: expected €${ans.toFixed(2)}, got €${val.toFixed(2)}`); }
+                return ok;
+            };
+            check(gEl, r.gross, 'Gross');
+            check(vEl, r.vat, 'VAT');
+            check(nEl, r.net, 'Net');
+        });
+
+        const tgEl = document.querySelector('.db-total-gross');
+        const tvEl = document.querySelector('.db-total-vat');
+        const tnEl = document.querySelector('.db-total-net');
+        [tgEl, tvEl, tnEl].forEach(el => el && el.classList.remove('proj-correct', 'proj-incorrect'));
+
+        const checkTotal = (el, ans, label) => {
+            const val = parseFloat(el?.value || 0);
+            const ok = Math.abs(val - ans) < 0.015;
+            if (el) el.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+            if (!ok) { allOk = false; fb.push(`Totals ${label}: expected €${ans.toFixed(2)}, got €${val.toFixed(2)}`); }
+        };
+        checkTotal(tgEl, stage.totals.gross, 'Gross');
+        checkTotal(tvEl, stage.totals.vat, 'VAT');
+        checkTotal(tnEl, stage.totals.net, 'Net');
+
+        return { allOk, fb };
+    }
+
+    // ── CASH BOOK ─────────────────────────────────────────────
+    function buildCashbookHtml(stage, idx) {
+        const recRows = stage.receipts.map((r, ri) => `
+            <tr>
+                <td class="proj-cell-fixed">${r.date}</td>
+                <td class="proj-cell-fixed">${r.detail}</td>
+                <td><input class="proj-input cb-rec" data-ri="${ri}" type="number" step="0.01" placeholder="0.00"></td>
+            </tr>`).join('');
+
+        const payRows = stage.payments.map((r, ri) => `
+            <tr>
+                <td class="proj-cell-fixed">${r.date}</td>
+                <td class="proj-cell-fixed">${r.detail}</td>
+                <td class="proj-cell-fixed">${r.chq}</td>
+                <td><input class="proj-input cb-pay" data-ri="${ri}" type="number" step="0.01" placeholder="0.00"></td>
+            </tr>`).join('');
+
+        return `
+        <div class="proj-stage">
+            <div class="proj-stage-header">
+                <h2 class="proj-stage-title">${stage.title}</h2>
+                <p class="proj-stage-intro">${stage.intro}</p>
+            </div>
+            <div class="proj-cb-grid">
+                <div>
+                    <p class="proj-cb-side-label">Receipts (Dr)</p>
+                    <div class="proj-table-wrap">
+                        <table class="proj-table">
+                            <thead><tr><th>Date</th><th>Detail</th><th>Bank (€)</th></tr></thead>
+                            <tbody>${recRows}</tbody>
+                            <tfoot>
+                                <tr class="proj-totals-row">
+                                    <td colspan="2"><strong>Total Receipts</strong></td>
+                                    <td><input class="proj-input" id="cbTotalRec" type="number" step="0.01" placeholder="0.00"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <p class="proj-cb-side-label">Payments (Cr)</p>
+                    <div class="proj-table-wrap">
+                        <table class="proj-table">
+                            <thead><tr><th>Date</th><th>Detail</th><th>Chq</th><th>Bank (€)</th></tr></thead>
+                            <tbody>${payRows}</tbody>
+                            <tfoot>
+                                <tr class="proj-totals-row">
+                                    <td colspan="3"><strong>Total Payments</strong></td>
+                                    <td><input class="proj-input" id="cbTotalPay" type="number" step="0.01" placeholder="0.00"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-cb-balance">
+                <span>Opening Balance: <strong>€${stage.openingBalance.toFixed(2)}</strong></span>
+                <span>+ Total Receipts − Total Payments =</span>
+                <span>Closing Balance: <input class="proj-input" id="cbClosing" type="number" step="0.01" placeholder="0.00" style="width:100px"></span>
+            </div>
+            <div class="proj-actions">
+                <button class="btn btn-primary" id="projCheck_${idx}"><i data-lucide="check-circle"></i> Check Stage</button>
+                <button class="btn btn-outline" id="projReset_${idx}"><i data-lucide="rotate-ccw"></i> Reset</button>
+            </div>
+            <div class="proj-feedback" id="projFeedback_${idx}"></div>
+        </div>`;
+    }
+
+    function checkCashbook(stage, idx) {
+        let allOk = true;
+        const fb = [];
+
+        const checkAmt = (el, ans, label) => {
+            if (!el) return;
+            el.classList.remove('proj-correct', 'proj-incorrect');
+            const val = parseFloat(el.value || 0);
+            const ok = Math.abs(val - ans) < 0.015;
+            el.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+            if (!ok) { allOk = false; fb.push(`${label}: expected €${ans.toFixed(2)}, got €${val.toFixed(2)}`); }
+        };
+
+        stage.receipts.forEach((r, ri) => checkAmt(document.querySelector(`.cb-rec[data-ri="${ri}"]`), r.amount, `Receipt — ${r.detail}`));
+        stage.payments.forEach((r, ri) => checkAmt(document.querySelector(`.cb-pay[data-ri="${ri}"]`), r.amount, `Payment — ${r.detail}`));
+        checkAmt(document.getElementById('cbTotalRec'), stage.answers.totalReceipts, 'Total Receipts');
+        checkAmt(document.getElementById('cbTotalPay'), stage.answers.totalPayments, 'Total Payments');
+        checkAmt(document.getElementById('cbClosing'),  stage.answers.closingBalance, 'Closing Balance');
+
+        return { allOk, fb };
+    }
+
+    // ── TRIAL BALANCE ─────────────────────────────────────────
+    function buildTrialBalanceHtml(stage, idx) {
+        const rows = stage.accounts.map((a, ai) => `
+            <tr data-ai="${ai}">
+                <td class="proj-cell-fixed">${a.account}</td>
+                <td><input class="proj-input tb-dr" data-ai="${ai}" type="number" step="0.01" placeholder="${a.dr != null ? 'enter amount' : '—'}" ${a.dr == null ? 'tabindex="-1"' : ''}></td>
+                <td><input class="proj-input tb-cr" data-ai="${ai}" type="number" step="0.01" placeholder="${a.cr != null ? 'enter amount' : '—'}" ${a.cr == null ? 'tabindex="-1"' : ''}></td>
+            </tr>`).join('');
+
+        return `
+        <div class="proj-stage">
+            <div class="proj-stage-header">
+                <h2 class="proj-stage-title">${stage.title}</h2>
+                <p class="proj-stage-intro">${stage.intro}</p>
+            </div>
+            <div class="proj-table-wrap">
+                <table class="proj-table">
+                    <thead><tr><th>Account</th><th>Debit (€)</th><th>Credit (€)</th></tr></thead>
+                    <tbody>${rows}</tbody>
+                    <tfoot>
+                        <tr class="proj-totals-row">
+                            <td><strong>Totals</strong></td>
+                            <td><input class="proj-input" id="tbTotalDr" type="number" step="0.01" placeholder="0.00"></td>
+                            <td><input class="proj-input" id="tbTotalCr" type="number" step="0.01" placeholder="0.00"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="proj-actions">
+                <button class="btn btn-primary" id="projCheck_${idx}"><i data-lucide="check-circle"></i> Check Stage</button>
+                <button class="btn btn-outline" id="projReset_${idx}"><i data-lucide="rotate-ccw"></i> Reset</button>
+            </div>
+            <div class="proj-feedback" id="projFeedback_${idx}"></div>
+        </div>`;
+    }
+
+    function checkTrialBalance(stage, idx) {
+        let allOk = true;
+        const fb = [];
+
+        stage.accounts.forEach((a, ai) => {
+            const drEl = document.querySelector(`.tb-dr[data-ai="${ai}"]`);
+            const crEl = document.querySelector(`.tb-cr[data-ai="${ai}"]`);
+            [drEl, crEl].forEach(el => el && el.classList.remove('proj-correct', 'proj-incorrect'));
+
+            const drVal = parseFloat(drEl?.value || 0);
+            const crVal = parseFloat(crEl?.value || 0);
+
+            if (a.dr != null) {
+                const ok = Math.abs(drVal - a.dr) < 0.015 && (crVal === 0 || crEl?.value === '');
+                if (drEl) drEl.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+                if (!ok) { allOk = false; fb.push(`${a.account} Dr: expected €${a.dr.toFixed(2)}`); }
+            } else {
+                const ok = Math.abs(crVal - a.cr) < 0.015 && (drVal === 0 || drEl?.value === '');
+                if (crEl) crEl.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+                if (!ok) { allOk = false; fb.push(`${a.account} Cr: expected €${a.cr.toFixed(2)}`); }
+            }
+        });
+
+        const tdEl = document.getElementById('tbTotalDr');
+        const tcEl = document.getElementById('tbTotalCr');
+        [tdEl, tcEl].forEach(el => el && el.classList.remove('proj-correct', 'proj-incorrect'));
+        const tdOk = Math.abs(parseFloat(tdEl?.value || 0) - stage.totals.dr) < 0.015;
+        const tcOk = Math.abs(parseFloat(tcEl?.value || 0) - stage.totals.cr) < 0.015;
+        if (tdEl) tdEl.classList.add(tdOk ? 'proj-correct' : 'proj-incorrect');
+        if (tcEl) tcEl.classList.add(tcOk ? 'proj-correct' : 'proj-incorrect');
+        if (!tdOk) { allOk = false; fb.push(`Total Dr: expected €${stage.totals.dr.toFixed(2)}`); }
+        if (!tcOk) { allOk = false; fb.push(`Total Cr: expected €${stage.totals.cr.toFixed(2)}`); }
+
+        return { allOk, fb };
+    }
+
+    // ── BANK REC ──────────────────────────────────────────────
+    function buildBankRecHtml(stage, idx) {
+        return `
+        <div class="proj-stage">
+            <div class="proj-stage-header">
+                <h2 class="proj-stage-title">${stage.title}</h2>
+                <p class="proj-stage-intro">${stage.intro}</p>
+            </div>
+            <div class="proj-bankrec-grid">
+                <div class="proj-bankrec-card">
+                    <p class="proj-cb-side-label">Step 1 — Update Cash Book</p>
+                    <table class="proj-table">
+                        <tr><td>Cash Book Balance (before update)</td><td class="proj-cell-fixed" style="text-align:right">€${stage.cashBookBalance.toFixed(2)}</td></tr>
+                        <tr>
+                            <td>${stage.cbAdjustment.label}</td>
+                            <td><input class="proj-input" id="brCBAdj" type="number" step="0.01" placeholder="0.00" style="width:90px"></td>
+                        </tr>
+                        <tr class="proj-totals-row">
+                            <td><strong>Updated Cash Book Balance</strong></td>
+                            <td><input class="proj-input" id="brCBUpdated" type="number" step="0.01" placeholder="0.00" style="width:90px"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="proj-bankrec-card">
+                    <p class="proj-cb-side-label">Step 2 — Bank Reconciliation Statement</p>
+                    <table class="proj-table">
+                        <tr><td>Bank Statement Balance</td><td class="proj-cell-fixed" style="text-align:right">€${stage.statementBalance.toFixed(2)}</td></tr>
+                        <tr>
+                            <td>${stage.unpresentedCheque.label}</td>
+                            <td><input class="proj-input" id="brUnpres" type="number" step="0.01" placeholder="0.00" style="width:90px"></td>
+                        </tr>
+                        <tr class="proj-totals-row">
+                            <td><strong>Adjusted Statement Balance</strong></td>
+                            <td><input class="proj-input" id="brReconciled" type="number" step="0.01" placeholder="0.00" style="width:90px"></td>
+                        </tr>
+                    </table>
+                    <p class="proj-ref-note" style="margin-top:8px">Both balances must agree ✓</p>
+                </div>
+            </div>
+            <div class="proj-actions">
+                <button class="btn btn-primary" id="projCheck_${idx}"><i data-lucide="check-circle"></i> Check Stage</button>
+                <button class="btn btn-outline" id="projReset_${idx}"><i data-lucide="rotate-ccw"></i> Reset</button>
+            </div>
+            <div class="proj-feedback" id="projFeedback_${idx}"></div>
+        </div>`;
+    }
+
+    function checkBankRec(stage, idx) {
+        let allOk = true;
+        const fb = [];
+        const check = (id, ans, label) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.classList.remove('proj-correct', 'proj-incorrect');
+            const val = parseFloat(el.value || 0);
+            const ok = Math.abs(val - ans) < 0.015;
+            el.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+            if (!ok) { allOk = false; fb.push(`${label}: expected €${ans.toFixed(2)}`); }
+        };
+        check('brCBAdj',     stage.cbAdjustment.amount,  'Bank charges amount');
+        check('brCBUpdated', stage.updatedCBBalance,      'Updated Cash Book balance');
+        check('brUnpres',    stage.unpresentedCheque.amount, 'Unpresented cheque amount');
+        check('brReconciled',stage.reconciledBalance,     'Reconciled balance');
+        return { allOk, fb };
+    }
+
+    // ── VAT RETURN ────────────────────────────────────────────
+    function buildVATReturnHtml(stage, idx) {
+        const rows = stage.lines.map(line => `
+            <tr>
+                <td class="proj-cell-fixed" style="font-size:0.9rem">${line.label}</td>
+                <td style="width:110px">
+                    <input class="proj-input vat-line" id="vat_${line.id}" type="number" step="0.01" placeholder="0.00"
+                        ${line.calculated ? 'style="background:var(--bg-secondary)"' : ''}>
+                </td>
+                <td class="proj-ref-note" style="font-size:0.78rem;padding-left:10px">${line.hint}</td>
+            </tr>`).join('');
+
+        return `
+        <div class="proj-stage">
+            <div class="proj-stage-header">
+                <h2 class="proj-stage-title">${stage.title}</h2>
+                <p class="proj-stage-intro">${stage.intro}</p>
+            </div>
+            <div class="proj-table-wrap" style="max-width:680px">
+                <table class="proj-table">
+                    <thead><tr><th>Description</th><th>Amount (€)</th><th>Hint</th></tr></thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            </div>
+            <div class="proj-actions">
+                <button class="btn btn-primary" id="projCheck_${idx}"><i data-lucide="check-circle"></i> Check Stage</button>
+                <button class="btn btn-outline" id="projReset_${idx}"><i data-lucide="rotate-ccw"></i> Reset</button>
+            </div>
+            <div class="proj-feedback" id="projFeedback_${idx}"></div>
+        </div>`;
+    }
+
+    function checkVATReturn(stage, idx) {
+        let allOk = true;
+        const fb = [];
+        stage.lines.forEach(line => {
+            const el = document.getElementById(`vat_${line.id}`);
+            if (!el) return;
+            el.classList.remove('proj-correct', 'proj-incorrect');
+            const val = parseFloat(el.value || 0);
+            const ok = Math.abs(val - line.answer) < 0.015;
+            el.classList.add(ok ? 'proj-correct' : 'proj-incorrect');
+            if (!ok) { allOk = false; fb.push(`${line.label}: expected €${line.answer.toFixed(2)}`); }
+        });
+        return { allOk, fb };
+    }
+
+    // ── MASTER CHECK ─────────────────────────────────────────
+    function checkStage(stage, idx) {
+        let result;
+        if (stage.type === 'daybook')      result = checkDaybook(stage, idx);
+        else if (stage.type === 'cashbook')     result = checkCashbook(stage, idx);
+        else if (stage.type === 'trialbalance') result = checkTrialBalance(stage, idx);
+        else if (stage.type === 'bankrec')      result = checkBankRec(stage, idx);
+        else if (stage.type === 'vatreturn')    result = checkVATReturn(stage, idx);
+        else return;
+
+        const fbEl = document.getElementById(`projFeedback_${idx}`);
+        if (!fbEl) return;
+
+        if (result.allOk) {
+            fbEl.innerHTML = `<div class="proj-fb-pass">
+                <strong>✓ Stage ${idx + 1} complete!</strong> All entries are correct. Well done.
+            </div>`;
+            const p = getProgress();
+            p[stage.id] = true;
+            saveProgress(p);
+            // Update tab to show checkmark
+            const tab = document.querySelector(`.proj-tab[data-stage="${idx}"]`);
+            if (tab) { tab.classList.add('done'); tab.querySelector('.proj-tab-num').textContent = '✓'; }
+            // Update progress display
+            const done = Object.values(getProgress()).filter(Boolean).length;
+            const circle = document.querySelector('.proj-score-circle');
+            if (circle) {
+                circle.querySelector('.proj-score-num').textContent = done;
+                if (done === data.stages.length) circle.classList.add('complete');
+            }
+            const fill = document.querySelector('.proj-progress-fill');
+            if (fill) fill.style.width = `${Math.round((done / data.stages.length) * 100)}%`;
+        } else {
+            fbEl.innerHTML = `<div class="proj-fb-fail">
+                <strong>✗ Not quite — ${result.fb.length} item${result.fb.length !== 1 ? 's' : ''} to fix:</strong>
+                <ul>${result.fb.map(m => `<li>${m}</li>`).join('')}</ul>
+            </div>`;
+        }
+
+        lucide.createIcons();
+    }
+
+    // Initial render
+    buildShell(0);
 }

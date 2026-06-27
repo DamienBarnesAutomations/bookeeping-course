@@ -313,6 +313,11 @@
       "icon": "calculator",
       "files": [
         {
+          "filename": "full-project",
+          "path": "tools/full-project",
+          "title": "Full Project — Murphy's Bakery Ltd (7 Stages)"
+        },
+        {
           "filename": "journal-practice",
           "path": "tools/journal-practice",
           "title": "Journal Entry Practice (10 Transactions)"

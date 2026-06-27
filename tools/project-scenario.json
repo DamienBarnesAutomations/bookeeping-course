@@ -1,0 +1,162 @@
+{
+  "title": "Murphy's Bakery Ltd — Project Assessment",
+  "subtitle": "Full Bookkeeping Cycle — March 2026",
+  "intro": "Murphy's Bakery Ltd is a bakery supplier registered for VAT at 23% on the bi-monthly system. Complete the full bookkeeping cycle for March 2026 using the information provided. Work through each stage in order — the balances you calculate carry forward into later stages.",
+  "openingBalances": [
+    { "account": "Bank",                        "dr": 4200.00,  "cr": null      },
+    { "account": "Equipment",                   "dr": 8000.00,  "cr": null      },
+    { "account": "Debtors — Hotel Plaza",       "dr": 1230.00,  "cr": null      },
+    { "account": "Creditors — Flour Mills Ltd", "dr": null,     "cr": 738.00    },
+    { "account": "Capital",                     "dr": null,     "cr": 12692.00  }
+  ],
+  "transactions": [
+    { "no": 1,  "date": "Mar 2",  "detail": "Credit sale to Hotel Plaza — Invoice 201: €800 net + 23% VAT" },
+    { "no": 2,  "date": "Mar 4",  "detail": "Credit purchase from Flour Mills Ltd — Invoice FM23: €500 net + 23% VAT" },
+    { "no": 3,  "date": "Mar 7",  "detail": "Credit purchase from Sugar Co — Invoice SC11: €300 net + 23% VAT" },
+    { "no": 4,  "date": "Mar 10", "detail": "Hotel Plaza paid their opening balance of €1,230 by bank transfer" },
+    { "no": 5,  "date": "Mar 12", "detail": "Credit sale to City Café — Invoice 202: €600 net + 23% VAT" },
+    { "no": 6,  "date": "Mar 15", "detail": "Paid wages — Cheque 101: €900 (no VAT)" },
+    { "no": 7,  "date": "Mar 18", "detail": "Paid Flour Mills Ltd opening balance — Cheque 102: €738" },
+    { "no": 8,  "date": "Mar 20", "detail": "Cash sales lodged directly to bank: €400 net + 23% VAT" },
+    { "no": 9,  "date": "Mar 22", "detail": "Credit note CN01 issued to Hotel Plaza — €100 net + 23% VAT (returned goods)" },
+    { "no": 10, "date": "Mar 25", "detail": "City Café paid Invoice 202 in full by bank transfer" },
+    { "no": 11, "date": "Mar 27", "detail": "Paid Sugar Co — Cheque 103: €369" },
+    { "no": 12, "date": "Mar 28", "detail": "Paid postage — Cheque 105: €15 (no VAT)" },
+    { "no": 13, "date": "Mar 29", "detail": "Paid rent — Cheque 104: €800 (no VAT)" }
+  ],
+  "bankStatement": {
+    "closingBalance": 4613,
+    "note": "Note: Cheque 104 (Rent €800, dated 29 Mar) has not yet cleared on the bank statement.",
+    "entries": [
+      { "date": "Mar 1",  "detail": "Balance b/f",  "lodgement": null, "payment": null, "balance": 4200 },
+      { "date": "Mar 10", "detail": "Hotel Plaza",   "lodgement": 1230, "payment": null, "balance": 5430 },
+      { "date": "Mar 15", "detail": "Cheque 101",    "lodgement": null, "payment": 900,  "balance": 4530 },
+      { "date": "Mar 18", "detail": "Cheque 102",    "lodgement": null, "payment": 738,  "balance": 3792 },
+      { "date": "Mar 20", "detail": "Cash Sales",    "lodgement": 492,  "payment": null, "balance": 4284 },
+      { "date": "Mar 25", "detail": "City Café",     "lodgement": 738,  "payment": null, "balance": 5022 },
+      { "date": "Mar 27", "detail": "Cheque 103",    "lodgement": null, "payment": 369,  "balance": 4653 },
+      { "date": "Mar 28", "detail": "Cheque 105",    "lodgement": null, "payment": 15,   "balance": 4638 },
+      { "date": "Mar 31", "detail": "Bank Charges",  "lodgement": null, "payment": 25,   "balance": 4613 }
+    ]
+  },
+  "stages": [
+    {
+      "id": "sales-daybook",
+      "title": "Sales Day Book",
+      "icon": "trending-up",
+      "type": "daybook",
+      "intro": "Record all <strong>credit sales</strong> for March 2026 in the Sales Day Book. Cash sales are recorded separately in the Cash Book. Calculate the gross (including VAT at 23%), VAT amount, and net for each invoice.",
+      "partyLabel": "Customer",
+      "refLabel": "Inv No",
+      "rows": [
+        { "date": "Mar 2",  "ref": "201", "party": "Hotel Plaza", "gross": 984,  "vat": 184, "net": 800 },
+        { "date": "Mar 12", "ref": "202", "party": "City Café",   "gross": 738,  "vat": 138, "net": 600 }
+      ],
+      "totals": { "gross": 1722, "vat": 322, "net": 1400 }
+    },
+    {
+      "id": "returns-daybook",
+      "title": "Sales Returns Day Book",
+      "icon": "corner-up-left",
+      "type": "daybook",
+      "intro": "Record all <strong>credit notes</strong> issued to customers in March 2026. A credit note reduces the amount the customer owes. Calculate gross, VAT, and net for each credit note.",
+      "partyLabel": "Customer",
+      "refLabel": "CN No",
+      "rows": [
+        { "date": "Mar 22", "ref": "CN01", "party": "Hotel Plaza", "gross": 123, "vat": 23, "net": 100 }
+      ],
+      "totals": { "gross": 123, "vat": 23, "net": 100 }
+    },
+    {
+      "id": "purchases-daybook",
+      "title": "Purchases Day Book",
+      "icon": "trending-down",
+      "type": "daybook",
+      "intro": "Record all <strong>credit purchases</strong> for March 2026 in the Purchases Day Book. These are goods received on credit from suppliers (creditors). Calculate gross, VAT, and net for each invoice.",
+      "partyLabel": "Supplier",
+      "refLabel": "Inv No",
+      "rows": [
+        { "date": "Mar 4", "ref": "FM23", "party": "Flour Mills Ltd", "gross": 615, "vat": 115, "net": 500 },
+        { "date": "Mar 7", "ref": "SC11", "party": "Sugar Co",        "gross": 369, "vat": 69,  "net": 300 }
+      ],
+      "totals": { "gross": 984, "vat": 184, "net": 800 }
+    },
+    {
+      "id": "cash-book",
+      "title": "Cash Book",
+      "icon": "book-open",
+      "type": "cashbook",
+      "intro": "Complete the <strong>Cash Book (Bank Columns)</strong> for March 2026. Record all bank receipts on the left (debit) side and all bank payments on the right (credit) side. Cash sales are lodged directly to the bank. The opening bank balance is €4,200.",
+      "openingBalance": 4200,
+      "receipts": [
+        { "date": "Mar 10", "detail": "Hotel Plaza",  "amount": 1230 },
+        { "date": "Mar 20", "detail": "Cash Sales",   "amount": 492  },
+        { "date": "Mar 25", "detail": "City Café",    "amount": 738  }
+      ],
+      "payments": [
+        { "date": "Mar 15", "detail": "Wages",          "chq": "101", "amount": 900 },
+        { "date": "Mar 18", "detail": "Flour Mills Ltd", "chq": "102", "amount": 738 },
+        { "date": "Mar 27", "detail": "Sugar Co",        "chq": "103", "amount": 369 },
+        { "date": "Mar 28", "detail": "Postage",         "chq": "105", "amount": 15  },
+        { "date": "Mar 29", "detail": "Rent",            "chq": "104", "amount": 800 }
+      ],
+      "answers": {
+        "totalReceipts": 2460,
+        "totalPayments": 2822,
+        "closingBalance": 3838
+      }
+    },
+    {
+      "id": "trial-balance",
+      "title": "Trial Balance",
+      "icon": "scale",
+      "type": "trialbalance",
+      "intro": "Extract the <strong>Trial Balance as at 31 March 2026</strong>. Before preparing this, update the Cash Book for the bank charges (€25) found on the bank statement — this reduces your bank balance from €3,838 to €3,813. Enter each account balance in the correct Debit or Credit column. Leave the other column blank.",
+      "accounts": [
+        { "account": "Bank",                        "dr": 3813,  "cr": null   },
+        { "account": "Equipment",                   "dr": 8000,  "cr": null   },
+        { "account": "Debtors — Hotel Plaza",       "dr": 861,   "cr": null   },
+        { "account": "Creditors — Flour Mills Ltd", "dr": null,  "cr": 615    },
+        { "account": "Capital",                     "dr": null,  "cr": 12692  },
+        { "account": "Sales",                       "dr": null,  "cr": 1800   },
+        { "account": "Sales Returns",               "dr": 100,   "cr": null   },
+        { "account": "Purchases",                   "dr": 800,   "cr": null   },
+        { "account": "VAT Control",                 "dr": null,  "cr": 207    },
+        { "account": "Wages",                       "dr": 900,   "cr": null   },
+        { "account": "Rent",                        "dr": 800,   "cr": null   },
+        { "account": "Postage",                     "dr": 15,    "cr": null   },
+        { "account": "Bank Charges",                "dr": 25,    "cr": null   }
+      ],
+      "totals": { "dr": 15314, "cr": 15314 }
+    },
+    {
+      "id": "bank-rec",
+      "title": "Bank Reconciliation",
+      "icon": "git-merge",
+      "type": "bankrec",
+      "intro": "Prepare the <strong>Bank Reconciliation Statement as at 31 March 2026</strong>. Step 1: Update the Cash Book for items on the bank statement not yet recorded. Step 2: Reconcile the updated Cash Book balance with the bank statement balance by accounting for timing differences.",
+      "cashBookBalance": 3838,
+      "statementBalance": 4613,
+      "cbAdjustment": { "label": "Less: Bank Charges (not yet in Cash Book)", "amount": 25 },
+      "updatedCBBalance": 3813,
+      "unpresentedCheque": { "label": "Less: Cheque 104 — Rent (unpresented)", "amount": 800 },
+      "reconciledBalance": 3813
+    },
+    {
+      "id": "vat-return",
+      "title": "VAT Return",
+      "icon": "file-text",
+      "type": "vatreturn",
+      "intro": "Complete the <strong>VAT Return</strong> for the bi-monthly period (Jan–Feb but using March figures for practice). Use your Day Book totals to calculate the VAT payable to Revenue. Output VAT is collected on sales; Input VAT is reclaimed on purchases.",
+      "lines": [
+        { "id": "vat-sales",     "label": "VAT on Sales (from Sales Day Book)",          "answer": 322,  "hint": "Total VAT column from your Sales Day Book" },
+        { "id": "vat-cash",      "label": "VAT on Cash Sales (from Cash Book)",           "answer": 92,   "hint": "€492 gross includes VAT: 492 × 23/123 = €92" },
+        { "id": "vat-returns",   "label": "Less: VAT on Sales Returns",                   "answer": 23,   "hint": "Total VAT from your Sales Returns Day Book" },
+        { "id": "output-total",  "label": "Net Output VAT (A)",                           "answer": 391,  "hint": "322 + 92 − 23 = 391", "calculated": true },
+        { "id": "vat-purchases", "label": "VAT on Purchases (from Purchases Day Book)",   "answer": 184,  "hint": "Total VAT column from your Purchases Day Book" },
+        { "id": "input-total",   "label": "Total Input VAT (B)",                          "answer": 184,  "hint": "Same as Purchases Day Book VAT total", "calculated": true },
+        { "id": "vat-payable",   "label": "VAT Payable to Revenue (A − B)",               "answer": 207,  "hint": "391 − 184 = 207" }
+      ]
+    }
+  ]
+}
