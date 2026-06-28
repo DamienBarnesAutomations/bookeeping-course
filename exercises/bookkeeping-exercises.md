@@ -70,6 +70,7 @@ If it doesn't balance, find and correct the error.
 - Unlodged lodgement: €1,200
 - Bank charges: €50 (not in cash book)
 - Direct debit (Insurance): €150 (not in cash book)
+- Standing order (Loan repayment): €200 (not in cash book)
 
 Prepare:
 1. Updated cash book
@@ -98,7 +99,7 @@ Prepare VAT return figures for: T1, T2, T3, T4, T5/T6.
 Identify and correct each error using journal entries:
 
 1. Stationery €150 posted to Motor Expenses account
-2. Sales invoice for €2,460 to ABC Ltd entered as €2,000 in the Sales Day Book
+2. Sales invoice to ABC Ltd — net €2,000, VAT €460, gross €2,460 — was entered but the VAT of €460 was omitted from the Sales Day Book
 3. Purchase of computer €1,500 posted to Purchases account (should be Equipment)
 4. Rent paid €2,000 completely omitted from the books
 

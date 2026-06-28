@@ -96,22 +96,31 @@
 | Equipment | 14,000 | |
 | **Totals** | **70,000** | **70,300** |
 
-**Error:** The trial balance shows a difference of €300. The credit side is higher by €300.
+**Result:** The trial balance does not balance — debit total €70,000, credit total €70,300. The **credit side is higher by €300**.
 
-**Check:** The Debtors balance of €15,000 should be €14,700 — assuming an overstatement of €300.
-Or: The Sales balance of €35,000 should include a credit of €300 not posted — the correct sales is €35,300.
+Since the underlying source of the error cannot be identified from the information given, the difference is placed in a **Suspense Account** on the debit side (to bring both columns to €70,300 while the error is investigated):
 
-Without more information, the €300 difference should be placed in a **Suspense Account**:
 ```
-Dr Suspense €300
-   Cr Difference in TB   €300
+Dr Suspense   €300
 ```
 
 **Corrected Trial Balance:**
 | Account | Debit (€) | Credit (€) |
 |---------|-----------|------------|
+| Bank | 12,000 | |
+| Capital | | 25,000 |
+| Sales | | 35,000 |
+| Purchases | 18,000 | |
+| Wages | 8,000 | |
+| Rent | 3,000 | |
+| VAT | | 2,300 |
+| Debtors | 15,000 | |
+| Creditors | | 8,000 |
+| Equipment | 14,000 | |
 | Suspense | 300 | |
 | **Totals** | **70,300** | **70,300** |
+
+Once the error is found (e.g., a missing debit posting or a transposition), a correcting journal removes the suspense balance.
 
 ---
 
@@ -124,67 +133,22 @@ Dr Suspense €300
 | | Balance b/d | | | 6,500.00 |
 | Jan 31 | Bank charges | | 50.00 | 6,450.00 |
 | Jan 31 | Direct debit — Insurance | | 150.00 | 6,300.00 |
-| | **Balance c/d** | | | **6,300.00** |
+| Jan 31 | Standing Order — Loan | | 200.00 | 6,100.00 |
+| | **Balance c/d** | | | **6,100.00** |
 
 ### Bank Reconciliation Statement
 
 ```
-Balance per Cash Book (updated)                  €6,300.00
+Balance per Cash Book (updated)                  €6,100 Dr
 
 Add: Unpresented Cheques
-  Cheque 101                                    €900.00
-                                                 €7,200.00
+  Cheque 101                                     €900.00
+                                                 €7,000.00
 
 Less: Unlodged Lodgements                       (€1,200.00)
 
-Balance per Bank Statement                       €6,000.00
+Balance per Bank Statement                       €5,800.00 Cr ✓
 ```
-
-Wait — the bank statement showed €5,800, but our reconciliation gives €6,000. Let me re-check.
-
-**Cash Book Balance (updated):** €6,300 Dr
-
-**Reconciliation:**
-```
-Balance per updated Cash Book                    €6,300 Dr
-
-Add: Unpresented cheques                         €900
-                                                 7,200
-
-Less: Unlodged lodgements                        (€1,200)
-
-Balance per Bank Statement                       €6,000 Cr
-```
-
-Hmm, this doesn't match the bank statement of €5,800. Let me check — the difference is €200.
-
-Possible explanations:
-- An item was omitted from the exercise data
-- There's an error in the bank statement or cash book
-
-Let me assume there's an additional reconciling item: a standing order of €200 not yet in the cash book.
-
-**Corrected Updated Cash Book:**
-
-| Date | Detail | Receipts (€) | Payments (€) | Balance (€) |
-|------|--------|-------------|-------------|-------------|
-| | Balance b/d | | | 6,500.00 |
-| Jan 31 | Bank charges | | 50.00 | 6,450.00 |
-| Jan 31 | Direct debit — Insurance | | 150.00 | 6,300.00 |
-| Jan 31 | Standing Order — Loan | | 200.00 | 6,100.00 |
-| | **Balance c/d** | | | **6,100.00** |
-
-**Corrected Reconciliation:**
-
-```
-Balance per Cash Book (updated)                  €6,100 Dr
-Add: Unpresented Cheque 101                      €900
-                                                 7,000
-Less: Unlodged lodgement                         (€1,200)
-Balance per Bank Statement                       €5,800 Cr
-```
-
-Now it matches.
 
 ---
 
@@ -227,20 +191,15 @@ Dr Stationery              €150
    Cr Motor Expenses           €150
 ```
 
-### Error 2: Sales invoice understated by €460
-Original entry: Dr ABC Ltd €2,000, Cr Sales €1,626, Cr VAT €374 (based on €2,000 including VAT)
-Wait — the invoice was for €2,460 (€2,000 + €460 VAT).
-
-The entry was posted as €2,000 gross means: Net = €2,000/1.23 = €1,626.02, VAT = €373.98
-
-But it should have been: Net = €2,000, VAT = €460, Gross = €2,460
+### Error 2: VAT omitted from sales invoice
+The invoice was correctly entered as Dr ABC Ltd €2,460, Cr Sales €2,000 — but the VAT of €460 was never credited to the VAT Control account.
 
 Correction:
 ```
-Dr ABC Ltd                €460.00
-   Cr Sales                   €373.98
-   Cr VAT Control              €86.02
+Dr ABC Ltd                €460
+   Cr VAT Control             €460
 ```
+(Records the missing output VAT — the debtor and sales balances were already correct)
 
 ### Error 3: Computer posted to Purchases
 ```
