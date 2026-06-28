@@ -4,31 +4,28 @@
 
 ---
 
-## Monthly and Annual Returns
+## PAYE Modernisation — How Revenue Reporting Changed
 
-### P30 — Monthly PAYE/PRSI/USC Return
-Filed each month with Revenue via ROS.
+> **PAYE Modernisation (1 January 2019):** Employers must now submit payroll data to Revenue **in real time** on or before each pay date. This replaced the old system of monthly P30 batch returns and the annual P35 return.
 
-**Contents:**
-- Total gross pay for month
-- Total PAYE deducted
-- Total PRSI deducted (employee + employer)
-- Total USC deducted
-- Total amount payable to Revenue
+### Real-Time Payroll Submission (Current System)
+Filed **on or before each pay date** via ROS or integrated payroll software.
 
-**Due date:** 23rd of the following month
+**Contents per submission:**
+- Each employee's gross pay for the pay period
+- PAYE, PRSI (employee + employer), and USC deducted
+- Employee PPS number, tax basis, cumulative figures
+- Any leavers (leaving date included)
 
-### P35 — Annual Employer Return
-Filed once per year summarising all payroll for the tax year.
+**Due date:** On or before the pay date
 
-**Contents:**
-- Total gross pay for all employees
-- Total PAYE, PRSI, USC deducted
-- Breakdown per employee
-- Employer PRSI contributions
-- Summary of all payments to Revenue
+### P30 — Monthly Payment Summary
+Under PAYE Modernisation, the P30 is now effectively a **monthly reconciliation/payment** rather than a data-entry return, since the payroll data is already with Revenue via real-time submissions. Employers still make a monthly payment by the **23rd of the following month** covering all PAYE/PRSI/USC for the month.
 
-**Due date:** 23 February following year-end
+### P35 — Annual Employer Return (ABOLISHED)
+The P35 was abolished on **1 January 2019**. All data that formerly went into the P35 is now captured through real-time payroll submissions. There is no separate annual filing for employers under the current system.
+
+> **Penalty note:** Late P35 penalties (5% surcharge up to €12,695) applied to the old system. Under PAYE Modernisation, late or incorrect payroll submissions attract daily interest (currently 0.0219% per day) and may result in Revenue audit.
 
 ---
 
@@ -67,27 +64,28 @@ Monthly Totals:
 
 ---
 
-## Preparing a P35 (Annual)
+## Year-End Reconciliation (Replacing P35)
 
-### Data Required
+Under PAYE Modernisation there is no P35 to file. However, employers should still perform a **year-end reconciliation** to confirm that all payroll submissions sent during the year match actual payments made to Revenue.
+
+### Year-End Reconciliation Data
 
 | Item | Source |
 |------|--------|
 | Per-employee pay totals | Annual payroll summary |
 | Per-employee deductions | Annual payroll summary |
 | Employer PRSI totals | Payroll reports |
-| Total payments to Revenue | P30 records / bank records |
+| Total payments to Revenue | Bank records / ROS payment history |
 | Period covered | Tax year |
 
-### P35 Summary Section
+### Annual Summary (Internal Record)
 
 ```
-P35 — ANNUAL EMPLOYER RETURN
+ANNUAL PAYROLL SUMMARY — Internal Use
 Tax Year: 2026
 Employer: ABC Ltd
 Reg Number: 12345A
 
-Summary:
 Total Employees:         8
 Total Gross Pay:        €384,000.00
 Total PAYE:             €61,440.00
@@ -96,13 +94,13 @@ Total Employer PRSI:    €42,432.00
 Total USC:              €8,160.00
 Total LPT:              €0.00
                         ----------
-Total Due:              €127,392.00
+Total Payroll Tax:      €127,392.00
 
-Less Payments Made (via P30):  €127,392.00
-Balance Owing/(Refund):        €0.00
+Confirmed paid to Revenue via ROS:  €127,392.00
+Balance Owing/(Refund):             €0.00
 ```
 
-### Per-Employee Section
+### Per-Employee Record (Annual)
 
 ```
 Employee 1: John Murphy
@@ -123,11 +121,11 @@ Employee 2: Mary Murphy
 
 ### Filing Process
 
-1. **Log in** to ROS
-2. Select **Payroll Taxes**
-3. Upload or enter P30/P35 data
-4. Review and submit
-5. Pay any balance due
+1. **Log in** to ROS (or use integrated payroll software)
+2. Payroll software submits data automatically on each pay date
+3. Review monthly P30 summary and make payment by the 23rd
+4. At year-end, reconcile total submissions against total payments
+5. Revenue issues P60 data to employees; employer prints/emails P60
 
 ### Payment Methods
 - **Direct Debit** (mandated)
@@ -137,31 +135,33 @@ Employee 2: Mary Murphy
 ### Deadlines
 | Return | Deadline | Frequency |
 |--------|----------|-----------|
-| P30 | 23rd of next month | Monthly/Quarterly |
-| P35 | 23 February | Annual |
-| Payment | Same as return due date | — |
+| Payroll submission | On or before pay date | Per pay run |
+| P30 payment | 23rd of next month | Monthly/Quarterly |
+| P60 issued to employees | By 15 February | Annual |
 
 ---
 
 ## Computerised Preparation
 
-Most payroll software:
-1. Tracks monthly totals automatically
-2. Generates P30 with one click
-3. Generates P35 after year-end close
-4. Exports data in ROS-compatible XML format
-5. May submit directly to ROS (integrated software)
+Most payroll software (e.g., Thesaurus, Sage Payroll):
+1. Submits payroll data to Revenue automatically on each pay date
+2. Generates monthly P30 payment summary
+3. Processes P60s at year-end
+4. Provides annual summary report (replaces P35)
+5. Integrated software submits directly to ROS without manual export
 
 ### Software to ROS Workflow
 
 ```
-Payroll Software → Generate P30/P35 → Export XML
-                                          ↓
-                                    ROS Import
-                                          ↓
-                                    Review & Submit
-                                          ↓
-                                    Payment via ROS
+Payroll Run Processed
+        ↓
+Payroll Software → Real-time submission → ROS → Revenue
+        ↓
+Monthly: Generate P30 payment summary
+        ↓
+Pay Revenue by 23rd of following month
+        ↓
+Year-end: Generate P60s + Annual Summary
 ```
 
 ---
@@ -170,20 +170,20 @@ Payroll Software → Generate P30/P35 → Export XML
 
 | Return | Late Penalty |
 |--------|-------------|
-| P30 (monthly) | Interest on late payments + surcharges |
-| P35 (annual) | 5% surcharge (up to €12,695) |
-| Payment overdue | Interest charged from due date |
+| Payroll submission (late) | Daily interest at 0.0219% per day |
+| P30 payment (late) | Daily interest + possible surcharge |
+| P60 not issued by 15 Feb | Revenue may pursue employer |
 
 ---
 
 ## Reconciliation
 
-After filing P35:
-1. Compare total PAYE/PRSI/USC paid via P30s against P35 total
+At year-end (replacing the old P35 reconciliation):
+1. Compare total PAYE/PRSI/USC paid via P30s against the annual payroll summary total
 2. Reconcile to zero — any difference is overpayment/underpayment
 3. Request refund if overpaid, or pay difference if underpaid
 
-| | Total Paid (P30s) | Total Due (P35) | Difference |
+| | Total Paid (P30s) | Total Due (Annual Summary) | Difference |
 |---|---|---|---|
 | PAYE | €61,440 | €61,440 | €0 |
 | PRSI | €57,792 | €57,792 | €0 |
@@ -218,11 +218,10 @@ After filing P35:
 | USC | 46.00 |
 | **Total Due** | **2,718.60** |
 
-### P35 — Annual Example
+### Annual Payroll Summary (Internal — Replaces P35)
 
 ```
-P35 — ANNUAL EMPLOYER RETURN
-Tax Year: 2026
+ANNUAL PAYROLL SUMMARY — 2026
 Employer: ABC Ltd  Reg: 12345A
 
 TOTAL GROSS PAY:                        €380,000.00
@@ -230,13 +229,13 @@ TOTAL PAYE:                             €57,000.00
 TOTAL EMPLOYEE PRSI:                    €15,200.00
 TOTAL EMPLOYER PRSI:                    €41,990.00
 TOTAL USC:                              €8,740.00
-TOTAL DUE:                              €122,930.00
+TOTAL PAYROLL TAX:                      €122,930.00
 
-LESS PAYMENTS MADE (P30s):              €122,930.00
+CONFIRMED PAID TO REVENUE (via ROS):    €122,930.00
 BALANCE:                                €0.00
 ```
 
-Per-employee section:
+Per-employee record:
 ```
 John Kelly (1234567J)
   Gross: €41,600  PAYE: €6,240  PRSI: €1,664  USC: €624
@@ -246,40 +245,42 @@ Sarah Doyle (2345678S)
   (etc.)
 ```
 
-### How P30 and P35 Link
+### How Monthly Payments Link to Year-End Reconciliation
 
 ```
+Payroll submissions (each pay date) → Revenue receives real-time data
+
 P30 (Jan): €2,718.60 paid    P30 (Feb): €2,650.00
 P30 (Mar): €2,800.00         ... (every month)
 P30 (Dec): €2,900.00
-                            Total P30 payments: €35,000.00
+                        Total P30 payments: €35,000.00
 
-P35 filed in February:
-  Total due:    €35,000.00
-  Less P30s:   (€35,000.00)
-  Balance:      €0.00
+Year-end reconciliation:
+  Total due (annual summary): €35,000.00
+  Less P30s paid:             (€35,000.00)
+  Balance:                     €0.00
 ```
 
-If total P30 payments = €34,800 but P35 shows €35,000 due:
-- **Underpayment:** €200 — pay with P35 filing
-- Interest runs from the due date of the underpaid P30
+If total P30 payments = €34,800 but annual summary shows €35,000 due:
+- **Underpayment:** €200 — pay Revenue immediately
+- Daily interest runs from the due date of the underpaid month
 
-### Common P30/P35 Errors
+### Common Payroll/Reporting Errors
 
 | Error | Consequence |
 |-------|-------------|
-| P30 filed late | Late filing surcharge |
-| Wrong gross figure | All deductions misstated |
-| Missing employee in P35 | Revenue queries |
-| Wrong employer PRSI | Overpayment or underpayment |
+| Late payroll submission to Revenue | Daily interest (0.0219%/day) |
+| Wrong gross figure submitted | All deductions misstated in Revenue system |
+| Employee not registered before first pay | Treated as emergency tax |
+| Wrong employer PRSI rate used | Underpayment discovered at year-end |
 
 ### ROS Filing Steps
 
 1. Log into ROS with digital certificate
-2. Select "Payroll Taxes"
-3. Select return type (P30 or P35)
-4. Upload XML file from payroll software
-5. Review figures
+2. Payroll software submits each payroll run automatically
+3. Monthly: confirm P30 payment by 23rd of following month
+4. Year-end: generate P60s and annual summary from payroll software
+5. Review employer ROS account to confirm all submissions received
 6. Submit
 7. Make payment
 
@@ -290,4 +291,4 @@ Monthly P30 totals:
 - May: €3,100  Jun: €2,980  Jul: €3,150  Aug: €3,000
 - Sep: €3,100  Oct: €3,050  Nov: €2,950  Dec: €3,200
 
-Calculate total P30 payments. If P35 shows €36,800 due, is there a balance?
+Calculate total P30 payments. If the annual payroll summary shows €36,800 due, is there a balance?

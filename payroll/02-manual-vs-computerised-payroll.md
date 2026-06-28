@@ -14,7 +14,7 @@
 | **Compliance** | Easy to miss deadlines | Built-in reminders, auto-filing |
 | **Record Keeping** | Physical files, storage space | Digital, searchable, compact |
 | **Tax Updates** | Must manually track rate changes | Software updates automatically |
-| **Year-End** | Manual P30/P35/P60 preparation | Auto-generates all returns |
+| **Year-End** | Manual P30/P60 preparation | Auto-generates returns and real-time payroll submissions |
 | **Security** | Physical filing cabinet | Password-protected, encrypted |
 | **Scalability** | Impractical beyond 5-10 employees | Handles any number of employees |
 | **Backup** | Photocopies, risk of loss | Cloud backup, disaster recovery |
@@ -28,8 +28,8 @@
 1. **Speed** — calculate a full payroll run in minutes
 2. **Accuracy** — eliminates arithmetic errors in tax/PRSI/USC calculations
 3. **Automatic Tax Updates** — Revenue rate changes applied via software updates
-4. **Direct ROS Integration** — submit P30/P35/P45 directly from software
-5. **Year-End Automation** — P60s, P35 returns generated instantly
+4. **Direct ROS Integration** — submit payroll data and P30s directly from software
+5. **Year-End Automation** — P60s and annual summaries generated instantly
 6. **Employee Self-Service** — staff can view payslips online
 7. **Reporting** — instant reports of labour costs, department analysis
 8. **Audit Trail** — every change logged with date/time/user
@@ -89,8 +89,8 @@
 | Underpaid employee by €100 | Employee distress, must pay immediately |
 | Overpaid employee by €100 | Difficult to recover |
 | Incorrect PAYE paid to Revenue | Interest + penalties |
-| P45 issued with wrong figures | Next employer uses wrong data |
-| Late P30 filing | 5% surcharge up to €12,695 |
+| Leaving date not notified to Revenue via ROS | Employee's new employer cannot fetch correct RPN |
+| Late payroll submission to Revenue | Daily interest and potential surcharges |
 
 ### Exam Point
 

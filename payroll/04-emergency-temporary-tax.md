@@ -8,7 +8,7 @@
 
 Emergency tax is used when the employer does not have the employee's tax credit certificate (TCC). This happens when:
 
-1. New employee starts without a PPS number or P45
+1. New employee starts without a PPS number or Revenue Payroll Notification (RPN)
 2. Employee does not provide Revenue payroll notification (RPN)
 3. Employee has been on Week 1/Month 1 basis and hasn't updated details
 4. No record of employment exists on Revenue's system
@@ -21,7 +21,7 @@ Emergency tax is used when the employer does not have the employee's tax credit 
 |--------|------|------------|
 | Week 1 | 40% (no credits) | €0 |
 | Week 2 onwards (if no RPN) | 40% (no credits) | €0 |
-| After 4 weeks (if no PPS) | 50% (if no PPS provided within 4 weeks) | €0 |
+| Week 5+ (if still no PPS provided) | 40% (no credits) | €0 |
 
 ### Emergency Basis (Week 1/Month 1)
 - Tax is calculated on each period **in isolation**
@@ -65,8 +65,8 @@ Same as Week 1 but calculated monthly instead.
 ### Step 1: Employee provides details
 Employee gives:
 - PPS number
-- P45 from previous employer
-- Revenue Payroll Notification (RPN)
+
+The employer then fetches the Revenue Payroll Notification (RPN) from Revenue via ROS or payroll software. Under PAYE Modernisation (2019), the old P45 leaver form is no longer issued; prior employment data comes directly from Revenue.
 
 ### Step 2: Update payroll
 1. Enter PPS number and RPN in software
@@ -110,16 +110,16 @@ In any payroll software:
 
 ## Avoiding Emergency Tax
 
-- Employees should provide PPS number and P45 on day one
+- Employees should provide their PPS number on day one; the employer then fetches the RPN from Revenue
 - Employers should register new employees with Revenue immediately
 - Employees should check their RPN via Revenue's myAccount
 
 | Action | Who | When |
 |--------|-----|------|
 | Provide PPS number | Employee | Day 1 |
-| Provide P45 | Employee | Day 1 |
-| Submit new employee to Revenue | Employer | Before first pay |
-| Check RPN in software | Employer | Before each payroll run |
+| Register new employee with Revenue via ROS | Employer | Before first pay |
+| Fetch RPN from Revenue in payroll software | Employer | Before first pay |
+| Check RPN in software for each employee | Employer | Before each payroll run |
 
 
 ---
@@ -136,12 +136,13 @@ If the employee has a PPS number but no RPN:
 - Employer should request the RPN via ROS
 - If still not received, emergency tax continues
 
-### The 4-Week Rule
+### The Emergency Tax Rule
 
 | Period | Rate |
 |--------|------|
-| Weeks 1-4 | 40% with no credits |
-| Week 5+ (if still no PPS) | 50% |
+| Weeks 1 onwards (no RPN) | 40% with no credits |
+
+Emergency tax at 40% continues until the employer receives the employee's RPN from Revenue. There is no higher "50%" rate in the current PAYE system.
 
 ### Emergency to Cumulative — Full Example
 
@@ -182,7 +183,7 @@ PAYE already paid (emergency): 200 x 3 = **€600**
 The refund comes from the EMPLOYER's payroll system:
 1. Employer deducts less PAYE (or negative PAYE) in the current period
 2. Employer pays Emma more this week
-3. Employer recovers the overpaid tax from Revenue through P30/P35
+3. Employer recovers the overpaid tax from Revenue through P30 submissions
 
 ### Common Exam Question
 

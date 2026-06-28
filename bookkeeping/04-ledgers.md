@@ -157,19 +157,16 @@ Dr VAT Control (Nominal)          €368
 
 Cash sales: €984 (€800 net + €184 VAT)
 
+There are two acceptable approaches for cash sales:
+1. Include in the Sales Day Book and post from there (cleaner for analysis)
+2. Record directly in the Cash Book and post Sales + VAT from there
+
+Using approach 2 (Cash Book direct):
 ```
 Dr Bank (Nominal)                 €984
    Cr Sales (Nominal)                 €800
    Cr VAT Control (Nominal)           €184
 ```
-
-Wait — this is a cash sale. In the Sales Day Book, we'd include cash sales too if we record all sales there. Alternatively, the cash sales entry in the cash book debits bank and we need to credit sales and VAT.
-
-Actually, there are two approaches:
-1. Record cash sales in Sales Day Book (as a line item) → then post as normal from SDB
-2. Record directly in Cash Book and post to Sales from there
-
-For simplicity, including cash sales in the SDB and posting from there is cleaner.
 
 **Step 5: Post Cash Book Payments**
 

@@ -29,7 +29,7 @@ The process of comparing the bank statement balance with the cash book (business
 **Bank Statement Balance:** €4,200 Cr
 
 **Reconciling Items:**
-1. Cheque issued to supplier €800 not yet presented
+1. Cheque issued to supplier €600 not yet presented
 2. Lodgement of €1,200 not yet on bank statement
 3. Bank charges €150 not in cash book
 4. Direct debit €50 not in cash book
@@ -48,51 +48,33 @@ First, record items in the cash book that are on the bank statement but not yet 
 
 ### Step 2: Prepare Bank Reconciliation Statement
 
+**Method A — Starting from Updated Cash Book:**
+
 ```
 BANK RECONCILIATION STATEMENT
 As at 31 January 2026
 
-Balance per updated Cash Book                      €4,800
+Balance per Updated Cash Book                      €4,800 Dr
 
-ADD: Unpresented cheques
-  Cheque No. 456 — Supplier A                      €800
-  Total additions                                   €800
-                                                    5,600
+Add: Unpresented cheques
+  Cheque No. 456 — Supplier A                       €600
+                                                    €5,400
 
-LESS: Unlodged lodgements
+Less: Unlodged lodgements
   Lodgement 31 Jan — Customer B                   (€1,200)
 
-Balance per Bank Statement                         €4,400
+Balance per Bank Statement                         €4,200 Cr ✓
 ```
 
-Wait — the bank statement shows €4,200. Let me re-check. We need to start from either the cash book or the bank statement and reconcile to the other.
-
-### Correct Method
-
-**Starting from Cash Book to Bank Statement:**
-
-```
-Balance per Cash Book (updated)                    €4,800 Dr
-Add: Unpresented cheques                             €800
-Less: Unlodged lodgements                          (€1,200)
-                                                    --------
-Balance per Bank Statement                          €4,400 Cr
-```
-
-**Starting from Bank Statement to Cash Book:**
+**Method B — Starting from Bank Statement:**
 
 ```
 Balance per Bank Statement                         €4,200 Cr
-Add: Unlodged lodgements                           €1,200
-Less: Unpresented cheques                           (€800)
-                                                    --------
-Balance per Cash Book before adjustments           €4,600 Dr
 
-Cash Book adjustments needed:
-  Less: Bank charges                                (€150)
-  Less: Direct debit                                 (€50)
-                                                    --------
-Balance per Cash Book (updated)                     €4,800 Dr
+Add: Unlodged lodgements                           €1,200
+Less: Unpresented cheques                           (€600)
+                                                   --------
+Balance per Updated Cash Book                      €4,800 Dr ✓
 ```
 
 ---
@@ -139,7 +121,7 @@ Most accounting packages have a bank reconciliation module:
 **Given:**
 
 Cash Book balance (Dr): €4,200
-Bank Statement balance (Cr): €3,860
+Bank Statement balance (Cr): €3,695
 
 **Reconciling items identified:**
 1. Cheque 456 for €680 to Supplier A — not yet presented
@@ -176,40 +158,10 @@ Add: Unpresented Cheques
 
 Less: Unlodged Lodgements                          (€1,200)
 
-Balance per Bank Statement                         €3,695 Cr
+Balance per Bank Statement                         €3,695 Cr ✓
 ```
 
-Bank statement shows €3,860. Our result: €3,695. Difference: €165.
-
-### Step 3: Investigate
-
-There's still a €165 difference. Possible causes:
-- Another transaction unrecorded in cash book
-- Error in the bank statement
-- Item we missed
-
-Let me check: Is there a standing order, dividend received, or interest income on the bank statement not yet entered?
-
-Assume the bank statement shows a standing order for loan repayment of €165 that's not in the cash book.
-
-**Further adjustment to cash book:**
-
-| Date | Detail | Payments | Balance |
-|------|--------|----------|---------|
-| | Balance b/d | | 4,215 |
-| Jan 31 | Standing order — Loan | 165 | 4,050 |
-
-**Final reconciliation:**
-
-```
-Balance per Cash Book (updated)                    €4,050 Dr
-Add: Unpresented Cheque 456                        €680
-                                                    €4,730
-Less: Unlodged Lodgement                           (€1,200)
-Balance per Bank Statement                         €3,530 Cr
-```
-
-Still doesn't match €3,860. There must be more items. This illustrates why bank reconciliation requires thorough checking — it's a systematic process, not a single formula.
+The statement confirms — the BRS reconciles to the bank statement balance of €3,695.
 
 ### Common Bank Reconciliation Issues
 
@@ -225,7 +177,7 @@ Still doesn't match €3,860. There must be more items. This illustrates why ban
 
 ### Practice
 
-**Cash Book:** €8,250 Dr
+**Cash Book:** €8,180 Dr
 **Bank Statement:** €7,600 Cr
 
 **Items:**

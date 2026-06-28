@@ -37,21 +37,17 @@ Mary gets her full weekly tax credit in week 20. No credit is lost for the weeks
 
 ### Employee Leaves in Week 30
 
-The employer issues a **P45** showing:
+Under PAYE Modernisation (2019), when an employee leaves, the employer records the leaving date in the payroll software and notifies Revenue via the real-time payroll submission. The old paper P45 form is no longer issued directly to the employee.
+
+The payroll record to date:
 - Gross pay to date: €24,000
 - Tax paid to date: €2,636.40
 - Tax credits used to date: €2,163.60 (30 weeks × €72.12)
-- Week 1 / Month 1 or Cumulative basis
+- Basis: Cumulative
 
-### P45 Details (Used by Next Employer)
-| Box | Value |
-|-----|-------|
-| Gross Pay to Date | €24,000 |
-| Tax Deducted to Date | €2,636.40 |
-| Tax Credits Used (if Week 1) | — |
-| Basis | Cumulative |
+This information is sent to Revenue via ROS. The employee can view it in their myAccount. The new employer fetches a Revenue Payroll Notification (RPN) which carries forward the cumulative pay and tax figures so the cumulative calculation continues seamlessly.
 
-The next employer uses the P45 figures to continue the cumulative calculation.
+> **Note:** Exam questions may still refer to a "P45" as the source document for prior pay/tax figures. The underlying data is the same — only the delivery method has changed.
 
 ---
 
@@ -83,6 +79,11 @@ Employee had €3,750 annual credits. In **Week 16**, Revenue issues new RPN wit
 - Remaining credits in Week 16: €148.92
 
 **Week 16 PAYE:**
+
+PAYE already paid Weeks 1–15 (at old weekly credit of €72.12):
+- Weekly PAYE = €800 × 20% − €72.12 = €87.88
+- 15 weeks × €87.88 = **€1,318.20**
+
 | | Amount |
 |---|--------|
 | Gross Pay | €800 |
@@ -90,8 +91,8 @@ Employee had €3,750 annual credits. In **Week 16**, Revenue issues new RPN wit
 | Tax @ 20% | €2,560.00 |
 | Cumulative Credits Available | (€1,230.72) |
 | Cumulative PAYE | €1,329.28 |
-| LESS PAYE already paid (Weeks 1-15) | (€1,081.80) |
-| **PAYE Week 16** | **€247.48** |
+| LESS PAYE already paid (Weeks 1-15) | (€1,318.20) |
+| **PAYE Week 16** | **€11.08** |
 
 ---
 
@@ -110,10 +111,8 @@ Employee had €3,750 annual credits. In **Week 16**, Revenue issues new RPN wit
 
 ### Example: Refund Due to Credit Increase (Continuing from Above)
 
-Before credit change, employee paid **€72.12 per week** in PAYE.
-After credit change, cumulative catch-up means the software gives **€148.92 in credits for Week 16** instead of €76.92.
-
-The difference (€72.00) effectively refunds the extra tax paid in the first 15 weeks.
+Before credit change, employee received **€72.12 per week** in tax credits and paid **€87.88 per week** in PAYE.
+After credit change, cumulative credits jump to €1,230.72 by Week 16 versus €1,081.80 (15 × €72.12) already used. The extra €148.92 of credits reduces Week 16 tax to just €11.08, effectively catching up on the additional relief earned.
 
 ---
 
@@ -123,7 +122,7 @@ The difference (€72.00) effectively refunds the extra tax paid in the first 15
 |--------|------------------------|
 | New RPN received | Automatically updated in system |
 | Mid-year start | Enter start date, software calculates credits allocated |
-| Mid-year leaver | Generate P45 automatically |
+| Mid-year leaver | Record leaving date in software; payroll submission notifies Revenue automatically |
 | Credit change | Software recalculates cumulative position |
 | Refund | Included automatically in next payslip |
 
@@ -158,11 +157,11 @@ Tom leaves on 30 June (Week 26).
 
 **Payroll to date:** Cum. Gross €20,800, Cum. PAYE €2,860.
 
-**P45 shows:** Gross €20,800, Tax €2,860, Basis: Cumulative, Week 26.
+**Payroll record (sent to Revenue):** Gross €20,800, Tax €2,860, Basis: Cumulative, Week 26.
 
 Tom starts new job in Week 32 earning €900/week.
 
-New employer enters P45 data. Cum. Gross b/f: €20,800, Cum. Tax b/f: €2,860.
+New employer fetches Tom's RPN from Revenue. RPN carries forward: Cum. Gross b/f: €20,800, Cum. Tax b/f: €2,860.
 
 **Week 32:**
 | | Amount |
@@ -182,25 +181,28 @@ Tom gets a refund because new cumulative calculation shows he overpaid tax at ol
 
 Mary gets married in Week 20. Credits change from single (€1,875) to married (€3,750).
 
-**Before (Weeks 1-19):** Weekly credit €36.06, total used: €685.14
+**Before (Weeks 1-19):** Weekly credit €36.06 (single personal credit only, €1,875/52), total used: €685.14
 
-**After (Week 20+):** New weekly credit €72.12, but cumulative catch-up backdates to January.
+PAYE per week (Weeks 1–19): €800 × 20% − €36.06 = **€123.94**
+PAYE paid Weeks 1–19: 19 × €123.94 = **€2,354.86**
 
-Cum. credits available by Week 20: 20 x 72.12 = €1,442.40
+**After (Week 20+):** New married personal credit €3,750 → new weekly credit = €72.12, but cumulative catch-up backdates to January.
+
+Cum. credits available by Week 20: 20 × €72.12 = €1,442.40
 Already used: €685.14
-Credits available this week: €1,442.40 - €685.14 = **€757.26**
+Credits available this week: €1,442.40 − €685.14 = **€757.26**
 
 **Week 20 PAYE (€800 gross):**
 | | Amount |
 |---|--------|
-| Cum. Gross (800 x 20) | €16,000.00 |
+| Cum. Gross (800 × 20) | €16,000.00 |
 | Tax @ 20% | €3,200.00 |
 | Cum. Credits avail | (€1,442.40) |
 | Cum. PAYE | €1,757.60 |
-| Less PAYE paid wks 1-19 | (€2,480.00) |
-| **PAYE Week 20** | **-€722.40 — refund!** |
+| Less PAYE paid wks 1-19 | (€2,354.86) |
+| **PAYE Week 20** | **-€597.26 — refund!** |
 
-Massive refund because extra credits are backdated.
+Significant refund because the higher married credits are backdated to Week 1 under the cumulative system.
 
 ### Practice
 

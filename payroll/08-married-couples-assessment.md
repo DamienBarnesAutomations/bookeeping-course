@@ -11,8 +11,8 @@ In Ireland, married couples (and civil partners) can choose from three assessmen
 | Method | Description |
 |--------|-------------|
 | **Joint Assessment** | Default — one spouse is assessable, credits/cut-off can be transferred |
-| **Separate Assessment** | Each spouse assessed independently on their own income |
-| **Separate Treatment** | Each spouse treated as single for tax purposes |
+| **Separate Assessment** | Each spouse assessed independently; unused credits/cut-off can be transferred to the other spouse at year-end |
+| **Separate Treatment** | Each spouse treated as single — no credit or band transfer permitted |
 
 ---
 
@@ -90,7 +90,7 @@ Each spouse is treated independently for:
 - Own tax credits
 - Own standard rate cut-off
 
-**No transfer of credits or bands.**
+Each spouse uses only their own credits and cut-off during the year. However, any unused credits or cut-off can be claimed by the other spouse at **year-end** via a review.
 
 ### Example: Separate Assessment
 
@@ -121,11 +121,11 @@ Each spouse is treated independently for:
 
 ## 3. Separate Treatment
 
-Each spouse is treated as **single** for all tax purposes.
+Each spouse is treated as **single** for all tax purposes with no transfer of credits or cut-off at any point.
 
-- Same as separate assessment in calculation
-- Cannot claim married credits or band
-- Result is same as two single people
+- No married personal credit (each claims single credit €1,875)
+- Cannot transfer unused credits or SRCOP to the other spouse (unlike Separate Assessment)
+- Result is the same as two unrelated single people
 
 **Total Tax: Usually the highest of the three options.**
 
@@ -204,10 +204,11 @@ Revenue will issue a new RPN with married credits. Cumulative system automatical
 | SRCOP | €42,000 | €51,000 |
 | Tax @ 20% | €8,400 | €10,200 |
 | Tax @ 40% | €11,200 | €7,600 |
-| Less Credits | (€1,875) | (€3,750+1,875+1,875) |
-| **Total Tax** | **€17,725** | **€11,200** |
+| Gross Tax | €19,600 | €17,800 |
+| Less Credits | (€1,875) | (€3,750+€1,875+€1,875 = €7,500) |
+| **Total Tax** | **€17,725** | **€10,300** |
 
-**Savings under Joint:** €6,525
+**Savings under Joint:** €17,725 − €10,300 = **€7,425**
 
 ### Scenario B: Significantly different incomes
 
@@ -216,12 +217,18 @@ Spouse 1: €65,000 | Spouse 2: €10,000 | Total: €75,000
 Joint SRCOP: €51,000 + €33,000 = €84,000
 Total €75,000 < €84,000, all taxed at 20%.
 
+**S1 (Separate Assessment, €65,000):**
+- €42,000 × 20% = €8,400; €23,000 × 40% = €9,200; Gross tax = €17,600
+- Less credits (personal €1,875 + PAYE €1,875 = €3,750): **€13,850**
+
+**S2 (€10,000):** €10,000 × 20% = €2,000 − €3,750 credits = €0 (credits exceed tax)
+
 | Method | Tax |
 |--------|-----|
-| Joint | €15,000 - €7,500 = **€7,500** |
-| Separate | S1: €15,950 + S2: €0 = **€15,950** |
+| Joint | €15,000 − €7,500 = **€7,500** |
+| Separate | S1: €13,850 + S2: €0 = **€13,850** |
 
-**Savings:** €8,450
+**Savings under Joint:** €13,850 − €7,500 = **€6,350**
 
 ### Scenario C: Two high incomes
 

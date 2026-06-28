@@ -17,9 +17,20 @@ VAT (Value Added Tax) is charged at each stage of production/distribution. Busin
 |------|----------|
 | 23% | Standard rate |
 | 13.5% | Reduced rate (construction, tourism, food, energy) |
-| 9% | Second reduced rate (hotels, newspapers, theatre) |
+| 9% | Second reduced rate (newspapers, certain cultural events) |
 | 0% | Zero-rated (exports, most food, children's clothes) |
 | Exempt | Finance, insurance, education, healthcare |
+
+**Note:** Hospitality (hotels, restaurants) moved from 9% to 13.5% in November 2023.
+
+### VAT Registration Thresholds (2025)
+
+| Supply Type | Threshold |
+|-------------|-----------|
+| Services | €37,500 per annum |
+| Goods | €75,000 per annum |
+
+Businesses below these thresholds may register voluntarily (e.g., to reclaim input VAT). Above the threshold, registration is mandatory.
 
 ---
 

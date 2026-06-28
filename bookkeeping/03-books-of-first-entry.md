@@ -87,15 +87,15 @@ Petty Cash Voucher No. 12
 Date: Jan 4
 Description: Stationery
 Amount: €15.00
-VAT: €3.45
-Net: €11.55
+VAT: €2.80
+Net: €12.20
 Signed: John
 ```
 
 **Entry in Petty Cash Book:**
 ```
 Date | Vouch No | Detail     | Gross | VAT  | Net   | Total
-Jan 4| 12       | Stationery | 15.00 | 3.45 | 11.55 | 15.00
+Jan 4| 12       | Stationery | 15.00 | 2.80 | 12.20 | 15.00
 ```
 
 ---
@@ -231,5 +231,5 @@ If an invoice has standard rate (23%) and reduced rate (13.5%) items:
 
 **Answers:**
 1. Net = €2,460 ÷ 1.23 = €2,000, VAT = €460
-2. Purchases Returns Day Book: Gross €615, VAT €115, Net €500
+2. Sales Returns Day Book: Gross €615, VAT €115, Net €500
 3. Cash Book (payments side) — it's a cash transaction. Also note the purchase details.

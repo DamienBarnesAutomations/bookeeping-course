@@ -101,14 +101,6 @@ Always compare your manual TB to the computerised TB as a check.
 
 ### Full Trial Balance Extraction Example
 
-From the Jones Ltd example, here are all account balances at month end:
-
-| Account | Dr (€) | Cr (€) | Notes |
-|---------|-------|-------|-------|
-| Bank | 984 − 1,000 = −16... wait, let me recalculate. |
-
-Actually, let me start fresh with a complete example.
-
 **Opening Balances — 1 January:**
 - Bank: €10,000 Dr
 - Capital: €10,000 Cr
@@ -261,9 +253,13 @@ This makes the TB balance. Then investigate each error and correct through the s
 
 **Question:** Does this TB balance? If so, is there an underlying error?
 
-**Answer:** It balances, but Debtors should be a debit, not a credit. Debtors are assets. This is an error of principle that doesn't affect the TB. The correction:
+**Answer:** The TB balances at €20,500, so there is no arithmetic imbalance. However, Debtors is an asset and should appear on the **debit** side, not the credit side. This is an **error of principle** — one that does not cause the TB to disagree but produces a misleading balance sheet.
+
+For the TB to still balance with Debtors on the wrong side, there must be a **compensating error** elsewhere: another account is also on the wrong side by €500, masking the first mistake. This is a classic example of why a balanced TB does not guarantee correct accounts.
+
+The correction once the errors are found:
 ```
-Dr Debtors €500
-   Cr Suspense €500
+Dr Debtors        €500
+   Cr [wrong account]  €500
 ```
-Wait — if Debtors was mistakenly entered as a credit, then the TB balances but the account is wrong. Actually if it balances, then something else must also be wrong to compensate. Let me re-check... If Debtors (€500) is on the credit side when it should be on the debit, then the debit side is understated by €500 and the credit side is overstated by €500. The total difference would be €1,000. But the TB says it balances at €20,500. So there must be a compensating error elsewhere. Good practice question.
+(Transfer Debtors from the credit side to the debit side, and reverse the compensating error in the other account.)

@@ -29,7 +29,7 @@ Each year, the Irish government announces budget changes that affect:
 | PRSI Threshold | €352/week | €360/week | +€8 |
 | USC Entry Threshold | €13,000 | €13,500 | +€500 |
 | USC Top Rate Threshold | €70,044 | €72,000 | +€1,956 |
-| Minimum Wage | €13.30/hr | €13.70/hr | +€0.40 |
+| Minimum Wage | €13.50/hr | €13.70/hr | +€0.20 |
 
 ---
 
@@ -105,11 +105,11 @@ The employee is **€57.50 better off per year** due to:
 
 ## Impact of Minimum Wage Changes
 
-If minimum wage increases from €13.30 to €13.70:
+If minimum wage increases from €13.50 to €13.70:
 
 | | 2025 | 2026 |
 |---|------|------|
-| Hourly Rate | €13.30 | €13.70 |
+| Hourly Rate | €13.50 | €13.70 |
 | Weekly Pay (39 hrs) | €518.70 | €534.30 |
 | Annual Gross | €26,972.40 | €27,783.60 |
 | PRSI Threshold Met? | Yes (above €352) | Yes |
@@ -161,22 +161,6 @@ Employee earning €35,000.
 
 | Item | Calculation | Amount |
 |------|------------|--------|
-| Tax @ 20% (within €40,000 SRCOP) | 35,000 x 20% | €7,000.00 |
-| Less Personal Credit | | (€1,700.00) |
-| Less PAYE Credit | | (€1,700.00) |
-| **PAYE** | | **€3,600.00** |
-| PRSI @ 4% | 35,000 x 4% | €1,400.00 |
-| USC @ 0.5% (0-12,012) | 12,012 x 0.5% | €60.06 |
-| USC @ 2% (12,013-22,920) | 10,908 x 2% | €218.16 |
-| USC @ 4.5% (22,921-35,000) | 12,079 x 4.5% | €543.56 |
-| Total USC | | **€821.78** |
-| **Total Deductions** | | **€5,821.78** |
-| **Net Pay** | | **€29,178.22** |
-
-### Year 2 (2026)
-
-| Item | Calculation | Amount |
-|------|------------|--------|
 | Tax @ 20% (within €42,000 SRCOP) | 35,000 x 20% | €7,000.00 |
 | Less Personal Credit | | (€1,875.00) |
 | Less PAYE Credit | | (€1,875.00) |
@@ -189,28 +173,43 @@ Employee earning €35,000.
 | **Total Deductions** | | **€5,386.00** |
 | **Net Pay** | | **€29,614.00** |
 
+### Year 2 (2026)
+
+| Item | Calculation | Amount |
+|------|------------|--------|
+| Tax @ 20% (within €43,000 SRCOP) | 35,000 x 20% | €7,000.00 |
+| Less Personal Credit | | (€1,900.00) |
+| Less PAYE Credit | | (€1,900.00) |
+| **PAYE** | | **€3,200.00** |
+| PRSI @ 4% | 35,000 x 4% | €1,400.00 |
+| USC @ 0.5% (0-13,500) | 13,500 x 0.5% | €67.50 |
+| USC @ 2% (13,501-25,760) | 12,260 x 2% | €245.20 |
+| USC @ 4.5% (25,761-35,000) | 9,240 x 4.5% | €415.80 |
+| Total USC | | **€728.50** |
+| **Total Deductions** | | **€5,328.50** |
+| **Net Pay** | | **€29,671.50** |
+
 ### Comparison
 
-| | Year 1 | Year 2 | Change |
+| | Year 1 (2025) | Year 2 (2026) | Change |
 |---|--------|--------|--------|
 | Gross Pay | €35,000 | €35,000 | €0 |
-| PAYE | €3,600 | €3,250 | -€350 |
+| PAYE | €3,250 | €3,200 | -€50 |
 | PRSI | €1,400 | €1,400 | €0 |
-| USC | €822 | €736 | -€86 |
-| **Net Pay** | **€29,178** | **€29,614** | **+€436** |
+| USC | €736 | €728.50 | -€7.50 |
+| **Net Pay** | **€29,614** | **€29,671.50** | **+€57.50** |
 
-**Analysis:** The employee is €436 better off due to:
-1. Increased tax credits (+€50 each for personal and PAYE = +€100 total)
-2. Wait, the credit increase saved €350 (€3,600 - €3,250). That's because personal went from €1,700 to €1,875 (+€175) and PAYE credit from €1,700 to €1,875 (+€175) = +€350 total.
-3. Wider USC bands reduced USC by €86.
+**Analysis:** The employee is €57.50 better off in 2026 due to:
+1. Increased tax credits: +€25 personal + €25 PAYE = +€50 saved in PAYE
+2. Slightly wider USC entry band (€13,000 → €13,500) reduced USC by €7.50
 
 ### Minimum Wage Impact
 
-Minimum wage increase from €13.30 to €13.70:
+Minimum wage increase from €13.50 to €13.70:
 
 | | 2025 | 2026 | Change |
 |---|------|------|--------|
-| Hourly | €13.30 | €13.70 | +€0.40 |
+| Hourly | €13.50 | €13.70 | +€0.20 |
 | Weekly (39 hrs) | €518.70 | €534.30 | +€15.60 |
 | Annual | €26,972 | €27,784 | +€812 |
 | Net pay impact | ~€22,280 | ~€22,960 | +€680 |

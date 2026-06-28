@@ -70,9 +70,11 @@ Net Pay = Gross Pay − (PAYE + PRSI + USC + Other Deductions)
 | Payslips | Breakdown of pay and deductions per employee |
 | Payroll Summary | Total gross, deductions, net per pay period |
 | P30 (Monthly) | Monthly PAYE/PRSI/USC return to Revenue |
-| P35 (Annual) | Annual employer return to Revenue |
+| P35 (Annual) | Annual employer return — **abolished 1 January 2019** under PAYE Modernisation; replaced by real-time payroll submissions via ROS |
 | P60 (Annual) | End-of-year certificate for each employee |
-| P45 | Leaver certificate (given to employee on exit) |
+| P45 | Leaver certificate — **abolished 1 January 2019** under PAYE Modernisation; employers now notify Revenue via a payroll submission with the leaving date; employees access records via myAccount |
+
+> **PAYE Modernisation (2019):** From 1 January 2019, employers submit payroll data to Revenue in real time on or before each pay date. The P35 annual return and the old paper P45 leaver workflow were abolished. Revenue Payroll Notifications (RPNs) replaced the old Tax Credit Certificate (TCC).
 
 
 ---

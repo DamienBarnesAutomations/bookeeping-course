@@ -48,11 +48,21 @@ Most software allows:
 ## Common Corrections
 
 ### Error 1: Goods sold on credit, invoice entered in Purchases Day Book
+
+Two steps are required — first reverse the wrong posting, then record the correct one.
+
+**Step 1 — Reverse the incorrect PDB entry:**
 ```
-Dr Sales                  €1,000
-   Dr Debtor              €1,230
+Dr Creditor              €1,230
    Cr Purchases              €1,000
-   Cr VAT Control              €230
+   Cr VAT Control (Input)      €230
+```
+
+**Step 2 — Record the correct SDB entry:**
+```
+Dr Debtor                €1,230
+   Cr Sales                  €1,000
+   Cr VAT Control (Output)     €230
 ```
 
 ### Error 2: Cheque received from customer recorded as €500 instead of €5,000
@@ -148,14 +158,14 @@ Dr Customer X         €1,230
 ```
 
 **Error 2: Commission**
-Stationery €100 posted to Office Equipment account (both are assets/expenses in the same class).
+Stationery €100 posted to Postage account (both are expense accounts — same class, wrong account).
 
 **Correction:**
 ```
 Dr Stationery          €100
-   Cr Office Equipment    €100
+   Cr Postage              €100
 ```
-(Correcting the wrong classification)
+(Transfer to the correct expense account within the same class)
 
 **Error 3: Principle**
 Purchase of a delivery van for €20,000 posted to Motor Expenses account.
@@ -170,11 +180,13 @@ Dr Motor Vehicles      €20,000
 **Error 4: Original Entry**
 An invoice for €1,230 was entered as €1,320 in both accounts.
 
+The sale was overstated by €90 gross (€73.17 net + €16.83 VAT). To correct, reduce the debtor and reverse the overstatement in Sales and VAT:
+
 **Correction:**
 ```
-Dr Customer X           €90
-   Cr Sales               €73.17
-   Cr VAT Control         €16.83
+Dr Sales               €73.17
+Dr VAT Control         €16.83
+   Cr Customer X           €90
 ```
 (Reducing the overstatement: €1,320 − €1,230 = €90 gross difference)
 
@@ -210,11 +222,13 @@ A credit sale of €1,230 was entered as €1,320 (transposition).
 
 The difference is 1320 − 1230 = 90. 90 ÷ 9 = 10. Divisible by 9 = transposition.
 
+The sale was overstated. Correct by reducing the debtor and reversing the overstatement:
+
 **Correction:**
 ```
-Dr Customer X           €90
-   Cr Sales               €73.17
-   Cr VAT Control         €16.83
+Dr Sales               €73.17
+Dr VAT Control         €16.83
+   Cr Customer X           €90
 ```
 
 ### Correcting Through Suspense Account
@@ -223,10 +237,11 @@ When the TB fails to balance, the difference is put in Suspense.
 
 **Scenario:** TB shows Debits €50,000, Credits €49,800. Difference = €200 (credit side short).
 
-**Entry:**
+The credit side is understated, so open Suspense with a **credit** balance to make the TB balance:
+
 ```
-Dr Suspense            €200
-   Cr TB difference       €200    (brings TB to balance)
+TB (credit side):  Add Suspense A/c  €200 Cr
+→ Credits now total €50,000 — TB balances
 ```
 
 **Later found:** Sales undercast by €200.

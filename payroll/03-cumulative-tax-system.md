@@ -103,7 +103,7 @@ When an employee takes unpaid leave:
 ### PRSI (Pay Related Social Insurance)
 | Type | Employee Rate | Employer Rate |
 |------|--------------|--------------|
-| Class A (most employees) | 4% | 11.05% |
+| Class A (most employees) | 4% | 11.15% |
 | Subclass (lower earnings) | 0% | 8.5% |
 
 **PRSI exemption**: Earnings below €352 per week (Class A)
@@ -119,7 +119,7 @@ When an employee takes unpaid leave:
 ### Non-Statutory Deductions
 | Deduction | Treatment |
 |-----------|-----------|
-| Pension (employee) | Deducted after tax (relief at source) |
+| Pension (employee) | Deducted from gross pay before tax (occupational schemes); net pay with relief at source for PRSA/RAC |
 | Union Dues | Deducted from net pay |
 | Health Insurance | Deducted from net pay |
 | Court Orders | Deducted from net pay |
@@ -236,6 +236,6 @@ John gets a PAYE refund of €233.65 in Week 8 because his cumulative tax positi
 | Mistake | Result |
 |---------|--------|
 | Forgetting cumulative basis | Employee overtaxed |
-| Not including P45 from previous job | Starts at €0 cumulative, overtaxed |
+| Not including prior employment data from Revenue (via RPN) | Starts at €0 cumulative, overtaxed |
 | Applying credits as income deduction | Credits over-applied |
 | Incorrect SRCOP | Wrong split between 20% and 40% |

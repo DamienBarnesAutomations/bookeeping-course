@@ -6,21 +6,25 @@
 
 ## Key Employee Forms
 
-### P45 — Leaver Certificate
-Issued **when an employee leaves** during the tax year.
+### P45 — Leaver Process (PAYE Modernisation 2019)
 
-**Contents:**
-- Employee name, PPS number
+> **PAYE Modernisation (effective 1 January 2019):** The traditional paper P45 (Copies A/B/C) was abolished. The leaver process is now fully electronic.
+
+**When an employee leaves:**
+1. Employer records the leaving date in payroll software
+2. A final payroll submission (including the leaving date) is sent to Revenue via ROS on or before the last pay date
+3. Revenue updates the employee's record automatically
+
+**Employee access:** The employee can log in to Revenue's **myAccount** to view their pay and tax details for the year.
+
+**New employer:** Instead of receiving a paper P45 from the employee, the new employer fetches a **Revenue Payroll Notification (RPN)** electronically from Revenue. The RPN contains the cumulative pay and tax figures from all employment in the current year, enabling the cumulative tax calculation to continue correctly.
+
+**What the old P45 contained (for exam reference):**
+- Employee name and PPS number
 - Date of leaving
 - Gross pay to date in current employment
 - Tax deducted to date
-- Week 1 / Cumulative basis indicator
-- Employer's registered number
-
-**Copies:**
-- Copy A — Employer sends to Revenue
-- Copy B — Employee gives to new employer
-- Copy C — Employee keeps for records
+- Cumulative basis indicator
 
 ### P60 — Annual Certificate
 Issued **after year-end** (January) to all employees employed on 31 December.
@@ -37,9 +41,9 @@ Issued **after year-end** (January) to all employees employed on 31 December.
 
 ---
 
-## Preparing a P45 (Mid-Year)
+## Processing a Leaver (Under PAYE Modernisation)
 
-### Data Required from Payroll Records
+### Data Required
 
 | Data Point | Source |
 |-----------|--------|
@@ -50,16 +54,23 @@ Issued **after year-end** (January) to all employees employed on 31 December.
 | Date of leaving | HR records |
 | Basis of taxation | Employee's tax basis (Cumulative or Week 1) |
 
-### Completed P45 Example
+### What Happens in the Software
+
+1. Select the employee → mark as leaver → enter leaving date
+2. Process the final payroll run as normal
+3. Software includes leaving date in the payroll submission sent to Revenue via ROS
+4. Revenue notifies the employee via myAccount; new employer fetches RPN
+
+### Leaver Record (replaces old P45)
 
 ```
-P45 — EMPLOYEE LEAVER CERTIFICATE
+PAYROLL LEAVER RECORD — submitted to Revenue via ROS
 
 Employee Name:       Mary Murphy
 PPS Number:          1234567M
 Date of Leaving:     30 June 2026
 
-Income Tax Details:
+Income Tax Details (Year to Date):
 Gross Pay to Date:   €18,000.00
 Tax Deducted:        €2,180.00
 PRSI Deducted:       €720.00
@@ -110,18 +121,18 @@ Date Issued:          31 January 2027
 
 ---
 
-## P45 Lifecycle
+## Leaver Process Lifecycle (PAYE Modernisation)
 
 ```
-Employee Leaves → Generate P45 in Software
+Employee Leaves → Enter leaving date in payroll software
                          ↓
-              ┌──────────────────────┐
-              │ Copy A → Revenue     │
-              │ Copy B → Employee    │
-              │         → New Employer (for RPN)
-              │ Copy C → Employee    │
-              │         → Keep for records
-              └──────────────────────┘
+              Process final payroll run
+                         ↓
+              Payroll submission (with leaving date) → ROS → Revenue
+                         ↓
+              Employee views record via myAccount
+                         ↓
+              New employer fetches RPN from Revenue
 ```
 
 ---
@@ -129,13 +140,12 @@ Employee Leaves → Generate P45 in Software
 ## Computerised Generation
 
 In payroll software:
-1. **P45** — Select employee → Leaver option → Set leaving date → Generate P45
+1. **Leaver** — Select employee → Leaver option → Set leaving date → Process payroll → Submit to ROS
 2. **P60** — End of year → Run P60 report → Print/email to all employees
 
-Both forms can be:
+P60 can be:
 - Printed on official stationery
 - Emailed as PDF (Revenue accepts digital)
-- Submitted digitally to Revenue (P45 Copy A via ROS)
 
 ---
 
@@ -147,34 +157,35 @@ Both forms can be:
 | Incorrect gross pay | Tax calculation error for new employer |
 | Wrong leaving date | Wrong RPN for new employer |
 | P60 not issued by deadline | Revenue penalty risk |
-| Incorrect tax basis on P45 | New employer uses wrong basis |
+| Incorrect tax basis submitted to Revenue | New employer's RPN may carry wrong basis |
 
 
 ---
 
 ## Worked Examples & Deep Dive
 
-### P45 — Detailed Walkthrough
+### Leaver Process — Detailed Walkthrough (PAYE Modernisation)
 
-**When to issue:** Employee leaves, dies, or reaches State Pension age.
+**When it applies:** Employee leaves, dies, or reaches State Pension age.
 
-**P45 Copies:**
+**Steps in payroll software:**
 
+1. Select the employee → choose "Leaver" or "Cessation"
+2. Enter the date of leaving
+3. Process any final payments (salary, holiday pay, etc.)
+4. Process the payroll run — software includes leaving date in the submission to Revenue
+5. Revenue updates the employee's record; employee sees it in myAccount
+6. New employer fetches RPN from Revenue — it includes the cumulative pay/tax from all jobs
+
+**Leaver submission data sent to Revenue:**
 ```
-Copy A: Employer submits to Revenue
-Copy B: Employee gives to new employer
-Copy C: Employee keeps for records
-```
-
-**P45 Layout:**
-```
-P45 — LEAVE CERTIFICATE
+PAYROLL LEAVER SUBMISSION — via ROS
 Employee Name:     Thomas Murphy
 PPS Number:        1234567T
 Date of Leaving:   30/06/2026
 Tax Basis:         Cumulative
 
-INCOME TAX DETAILS
+INCOME TAX DETAILS (Year to Date)
 Gross Pay to Date:         €20,800.00
 Tax Deducted to Date:      €2,860.00
 
@@ -210,15 +221,15 @@ Date Issued: 31/01/2027
 
 Many employers issue digital P60s (PDF via email or self-service portal). These are legally equivalent to paper.
 
-### Common P45/P60 Errors
+### Common Leaver/P60 Errors
 
 | Error | Who It Affects | Fix |
 |-------|---------------|-----|
-| Wrong PPS number | Employee cannot use for returns | Issue corrected form |
-| Wrong gross pay | Next employer uses wrong data | Recalculate, reissue |
-| Wrong leaving date | Wrong tax treatment | Check HR records |
-| P45 not issued within 2 weeks | Revenue penalty | Issue immediately |
-| P60 not issued by Feb deadline | Revenue penalty | Issue and notify Revenue |
+| Wrong PPS number submitted | Employee's Revenue record is incorrect | Submit correction via ROS |
+| Wrong gross pay submitted | New employer's RPN carries wrong cumulative figures | Submit amended payroll submission |
+| Wrong leaving date | Wrong tax treatment | Submit correction to Revenue |
+| Leaving not notified to Revenue | Employee taxed on emergency basis at new employer | Submit the payroll submission immediately |
+| P60 not issued by 15 Feb deadline | Revenue penalty risk | Issue and notify Revenue |
 
 ### Practice
 
@@ -228,4 +239,4 @@ Employee leaves on 30 September (Week 39). Their records show:
 - Cum. PRSI: €1,248
 - Cum. USC: €364
 
-Draft their P45 figures.
+What figures would be submitted to Revenue in the leaver payroll submission?

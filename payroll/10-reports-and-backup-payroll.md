@@ -50,11 +50,11 @@ Year to Date
 ### 3. P30 (Monthly Return)
 Already covered in Outcome 7 — summary of monthly payroll taxes.
 
-### 4. P35 Annual Return
-Already covered in Outcome 7 — annual summary of all payroll.
+### 4. Annual Payroll Summary
+Already covered in Outcome 7 — the P35 annual return was abolished in 2019; payroll software generates an equivalent annual summary report.
 
-### 5. P45 / P60
-Already covered in Outcome 6 — employee-specific year-end forms.
+### 5. Leaver Record / P60
+Already covered in Outcome 6 — the P45 paper form was abolished in 2019; leavers are processed via payroll submission to Revenue. P60 is still issued annually to all employees.
 
 ### 6. Labour Cost Report
 
@@ -62,11 +62,11 @@ Already covered in Outcome 6 — employee-specific year-end forms.
 LABOUR COST ANALYSIS — January 2026
 
 Department     Gross     Employer PRSI   Total Cost
-Sales          €20,000     €2,210        €22,210
-Admin          €12,000     €1,326        €13,326
-Warehouse      €8,000      €884          €8,884
+Sales          €20,000     €2,230        €22,230
+Admin          €12,000     €1,338        €13,338
+Warehouse      €8,000      €892          €8,892
               --------    -------       --------
-Total          €40,000     €4,420        €44,420
+Total          €40,000     €4,460        €44,460
 ```
 
 ### 7. Employee Register
@@ -81,7 +81,7 @@ Date       User     Action               Employee      Old Value   New Value
 05/01/26   Admin    New Employee         John Murphy   —           €800 pw
 10/01/26   Admin    Edit Pay Rate        Jane Doe      €700        €750 pw
 15/01/26   Admin    Process Payroll      All           —           Period 1
-20/01/26   Admin    P45 Issued           Tom Smith     Active      Left 20/01
+20/01/26   Admin    Leaver Processed     Tom Smith     Active      Left 20/01
 ```
 
 ---
@@ -93,7 +93,7 @@ Date       User     Action               Employee      Old Value   New Value
 | Daily/Weekly payroll run | Payroll Summary, Payslips |
 | Monthly compliance | P30, Bank Payment File |
 | Cost management | Labour Cost Report, Department Analysis |
-| Year-end | P35, P60, Annual Summary |
+| Year-end | P60, Annual Summary (P35 abolished 2019) |
 | Audit | Audit Trail, Backups, Changes Log |
 | Employee management | Employee Register, Hours Worked |
 
@@ -140,7 +140,7 @@ Choose Destination: External Drive / Cloud / Network
 Export/print the following to PDF as a permanent record:
 - Payroll summary (each pay period)
 - P30 (each month)
-- P35 (year-end)
+- Annual payroll summary (year-end)
 - Employee register (current)
 
 ### Step 3: Verify Backup
@@ -196,7 +196,7 @@ Date       Type     Location         Verified   By
 | P30/P35 records | 6 years |
 | P45/P60 copies | 6 years |
 | Time sheets/attendance | 6 years |
-| Backups | Until overwritten by next year's data |
+| Backups | 6 years (same as payroll records — Revenue may audit) |
 
 ---
 
@@ -204,7 +204,7 @@ Date       Type     Location         Verified   By
 
 | Scenario | Impact |
 |----------|--------|
-| Lost payroll data before P35 | Cannot file annual return |
+| Lost payroll data before year-end | Cannot reconcile annual payroll; Revenue may audit |
 | Lost backup | Revenue penalties for non-compliance |
 | Employee dispute | Cannot prove payments made |
 | Revenue audit | Cannot provide records → penalties |
@@ -232,8 +232,8 @@ Individual employee breakdown. Must include:
 **3. P30 Monthly Return**
 Generated from each month's payroll data. Shows totals for Revenue.
 
-**4. P35 Annual Return**
-Generated after year-end close. Must reconcile to total P30 payments.
+**4. Annual Payroll Summary**
+Generated after year-end close. Must reconcile total annual payroll to total P30 payments made to Revenue. (The P35 annual return was abolished in 2019 under PAYE Modernisation.)
 
 **5. Labour Cost Report**
 Shows total cost per employee (gross + employer PRSI + pension contributions).
@@ -246,7 +246,7 @@ Essential for: budgeting, department cost analysis, pricing decisions.
 | Daily | Every payroll run | Cloud | Off-site |
 | Weekly | Friday | External HDD | Office safe |
 | Monthly | Month-end | USB | Bank safe deposit |
-| Year-end | After P35 filed | DVD + Cloud | Off-site |
+| Year-end | After year-end close | DVD + Cloud | Off-site |
 
 ### Data Retention (Irish Revenue)
 
