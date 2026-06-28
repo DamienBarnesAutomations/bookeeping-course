@@ -201,6 +201,29 @@ function renderSidebar() {
         navContainer.appendChild(groupEl);
     }
 
+    // My Books sidebar group
+    const myBooksGroup = document.createElement('div');
+    myBooksGroup.className = 'sidebar-group';
+    myBooksGroup.dataset.categoryKey = 'my-books';
+    if (collapsedGroups.has('my-books')) myBooksGroup.classList.add('collapsed');
+    const myBooksTitle = document.createElement('div');
+    myBooksTitle.className = 'sidebar-group-title';
+    myBooksTitle.innerHTML = `<span>My Books</span><i data-lucide="chevron-down" class="sidebar-group-chevron"></i>`;
+    myBooksTitle.addEventListener('click', () => {
+        const nowCollapsed = myBooksGroup.classList.toggle('collapsed');
+        if (nowCollapsed) collapsedGroups.add('my-books'); else collapsedGroups.delete('my-books');
+        localStorage.setItem('collapsedSidebarGroups', JSON.stringify([...collapsedGroups]));
+        lucide.createIcons();
+    });
+    myBooksGroup.appendChild(myBooksTitle);
+    const myBooksList = document.createElement('ul');
+    myBooksList.className = 'sidebar-group-list';
+    const myBooksLi = document.createElement('li');
+    myBooksLi.innerHTML = `<a href="#books" class="sidebar-link" data-path="books"><span class="sidebar-link-text">Open My Books</span><i data-lucide="book-open" class="sidebar-status-icon"></i></a>`;
+    myBooksList.appendChild(myBooksLi);
+    myBooksGroup.appendChild(myBooksList);
+    navContainer.appendChild(myBooksGroup);
+
     lucide.createIcons();
 }
 
@@ -338,6 +361,19 @@ function handleRoute() {
         
         // Scroll to top
         document.querySelector('.app-main').scrollTop = 0;
+    } else if (hash.startsWith('books')) {
+        // My Books
+        state.currentPath = hash;
+        document.getElementById('dashboardView').style.display = 'none';
+        document.getElementById('readerView').style.display = 'block';
+        document.getElementById('markReadBtn').style.display = 'none';
+        document.getElementById('interactiveModeContainer').style.display = 'none';
+        document.getElementById('resetInteractiveBtn').style.display = 'none';
+        document.getElementById('readerToc').style.display = 'none';
+        document.querySelectorAll('.sidebar-link').forEach(l => {
+            l.classList.toggle('active', l.dataset.path === 'books');
+        });
+        renderBooks(hash);
     } else {
         // Show Reader
         state.currentPath = hash;
@@ -2992,4 +3028,490 @@ async function renderTestBuilder() {
     }
 
     renderConfig();
+}
+
+// =============================================
+// MY BOOKS SYSTEM
+// =============================================
+
+const BOOK_TYPES = [
+    { id: 'sales-daybook',       title: 'Sales Day Book',             icon: 'file-plus' },
+    { id: 'sales-returns',       title: 'Sales Returns Day Book',     icon: 'file-minus' },
+    { id: 'purchases-daybook',   title: 'Purchases Day Book',         icon: 'shopping-bag' },
+    { id: 'purchases-returns',   title: 'Purchases Returns Day Book', icon: 'package-x' },
+    { id: 'cash-book',           title: 'Cash Book',                  icon: 'landmark' },
+    { id: 'petty-cash',          title: 'Petty Cash Book',            icon: 'coins' },
+    { id: 'general-journal',     title: 'General Journal',            icon: 'notebook' },
+    { id: 'ledger-accounts',     title: 'Ledger Accounts',            icon: 'layout-list' },
+    { id: 'trial-balance',       title: 'Trial Balance',              icon: 'scale' },
+    { id: 'bank-reconciliation', title: 'Bank Reconciliation',        icon: 'git-compare' },
+    { id: 'vat-return',          title: 'VAT Return',                 icon: 'percent' },
+];
+
+const BK_COLS = {
+    'sales-daybook':       ['Date', 'Inv No.', 'Customer', 'Folio', 'Gross (€)', 'VAT (€)', 'Net (€)'],
+    'sales-returns':       ['Date', 'CN No.',  'Customer', 'Folio', 'Gross (€)', 'VAT (€)', 'Net (€)'],
+    'purchases-daybook':   ['Date', 'Inv No.', 'Supplier', 'Folio', 'Gross (€)', 'VAT (€)', 'Net (€)'],
+    'purchases-returns':   ['Date', 'CN No.',  'Supplier', 'Folio', 'Gross (€)', 'VAT (€)', 'Net (€)'],
+    'petty-cash':          ['Date', 'Vouch.', 'Detail', 'Total (€)', 'VAT (€)', 'Net (€)', 'Postage', 'Stationery', 'Cleaning', 'Travel', 'Sundry'],
+    'general-journal':     ['Date', 'Detail / Narrative', 'Folio', 'Dr (€)', 'Cr (€)'],
+    'trial-balance':       ['Account', 'Folio', 'Debit (€)', 'Credit (€)'],
+    'cash-book-receipts':  ['Date', 'Detail', 'Folio', 'Discount (€)', 'Bank (€)'],
+    'cash-book-payments':  ['Date', 'Detail', 'Folio', 'Discount (€)', 'Bank (€)'],
+    'br-cb':               ['Date', 'Detail', 'Receipts (€)', 'Payments (€)', 'Balance (€)'],
+    'br-brs':              ['Description', 'Amount (€)'],
+    'vat':                 ['Category', 'Net (€)', 'Rate', 'VAT (€)'],
+    'ledger':              ['Date', 'Detail', 'Folio', 'Debit (€)', 'Credit (€)', 'Balance (€)'],
+};
+
+const BK_KEYS = {
+    'sales-daybook':       ['date', 'invNo', 'customer', 'folio', 'gross', 'vat', 'net'],
+    'sales-returns':       ['date', 'cnNo',  'customer', 'folio', 'gross', 'vat', 'net'],
+    'purchases-daybook':   ['date', 'invNo', 'supplier', 'folio', 'gross', 'vat', 'net'],
+    'purchases-returns':   ['date', 'cnNo',  'supplier', 'folio', 'gross', 'vat', 'net'],
+    'petty-cash':          ['date', 'vouchNo', 'detail', 'total', 'vat', 'net', 'postage', 'stationery', 'cleaning', 'travel', 'sundry'],
+    'general-journal':     ['date', 'detail', 'folio', 'dr', 'cr'],
+    'trial-balance':       ['account', 'folio', 'debit', 'credit'],
+    'cash-book-receipts':  ['date', 'detail', 'folio', 'discount', 'bank'],
+    'cash-book-payments':  ['date', 'detail', 'folio', 'discount', 'bank'],
+    'br-cb':               ['date', 'detail', 'receipts', 'payments', 'balance'],
+    'br-brs':              ['description', 'amount'],
+    'vat':                 ['category', 'net', 'rate', 'vat'],
+    'ledger':              ['date', 'detail', 'folio', 'debit', 'credit', 'balance'],
+};
+
+function bkEmptyRow(keys) { return Object.fromEntries(keys.map(k => [k, ''])); }
+
+function getInstances() { return JSON.parse(localStorage.getItem('bookkeeping_instances') || '{}'); }
+function saveInstances(data) { localStorage.setItem('bookkeeping_instances', JSON.stringify(data)); }
+
+function getDefaultBookData(type) {
+    const emptyRows = (kind, n = 1) => ({ rows: Array.from({ length: n }, () => bkEmptyRow(BK_KEYS[kind])) });
+    switch (type) {
+        case 'sales-daybook':       return emptyRows('sales-daybook');
+        case 'sales-returns':       return emptyRows('sales-returns');
+        case 'purchases-daybook':   return emptyRows('purchases-daybook');
+        case 'purchases-returns':   return emptyRows('purchases-returns');
+        case 'petty-cash':          return emptyRows('petty-cash');
+        case 'general-journal':     return emptyRows('general-journal');
+        case 'trial-balance':       return emptyRows('trial-balance');
+        case 'cash-book':           return { receipts: [bkEmptyRow(BK_KEYS['cash-book-receipts'])], payments: [bkEmptyRow(BK_KEYS['cash-book-payments'])] };
+        case 'bank-reconciliation': return { cbRows: [bkEmptyRow(BK_KEYS['br-cb'])], brsRows: [bkEmptyRow(BK_KEYS['br-brs'])] };
+        case 'vat-return':          return { salesRows: [bkEmptyRow(BK_KEYS['vat'])], purchasesRows: [bkEmptyRow(BK_KEYS['vat'])] };
+        case 'ledger-accounts':     return { accounts: {} };
+        default: return {};
+    }
+}
+
+function getBookData(id, type) {
+    const instances = getInstances();
+    const inst = instances[id];
+    if (!inst) return null;
+    if (!inst.books[type]) {
+        inst.books[type] = getDefaultBookData(type);
+        saveInstances(instances);
+    }
+    return inst.books[type];
+}
+
+function saveBookData(id, type, data) {
+    const instances = getInstances();
+    if (!instances[id]) return;
+    instances[id].books[type] = data;
+    saveInstances(instances);
+}
+
+let _bkSaveTimer = null;
+
+function mountEditableTable(container, colKind, rows, onSave) {
+    const cols = BK_COLS[colKind];
+    const keys = BK_KEYS[colKind];
+
+    function buildTbody() {
+        return rows.map((row, ri) =>
+            `<tr>${keys.map(k => {
+                const val = (row[k] || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+                return `<td><input class="bk-cell" type="text" data-ri="${ri}" data-key="${k}" value="${val}"></td>`;
+            }).join('')}<td><button class="bk-del" data-ri="${ri}" title="Delete row">×</button></td></tr>`
+        ).join('');
+    }
+
+    container.innerHTML = `
+        <div class="bk-table-wrap">
+            <table class="bk-table">
+                <thead><tr>${cols.map(c => `<th>${c}</th>`).join('')}<th></th></tr></thead>
+                <tbody>${buildTbody()}</tbody>
+            </table>
+            <button class="bk-add-btn"><i data-lucide="plus"></i> Add Row</button>
+        </div>
+    `;
+    lucide.createIcons();
+
+    const tbodyEl = container.querySelector('tbody');
+
+    function rerender() { tbodyEl.innerHTML = buildTbody(); }
+
+    tbodyEl.addEventListener('input', e => {
+        if (!e.target.classList.contains('bk-cell')) return;
+        const ri = parseInt(e.target.dataset.ri);
+        const key = e.target.dataset.key;
+        rows[ri][key] = e.target.value;
+        clearTimeout(_bkSaveTimer);
+        _bkSaveTimer = setTimeout(onSave, 400);
+    });
+
+    tbodyEl.addEventListener('click', e => {
+        const btn = e.target.closest('.bk-del');
+        if (!btn) return;
+        rows.splice(parseInt(btn.dataset.ri), 1);
+        if (rows.length === 0) rows.push(bkEmptyRow(keys));
+        rerender();
+        onSave();
+    });
+
+    container.querySelector('.bk-add-btn').addEventListener('click', () => {
+        rows.push(bkEmptyRow(keys));
+        rerender();
+        onSave();
+    });
+}
+
+function bkCommonSetup() {
+    document.getElementById('readerToc').style.display = 'none';
+    document.getElementById('interactiveModeContainer').style.display = 'none';
+    document.getElementById('resetInteractiveBtn').style.display = 'none';
+    document.getElementById('markReadBtn').style.display = 'none';
+}
+
+function renderBooks(hash) {
+    const parts = hash.split('/');
+    const id = parts[1];
+    const type = parts[2];
+    const acctId = parts[3];
+    if (!id) { renderBooksHome(); return; }
+    if (type === 'ledger-accounts' && acctId) { renderLedgerAccount(id, acctId); return; }
+    if (type === 'ledger-accounts') { renderLedgerList(id); return; }
+    if (type) { renderBookView(id, type); return; }
+    renderInstanceHome(id);
+}
+
+function renderBooksHome() {
+    bkCommonSetup();
+    updateBreadcrumbs('My Books', 'Instances');
+    const renderArea = document.getElementById('renderedMarkdown');
+    const instances = getInstances();
+
+    const cards = Object.values(instances).map(inst => `
+        <div class="books-inst-card" data-id="${inst.id}">
+            <div class="books-inst-name">${inst.name}</div>
+            <div class="books-inst-date">Created ${inst.createdAt}</div>
+            <button class="books-delete-btn" data-id="${inst.id}" title="Delete">×</button>
+        </div>
+    `).join('');
+
+    renderArea.innerHTML = `
+        <div class="books-home">
+            <div class="books-home-header">
+                <div>
+                    <h1 class="books-home-title">My Books</h1>
+                    <p class="books-home-sub">Create a named instance for each business or practice set. All data saves automatically to your browser.</p>
+                </div>
+                <button class="btn btn-primary" id="newInstanceBtn"><i data-lucide="plus"></i> New Instance</button>
+            </div>
+            <div class="books-grid">
+                ${Object.keys(instances).length === 0
+                    ? `<div class="books-empty">No instances yet — click "New Instance" to get started.</div>`
+                    : cards}
+            </div>
+        </div>
+    `;
+    lucide.createIcons();
+
+    document.getElementById('newInstanceBtn').addEventListener('click', () => {
+        const name = prompt('Name this instance (e.g. "ABC Ltd — January 2026"):');
+        if (!name || !name.trim()) return;
+        const id = 'inst-' + Date.now();
+        const insts = getInstances();
+        insts[id] = { id, name: name.trim(), createdAt: new Date().toISOString().slice(0, 10), books: {} };
+        saveInstances(insts);
+        window.location.hash = `#books/${id}`;
+    });
+
+    renderArea.querySelectorAll('.books-inst-card').forEach(card => {
+        card.addEventListener('click', e => {
+            if (e.target.classList.contains('books-delete-btn')) return;
+            window.location.hash = `#books/${card.dataset.id}`;
+        });
+    });
+
+    renderArea.querySelectorAll('.books-delete-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.stopPropagation();
+            const insts = getInstances();
+            const inst = insts[btn.dataset.id];
+            if (!inst || !confirm(`Delete "${inst.name}"? This cannot be undone.`)) return;
+            delete insts[btn.dataset.id];
+            saveInstances(insts);
+            renderBooksHome();
+        });
+    });
+
+    document.querySelector('.app-main').scrollTop = 0;
+}
+
+function renderInstanceHome(id) {
+    bkCommonSetup();
+    const insts = getInstances();
+    const inst = insts[id];
+    if (!inst) { window.location.hash = '#books'; return; }
+    updateBreadcrumbs('My Books', inst.name);
+
+    const renderArea = document.getElementById('renderedMarkdown');
+    renderArea.innerHTML = `
+        <div class="books-instance-view">
+            <div class="books-instance-header">
+                <div>
+                    <a href="#books" class="books-back-link"><i data-lucide="arrow-left"></i> My Books</a>
+                    <h1 class="books-home-title">${inst.name}</h1>
+                    <p class="books-home-sub">Created ${inst.createdAt} — select a book to open it.</p>
+                </div>
+                <div class="books-instance-actions">
+                    <button class="btn btn-outline" id="renameInstBtn"><i data-lucide="pencil"></i> Rename</button>
+                    <button class="btn btn-outline books-danger-btn" id="deleteInstBtn"><i data-lucide="trash-2"></i> Delete</button>
+                </div>
+            </div>
+            <div class="books-type-grid">
+                ${BOOK_TYPES.map(bt => `
+                    <div class="books-type-card" data-book="${bt.id}">
+                        <div class="books-type-icon"><i data-lucide="${bt.icon}"></i></div>
+                        <div class="books-type-title">${bt.title}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    lucide.createIcons();
+
+    renderArea.querySelectorAll('.books-type-card').forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.hash = `#books/${id}/${card.dataset.book}`;
+        });
+    });
+
+    document.getElementById('renameInstBtn').addEventListener('click', () => {
+        const newName = prompt('Rename instance:', inst.name);
+        if (!newName || !newName.trim()) return;
+        const insts = getInstances();
+        insts[id].name = newName.trim();
+        saveInstances(insts);
+        renderInstanceHome(id);
+    });
+
+    document.getElementById('deleteInstBtn').addEventListener('click', () => {
+        if (!confirm(`Delete "${inst.name}"? This cannot be undone.`)) return;
+        const insts = getInstances();
+        delete insts[id];
+        saveInstances(insts);
+        window.location.hash = '#books';
+    });
+
+    document.querySelector('.app-main').scrollTop = 0;
+}
+
+function renderBookView(id, type) {
+    bkCommonSetup();
+    const insts = getInstances();
+    const inst = insts[id];
+    if (!inst) { window.location.hash = '#books'; return; }
+
+    const bookMeta = BOOK_TYPES.find(b => b.id === type);
+    if (!bookMeta) { window.location.hash = `#books/${id}`; return; }
+
+    updateBreadcrumbs(inst.name, bookMeta.title);
+
+    const data = getBookData(id, type);
+    if (!data) { window.location.hash = `#books/${id}`; return; }
+
+    const renderArea = document.getElementById('renderedMarkdown');
+    renderArea.innerHTML = `
+        <div class="books-book-view">
+            <div class="books-book-header">
+                <div class="books-breadcrumb">
+                    <a href="#books" class="books-bc-link">My Books</a>
+                    <span class="books-bc-sep">›</span>
+                    <a href="#books/${id}" class="books-bc-link">${inst.name}</a>
+                    <span class="books-bc-sep">›</span>
+                    <span>${bookMeta.title}</span>
+                </div>
+                <h1 class="books-home-title">${bookMeta.title}</h1>
+            </div>
+            <div id="bkContent"></div>
+        </div>
+    `;
+
+    const content = document.getElementById('bkContent');
+    function save() { saveBookData(id, type, data); }
+
+    if (type === 'cash-book') {
+        content.innerHTML = `
+            <div class="bk-two-tables">
+                <div><div class="bk-section-title">Receipts (Dr)</div><div id="cbReceipts"></div></div>
+                <div><div class="bk-section-title">Payments (Cr)</div><div id="cbPayments"></div></div>
+            </div>
+        `;
+        mountEditableTable(document.getElementById('cbReceipts'), 'cash-book-receipts', data.receipts, save);
+        mountEditableTable(document.getElementById('cbPayments'), 'cash-book-payments', data.payments, save);
+    } else if (type === 'bank-reconciliation') {
+        content.innerHTML = `
+            <div class="bk-br-sections">
+                <div><div class="bk-section-title">Step 1 — Updated Cash Book</div><div id="brCbTable"></div></div>
+                <div><div class="bk-section-title">Step 2 — Bank Reconciliation Statement</div><div id="brBrsTable"></div></div>
+            </div>
+        `;
+        mountEditableTable(document.getElementById('brCbTable'),  'br-cb',  data.cbRows,  save);
+        mountEditableTable(document.getElementById('brBrsTable'), 'br-brs', data.brsRows, save);
+    } else if (type === 'vat-return') {
+        content.innerHTML = `
+            <div class="bk-br-sections">
+                <div><div class="bk-section-title">Sales — Output VAT</div><div id="vatSales"></div></div>
+                <div><div class="bk-section-title">Purchases — Input VAT</div><div id="vatPurchases"></div></div>
+            </div>
+        `;
+        mountEditableTable(document.getElementById('vatSales'),     'vat', data.salesRows,     save);
+        mountEditableTable(document.getElementById('vatPurchases'), 'vat', data.purchasesRows, save);
+    } else if (type === 'ledger-accounts') {
+        renderLedgerList(id);
+        return;
+    } else {
+        mountEditableTable(content, type, data.rows, save);
+    }
+
+    document.querySelector('.app-main').scrollTop = 0;
+}
+
+function renderLedgerList(id) {
+    bkCommonSetup();
+    const insts = getInstances();
+    const inst = insts[id];
+    if (!inst) { window.location.hash = '#books'; return; }
+    updateBreadcrumbs(inst.name, 'Ledger Accounts');
+
+    const data = getBookData(id, 'ledger-accounts');
+    const accounts = data.accounts;
+    const renderArea = document.getElementById('renderedMarkdown');
+
+    const accountRows = Object.values(accounts).map(acct => `
+        <div class="bk-account-row" data-acctid="${acct.id}">
+            <span class="bk-account-name">${acct.name}</span>
+            ${acct.code ? `<span class="bk-account-code">${acct.code}</span>` : ''}
+            <i data-lucide="chevron-right" style="color:var(--text-muted);width:16px;height:16px;flex-shrink:0"></i>
+        </div>
+    `).join('');
+
+    renderArea.innerHTML = `
+        <div class="books-book-view">
+            <div class="books-book-header">
+                <div class="books-breadcrumb">
+                    <a href="#books" class="books-bc-link">My Books</a>
+                    <span class="books-bc-sep">›</span>
+                    <a href="#books/${id}" class="books-bc-link">${inst.name}</a>
+                    <span class="books-bc-sep">›</span>
+                    <span>Ledger Accounts</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                    <h1 class="books-home-title">Ledger Accounts</h1>
+                    <button class="btn btn-primary" id="addAcctBtn"><i data-lucide="plus"></i> Add Account</button>
+                </div>
+            </div>
+            <div class="bk-accounts-grid">
+                ${Object.keys(accounts).length === 0
+                    ? `<div class="books-empty">No ledger accounts yet. Click "Add Account" to create one.</div>`
+                    : accountRows}
+            </div>
+        </div>
+    `;
+    lucide.createIcons();
+
+    renderArea.querySelectorAll('.bk-account-row').forEach(row => {
+        row.addEventListener('click', () => {
+            window.location.hash = `#books/${id}/ledger-accounts/${row.dataset.acctid}`;
+        });
+    });
+
+    document.getElementById('addAcctBtn').addEventListener('click', () => {
+        const name = prompt('Account name (e.g. "Bank"):');
+        if (!name || !name.trim()) return;
+        const code = prompt('Account code (optional, e.g. "1000"):') || '';
+        const acctId = 'acct-' + Date.now();
+        const insts = getInstances();
+        if (!insts[id].books['ledger-accounts']) insts[id].books['ledger-accounts'] = { accounts: {} };
+        insts[id].books['ledger-accounts'].accounts[acctId] = {
+            id: acctId,
+            name: name.trim(),
+            code: code.trim(),
+            rows: [bkEmptyRow(BK_KEYS['ledger'])]
+        };
+        saveInstances(insts);
+        window.location.hash = `#books/${id}/ledger-accounts/${acctId}`;
+    });
+
+    document.querySelector('.app-main').scrollTop = 0;
+}
+
+function renderLedgerAccount(id, acctId) {
+    bkCommonSetup();
+    const insts = getInstances();
+    const inst = insts[id];
+    if (!inst) { window.location.hash = '#books'; return; }
+
+    const ledgerData = inst.books['ledger-accounts'];
+    const acct = ledgerData?.accounts?.[acctId];
+    if (!acct) { window.location.hash = `#books/${id}/ledger-accounts`; return; }
+
+    updateBreadcrumbs(inst.name, acct.name);
+
+    const renderArea = document.getElementById('renderedMarkdown');
+    renderArea.innerHTML = `
+        <div class="books-book-view">
+            <div class="books-book-header">
+                <div class="books-breadcrumb">
+                    <a href="#books" class="books-bc-link">My Books</a>
+                    <span class="books-bc-sep">›</span>
+                    <a href="#books/${id}" class="books-bc-link">${inst.name}</a>
+                    <span class="books-bc-sep">›</span>
+                    <a href="#books/${id}/ledger-accounts" class="books-bc-link">Ledger Accounts</a>
+                    <span class="books-bc-sep">›</span>
+                    <span>${acct.name}</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                    <div>
+                        <h1 class="books-home-title">${acct.name}${acct.code ? ` <span style="font-size:0.9rem;color:var(--text-muted);font-weight:500">(${acct.code})</span>` : ''}</h1>
+                    </div>
+                    <button class="btn btn-outline books-danger-btn" id="deleteAcctBtn"><i data-lucide="trash-2"></i> Delete Account</button>
+                </div>
+            </div>
+            <div id="ledgerTableWrap"></div>
+        </div>
+    `;
+    lucide.createIcons();
+
+    function save() {
+        const instances = getInstances();
+        if (instances[id]?.books?.['ledger-accounts']?.accounts?.[acctId]) {
+            instances[id].books['ledger-accounts'].accounts[acctId].rows = acct.rows;
+            saveInstances(instances);
+        }
+    }
+
+    mountEditableTable(document.getElementById('ledgerTableWrap'), 'ledger', acct.rows, save);
+
+    document.getElementById('deleteAcctBtn').addEventListener('click', () => {
+        if (!confirm(`Delete account "${acct.name}"? All rows will be lost.`)) return;
+        const instances = getInstances();
+        delete instances[id].books['ledger-accounts'].accounts[acctId];
+        saveInstances(instances);
+        window.location.hash = `#books/${id}/ledger-accounts`;
+    });
+
+    document.querySelector('.app-main').scrollTop = 0;
 }
