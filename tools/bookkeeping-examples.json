@@ -1,0 +1,639 @@
+{
+  "examples": [
+    {
+      "id": "bk-ex-01",
+      "group": "lo1-6",
+      "number": 1,
+      "title": "Murphy's Hardware",
+      "subtitle": "Books of First Entry — January 2026",
+      "los": ["LO3 — Books of First Entry"],
+      "scenario": "<p><strong>Murphy's Hardware</strong> is a sole trader business selling hardware supplies. All goods are subject to VAT at 23%. The following transactions occurred in January 2026. Enter each transaction into the correct book of first entry, calculating Gross = Net + VAT.</p>",
+      "transactions": [
+        {"no": 1, "date": "02 Jan", "detail": "Credit sale to Kelly Ltd — net €2,000 + VAT @ 23% — Invoice 101"},
+        {"no": 2, "date": "05 Jan", "detail": "Credit sale to Walsh Ltd — net €1,500 + VAT @ 23% — Invoice 102"},
+        {"no": 3, "date": "15 Jan", "detail": "Credit purchase from O'Brien Supplies — net €800 + VAT @ 23% — Invoice S001"},
+        {"no": 4, "date": "18 Jan", "detail": "Credit purchase from Cork Traders — net €1,200 + VAT @ 23% — Invoice S002"},
+        {"no": 5, "date": "20 Jan", "detail": "Issued credit note CN01 to Kelly Ltd — net €200 + VAT @ 23% — goods returned by customer"},
+        {"no": 6, "date": "25 Jan", "detail": "Received credit note CN-S01 from O'Brien Supplies — net €100 + VAT @ 23% — goods returned to supplier"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Sales Day Book",
+          "bookType": "sales-daybook",
+          "instruction": "Enter transactions 1 and 2 in the Sales Day Book. Gross = Net + VAT.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "02 Jan", "invNo": "101", "customer": "Kelly Ltd", "folio": "", "gross": "2460", "vat": "460", "net": "2000"},
+              {"date": "05 Jan", "invNo": "102", "customer": "Walsh Ltd", "folio": "", "gross": "1845", "vat": "345", "net": "1500"}
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Task 2 — Sales Returns Day Book",
+          "bookType": "sales-returns",
+          "instruction": "Enter transaction 5 (credit note issued to Kelly Ltd) in the Sales Returns Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "20 Jan", "cnNo": "CN01", "customer": "Kelly Ltd", "folio": "", "gross": "246", "vat": "46", "net": "200"}
+            ]
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Task 3 — Purchases Day Book",
+          "bookType": "purchases-daybook",
+          "instruction": "Enter transactions 3 and 4 in the Purchases Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "15 Jan", "invNo": "S001", "supplier": "O'Brien Supplies", "folio": "", "gross": "984", "vat": "184", "net": "800"},
+              {"date": "18 Jan", "invNo": "S002", "supplier": "Cork Traders", "folio": "", "gross": "1476", "vat": "276", "net": "1200"}
+            ]
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Task 4 — Purchases Returns Day Book",
+          "bookType": "purchases-returns",
+          "instruction": "Enter transaction 6 (credit note received from O'Brien Supplies) in the Purchases Returns Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "25 Jan", "cnNo": "CN-S01", "supplier": "O'Brien Supplies", "folio": "", "gross": "123", "vat": "23", "net": "100"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-02",
+      "group": "lo1-6",
+      "number": 2,
+      "title": "Shannon Bakery",
+      "subtitle": "Cash Book — February 2026",
+      "los": ["LO3 — Books of First Entry", "LO4 — Posting to Ledgers"],
+      "scenario": "<p><strong>Shannon Bakery</strong> operates a bank cash book. All receipts are lodged to the bank; all payments are made by cheque or direct debit. Opening bank balance 1 February 2026: <strong>€4,200 Dr</strong>.</p><p>Enter the following February transactions into the Cash Book Receipts and Payments columns. Include the opening balance in the Receipts side.</p>",
+      "transactions": [
+        {"no": 1, "date": "01 Feb", "detail": "Opening balance (Balance b/d) — €4,200 Dr — enters Receipts side"},
+        {"no": 2, "date": "05 Feb", "detail": "Received cheque from Gleeson Ltd — €1,845"},
+        {"no": 3, "date": "10 Feb", "detail": "Cash sales lodged — €492 (€400 net + €92 VAT @ 23%)"},
+        {"no": 4, "date": "14 Feb", "detail": "Paid Rent — Cheque 301 — €800"},
+        {"no": 5, "date": "18 Feb", "detail": "Paid Quinn Supplies — Cheque 302 — €984"},
+        {"no": 6, "date": "22 Feb", "detail": "ESB direct debit — €350"},
+        {"no": 7, "date": "28 Feb", "detail": "Received cheque from Murphy Retail — €2,214"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Cash Book",
+          "bookType": "cash-book",
+          "instruction": "Complete the Cash Book — Receipts (transactions 1, 2, 3, 7) on the Dr side and Payments (transactions 4, 5, 6) on the Cr side. Enter the Bank (€) amount for each. Closing balance of Receipts minus Payments = €6,617.",
+          "evalKeys": ["bank"],
+          "answer": {
+            "receipts": [
+              {"date": "01 Feb", "detail": "Balance b/d", "folio": "", "discount": "", "bank": "4200"},
+              {"date": "05 Feb", "detail": "Gleeson Ltd", "folio": "", "discount": "", "bank": "1845"},
+              {"date": "10 Feb", "detail": "Cash sales", "folio": "", "discount": "", "bank": "492"},
+              {"date": "28 Feb", "detail": "Murphy Retail", "folio": "", "discount": "", "bank": "2214"}
+            ],
+            "payments": [
+              {"date": "14 Feb", "detail": "Rent", "folio": "Chq 301", "discount": "", "bank": "800"},
+              {"date": "18 Feb", "detail": "Quinn Supplies", "folio": "Chq 302", "discount": "", "bank": "984"},
+              {"date": "22 Feb", "detail": "ESB (direct debit)", "folio": "", "discount": "", "bank": "350"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-03",
+      "group": "lo1-6",
+      "number": 3,
+      "title": "Galway Gift Shop",
+      "subtitle": "Trial Balance — 31 January 2026",
+      "los": ["LO4 — Posting to Ledgers", "LO5 — Trial Balance"],
+      "scenario": "<p><strong>Galway Gift Shop</strong> is a sole trader. The following account balances have been extracted from the ledgers at 31 January 2026. Extract a Trial Balance and verify that it balances (total debits = total credits).</p><p><em>Tip: Assets and Expenses → Debit side. Liabilities, Capital, and Income → Credit side.</em></p>",
+      "transactions": [
+        {"no": 1, "date": "", "detail": "Bank: €8,500"},
+        {"no": 2, "date": "", "detail": "Capital: €20,000"},
+        {"no": 3, "date": "", "detail": "Sales: €15,000"},
+        {"no": 4, "date": "", "detail": "Purchases: €9,000"},
+        {"no": 5, "date": "", "detail": "Wages: €3,500"},
+        {"no": 6, "date": "", "detail": "Rent: €1,200"},
+        {"no": 7, "date": "", "detail": "VAT Control: €1,800 Credit balance"},
+        {"no": 8, "date": "", "detail": "Debtors: €5,200"},
+        {"no": 9, "date": "", "detail": "Creditors: €5,600"},
+        {"no": 10, "date": "", "detail": "Equipment: €13,500"},
+        {"no": 11, "date": "", "detail": "Motor Expenses: €500"},
+        {"no": 12, "date": "", "detail": "Drawings: €1,000"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Trial Balance",
+          "bookType": "trial-balance",
+          "instruction": "Enter all 12 accounts into the Trial Balance below. Place each balance on the correct side (Debit or Credit). The totals should both equal €42,400.",
+          "evalKeys": ["debit", "credit"],
+          "answer": {
+            "rows": [
+              {"account": "Bank", "folio": "", "debit": "8500", "credit": ""},
+              {"account": "Capital", "folio": "", "debit": "", "credit": "20000"},
+              {"account": "Sales", "folio": "", "debit": "", "credit": "15000"},
+              {"account": "Purchases", "folio": "", "debit": "9000", "credit": ""},
+              {"account": "Wages", "folio": "", "debit": "3500", "credit": ""},
+              {"account": "Rent", "folio": "", "debit": "1200", "credit": ""},
+              {"account": "VAT Control", "folio": "", "debit": "", "credit": "1800"},
+              {"account": "Debtors", "folio": "", "debit": "5200", "credit": ""},
+              {"account": "Creditors", "folio": "", "debit": "", "credit": "5600"},
+              {"account": "Equipment", "folio": "", "debit": "13500", "credit": ""},
+              {"account": "Motor Expenses", "folio": "", "debit": "500", "credit": ""},
+              {"account": "Drawings", "folio": "", "debit": "1000", "credit": ""},
+              {"account": "TOTALS", "folio": "", "debit": "42400", "credit": "42400"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-04",
+      "group": "lo1-6",
+      "number": 4,
+      "title": "Limerick Logistics",
+      "subtitle": "Trial Balance with Difference — Suspense Account",
+      "los": ["LO5 — Trial Balance", "LO9 — Error Correction"],
+      "scenario": "<p><strong>Limerick Logistics</strong> has extracted the following account balances at 31 March 2026. When totalled, the Trial Balance does not balance. A Suspense Account must be opened to park the difference while the error is investigated.</p><p>Then the error is found: the Purchases Day Book was undercast (totalled incorrectly) by €100. Write the correcting journal entry to close the Suspense account.</p>",
+      "transactions": [
+        {"no": 1, "date": "", "detail": "Bank: €5,000 Dr"},
+        {"no": 2, "date": "", "detail": "Purchases: €12,000 Dr"},
+        {"no": 3, "date": "", "detail": "Wages: €4,500 Dr"},
+        {"no": 4, "date": "", "detail": "Rent: €1,500 Dr"},
+        {"no": 5, "date": "", "detail": "Equipment: €8,000 Dr"},
+        {"no": 6, "date": "", "detail": "Stationery: €200 Dr"},
+        {"no": 7, "date": "", "detail": "Capital: €15,000 Cr"},
+        {"no": 8, "date": "", "detail": "Sales: €16,000 Cr"},
+        {"no": 9, "date": "", "detail": "VAT Control: €300 Cr"},
+        {"no": 10, "date": "", "detail": "Note: Dr total = €31,200 — Cr total = €31,300 — difference = €100 Cr > Dr"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Trial Balance (with Suspense)",
+          "bookType": "trial-balance",
+          "instruction": "Enter all 9 accounts plus a Suspense Account to make the TB balance. Since Credit > Debit by €100, the Suspense goes on the DEBIT side (Dr Suspense €100). Both totals should equal €31,300.",
+          "evalKeys": ["debit", "credit"],
+          "answer": {
+            "rows": [
+              {"account": "Bank", "folio": "", "debit": "5000", "credit": ""},
+              {"account": "Purchases", "folio": "", "debit": "12000", "credit": ""},
+              {"account": "Wages", "folio": "", "debit": "4500", "credit": ""},
+              {"account": "Rent", "folio": "", "debit": "1500", "credit": ""},
+              {"account": "Equipment", "folio": "", "debit": "8000", "credit": ""},
+              {"account": "Stationery", "folio": "", "debit": "200", "credit": ""},
+              {"account": "Capital", "folio": "", "debit": "", "credit": "15000"},
+              {"account": "Sales", "folio": "", "debit": "", "credit": "16000"},
+              {"account": "VAT Control", "folio": "", "debit": "", "credit": "300"},
+              {"account": "Suspense", "folio": "", "debit": "100", "credit": ""},
+              {"account": "TOTALS", "folio": "", "debit": "31300", "credit": "31300"}
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Task 2 — Correcting Journal Entry",
+          "bookType": "general-journal",
+          "instruction": "The error has been found: the Purchases Day Book total was undercast by €100 (posted as €11,900 instead of €12,000). Write the correcting journal entry to increase Purchases by €100 and close the Suspense account. Dr Purchases €100, Cr Suspense €100.",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "31 Mar", "detail": "Dr Purchases (correction of PDB undercast)", "folio": "GJ1", "dr": "100", "cr": ""},
+              {"date": "", "detail": "   Cr Suspense", "folio": "GJ1", "dr": "", "cr": "100"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-05",
+      "group": "lo1-6",
+      "number": 5,
+      "title": "Waterford Wholesale",
+      "subtitle": "Bank Reconciliation — January 2026",
+      "los": ["LO5 — Trial Balance", "LO6 — Bank Reconciliation"],
+      "scenario": "<p><strong>Waterford Wholesale</strong> has a Cash Book balance of <strong>€6,800 Dr</strong> at 31 January 2026. On comparing with the bank statement the following differences were identified:</p><ul><li>Bank charges €75 — on bank statement, not in Cash Book</li><li>Direct debit — Insurance €250 — on bank statement, not in Cash Book</li><li>Unpresented cheque Chq 315 — €1,200 (in CB, not on statement)</li><li>Unpresented cheque Chq 316 — €600 (in CB, not on statement)</li><li>Outstanding lodgement — €600 (in CB, not on statement)</li><li>Bank statement balance: €5,275 Cr</li></ul>",
+      "transactions": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Updated Cash Book",
+          "bookType": "bank-reconciliation",
+          "instruction": "Step 1: Update the Cash Book by deducting items on the bank statement that are not yet in the CB (bank charges and direct debit). The updated CB balance should be €6,475.\n\nStep 2: Prepare the Bank Reconciliation Statement starting from the bank statement balance of €5,275. Add unpresented cheques and deduct outstanding lodgements to reconcile to the updated CB balance of €6,475.",
+          "evalKeys": ["payments", "bank"],
+          "answer": {
+            "cbRows": [
+              {"date": "31 Jan", "detail": "Balance b/d", "receipts": "6800", "payments": "", "balance": "6800"},
+              {"date": "31 Jan", "detail": "Bank charges", "receipts": "", "payments": "75", "balance": "6725"},
+              {"date": "31 Jan", "detail": "Direct debit — Insurance", "receipts": "", "payments": "250", "balance": "6475"},
+              {"date": "", "detail": "Updated CB balance c/d", "receipts": "", "payments": "", "balance": "6475"}
+            ],
+            "brsRows": [
+              {"description": "Balance per bank statement", "amount": "5275"},
+              {"description": "Add: Unpresented cheque — Chq 315", "amount": "1200"},
+              {"description": "Add: Unpresented cheque — Chq 316", "amount": "600"},
+              {"description": "Less: Outstanding lodgement", "amount": "600"},
+              {"description": "Adjusted balance (= Updated Cash Book)", "amount": "6475"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-06",
+      "group": "lo1-10",
+      "number": 6,
+      "title": "Dublin Deli",
+      "subtitle": "VAT Return — Quarter 1 2026",
+      "los": ["LO7 — VAT Return"],
+      "scenario": "<p><strong>Dublin Deli</strong> is VAT-registered. The following sales and purchases occurred in Quarter 1 2026 (January–March). Calculate the VAT on each line and complete the VAT Return boxes T1–T5.</p><p><em>T1 = Total Sales (excl. VAT) · T2 = Total Purchases (excl. VAT) · T3 = Output VAT · T4 = Input VAT · T5 = VAT Payable (T3 – T4)</em></p>",
+      "transactions": [
+        {"no": 1, "date": "", "detail": "Sales — Standard rate 23%: Net €30,000"},
+        {"no": 2, "date": "", "detail": "Sales — Reduced rate 13.5%: Net €5,000"},
+        {"no": 3, "date": "", "detail": "Sales — Zero-rated 0%: Net €2,000"},
+        {"no": 4, "date": "", "detail": "Purchases — Standard rate 23%: Net €15,000"},
+        {"no": 5, "date": "", "detail": "Purchases — Reduced rate 13.5%: Net €3,000"},
+        {"no": 6, "date": "", "detail": "Purchases — Zero-rated 0%: Net €1,000"},
+        {"no": 7, "date": "", "detail": "T1 = €37,000 · T2 = €19,000 · T3 = €7,575 · T4 = €3,855 · T5 = €3,720 payable"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — VAT Return",
+          "bookType": "vat-return",
+          "instruction": "Enter the VAT for each sales and purchases category. Calculate VAT = Net × Rate. T3 (Output VAT) = sum of all sales VAT. T4 (Input VAT) = sum of all purchases VAT. T5 = T3 − T4.",
+          "evalKeys": ["net", "vat"],
+          "answer": {
+            "salesRows": [
+              {"category": "Standard rate sales (23%)", "net": "30000", "rate": "23%", "vat": "6900"},
+              {"category": "Reduced rate sales (13.5%)", "net": "5000", "rate": "13.5%", "vat": "675"},
+              {"category": "Zero-rated sales (0%)", "net": "2000", "rate": "0%", "vat": "0"},
+              {"category": "T1 — Total Sales / T3 — Output VAT", "net": "37000", "rate": "", "vat": "7575"}
+            ],
+            "purchasesRows": [
+              {"category": "Standard rate purchases (23%)", "net": "15000", "rate": "23%", "vat": "3450"},
+              {"category": "Reduced rate purchases (13.5%)", "net": "3000", "rate": "13.5%", "vat": "405"},
+              {"category": "Zero-rated purchases (0%)", "net": "1000", "rate": "0%", "vat": "0"},
+              {"category": "T2 — Total Purchases / T4 — Input VAT", "net": "19000", "rate": "", "vat": "3855"},
+              {"category": "T5 — VAT Payable (T3 − T4)", "net": "", "rate": "", "vat": "3720"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-07",
+      "group": "lo1-10",
+      "number": 7,
+      "title": "Cork Confectionery",
+      "subtitle": "Error Correction — Journal Entries",
+      "los": ["LO9 — Error Correction & Analysis"],
+      "scenario": "<p><strong>Cork Confectionery</strong> has identified the following errors in its bookkeeping records. For each error, write the correcting journal entry (Dr and Cr). Leave the Date column blank if not specified.</p>",
+      "transactions": [
+        {"no": 1, "date": "", "detail": "Error of Commission: Stationery €120 was posted to Motor Expenses account. Both are expense accounts — correct by moving it to Stationery."},
+        {"no": 2, "date": "", "detail": "Error of Omission: Sales invoice to Ryan Ltd — net €1,000 + VAT €230 (23%), gross €1,230 — was completely omitted from the books."},
+        {"no": 3, "date": "", "detail": "Error of Principle: Purchase of a computer €2,500 was posted to the Purchases account. It should be Equipment (a fixed asset)."},
+        {"no": 4, "date": "", "detail": "Complete Reversal: Wages €1,800 were posted as Dr Bank €1,800, Cr Wages €1,800 — the debit and credit are reversed."}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Correct Error 1 (Commission)",
+          "bookType": "general-journal",
+          "instruction": "Stationery €120 was posted to Motor Expenses. Both are expenses so this is an Error of Commission. Move the amount to the correct account.",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "", "detail": "Dr Stationery (correction of commission error)", "folio": "", "dr": "120", "cr": ""},
+              {"date": "", "detail": "   Cr Motor Expenses", "folio": "", "dr": "", "cr": "120"}
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Task 2 — Correct Error 2 (Omission)",
+          "bookType": "general-journal",
+          "instruction": "The sale to Ryan Ltd (€1,230 gross = €1,000 net + €230 VAT) was never recorded. Enter it now.",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "", "detail": "Dr Ryan Ltd (Debtor)", "folio": "", "dr": "1230", "cr": ""},
+              {"date": "", "detail": "   Cr Sales", "folio": "", "dr": "", "cr": "1000"},
+              {"date": "", "detail": "   Cr VAT Control (output VAT)", "folio": "", "dr": "", "cr": "230"}
+            ]
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Task 3 — Correct Error 3 (Principle)",
+          "bookType": "general-journal",
+          "instruction": "A computer €2,500 was charged to Purchases. Purchases is for trading stock (expense); a computer is a fixed asset (Equipment). This is an Error of Principle.",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "", "detail": "Dr Equipment (correction of principle error)", "folio": "", "dr": "2500", "cr": ""},
+              {"date": "", "detail": "   Cr Purchases", "folio": "", "dr": "", "cr": "2500"}
+            ]
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Task 4 — Correct Error 4 (Complete Reversal)",
+          "bookType": "general-journal",
+          "instruction": "Wages €1,800 were posted Dr Bank, Cr Wages — completely reversed. To fix a complete reversal, double the amount: Dr the correct account, Cr the correct account, both for 2× the original amount (€3,600).",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "", "detail": "Dr Wages (reversal correction — 2 × €1,800)", "folio": "", "dr": "3600", "cr": ""},
+              {"date": "", "detail": "   Cr Bank", "folio": "", "dr": "", "cr": "3600"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-08",
+      "group": "lo1-10",
+      "number": 8,
+      "title": "Athlone Architects",
+      "subtitle": "Suspense Account & Correction — March 2026",
+      "los": ["LO5 — Trial Balance", "LO9 — Error Correction & Analysis"],
+      "scenario": "<p><strong>Athlone Architects</strong> has extracted its Trial Balance at 31 March 2026 but the columns do not agree. The credit side exceeds the debit side by <strong>€100</strong>. A Suspense Account is opened on the debit side. Later, the error is found: the Sales account was overcast by €100 (total was €12,100, should be €12,000). Write the correcting entry.</p>",
+      "transactions": [
+        {"no": 1, "date": "", "detail": "Bank: €8,000 Dr"},
+        {"no": 2, "date": "", "detail": "Debtors: €3,500 Dr"},
+        {"no": 3, "date": "", "detail": "Equipment: €10,000 Dr"},
+        {"no": 4, "date": "", "detail": "Purchases: €6,200 Dr"},
+        {"no": 5, "date": "", "detail": "Wages: €2,800 Dr"},
+        {"no": 6, "date": "", "detail": "Rent: €1,500 Dr"},
+        {"no": 7, "date": "", "detail": "Capital: €18,000 Cr"},
+        {"no": 8, "date": "", "detail": "Sales: €12,100 Cr (overstated by €100 — error)"},
+        {"no": 9, "date": "", "detail": "VAT Control: €900 Cr"},
+        {"no": 10, "date": "", "detail": "Creditors: €1,200 Cr"},
+        {"no": 11, "date": "", "detail": "Dr total = €32,000 · Cr total = €32,200 · Difference = €200 Cr > Dr"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Trial Balance (with Suspense)",
+          "bookType": "trial-balance",
+          "instruction": "Enter all accounts in the Trial Balance. The Cr side exceeds Dr by €200. Open a Suspense Account on the Debit side for €200. Both totals should then equal €32,200.",
+          "evalKeys": ["debit", "credit"],
+          "answer": {
+            "rows": [
+              {"account": "Bank", "folio": "", "debit": "8000", "credit": ""},
+              {"account": "Debtors", "folio": "", "debit": "3500", "credit": ""},
+              {"account": "Equipment", "folio": "", "debit": "10000", "credit": ""},
+              {"account": "Purchases", "folio": "", "debit": "6200", "credit": ""},
+              {"account": "Wages", "folio": "", "debit": "2800", "credit": ""},
+              {"account": "Rent", "folio": "", "debit": "1500", "credit": ""},
+              {"account": "Capital", "folio": "", "debit": "", "credit": "18000"},
+              {"account": "Sales", "folio": "", "debit": "", "credit": "12100"},
+              {"account": "VAT Control", "folio": "", "debit": "", "credit": "900"},
+              {"account": "Creditors", "folio": "", "debit": "", "credit": "1200"},
+              {"account": "Suspense", "folio": "", "debit": "200", "credit": ""},
+              {"account": "TOTALS", "folio": "", "debit": "32200", "credit": "32200"}
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Task 2 — Correcting Entry",
+          "bookType": "general-journal",
+          "instruction": "Sales was overcast by €100 (posted as €12,100 instead of €12,000). To correct: Dr Sales €100 (reduce Sales), Cr Suspense €100 (close the suspense). The remaining €100 difference in the suspense is a separate issue — assume only this error applies to this entry.",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "31 Mar", "detail": "Dr Sales (correction of overcast — reduce by €100)", "folio": "GJ1", "dr": "100", "cr": ""},
+              {"date": "", "detail": "   Cr Suspense", "folio": "GJ1", "dr": "", "cr": "100"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-09",
+      "group": "lo1-10",
+      "number": 9,
+      "title": "Kilkenny Kitchens",
+      "subtitle": "Comprehensive — Daybooks, Cash Book & Bank Rec",
+      "los": ["LO3 — Books of First Entry", "LO4 — Posting to Ledgers", "LO6 — Bank Reconciliation"],
+      "scenario": "<p><strong>Kilkenny Kitchens</strong> is a kitchen fitting company. Opening bank balance 1 March 2026: <strong>€3,000 Dr</strong>. All VAT at 23%. Complete the Sales Day Book, Purchases Day Book, Cash Book, and Bank Reconciliation Statement for March 2026.</p><p><strong>On reconciliation:</strong> Bank charges €50 were on the statement but not in the Cash Book. Cheque 403 (€300 petty cash) is in the CB but not yet presented at the bank. Bank statement balance = €3,279 Cr.</p>",
+      "transactions": [
+        {"no": 1, "date": "02 Mar", "detail": "Credit sale to Brady Ltd — net €3,000 + 23% VAT = gross €3,690 — Invoice 301"},
+        {"no": 2, "date": "05 Mar", "detail": "Credit sale to Nolan Ltd — net €2,500 + 23% VAT = gross €3,075 — Invoice 302"},
+        {"no": 3, "date": "08 Mar", "detail": "Credit purchase from Walsh Suppliers — net €4,000 + 23% VAT = gross €4,920 — Invoice W201"},
+        {"no": 4, "date": "10 Mar", "detail": "Cash sales lodged to bank — gross €984 (net €800 + VAT €184 @ 23%)"},
+        {"no": 5, "date": "15 Mar", "detail": "Paid Walsh Suppliers by cheque Chq 401 — €4,920"},
+        {"no": 6, "date": "20 Mar", "detail": "Received payment from Brady Ltd — €3,690"},
+        {"no": 7, "date": "22 Mar", "detail": "Paid wages by cheque Chq 402 — €2,500"},
+        {"no": 8, "date": "25 Mar", "detail": "Issued cheque Chq 403 for petty cash — €300"},
+        {"no": 9, "date": "28 Mar", "detail": "Received payment from Nolan Ltd — €3,075"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Sales Day Book",
+          "bookType": "sales-daybook",
+          "instruction": "Enter transactions 1 and 2 (credit sales to Brady Ltd and Nolan Ltd) in the Sales Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "02 Mar", "invNo": "301", "customer": "Brady Ltd", "folio": "", "gross": "3690", "vat": "690", "net": "3000"},
+              {"date": "05 Mar", "invNo": "302", "customer": "Nolan Ltd", "folio": "", "gross": "3075", "vat": "575", "net": "2500"}
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Task 2 — Purchases Day Book",
+          "bookType": "purchases-daybook",
+          "instruction": "Enter transaction 3 (credit purchase from Walsh Suppliers) in the Purchases Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "08 Mar", "invNo": "W201", "supplier": "Walsh Suppliers", "folio": "", "gross": "4920", "vat": "920", "net": "4000"}
+            ]
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Task 3 — Cash Book",
+          "bookType": "cash-book",
+          "instruction": "Enter all receipts (opening balance, cash sales, Brady Ltd, Nolan Ltd) and payments (Walsh Suppliers, Wages, Petty Cash). Cash Book closing balance = €3,029.",
+          "evalKeys": ["bank"],
+          "answer": {
+            "receipts": [
+              {"date": "01 Mar", "detail": "Balance b/d", "folio": "", "discount": "", "bank": "3000"},
+              {"date": "10 Mar", "detail": "Cash sales", "folio": "", "discount": "", "bank": "984"},
+              {"date": "20 Mar", "detail": "Brady Ltd", "folio": "", "discount": "", "bank": "3690"},
+              {"date": "28 Mar", "detail": "Nolan Ltd", "folio": "", "discount": "", "bank": "3075"}
+            ],
+            "payments": [
+              {"date": "15 Mar", "detail": "Walsh Suppliers", "folio": "Chq 401", "discount": "", "bank": "4920"},
+              {"date": "22 Mar", "detail": "Wages", "folio": "Chq 402", "discount": "", "bank": "2500"},
+              {"date": "25 Mar", "detail": "Petty cash", "folio": "Chq 403", "discount": "", "bank": "300"}
+            ]
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Task 4 — Bank Reconciliation",
+          "bookType": "bank-reconciliation",
+          "instruction": "Step 1: Update the Cash Book — deduct bank charges €50 (on statement, not in CB) to get Updated CB = €2,979.\n\nStep 2: BRS — Start with bank statement balance €3,279. Deduct unpresented Chq 403 (€300). Result must equal Updated CB (€2,979).",
+          "evalKeys": ["payments", "amount"],
+          "answer": {
+            "cbRows": [
+              {"date": "31 Mar", "detail": "Balance b/d (from CB)", "receipts": "3029", "payments": "", "balance": "3029"},
+              {"date": "31 Mar", "detail": "Bank charges", "receipts": "", "payments": "50", "balance": "2979"},
+              {"date": "", "detail": "Updated CB balance c/d", "receipts": "", "payments": "", "balance": "2979"}
+            ],
+            "brsRows": [
+              {"description": "Balance per bank statement", "amount": "3279"},
+              {"description": "Less: Unpresented cheque — Chq 403", "amount": "300"},
+              {"description": "Adjusted balance (= Updated Cash Book)", "amount": "2979"}
+            ]
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "bk-ex-10",
+      "group": "lo1-10",
+      "number": 10,
+      "title": "Dublin Premium Events",
+      "subtitle": "Full Comprehensive — All Learning Outcomes",
+      "los": ["LO3", "LO4", "LO5", "LO6", "LO7", "LO8", "LO9", "LO10 — All Covered"],
+      "scenario": "<p><strong>Dublin Premium Events Ltd</strong> provides event management services. Opening bank balance 1 January 2026: <strong>€12,000 Dr</strong>. VAT at 23% throughout. Complete all tasks for Q1 2026 (January–March).</p><p><strong>On reconciliation:</strong> Bank charges €120 (not in CB). Chq 603 — Office supplies €500 — in CB but not on bank statement. Bank statement balance = €12,685 Cr.</p><p><strong>Error:</strong> Invoice 501 to Hennessy Events (gross €6,150) was credited to <em>Purchases</em> instead of <em>Sales</em>. The debtor entry was correct.</p>",
+      "transactions": [
+        {"no": 1, "date": "05 Jan", "detail": "Credit sale — Hennessy Events — net €5,000 + VAT €1,150 = gross €6,150 — Invoice 501"},
+        {"no": 2, "date": "10 Jan", "detail": "Credit sale — Burke Catering — net €2,500 + VAT €575 = gross €3,075 — Invoice 502"},
+        {"no": 3, "date": "15 Jan", "detail": "Credit purchase — Sound Systems Ltd — net €3,500 + VAT €805 = gross €4,305 — Invoice P301"},
+        {"no": 4, "date": "20 Jan", "detail": "Cash sales lodged — gross €2,460 (net €2,000 + VAT €460 @ 23%)"},
+        {"no": 5, "date": "01 Feb", "detail": "Received payment from Hennessy Events — €6,150"},
+        {"no": 6, "date": "05 Feb", "detail": "Paid Sound Systems Ltd — Cheque 601 — €4,305"},
+        {"no": 7, "date": "10 Feb", "detail": "Paid wages — Cheque 602 — €3,500"},
+        {"no": 8, "date": "15 Feb", "detail": "Credit sale — Conway Ltd — net €1,800 + VAT €414 = gross €2,214 — Invoice 503"},
+        {"no": 9, "date": "10 Mar", "detail": "Office supplies — Cheque 603 — €500 (in CB, not yet on bank statement)"}
+      ],
+      "tasks": [
+        {
+          "id": "t1",
+          "title": "Task 1 — Sales Day Book",
+          "bookType": "sales-daybook",
+          "instruction": "Enter the three credit sales (transactions 1, 2, 8) in the Sales Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "05 Jan", "invNo": "501", "customer": "Hennessy Events", "folio": "", "gross": "6150", "vat": "1150", "net": "5000"},
+              {"date": "10 Jan", "invNo": "502", "customer": "Burke Catering", "folio": "", "gross": "3075", "vat": "575", "net": "2500"},
+              {"date": "15 Feb", "invNo": "503", "customer": "Conway Ltd", "folio": "", "gross": "2214", "vat": "414", "net": "1800"}
+            ]
+          }
+        },
+        {
+          "id": "t2",
+          "title": "Task 2 — Purchases Day Book",
+          "bookType": "purchases-daybook",
+          "instruction": "Enter transaction 3 (credit purchase from Sound Systems Ltd) in the Purchases Day Book.",
+          "evalKeys": ["gross", "vat", "net"],
+          "answer": {
+            "rows": [
+              {"date": "15 Jan", "invNo": "P301", "supplier": "Sound Systems Ltd", "folio": "", "gross": "4305", "vat": "805", "net": "3500"}
+            ]
+          }
+        },
+        {
+          "id": "t3",
+          "title": "Task 3 — Cash Book",
+          "bookType": "cash-book",
+          "instruction": "Enter all receipts (opening balance €12,000, cash sales €2,460, Hennessy €6,150) and all payments (Sound Systems €4,305, Wages €3,500, Office Supplies Chq 603 €500). CB closing balance = €12,305.",
+          "evalKeys": ["bank"],
+          "answer": {
+            "receipts": [
+              {"date": "01 Jan", "detail": "Balance b/d", "folio": "", "discount": "", "bank": "12000"},
+              {"date": "20 Jan", "detail": "Cash sales", "folio": "", "discount": "", "bank": "2460"},
+              {"date": "01 Feb", "detail": "Hennessy Events", "folio": "", "discount": "", "bank": "6150"}
+            ],
+            "payments": [
+              {"date": "05 Feb", "detail": "Sound Systems Ltd", "folio": "Chq 601", "discount": "", "bank": "4305"},
+              {"date": "10 Feb", "detail": "Wages", "folio": "Chq 602", "discount": "", "bank": "3500"},
+              {"date": "10 Mar", "detail": "Office supplies", "folio": "Chq 603", "discount": "", "bank": "500"}
+            ]
+          }
+        },
+        {
+          "id": "t4",
+          "title": "Task 4 — Bank Reconciliation",
+          "bookType": "bank-reconciliation",
+          "instruction": "Update CB: deduct bank charges €120 → Updated CB = €12,185.\nBRS: Bank statement €12,685 less unpresented Chq 603 €500 = €12,185 ✓",
+          "evalKeys": ["payments", "amount"],
+          "answer": {
+            "cbRows": [
+              {"date": "31 Mar", "detail": "Balance b/d (from CB)", "receipts": "12305", "payments": "", "balance": "12305"},
+              {"date": "31 Mar", "detail": "Bank charges", "receipts": "", "payments": "120", "balance": "12185"},
+              {"date": "", "detail": "Updated CB balance c/d", "receipts": "", "payments": "", "balance": "12185"}
+            ],
+            "brsRows": [
+              {"description": "Balance per bank statement", "amount": "12685"},
+              {"description": "Less: Unpresented cheque — Chq 603", "amount": "500"},
+              {"description": "Adjusted balance (= Updated Cash Book)", "amount": "12185"}
+            ]
+          }
+        },
+        {
+          "id": "t5",
+          "title": "Task 5 — VAT Return",
+          "bookType": "vat-return",
+          "instruction": "Complete the VAT Return for Q1 2026. Output VAT = 1,150 + 575 + 460 + 414 = €2,599. Input VAT = €805. T5 = €2,599 − €805 = €1,794 payable.",
+          "evalKeys": ["net", "vat"],
+          "answer": {
+            "salesRows": [
+              {"category": "Credit sales (Inv 501–503)", "net": "9300", "rate": "23%", "vat": "2139"},
+              {"category": "Cash sales", "net": "2000", "rate": "23%", "vat": "460"},
+              {"category": "T1 — Total Sales / T3 — Output VAT", "net": "11300", "rate": "", "vat": "2599"}
+            ],
+            "purchasesRows": [
+              {"category": "Sound Systems Ltd (P301)", "net": "3500", "rate": "23%", "vat": "805"},
+              {"category": "T2 — Total Purchases / T4 — Input VAT", "net": "3500", "rate": "", "vat": "805"},
+              {"category": "T5 — VAT Payable (T3 − T4)", "net": "", "rate": "", "vat": "1794"}
+            ]
+          }
+        },
+        {
+          "id": "t6",
+          "title": "Task 6 — Error Correction",
+          "bookType": "general-journal",
+          "instruction": "Invoice 501 to Hennessy Events was credited to Purchases instead of Sales. This is an Error of Principle (Sales = income, Purchases = expense — different class). Correct by: Dr Purchases €5,000, Cr Sales €5,000. (VAT and the debtor were posted correctly.)",
+          "evalKeys": ["dr", "cr"],
+          "answer": {
+            "rows": [
+              {"date": "31 Mar", "detail": "Dr Purchases (Inv 501 incorrectly posted to Purchases)", "folio": "GJ1", "dr": "5000", "cr": ""},
+              {"date": "", "detail": "   Cr Sales (correct account — error of principle)", "folio": "GJ1", "dr": "", "cr": "5000"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

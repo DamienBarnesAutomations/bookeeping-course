@@ -3153,3 +3153,118 @@ html[data-theme="light"] .module-badge.py {
     .books-type-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
     .books-grid { grid-template-columns: 1fr; }
 }
+
+/* =============================================
+   PRACTICE EXAMPLES
+   ============================================= */
+
+.ex-home, .ex-view { max-width: 980px; margin: 0 auto; padding: 8px 0 60px; }
+
+.ex-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin: 28px 0 12px;
+}
+
+.ex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.ex-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 18px 18px 16px;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+.ex-card:hover { border-color: var(--accent-primary); box-shadow: var(--shadow-md); background: var(--bg-card-hover); }
+
+.ex-card-num {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-primary);
+    margin-bottom: 6px;
+}
+.ex-card-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.ex-card-sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
+.ex-card-los { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.ex-lo-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.25);
+    border-radius: var(--border-radius-full);
+    padding: 2px 9px;
+}
+
+.ex-view-header { margin-bottom: 18px; }
+.ex-los { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+.ex-scenario {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+.ex-scenario ul { margin: 8px 0 0 18px; }
+.ex-scenario p:last-child { margin-bottom: 0; }
+
+.ex-transactions { margin-bottom: 28px; overflow-x: auto; }
+.ex-tx-no { color: var(--text-muted); font-weight: 600; width: 28px; }
+.ex-tx-date { color: var(--text-muted); white-space: nowrap; }
+
+.ex-tasks { display: flex; flex-direction: column; gap: 30px; }
+
+.ex-task {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+}
+
+.ex-task-header { margin-bottom: 16px; }
+.ex-task-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.ex-task-instruction { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+
+.ex-task-feedback { margin-top: 14px; font-size: 0.85rem; font-weight: 600; }
+.ex-fb-pass { color: var(--accent-success); }
+.ex-fb-fail { color: #ef4444; }
+
+.ex-submit-area { margin-top: 8px; text-align: center; }
+
+.ex-overall-feedback {
+    margin-top: 24px;
+    text-align: center;
+    padding: 22px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+.ex-overall-result { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+.ex-overall-result.pass { color: var(--accent-success); }
+.ex-overall-result.fail { color: #ef4444; }
+.ex-overall-pct { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Correct / incorrect cell states (shared with bk-cell inputs) */
+.bk-cell.ex-correct { border-color: var(--accent-success) !important; background: rgba(16,185,129,0.08) !important; }
+.bk-cell.ex-incorrect { border-color: #ef4444 !important; background: rgba(239,68,68,0.08) !important; }
+
+@media (max-width: 768px) {
+    .ex-grid { grid-template-columns: 1fr; }
+}

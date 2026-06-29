@@ -224,6 +224,29 @@ function renderSidebar() {
     myBooksGroup.appendChild(myBooksList);
     navContainer.appendChild(myBooksGroup);
 
+    // Practice Examples sidebar group
+    const exGroup = document.createElement('div');
+    exGroup.className = 'sidebar-group';
+    exGroup.dataset.categoryKey = 'practice-examples';
+    if (collapsedGroups.has('practice-examples')) exGroup.classList.add('collapsed');
+    const exTitle = document.createElement('div');
+    exTitle.className = 'sidebar-group-title';
+    exTitle.innerHTML = `<span>Practice Examples</span><i data-lucide="chevron-down" class="sidebar-group-chevron"></i>`;
+    exTitle.addEventListener('click', () => {
+        const nowCollapsed = exGroup.classList.toggle('collapsed');
+        if (nowCollapsed) collapsedGroups.add('practice-examples'); else collapsedGroups.delete('practice-examples');
+        localStorage.setItem('collapsedSidebarGroups', JSON.stringify([...collapsedGroups]));
+        lucide.createIcons();
+    });
+    exGroup.appendChild(exTitle);
+    const exList = document.createElement('ul');
+    exList.className = 'sidebar-group-list';
+    const exLi = document.createElement('li');
+    exLi.innerHTML = `<a href="#examples" class="sidebar-link" data-path="examples"><span class="sidebar-link-text">Worked Examples</span><i data-lucide="pencil-line" class="sidebar-status-icon"></i></a>`;
+    exList.appendChild(exLi);
+    exGroup.appendChild(exList);
+    navContainer.appendChild(exGroup);
+
     lucide.createIcons();
 }
 
@@ -374,6 +397,19 @@ function handleRoute() {
             l.classList.toggle('active', l.dataset.path === 'books');
         });
         renderBooks(hash);
+    } else if (hash.startsWith('examples')) {
+        // Practice Examples
+        state.currentPath = hash;
+        document.getElementById('dashboardView').style.display = 'none';
+        document.getElementById('readerView').style.display = 'block';
+        document.getElementById('markReadBtn').style.display = 'none';
+        document.getElementById('interactiveModeContainer').style.display = 'none';
+        document.getElementById('resetInteractiveBtn').style.display = 'none';
+        document.getElementById('readerToc').style.display = 'none';
+        document.querySelectorAll('.sidebar-link').forEach(l => {
+            l.classList.toggle('active', l.dataset.path === 'examples');
+        });
+        renderExamples(hash);
     } else {
         // Show Reader
         state.currentPath = hash;
@@ -3511,6 +3547,256 @@ function renderLedgerAccount(id, acctId) {
         delete instances[id].books['ledger-accounts'].accounts[acctId];
         saveInstances(instances);
         window.location.hash = `#books/${id}/ledger-accounts`;
+    });
+
+    document.querySelector('.app-main').scrollTop = 0;
+}
+
+// =============================================
+// PRACTICE EXAMPLES (Worked Examples + My Books tables)
+// =============================================
+
+function getExampleProgress() { return JSON.parse(localStorage.getItem('bookkeeping_examples_progress') || '{}'); }
+function saveExampleProgress(data) { localStorage.setItem('bookkeeping_examples_progress', JSON.stringify(data)); }
+
+function exBlankRows(colKind, n) {
+    return Array.from({ length: Math.max(n, 1) }, () => bkEmptyRow(BK_KEYS[colKind]));
+}
+
+function evaluateExCell(userVal, ansVal) {
+    const norm = s => (s || '').toString().replace(/[€,\s]/g, '').toLowerCase();
+    const nu = norm(userVal), na = norm(ansVal);
+    if (na === '') return true;
+    if (nu === na) return true;
+    const fu = parseFloat(nu), fa = parseFloat(na);
+    if (!isNaN(fu) && !isNaN(fa) && Math.abs(fu - fa) < 0.02) return true;
+    return false;
+}
+
+function renderExamples(hash) {
+    const parts = hash.split('/');
+    const id = parts[1];
+    if (!id) { renderExamplesHome(); return; }
+    renderExampleView(id);
+}
+
+async function renderExamplesHome() {
+    bkCommonSetup();
+    updateBreadcrumbs('Practice Examples', 'Worked Examples');
+    const renderArea = document.getElementById('renderedMarkdown');
+    renderArea.innerHTML = `<div class="ex-home"><p>Loading examples…</p></div>`;
+
+    const res = await fetch('./tools/bookkeeping-examples.json');
+    const data = await res.json();
+    const examples = data.examples;
+
+    function cardsFor(group) {
+        return examples.filter(ex => ex.group === group).map(ex => `
+            <div class="ex-card" data-id="${ex.id}">
+                <div class="ex-card-num">Example ${ex.number}</div>
+                <div class="ex-card-title">${ex.title}</div>
+                <div class="ex-card-sub">${ex.subtitle}</div>
+                <div class="ex-card-los">${ex.los.map(l => `<span class="ex-lo-badge">${l}</span>`).join('')}</div>
+            </div>
+        `).join('');
+    }
+
+    renderArea.innerHTML = `
+        <div class="ex-home">
+            <h1 class="books-home-title">Worked Examples</h1>
+            <p class="books-home-sub">Work through full scenarios using the same editable books as "My Books". Submit at the end to see your score.</p>
+            <div class="ex-section-label">Examples 1–5 — LO1–6</div>
+            <div class="ex-grid">${cardsFor('lo1-6')}</div>
+            <div class="ex-section-label">Examples 6–10 — LO1–10</div>
+            <div class="ex-grid">${cardsFor('lo1-10')}</div>
+        </div>
+    `;
+    lucide.createIcons();
+
+    renderArea.querySelectorAll('.ex-card').forEach(card => {
+        card.addEventListener('click', () => {
+            window.location.hash = `#examples/${card.dataset.id}`;
+        });
+    });
+
+    document.querySelector('.app-main').scrollTop = 0;
+}
+
+async function renderExampleView(id) {
+    bkCommonSetup();
+    const renderArea = document.getElementById('renderedMarkdown');
+    renderArea.innerHTML = `<div class="ex-view"><p>Loading…</p></div>`;
+
+    const res = await fetch('./tools/bookkeeping-examples.json');
+    const data = await res.json();
+    const example = data.examples.find(e => e.id === id);
+    if (!example) { window.location.hash = '#examples'; return; }
+
+    updateBreadcrumbs('Practice Examples', example.title);
+
+    const progressAll = getExampleProgress();
+    const progress = progressAll[id] || {};
+
+    const txRows = example.transactions.map(t => `
+        <tr><td class="ex-tx-no">${t.no}</td><td class="ex-tx-date">${t.date || ''}</td><td>${t.detail}</td></tr>
+    `).join('');
+
+    renderArea.innerHTML = `
+        <div class="ex-view">
+            <div class="books-breadcrumb">
+                <a href="#examples" class="books-bc-link">Worked Examples</a>
+                <span class="books-bc-sep">›</span>
+                <span>${example.title}</span>
+            </div>
+            <div class="ex-view-header">
+                <h1 class="books-home-title">Example ${example.number} — ${example.title}</h1>
+                <p class="books-home-sub">${example.subtitle}</p>
+                <div class="ex-los">${example.los.map(l => `<span class="ex-lo-badge">${l}</span>`).join('')}</div>
+            </div>
+            <div class="ex-scenario">${example.scenario}</div>
+            ${example.transactions.length ? `
+                <div class="ex-transactions">
+                    <table class="bk-table"><thead><tr><th>#</th><th>Date</th><th>Transaction</th></tr></thead>
+                    <tbody>${txRows}</tbody></table>
+                </div>` : ''}
+            <div class="ex-tasks" id="exTasksWrap"></div>
+            <div class="ex-submit-area">
+                <button class="btn btn-primary" id="exSubmitBtn"><i data-lucide="check-check"></i> Submit &amp; Evaluate</button>
+            </div>
+            <div id="exOverallFeedback"></div>
+        </div>
+    `;
+
+    const tasksWrap = document.getElementById('exTasksWrap');
+    const taskRegistry = [];
+
+    example.tasks.forEach(task => {
+        const taskEl = document.createElement('div');
+        taskEl.className = 'ex-task';
+        taskEl.id = `exTask-${task.id}`;
+
+        const savedTask = progress[task.id];
+
+        function buildPart(colKind, answerRows, savedRows) {
+            const userRows = savedRows && savedRows.length ? savedRows : exBlankRows(colKind, answerRows.length);
+            return { colKind, answerRows, userRows, container: null };
+        }
+
+        let parts = [];
+        let bodyHtml = '';
+        if (task.bookType === 'cash-book') {
+            parts = [
+                buildPart('cash-book-receipts', task.answer.receipts, savedTask?.receipts),
+                buildPart('cash-book-payments', task.answer.payments, savedTask?.payments)
+            ];
+            bodyHtml = `
+                <div class="bk-two-tables">
+                    <div><div class="bk-section-title">Receipts (Dr)</div><div id="exT-${task.id}-0"></div></div>
+                    <div><div class="bk-section-title">Payments (Cr)</div><div id="exT-${task.id}-1"></div></div>
+                </div>`;
+        } else if (task.bookType === 'bank-reconciliation') {
+            parts = [
+                buildPart('br-cb', task.answer.cbRows, savedTask?.cbRows),
+                buildPart('br-brs', task.answer.brsRows, savedTask?.brsRows)
+            ];
+            bodyHtml = `
+                <div class="bk-br-sections">
+                    <div><div class="bk-section-title">Step 1 — Updated Cash Book</div><div id="exT-${task.id}-0"></div></div>
+                    <div><div class="bk-section-title">Step 2 — Bank Reconciliation Statement</div><div id="exT-${task.id}-1"></div></div>
+                </div>`;
+        } else if (task.bookType === 'vat-return') {
+            parts = [
+                buildPart('vat', task.answer.salesRows, savedTask?.salesRows),
+                buildPart('vat', task.answer.purchasesRows, savedTask?.purchasesRows)
+            ];
+            bodyHtml = `
+                <div class="bk-br-sections">
+                    <div><div class="bk-section-title">Sales — Output VAT</div><div id="exT-${task.id}-0"></div></div>
+                    <div><div class="bk-section-title">Purchases — Input VAT</div><div id="exT-${task.id}-1"></div></div>
+                </div>`;
+        } else {
+            parts = [ buildPart(task.bookType, task.answer.rows, savedTask?.rows) ];
+            bodyHtml = `<div id="exT-${task.id}-0"></div>`;
+        }
+
+        taskEl.innerHTML = `
+            <div class="ex-task-header">
+                <div class="ex-task-title">${task.title}</div>
+                <div class="ex-task-instruction">${task.instruction.replace(/\n/g, '<br>')}</div>
+            </div>
+            ${bodyHtml}
+            <div class="ex-task-feedback" id="exFeedback-${task.id}"></div>
+        `;
+        tasksWrap.appendChild(taskEl);
+
+        function saveProgress() {
+            const all = getExampleProgress();
+            if (!all[id]) all[id] = {};
+            const taskData = {};
+            if (task.bookType === 'cash-book') { taskData.receipts = parts[0].userRows; taskData.payments = parts[1].userRows; }
+            else if (task.bookType === 'bank-reconciliation') { taskData.cbRows = parts[0].userRows; taskData.brsRows = parts[1].userRows; }
+            else if (task.bookType === 'vat-return') { taskData.salesRows = parts[0].userRows; taskData.purchasesRows = parts[1].userRows; }
+            else { taskData.rows = parts[0].userRows; }
+            all[id][task.id] = taskData;
+            saveExampleProgress(all);
+        }
+
+        parts.forEach((part, pi) => {
+            const container = document.getElementById(`exT-${task.id}-${pi}`);
+            part.container = container;
+            mountEditableTable(container, part.colKind, part.userRows, saveProgress);
+        });
+
+        taskRegistry.push({ task, parts });
+    });
+
+    lucide.createIcons();
+
+    document.getElementById('exSubmitBtn').addEventListener('click', () => {
+        let totalCells = 0, correctCells = 0;
+
+        taskRegistry.forEach(({ task, parts }) => {
+            let taskCorrect = 0, taskTotal = 0;
+            parts.forEach(part => {
+                const keys = task.evalKeys;
+                const n = Math.max(part.answerRows.length, part.userRows.length);
+                for (let ri = 0; ri < n; ri++) {
+                    const ansRow = part.answerRows[ri] || {};
+                    const userRow = part.userRows[ri] || {};
+                    keys.forEach(key => {
+                        const ansVal = ansRow[key] !== undefined ? ansRow[key] : '';
+                        const userVal = userRow[key] !== undefined ? userRow[key] : '';
+                        const ok = evaluateExCell(userVal, ansVal);
+                        if (ansVal !== '') {
+                            taskTotal++;
+                            if (ok) taskCorrect++;
+                        }
+                        const input = part.container.querySelector(`input[data-ri="${ri}"][data-key="${key}"]`);
+                        if (input) {
+                            input.classList.remove('ex-correct', 'ex-incorrect');
+                            if (ansVal !== '') input.classList.add(ok ? 'ex-correct' : 'ex-incorrect');
+                        }
+                    });
+                }
+            });
+            totalCells += taskTotal;
+            correctCells += taskCorrect;
+            const pct = taskTotal ? Math.round((taskCorrect / taskTotal) * 100) : 100;
+            const fbEl = document.getElementById(`exFeedback-${task.id}`);
+            fbEl.innerHTML = `<span class="${pct >= 70 ? 'ex-fb-pass' : 'ex-fb-fail'}">${taskCorrect} / ${taskTotal} correct (${pct}%)</span>`;
+        });
+
+        const overallPct = totalCells ? Math.round((correctCells / totalCells) * 100) : 100;
+        const overallEl = document.getElementById('exOverallFeedback');
+        overallEl.innerHTML = `
+            <div class="ex-overall-feedback">
+                <div class="ex-overall-result ${overallPct >= 70 ? 'pass' : 'fail'}">
+                    ${overallPct >= 70 ? 'Well done!' : 'Keep practising'}
+                </div>
+                <div class="ex-overall-pct">${correctCells} / ${totalCells} cells correct — ${overallPct}%</div>
+            </div>
+        `;
+        overallEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 
     document.querySelector('.app-main').scrollTop = 0;
