@@ -235,7 +235,7 @@
           "title": "Task 1 — Updated Cash Book",
           "bookType": "bank-reconciliation",
           "instruction": "Step 1: Update the Cash Book by deducting items on the bank statement that are not yet in the CB (bank charges and direct debit). The updated CB balance should be €6,475.\n\nStep 2: Prepare the Bank Reconciliation Statement starting from the bank statement balance of €5,275. Add unpresented cheques and deduct outstanding lodgements to reconcile to the updated CB balance of €6,475.",
-          "evalKeys": ["payments", "bank"],
+          "evalKeys": ["payments", "balance", "amount"],
           "answer": {
             "cbRows": [
               {"date": "31 Jan", "detail": "Balance b/d", "receipts": "6800", "payments": "", "balance": "6800"},
@@ -500,7 +500,7 @@
           "title": "Task 4 — Bank Reconciliation",
           "bookType": "bank-reconciliation",
           "instruction": "Step 1: Update the Cash Book — deduct bank charges €50 (on statement, not in CB) to get Updated CB = €2,979.\n\nStep 2: BRS — Start with bank statement balance €3,279. Deduct unpresented Chq 403 (€300). Result must equal Updated CB (€2,979).",
-          "evalKeys": ["payments", "amount"],
+          "evalKeys": ["payments", "balance", "amount"],
           "answer": {
             "cbRows": [
               {"date": "31 Mar", "detail": "Balance b/d (from CB)", "receipts": "3029", "payments": "", "balance": "3029"},
@@ -587,7 +587,7 @@
           "title": "Task 4 — Bank Reconciliation",
           "bookType": "bank-reconciliation",
           "instruction": "Update CB: deduct bank charges €120 → Updated CB = €12,185.\nBRS: Bank statement €12,685 less unpresented Chq 603 €500 = €12,185 ✓",
-          "evalKeys": ["payments", "amount"],
+          "evalKeys": ["payments", "balance", "amount"],
           "answer": {
             "cbRows": [
               {"date": "31 Mar", "detail": "Balance b/d (from CB)", "receipts": "12305", "payments": "", "balance": "12305"},

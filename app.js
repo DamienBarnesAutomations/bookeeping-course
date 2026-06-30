@@ -3759,13 +3759,14 @@ async function renderExampleView(id) {
         // rather than by position, so row-entry order doesn't matter.
         const MATCH_KEY = {
             'trial-balance': 'account',
-            'br-brs': 'description',
         };
 
         taskRegistry.forEach(({ task, parts }) => {
             let taskCorrect = 0, taskTotal = 0;
             parts.forEach(part => {
-                const keys = task.evalKeys;
+                // Filter evalKeys to only those that actually exist in this table's columns,
+                // so a single evalKeys array can cover both tables in a two-table task.
+                const keys = task.evalKeys.filter(k => BK_KEYS[part.colKind].includes(k));
                 const matchKey = MATCH_KEY[part.colKind];
 
                 // Clear all existing highlights in this container first
