@@ -3755,14 +3755,36 @@ async function renderExampleView(id) {
     document.getElementById('exSubmitBtn').addEventListener('click', () => {
         let totalCells = 0, correctCells = 0;
 
+        // For these colKinds, match answer rows to user rows by a text identifier
+        // rather than by position, so row-entry order doesn't matter.
+        const MATCH_KEY = {
+            'trial-balance': 'account',
+            'br-brs': 'description',
+        };
+
         taskRegistry.forEach(({ task, parts }) => {
             let taskCorrect = 0, taskTotal = 0;
             parts.forEach(part => {
                 const keys = task.evalKeys;
-                const n = Math.max(part.answerRows.length, part.userRows.length);
-                for (let ri = 0; ri < n; ri++) {
-                    const ansRow = part.answerRows[ri] || {};
-                    const userRow = part.userRows[ri] || {};
+                const matchKey = MATCH_KEY[part.colKind];
+
+                // Clear all existing highlights in this container first
+                part.container.querySelectorAll('.bk-cell').forEach(inp => {
+                    inp.classList.remove('ex-correct', 'ex-incorrect');
+                });
+
+                part.answerRows.forEach((ansRow, ri) => {
+                    let userRow, uri;
+                    if (matchKey) {
+                        const ansId = (ansRow[matchKey] || '').trim().toLowerCase();
+                        uri = part.userRows.findIndex(r =>
+                            (r[matchKey] || '').trim().toLowerCase() === ansId);
+                        userRow = uri >= 0 ? part.userRows[uri] : {};
+                    } else {
+                        uri = ri;
+                        userRow = part.userRows[ri] || {};
+                    }
+
                     keys.forEach(key => {
                         const ansVal = ansRow[key] !== undefined ? ansRow[key] : '';
                         const userVal = userRow[key] !== undefined ? userRow[key] : '';
@@ -3771,13 +3793,15 @@ async function renderExampleView(id) {
                             taskTotal++;
                             if (ok) taskCorrect++;
                         }
-                        const input = part.container.querySelector(`input[data-ri="${ri}"][data-key="${key}"]`);
-                        if (input) {
-                            input.classList.remove('ex-correct', 'ex-incorrect');
-                            if (ansVal !== '') input.classList.add(ok ? 'ex-correct' : 'ex-incorrect');
+                        if (uri >= 0) {
+                            const input = part.container.querySelector(
+                                `input[data-ri="${uri}"][data-key="${key}"]`);
+                            if (input && ansVal !== '') {
+                                input.classList.add(ok ? 'ex-correct' : 'ex-incorrect');
+                            }
                         }
                     });
-                }
+                });
             });
             totalCells += taskTotal;
             correctCells += taskCorrect;
