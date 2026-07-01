@@ -197,32 +197,32 @@
     { "id": "bk07-001", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
       "question": "On the VAT3 return, T1 represents:",
       "options": ["Total VAT on purchases (Input VAT)", "Total VAT on sales and supplies (Output VAT)", "Net VAT payable to Revenue", "Total sales excluding VAT"],
-      "answer": 1, "explanation": "T1 = Output VAT — VAT charged on sales and supplies the business makes. T2 = Input VAT (reclaimed on purchases). T3 = T1 − T2 when T1 > T2 (VAT payable). T4 = T2 − T1 when T2 > T1 (VAT repayable)." },
+      "answer": 3, "explanation": "T1 = Total sales excluding VAT (net turnover). T3 = Output VAT (VAT charged on sales). T4 = Input VAT (VAT on purchases). T5 = T3 − T4 when T3 > T4 (VAT payable). T6 = T4 − T3 when T4 > T3 (VAT refundable)." },
 
     { "id": "bk07-002", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
-      "question": "VAT on sales returns (credit notes issued to customers) increases the T1 Output VAT figure on the VAT return.",
-      "answer": false, "explanation": "Sales returns REDUCE Output VAT. When a credit note is issued, VAT is refunded to the customer, so T1 decreases. Correct formula: T1 = VAT on sales + VAT on cash sales − VAT on sales returns." },
+      "question": "VAT on sales returns (credit notes issued to customers) increases the Output VAT (T3) figure on the VAT return.",
+      "answer": false, "explanation": "Sales returns REDUCE Output VAT. When a credit note is issued, VAT is refunded to the customer, so T3 decreases. Correct formula: T3 = VAT on sales + VAT on cash sales − VAT on sales returns." },
 
     { "id": "bk07-003", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
-      "question": "Murphy's Bakery VAT Return for March: Sales Day Book VAT €322; Cash sales VAT €92; Sales Returns VAT €23; Purchases Day Book VAT €184. Calculate T3 — net VAT payable to Revenue.",
-      "answer": 207, "tolerance": 0.5, "prefix": "€", "explanation": "T1 (Output) = 322 + 92 − 23 = 391. T2 (Input) = 184. T3 = T1 − T2 = 391 − 184 = €207 payable to Revenue." },
+      "question": "Murphy's Bakery VAT Return for March: Sales Day Book VAT €322; Cash sales VAT €92; Sales Returns VAT €23; Purchases Day Book VAT €184. Calculate VAT payable to Revenue.",
+      "answer": 207, "tolerance": 0.5, "prefix": "€", "explanation": "Output VAT (T3) = 322 + 92 − 23 = 391. Input VAT (T4) = 184. VAT payable (T5) = T3 − T4 = 391 − 184 = €207 payable to Revenue." },
 
     { "id": "bk07-004", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
-      "question": "Murphy's Bakery makes a cash sale for €492 gross (VAT already included at 23%). What is the VAT amount (T1 contribution)?",
+      "question": "Murphy's Bakery makes a cash sale for €492 gross (VAT already included at 23%). What is the VAT amount (Output VAT / T3 contribution)?",
       "options": ["€113.16", "€92.00", "€400.00", "€113.76"],
       "answer": 1, "explanation": "VAT included in a gross price = Gross × 23/123 = €492 × 23/123 = €92. Never multiply the gross by 23% directly — that gives €113.16 (wrong). The 23/123 formula extracts VAT from a VAT-inclusive price." },
 
     { "id": "bk07-005", "lo": "bk-07", "module": "bookkeeping", "type": "select-all",
-      "question": "Which of the following are included as POSITIVE additions to T1 (Output VAT) on the VAT return? Select all that apply.",
+      "question": "Which of the following are included as POSITIVE additions to Output VAT (T3) on the VAT return? Select all that apply.",
       "options": ["VAT on credit sales invoices", "VAT on cash sales lodged to the bank", "VAT on purchases from suppliers", "VAT on sales returns (credit notes issued)"],
-      "answers": [0, 1], "explanation": "T1 is VAT charged on sales — both credit sales and cash sales are positive contributions. VAT on purchases is T2 (Input VAT — a separate figure). VAT on sales returns REDUCES T1 (deducted, not added)." },
+      "answers": [0, 1], "explanation": "T3 (Output VAT) is VAT charged on sales — both credit sales and cash sales are positive contributions. VAT on purchases goes to T4 (Input VAT — a separate figure). VAT on sales returns REDUCES T3 (deducted, not added)." },
 
     { "id": "bk07-006", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
       "question": "A VAT-registered business must charge VAT on all goods and services it supplies, regardless of the nature of those goods or services.",
       "answer": false, "explanation": "Not all supplies attract VAT. Some are exempt (financial services, education, medical), others are zero-rated (most food, children's clothes), and some are at reduced rates (e.g., 13.5% for construction). Only standard-rated and reduced-rate supplies result in a VAT charge." },
 
     { "id": "bk07-007", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
-      "question": "A purchase invoice shows a gross (VAT-inclusive) amount of €1,230 at 23% VAT. What is the Input VAT (T2) amount that can be reclaimed?",
+      "question": "A purchase invoice shows a gross (VAT-inclusive) amount of €1,230 at 23% VAT. What is the Input VAT (T4) amount that can be reclaimed?",
       "answer": 230, "tolerance": 0.5, "prefix": "€", "explanation": "Input VAT = Gross × 23/123 = €1,230 × 23/123 = €230. The net purchase value is €1,000. Always use ×23/123 to extract VAT from a gross figure." },
 
     { "id": "bk08-001", "lo": "bk-08", "module": "bookkeeping", "type": "mcq",
@@ -834,9 +834,9 @@
       "answer": 1, "explanation": "Standard format: start with the Bank Statement closing balance. Add uncleared lodgements. Deduct unpresented cheques. The result should equal the updated Cash Book balance. Starting with the bank statement balance is the convention." },
 
     { "id": "bk07-008", "lo": "bk-07", "module": "bookkeeping", "type": "mcq",
-      "question": "If a business's T2 (Input VAT on purchases) exceeds T1 (Output VAT on sales) on the VAT3 return, the result is:",
-      "options": ["T3 — VAT payable to Revenue", "T4 — VAT repayable to the business by Revenue", "No return is required that period", "The excess is automatically carried forward to the next period without a refund"],
-      "answer": 1, "explanation": "T3 = T1 − T2 when Output VAT exceeds Input VAT (you owe Revenue). T4 = T2 − T1 when Input VAT exceeds Output VAT — Revenue owes the business a repayment. This commonly occurs for export businesses or when large purchases are made." },
+      "question": "If a business's Input VAT (T4) exceeds Output VAT (T3) on the VAT3 return, the result is:",
+      "options": ["T5 — VAT payable to Revenue", "T6 — VAT repayable to the business by Revenue", "No return is required that period", "The excess is automatically carried forward to the next period without a refund"],
+      "answer": 1, "explanation": "T5 = T3 − T4 when Output VAT exceeds Input VAT (you owe Revenue). T6 = T4 − T3 when Input VAT exceeds Output VAT — Revenue owes the business a repayment. This commonly occurs for export businesses or when large purchases are made." },
 
     { "id": "bk07-009", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
       "question": "All businesses in Ireland must register for VAT regardless of their annual turnover.",
@@ -857,7 +857,7 @@
       "answer": 2, "explanation": "VAT returns are due by the 23rd of the month following the end of the return period (for ROS filers). January–February period → due 23 March. Paper filers have an earlier deadline of the 19th." },
 
     { "id": "bk07-013", "lo": "bk-07", "module": "bookkeeping", "type": "true-false",
-      "question": "A business can reclaim Input VAT (T2) on purchases only if those purchases are used for taxable business purposes.",
+      "question": "A business can reclaim Input VAT (T4) on purchases only if those purchases are used for taxable business purposes.",
       "answer": true, "explanation": "Input VAT is only reclaimable if the purchase is used in making taxable supplies. VAT on private use, entertainment (which has specific rules), or exempt activities cannot be reclaimed. Mixed-use (partly business, partly private) requires apportionment." },
 
     { "id": "bk07-014", "lo": "bk-07", "module": "bookkeeping", "type": "numeric",
